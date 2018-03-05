@@ -22,7 +22,7 @@
 	\pagenumbering{gobble}\clearpage
 	\maketitle\vspace{13em}
 \newpage
-\tableofcontents
+%~ \tableofcontents
 \newpage\clearpage\pagenumbering{arabic}
 	
 	\section*{Introduction}
@@ -109,84 +109,104 @@
 			\end{tabular}
 		\end{center}
 		
-		Les données initiales sont :  taux de mutation, Identifiant plus tableau pour le test, fonction fitness, nombre de génération, score à atteindre sur la fonction, taille individu, critère d’évaluation, nombre de critères, alphabet, taille population, probabilité de crossover, nom de fichier.\\
+		Les données initiales sont : 	taux de mutation, 
+										identifiant plus tableau pour le test, 
+										fonction fitness, 
+										nombre de génération, 
+										score à atteindre sur la fonction, 
+										taille individu, 
+										critère d’évaluation, 
+										nombre de critères, 
+										alphabet, 
+										taille population, probabilité de crossover, 
+										nom de fichier.\\
 		\\
 		\underline{Interface :}
 			\begin{itemize}
-			\item Affichage
+			\item Affichage des différents champs de saisie puis des résultats
+			\item réception des valeurs (Données initiales)
+				\begin{itemize}
+				\item par fichier
+				\item par saisie des champs de l'interface
+				\end{itemize}
+			\item Option d'arrêt
+			\item Option de sauvegarde/chargement
 			\end{itemize}
 		
 		\hspace{1cm}\\
 		\underline{Gestion de la validité des données : }
 		\begin{itemize}
-			\item
+			\item Test des valeurs reçues
 		\end{itemize}
 		
 		\hspace{1cm}\\
 		\underline{Module d'initialisation : }
 		\begin{itemize}
-			\item
+			\item Transformation de valeurs en paramètres
+			\item Creation de la population initiale
 		\end{itemize}
 	
 		\hspace{1cm}\\
 		\underline{Evaluation de la population : }
 		\begin{itemize}
-			\item
+			\item Evaluation de chaques individus et attribution d'un score
 		\end{itemize}
 		Algorithme Evaluation :
 		
 		\hspace{1cm}\\
 		\underline{Tests d'arrets : }
 		\begin{itemize}
-			\item
+			\item Test de convergence de la fonction fitness
+			\item Test du nombre de générations
+			\item Test de demande d'arrêt utilisateur
 		\end{itemize}
 
 		\hspace{1cm}\\
-		\underline{Generation de la population n+1 : }
+		\underline{Génération de la nouvelle population : }
 		\begin{itemize}
-			\item
+			\item Selection par roulette
+			\item 
 		\end{itemize}
+		Algorithme Roulette :
+		
+		\hspace{1cm}\\
 		Algorithme Crossover :
 		
 		\hspace{1cm}\\
 		Algorithme Mutation :
 		
 		\hspace{1cm}\\
-		\underline{Gestion d'entrées sortie : }
+		\underline{Gestion d'entrées sorties : }
 		\begin{itemize}
-			\item
+			\item Description du problème
+			\item Ecriture du paramètres
+			\item Ecriture de la solution
+			\item Calcul des statistiques de l'execution
+			\item Ecriture des résultats dans un fichier
 		\end{itemize}
 		
 	\section{Autres aspects du projet}
-		\subsection{Tâches à faire pour livrer le système}
-		
 		\subsection{Estimation des coûts du projet}
-			\begin{tabular}{|c|c|c|}
-				\hline Module & Nombre de lignes & Affectation \\
-				\hline 	 &  &  \\
-				\hline 	 &  &  \\
-				\hline 	 &  &  \\
-				\hline 	 &  &  \\
-				\hline   &  &  \\
-				\hline 	 &  &  \\
-				\hline 	 &  &  \\
-				\hline 	 &  &  \\
-				\hline 	 &  &  \\
-				\hline \textbf{Coût Total} & \textbf{XXX} & \textbf{Estimation totale du coût}\\
+			\begin{tabular}{|c|c|c|c|}
+				\hline Module & Nombre de lignes & complexité & Affectation \\
+				\hline Interface &  &  & \\
+				\hline Gestion de la validité des données &  &  & \\
+				\hline Evaluation de la population &  &  & \\
+				\hline Tests d'arrets &  &  & \\
+				\hline Generation de la nouvelle population &  &  & \\
+				\hline Gestion d'entrées sortie	&  &  & \\
+				\hline \textbf{Coût Total} & \textbf{XXX} & &\\
 				\hline 	
 				\end{tabular}\vspace{1em}
 				
 		\subsection{Manuel utilisateur et formations}
-		
-		\subsection{Idées pour les futures versions}
-		
-		\subsection{Idées de solutions}
+		Un manuel d'utilisation sera fourni pour conseiller à l’utilisateur les données les plus performantes pour avoir des solutions plus efficaces.
 	
-	\section{Choix du langage}
+    	\subsection{Choix du langage}
 	
 	\section*{Conclusion}
 	
-	\section*{Bibliogrophie}
+	\section*{Bibliographie}
 	
 
 \end{document}
