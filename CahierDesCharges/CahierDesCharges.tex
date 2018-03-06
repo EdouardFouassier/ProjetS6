@@ -66,9 +66,12 @@
 			\item L’\textbf{alphabet} est l’ensemble de caractères composant une solution (ex : {0,1} si on utilise des solutions codées en binaire)
 			\item Une \textbf{génération } est une itération de l’algorithme génétique utilisé dans l’application. Elle correspond à une modification de l’ensemble de solution. 
 			\item La \textbf{fonction fitness} est la fonction que l’on cherche à optimiser dans l’application. Elle servira également à évaluer la qualité des solutions de l’ensemble.
-			\item La \textbf{reproduction} correspond à la sélection de solutions de l’ensemble de base afin de les utiliser pour former de nouvelles solutions potentielles.
-			\item La \textbf{Mutation} correspond à une modification ponctuelle d’une solution.
-			\item Le \textbf{crossover} est le croisement de solutions utilisé pour en créer de nouvelles.
+			\item \textbf{L’algorithme génétique} est composé de ces trois étapes :
+				\begin{itemize}
+				\item La \textbf{reproduction} correspond à la sélection de solutions de l’ensemble de base afin de les utiliser pour former de nouvelles solutions potentielles.
+				\item La \textbf{mutation} correspond à une modification ponctuelle d’une solution.
+				\item Le \textbf{crossover} est le croisement de solutions utilisé pour en créer de nouvelles.
+				\end{itemize}
 			\end{itemize}
 			
 		\subsection{Faits et hypothèses utiles}
@@ -89,25 +92,10 @@
 			Le logiciel doit ainsi procéder à une vérification de tous les champs remplis.
 		
 		\subsection{Maintenance, support, portabilité, installation du produit}
-			L'installation du logiciel devra être simple.\\
-			L'ajout ou la modification de module ne devra pas necessiter un de gros changement.\\
-			Le produit ne sera dans un premier temps developper que pour linux.\\
+			Le logiciel se veut simple à installer sous Linux. Il sera aussi fait en sorte que l'on puisse ajouter de nouveaux module au programme simplement.  
 			
 	\section{Organigramme}
-		\centerline{\includegraphics[width = 12cm,height = 10cm]{OrganigrammeV2.png}}
-		\begin{center}
-			\begin{tabular}{|l l|}
-				\hline
-				1. Fichier & 8. Population\\
-				2. Fichier & 9. Population + score\\
-				3. Données initiales & 10. Génération de base 1 (pop size, t mutation, t cross over)\\
-				4. Génération 0 et Données initiales & 11. Nouvelle génération après regénération (génération n+1)\\
-				5. Génération n + nom fichier & 12. Population\\
-				6. Données initiales & 13. Population + score\\
-				7. Données initiales & 14. Génération n+1 + nom fichier\\
-				\hline 	
-			\end{tabular}
-		\end{center}
+		\centerline{\includegraphics[width = 12cm,height = 10cm]{OrganigrammeV3.jpeg}}
 		
 		Les données initiales sont : 	taux de mutation, 
 										identifiant plus tableau pour le test, 
@@ -124,78 +112,88 @@
 		\underline{Interface :}
 			\begin{itemize}
 			\item Affichage des différents champs de saisie puis des résultats
-			\item réception des valeurs (Données initiales)
+			\item Réception des valeurs (Données initiales)
 				\begin{itemize}
 				\item par fichier
 				\item par saisie des champs de l'interface
 				\end{itemize}
-			\item Option d'arrêt
-			\item Option de sauvegarde/chargement
+			\item Option d’arrêt pendant l'exécution de l’AG : on peut arrêter le programme à tout moment et récupérer les résultats jusqu’à l’arrêt\\
 			\end{itemize}
 		
-		\hspace{1cm}\\
 		\underline{Gestion de la validité des données : }
 		\begin{itemize}
 			\item Test des valeurs reçues
+			\item Enregistrement des valeurs dans un fichier\\
 		\end{itemize}
 		
-		\hspace{1cm}\\
 		\underline{Module d'initialisation : }
 		\begin{itemize}
 			\item Transformation de valeurs en paramètres
 			\item Creation de la population initiale
+			\item Lecture du fichier des données\\
 		\end{itemize}
 	
-		\hspace{1cm}\\
 		\underline{Evaluation de la population : }
 		\begin{itemize}
-			\item Evaluation de chaques individus et attribution d'un score
+			\item Evaluation de chaques individus et attribution d'un score\\
 		\end{itemize}
-		Algorithme Evaluation :
+		Algorithme Evaluation :\\
 		
-		\hspace{1cm}\\
 		\underline{Tests d'arrets : }
 		\begin{itemize}
 			\item Test de convergence de la fonction fitness
-			\item Test du nombre de générations
-			\item Test de demande d'arrêt utilisateur
+			\item Test du nombre de générations\\
 		\end{itemize}
 
-		\hspace{1cm}\\
 		\underline{Génération de la nouvelle population : }
 		\begin{itemize}
 			\item Selection par roulette
-			\item 
+			\item Cross-over/mutation
+			\item Création de la nouvelle population
+			\item Génération de nombres aléatoires
 		\end{itemize}
-		Algorithme Roulette :
-		
-		\hspace{1cm}\\
-		Algorithme Crossover :
-		
-		\hspace{1cm}\\
-		Algorithme Mutation :
-		
-		\hspace{1cm}\\
+		\begin{tabbing} 
+		Algo\=rithme Roulette :\\
+			\>si l\=e nombre d’individus est pair\\
+			\>	\>limite = population/2\\
+			\>sinon\\
+			\>	\>limite = population-1/2\\
+			\>scoremax = $\sum score$\\
+			\>Pour chaque individus on calcule sa valeur (en pourcentage) en fonction du scoremax\\
+			\>Tant qu’on a pas assez d’individu sélectionné\\
+			\>	\>Si l\=e poucentage du premier individu est supérieur à une valeur aléatoire\\
+			\>	\>\>il est sélectionné\\
+			\>	\>Pour chaque individu sauf le premier faire :\\
+			\>	\>\>si (l\=e pourcentage de l'individu > à une valeur aléatoire\\ 
+			\>	\>\>ET que le pourcentage de celui qui le précède est inférieur à cette valeur)\\
+			\>	\>\>\>cet individu est sélectionné.\\
+			\>On retourne les individus sélectionné\\
+		\end{tabbing}
+
 		\underline{Gestion d'entrées sorties : }
 		\begin{itemize}
-			\item Description du problème
-			\item Ecriture du paramètres
-			\item Ecriture de la solution
-			\item Calcul des statistiques de l'execution
-			\item Ecriture des résultats dans un fichier
+			\item Calcul des statistiques de l'éxécution : les données d'entrées et les résultats
+			\item Ecriture des résultats dans latex
+			\item Ecriture des résultats dans PostScript
+			\item Ecriture des résultats dans Xfig
+			\item Lecture d'un fichier d'entrée avec les données
+			\item Ecriture des valeurs dans un fichier\\
 		\end{itemize}
+		
+		Dans tous les modules il faut une fonctionnalité qui lit les valeurs nécessaires dans le fichier des données.
 		
 	\section{Autres aspects du projet}
 		\subsection{Estimation des coûts du projet}
-			\begin{tabular}{|c|c|c|c|}
-				\hline Module & Nombre de lignes & complexité & Affectation \\
-				\hline Interface &  &  & \\
-				\hline Gestion de la validité des données &  &  & \\
-				\hline Evaluation de la population &  &  & \\
-				\hline Tests d'arrets &  &  & \\
-				\hline Generation de la nouvelle population &  &  & \\
-				\hline Gestion d'entrées sortie	&  &  & \\
-				\hline \textbf{Coût Total} & \textbf{XXX} & &\\
+			\begin{tabular}{|c|c|c|c|c|}
+				\hline Module & complexité & Nombre de lignes & Temps & Affectation\\
+				\hline Interface &  &  &  & \\
+				\hline Gestion de la validité des données &  &  &  & \\
+				\hline Module d'initialisation &  &  &  & \\
+				\hline Evaluation de la population &  &  &  & \\
+				\hline Tests d'arrets &  &  &  & \\
+				\hline Generation de la nouvelle population &  &  &  & \\
+				\hline Gestion d'entrées sortie	&  &  &  & \\
+				\hline \textbf{Coût Total} & \textbf{XXX} & & & \\
 				\hline 	
 				\end{tabular}\vspace{1em}
 				
@@ -203,7 +201,7 @@
 		Un manuel d'utilisation sera fourni pour conseiller à l’utilisateur les données les plus performantes pour avoir des solutions plus efficaces.
 	
     	\subsection{Choix du langage}
-	
+			
 	\section*{Conclusion}
 	
 	\section*{Bibliographie}
