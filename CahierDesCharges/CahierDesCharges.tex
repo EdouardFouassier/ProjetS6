@@ -7,8 +7,9 @@
 \usepackage{graphicx}
 \usepackage{mathtools,amssymb,amsthm}
 \usepackage{lmodern}
+\usepackage{multirow}
 \usepackage{array}
-
+\usepackage{longtable}
 
 \title{\vspace{13em}{\huge Cahier des Charges}}
 \author{Edouard Fouassier - Maxime Gonthier - Benjamin Guillot\\
@@ -22,7 +23,7 @@
 	\pagenumbering{gobble}\clearpage
 	\maketitle\vspace{13em}
 \newpage
-%~ \tableofcontents
+\tableofcontents
 \newpage\clearpage\pagenumbering{arabic}
 	
 	\section*{Introduction}
@@ -95,7 +96,7 @@
 			Le logiciel se veut simple à installer sous Linux. Il sera aussi fait en sorte que l'on puisse ajouter de nouveaux module au programme simplement.  
 			
 	\section{Organigramme}
-		\centerline{\includegraphics[width = 12cm,height = 10cm]{OrganigrammeV3.jpeg}}
+		\centerline{\includegraphics[width = 12cm,height = 10cm]{OrganigrammeV4.png}}
 		
 		Les données initiales sont : 	taux de mutation, 
 										identifiant plus tableau pour le test, 
@@ -135,9 +136,18 @@
 	
 		\underline{Evaluation de la population : }
 		\begin{itemize}
-			\item Evaluation de chaques individus et attribution d'un score\\
+			\item Evaluation de chaques individus et attribution d'un score
 		\end{itemize}
-		Algorithme Evaluation :\\
+		\begin{tabbing} 
+		Algo\=rithme Evaluation : paramètre : une population\\
+			\>Si l\=e nombre de critères == 1\\
+			\>	\>Si l\='option d'évaluation du critère == '>'\\
+			\>	\>	\>Tri de la population puis attribution du score en fontion du rang après le tri\\
+			\>Sinon
+			\>	\>Pour chaque individu de la population faire :\\
+			\>	\>	\>Utilisation de la fonction fitness, le score correspond au résultat renvoyé
+		\end{tabbing}
+		Complexité dans le pire des cas : O(k*n²) (k : nombre de critères, n : taille de la population)\\
 		
 		\underline{Tests d'arrets : }
 		\begin{itemize}
@@ -153,7 +163,7 @@
 			\item Génération de nombres aléatoires
 		\end{itemize}
 		\begin{tabbing} 
-		Algo\=rithme Roulette :\\
+		Algo\=rithme Roulette : paramètre : les individus\\
 			\>si l\=e nombre d’individus est pair\\
 			\>	\>limite = population/2\\
 			\>sinon\\
@@ -167,7 +177,7 @@
 			\>	\>\>si (l\=e pourcentage de l'individu > à une valeur aléatoire\\ 
 			\>	\>\>ET que le pourcentage de celui qui le précède est inférieur à cette valeur)\\
 			\>	\>\>\>cet individu est sélectionné.\\
-			\>On retourne les individus sélectionné\\
+			\>On retourne les individus sélectionné
 		\end{tabbing}
 
 		\underline{Gestion d'entrées sorties : }
@@ -184,18 +194,46 @@
 		
 	\section{Autres aspects du projet}
 		\subsection{Estimation des coûts du projet}
-			\begin{tabular}{|c|c|c|c|c|}
-				\hline Module & complexité & Nombre de lignes & Temps & Affectation\\
-				\hline Interface &  &  &  & \\
-				\hline Gestion de la validité des données &  &  &  & \\
-				\hline Module d'initialisation &  &  &  & \\
-				\hline Evaluation de la population &  &  &  & \\
-				\hline Tests d'arrets &  &  &  & \\
-				\hline Generation de la nouvelle population &  &  &  & \\
-				\hline Gestion d'entrées sortie	&  &  &  & \\
-				\hline \textbf{Coût Total} & \textbf{XXX} & & & \\
+		%~ \begin{center}
+			%~ \begin{longtable}{|>{\centering}m{3cm}|>{\centering\arraybackslash}m{7cm}|>{\centering}m{4cm}|>{\centering}m{4cm}|}
+				%~ \hline Modules & Nombre de lignes & Temps & Affectation\\
+				%~ \hline \multicolumn{1}{|c|}{\textbf{Modules}} & \multicolumn{1}{c|}{\textbf{Nombre de lignes}} & \multicolumn{1}{|c|}{\textbf{Temps}} &\multicolumn{1}{|c|}{\textbf{Affectation}}\\
+				%~ \hline Interface & 250-300 & 5-6 heures & Rémi et Edouard\\
+				%~ \hline Gestion de la validité des données & 50-60 & 1-2 heures & Maxime et Laureline\\
+				%~ \hline 
+				%~ \multirow{3}{0cm}{Initialisation du programme} & transformation des valeurs en paramètres : 30 & 2-3 heures & Edouard et Rémi\\
+																%~ & création de la population initiale : 40 & &\\ 
+																%~ & lecture du fichier de données : 40 & &\\ 
+				%~ \hline Evaluation de la population & 25-30 & 1-2 heures & Lydia et Ben\\
+				%~ \hline 
+				%~ \multirow{2}{0cm}{Tests d'arrets} & par itération ou forcé : 20 & 2-3 heures  & Laureline et Maxime\\
+													%~ & par convergence : ?? (~50) & &\\
+				%~ \hline Generation de la nouvelle population & 40-50 & 2-3 heures & Ben et Lydia\\
+				%~ \hline Gestion d'entrées sorties & ~200 & 4-5 heures & tout le monde\\
+				%~ \hline \textbf{Coût Total} & \textbf{XXX} & & \\
+				%~ \hline 	
+				%~ \end{longtable}\vspace{1em}
+			%~ \end{center}
+			
+			
+			
+			\begin{center}\begin{longtable}{|>{\centering}m{3cm}|>{\centering}m{5cm}|>{\centering}m{3cm}|>{\centering\arraybackslash}m{3cm}|}			
+				\hline \multicolumn{1}{|c|}{\textbf{Module}} & \multicolumn{1}{c|}{\textbf{Nombre de lignes}} & \multicolumn{1}{c|}{\textbf{Temps}} & \multicolumn{1}{c|}{\textbf{Affectation}} \\
+				\hline 	Interface 								& 250-300 	& 5-6 heures 	& Rémi et Edouard		\\
+				\hline 	Gestion de la validité des données 		& 50-60 	& 1-2 heures 	& Maxime et Laureline	\\
 				\hline 	
-				\end{tabular}\vspace{1em}
+				\multirow{3}{2cm}{Initialisation du programme}	& transformation des valeurs en paramètres : 30 & 2-3 heures & Edouard et Rémi\\
+																& création de la population initiale : 40 & &\\ 
+																& lecture du fichier de données : 40 & &\\
+				\hline 	Evaluation de la population 			& 25-30 	& 1-2 heures	& Lydia et Ben			\\
+				\hline  
+				\multirow{2}{2cm}{Tests d'arrets} & par itération ou forcé : 20 & 2-3 heures  & Laureline et Maxime\\
+												 & par convergence : ?? (~50) & &\\
+				\hline 	Generation de la nouvelle population 	& 40-50 	& 2-3 heures	& Ben et Lydia			\\
+				\hline 	Gestion d'entrées sorties 				& ~200 		& 4-5 heures	& tout le monde			\\
+				\hline \textbf{Coût Total} & \textbf{565} & \textbf{environ 10000h} & \\
+				\hline 	
+				\end{longtable}\vspace{1em}\end{center}
 				
 		\subsection{Manuel utilisateur et formations}
 		Un manuel d'utilisation sera fourni pour conseiller à l’utilisateur les données les plus performantes pour avoir des solutions plus efficaces.

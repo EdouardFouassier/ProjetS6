@@ -15,10 +15,7 @@
 \contentsline {subsection}{\numberline {4.2}Facilit\IeC {\'e} d\IeC {\textquoteright }utilisation et facteurs humains}{2}
 \contentsline {subsection}{\numberline {4.3}Maintenance, support, portabilit\IeC {\'e}, installation du produit}{3}
 \contentsline {section}{\numberline {5}Organigramme}{3}
-\contentsline {section}{\numberline {6}Autres aspects du projet}{4}
-\contentsline {subsection}{\numberline {6.1}T\IeC {\^a}ches \IeC {\`a} faire pour livrer le syst\IeC {\`e}me}{4}
-\contentsline {subsection}{\numberline {6.2}Estimation des co\IeC {\^u}ts du projet}{4}
-\contentsline {subsection}{\numberline {6.3}Manuel utilisateur et formations}{5}
-\contentsline {subsection}{\numberline {6.4}Id\IeC {\'e}es pour les futures versions}{5}
-\contentsline {subsection}{\numberline {6.5}Id\IeC {\'e}es de solutions}{5}
-\contentsline {section}{\numberline {7}Choix du langage}{5}
+\contentsline {section}{\numberline {6}Autres aspects du projet}{5}
+\contentsline {subsection}{\numberline {6.1}Estimation des co\IeC {\^u}ts du projet}{5}
+\contentsline {subsection}{\numberline {6.2}Manuel utilisateur et formations}{5}
+\contentsline {subsection}{\numberline {6.3}Choix du langage}{5}
