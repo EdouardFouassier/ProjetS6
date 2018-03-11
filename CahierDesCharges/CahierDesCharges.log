@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.5)  11 MAR 2018 11:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.5)  11 MAR 2018 12:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1009,55 +1009,55 @@ Underfull \vbox (badness 10000) detected at line 214
  []
 
 [4]
-Overfull \hbox (221.58348pt too wide) in paragraph at lines 234--236
+Overfull \hbox (221.58348pt too wide) in paragraph at lines 227--229
 \T1/lmr/m/n/10.95 http ://dep-tinfo.unice.fr/twiki/pub/Minfo04/IaDecision0405/P
 rsentationdesalgorithmesgntiquesetdeleursapplicationsenconomie_P.pdf 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--236
+Underfull \hbox (badness 10000) in paragraph at lines 227--229
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 237--239
+Underfull \hbox (badness 10000) in paragraph at lines 230--232
 
  []
 
 
-Overfull \hbox (1.21579pt too wide) in paragraph at lines 240--242
+Overfull \hbox (1.21579pt too wide) in paragraph at lines 233--235
 \T1/lmr/m/n/10.95 https ://skyduino.wordpress.com/2015/07/16/tutorielpython-les
 -algorithmes-genetiques-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 240--242
+Underfull \hbox (badness 10000) in paragraph at lines 233--235
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 246--248
+Underfull \hbox (badness 10000) in paragraph at lines 239--241
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--253
+Underfull \hbox (badness 10000) in paragraph at lines 242--246
 
  []
 
 
-Overfull \hbox (3.61803pt too wide) in paragraph at lines 257--260
+Overfull \hbox (3.61803pt too wide) in paragraph at lines 250--253
 \T1/lmr/m/n/10.95 http ://informatique.coursgratuits.net/methodes-numeriques/al
 gorithmes-genetiques.php 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--263
+Underfull \hbox (badness 10000) in paragraph at lines 254--256
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--266
+Underfull \hbox (badness 10000) in paragraph at lines 257--259
 
  []
 
@@ -1065,7 +1065,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 264--266
 File: OrganigrammeV5.jpeg Graphic file (type jpg)
 
 <use OrganigrammeV5.jpeg>
-Package pdftex.def Info: OrganigrammeV5.jpeg used on input line 271.
+Package pdftex.def Info: OrganigrammeV5.jpeg used on input line 264.
 (pdftex.def)             Requested size: 341.43979pt x 284.5288pt.
  [7 <./OrganigrammeV5.jpeg>] (./CahierDesCharges.aux) ) 
 Here is how much of TeX's memory you used:
@@ -1075,7 +1075,7 @@ Here is how much of TeX's memory you used:
  8997 multiletter control sequences out of 15000+600000
  45356 words of font info for 46 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,8n,30p,314b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,8n,30p,508b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/
 enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr
 /share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips
@@ -1085,7 +1085,7 @@ enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr
 s/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb>
 </usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1
 /public/lm/lmr17.pfb>
-Output written on CahierDesCharges.pdf (9 pages, 243619 bytes).
+Output written on CahierDesCharges.pdf (9 pages, 243653 bytes).
 PDF statistics:
  72 PDF objects out of 1000 (max. 8388607)
  52 compressed objects within 1 object stream
