@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.9.4)  11 MAR 2018 12:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.9.4)  11 MAR 2018 12:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1034,56 +1034,50 @@ Overfull \hbox (3.68433pt too wide) in paragraph at lines 207--207
 Underfull \vbox (badness 10000) detected at line 218
  []
 
-[4]
-Overfull \hbox (221.58348pt too wide) in paragraph at lines 231--233
-\T1/lmr/m/n/10.95 http ://dep-tinfo.unice.fr/twiki/pub/Minfo04/IaDecision0405/P
-rsentationdesalgorithmesgntiquesetdeleursapplicationsenconomie_P.pdf 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--233
-
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 234--236
+[4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 232--235
 
  []
 
 
-Overfull \hbox (1.21579pt too wide) in paragraph at lines 237--239
+Underfull \hbox (badness 10000) in paragraph at lines 236--238
+
+ []
+
+
+Overfull \hbox (1.21579pt too wide) in paragraph at lines 239--241
 \T1/lmr/m/n/10.95 https ://skyduino.wordpress.com/2015/07/16/tutorielpython-les
 -algorithmes-genetiques-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--239
+Underfull \hbox (badness 10000) in paragraph at lines 239--241
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 243--245
+Underfull \hbox (badness 10000) in paragraph at lines 245--247
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 246--250
+Underfull \hbox (badness 10000) in paragraph at lines 248--252
 
  []
 
 
-Overfull \hbox (3.61803pt too wide) in paragraph at lines 254--257
+Overfull \hbox (3.61803pt too wide) in paragraph at lines 256--259
 \T1/lmr/m/n/10.95 http ://informatique.coursgratuits.net/methodes-numeriques/al
 gorithmes-genetiques.php 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 258--260
+Underfull \hbox (badness 10000) in paragraph at lines 260--262
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--263
+Underfull \hbox (badness 10000) in paragraph at lines 263--265
 
  []
 
@@ -1091,10 +1085,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 261--263
 <OrganigrammeV5.jpeg, id=37, 523.9575pt x 469.755pt>
 File: OrganigrammeV5.jpeg Graphic file (type jpg)
 <use OrganigrammeV5.jpeg>
-Package pdftex.def Info: OrganigrammeV5.jpeg  used on input line 268. on input 
-line 268.
+Package pdftex.def Info: OrganigrammeV5.jpeg  used on input line 270. on input 
+line 270.
 Package pdftex.def Info: Requested size: 523.95622pt x 469.75386pt on input lin
-e 268.
+e 270.
  [7 <./OrganigrammeV5.jpeg>] (./CahierDesCharges.aux) ) 
 Here is how much of TeX's memory you used:
  5961 strings out of 494829
@@ -1113,7 +1107,7 @@ enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr
 s/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb>
 </usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1
 /public/lm/lmr17.pfb>
-Output written on CahierDesCharges.pdf (9 pages, 243885 bytes).
+Output written on CahierDesCharges.pdf (9 pages, 244255 bytes).
 PDF statistics:
  72 PDF objects out of 1000 (max. 8388607)
  52 compressed objects within 1 object stream
