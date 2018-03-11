@@ -70,6 +70,10 @@
 			\item \textbf{L’algorithme génétique} est composé de ces trois étapes :
 				\begin{itemize}
 				\item La \textbf{reproduction} correspond à la sélection de solutions de l’ensemble de base afin de les utiliser pour former de nouvelles solutions potentielles.
+				Nous avons choisi une sélection par roulette. C'est à dire que les parents sont sélectionnés selon leurs scores. Plus leurs scores sont élevés, plus ils ont de chance d'être choisi.
+				Il faut imaginer une roulette de casino où l'on lance une bille à chaque itération et on choisi l'individu sur lequel la bille est tombée. 
+				L'avantage de cette sélection est qu'elle est preservative, cela signifie que même les individus les moins performants conservent une chance d’être choisis. 
+				Cela empêche une disparition totale prématurée des individus aux scores les plus faibles.
 				\item La \textbf{mutation} correspond à une modification ponctuelle d’une solution.
 				\item Le \textbf{crossover} est le croisement de solutions utilisé pour en créer de nouvelles.
 				\end{itemize}
@@ -205,8 +209,8 @@
 																& lecture du fichier de données : 40 			& 				&\\
 				\hline 	Evaluation de la population 			& 25-30 										& 1-2 heures	& Lydia et Ben			\\
 				\hline  
-				\multirow{2}{2cm}{Tests d'arrets} 				& par itération ou forcé : 20 					& 2-3 heures  	& Laureline et Maxime\\
-																& par convergence : ?? (~50) 					& 				&\\
+				\multirow{2}{2cm}{Tests d'arrets} 				& par itération ou forcé : 40 					& 2-3 heures  	& Laureline et Maxime\\
+																& par convergence : 70					& 				&\\
 				\hline 	Generation de la nouvelle population 	& 40-50 										& 2-3 heures	& Ben et Lydia			\\
 				\hline 	Gestion d'entrées sorties 				& ~200 											& 4-5 heures	& tout le monde			\\
 				\hline \textbf{Coût Total} 						& \textbf{745-820} 								& \textbf{14-24 heures} & \\
