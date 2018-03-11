@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.9.4)  11 MAR 2018 10:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.9.4)  11 MAR 2018 11:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1037,25 +1037,25 @@ Underfull \vbox (badness 10000) detected at line 236
  []
 
 [5]
-Overfull \hbox (221.58348pt too wide) in paragraph at lines 249--252
+Overfull \hbox (221.58348pt too wide) in paragraph at lines 250--253
 \T1/lmr/m/n/10.95 http ://dep-tinfo.unice.fr/twiki/pub/Minfo04/IaDecision0405/P
 rsentationdesalgorithmesgntiquesetdeleursapplicationsenconomie_P.pdf 
  []
 
 
-Overfull \hbox (1.21579pt too wide) in paragraph at lines 257--260
+Overfull \hbox (1.21579pt too wide) in paragraph at lines 258--261
 \T1/lmr/m/n/10.95 https ://skyduino.wordpress.com/2015/07/16/tutorielpython-les
 -algorithmes-genetiques-
  []
 
 
-Overfull \hbox (89.23836pt too wide) in paragraph at lines 269--274
+Overfull \hbox (89.23836pt too wide) in paragraph at lines 270--275
 \T1/lmr/m/n/10.95 https ://www.youtube.com/watch ?v=VOIPosVDkEE https ://www.yo
 utube.com/watch ?v=bLdrDnZfpPo
  []
 
 
-Overfull \hbox (82.55011pt too wide) in paragraph at lines 280--284
+Overfull \hbox (82.55011pt too wide) in paragraph at lines 281--285
 \T1/lmr/m/n/10.95 http ://khayyam.developpez.com/articles/algo/genetic/ http :/
 /informatique.coursgratuits.net/methodes-
  []
@@ -1068,7 +1068,7 @@ Here is how much of TeX's memory you used:
  9137 multiletter control sequences out of 15000+600000
  45356 words of font info for 46 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 41i,8n,30p,555b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,8n,30p,508b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.en
 c}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/en
 c/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/shar
@@ -1077,7 +1077,7 @@ m/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
 10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/font
 s/type1/public/lm/lmr17.pfb>
-Output written on CahierDesCharges.pdf (8 pages, 190487 bytes).
+Output written on CahierDesCharges.pdf (8 pages, 190476 bytes).
 PDF statistics:
  66 PDF objects out of 1000 (max. 8388607)
  47 compressed objects within 1 object stream
