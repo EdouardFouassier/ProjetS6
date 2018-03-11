@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.5)  11 MAR 2018 12:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.5)  11 MAR 2018 12:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1066,7 +1066,7 @@ File: OrganigrammeV5.jpeg Graphic file (type jpg)
 
 <use OrganigrammeV5.jpeg>
 Package pdftex.def Info: OrganigrammeV5.jpeg used on input line 264.
-(pdftex.def)             Requested size: 341.43979pt x 284.5288pt.
+(pdftex.def)             Requested size: 523.95622pt x 469.75386pt.
  [7 <./OrganigrammeV5.jpeg>] (./CahierDesCharges.aux) ) 
 Here is how much of TeX's memory you used:
  5842 strings out of 494924
@@ -1085,7 +1085,7 @@ enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr
 s/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb>
 </usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1
 /public/lm/lmr17.pfb>
-Output written on CahierDesCharges.pdf (9 pages, 243653 bytes).
+Output written on CahierDesCharges.pdf (9 pages, 243600 bytes).
 PDF statistics:
  72 PDF objects out of 1000 (max. 8388607)
  52 compressed objects within 1 object stream
