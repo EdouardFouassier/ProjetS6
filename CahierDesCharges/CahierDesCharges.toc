@@ -8,17 +8,17 @@
 \contentsline {subsection}{\numberline {3.1}Contraintes non n\IeC {\'e}gociables}{1}
 \contentsline {subsection}{\numberline {3.2}Glossaire et conventions de d\IeC {\'e}nomination}{2}
 \contentsline {subsection}{\numberline {3.3}Faits et hypoth\IeC {\`e}ses utiles}{2}
-\contentsline {section}{\numberline {4}Exigences fonctionnelles}{2}
-\contentsline {subsection}{\numberline {4.1}Port\IeC {\'e}e du produit}{2}
-\contentsline {subsection}{\numberline {4.2}Exigences fonctionnelles et exigences sur les donn\IeC {\'e}es}{2}
+\contentsline {section}{\numberline {4}Exigences fonctionnelles}{3}
+\contentsline {subsection}{\numberline {4.1}Port\IeC {\'e}e du produit}{3}
+\contentsline {subsection}{\numberline {4.2}Exigences fonctionnelles et exigences sur les donn\IeC {\'e}es}{3}
 \contentsline {section}{\numberline {5}Exigences non fonctionnelles}{3}
 \contentsline {subsection}{\numberline {5.1}Ergonomie et convivialit\IeC {\'e} du produit}{3}
 \contentsline {subsection}{\numberline {5.2}Facilit\IeC {\'e} d\IeC {\textquoteright }utilisation et facteurs humains}{3}
 \contentsline {subsection}{\numberline {5.3}Maintenance, support, portabilit\IeC {\'e}, installation du produit}{3}
 \contentsline {section}{\numberline {6}Organigramme}{3}
-\contentsline {section}{\numberline {7}Autres aspects du projet}{4}
-\contentsline {subsection}{\numberline {7.1}Estimation des co\IeC {\^u}ts du projet}{4}
+\contentsline {section}{\numberline {7}Autres aspects du projet}{5}
+\contentsline {subsection}{\numberline {7.1}Estimation des co\IeC {\^u}ts du projet}{5}
 \contentsline {subsection}{\numberline {7.2}Manuel utilisateur et formations}{5}
-\contentsline {section}{\numberline {8}Conclusion}{5}
+\contentsline {section}{\numberline {8}Conclusion}{6}
 \contentsline {section}{\numberline {9}Bibliographie}{6}
-\contentsline {section}{\numberline {10}Annexe}{7}
+\contentsline {section}{\numberline {10}Annexe}{8}
