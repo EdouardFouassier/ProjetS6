@@ -1,4 +1,4 @@
-d\ocumentclass[a4paper,11pt]{article}
+\documentclass[a4paper,11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
@@ -26,7 +26,7 @@ d\ocumentclass[a4paper,11pt]{article}
 \tableofcontents
 \newpage\clearpage\pagenumbering{arabic}
 	
-	\section*{Introduction}
+	\section{Introduction}
 		Le nom algorithme génétique vient des ressemblances avec le monde du vivant, il y a en effet des mutations, des générations et de la sélection naturelles pour n’en citer que quelques uns. 
 		Cet algorithme a été étudié par John Holland de 1960 à 1975 dans son ouvrage Adaptation in Natural and Artificial System inspiré entre autres par la “learning machine” de Turing.\\
 		\\
@@ -96,8 +96,7 @@ d\ocumentclass[a4paper,11pt]{article}
 			Le logiciel se veut simple à installer sous Linux. Il sera aussi fait en sorte que l'on puisse ajouter de nouveaux module au programme simplement.  
 			
 	\section{Organigramme}
-		\centerline{\includegraphics[width = 12cm,height = 10cm]{OrganigrammeV4.png}}
-		
+		Voir Organigramme page annexe (Page 9)\\
 		Les données initiales sont : 	taux de mutation, 
 										identifiant plus tableau pour le test, 
 										fonction fitness, 
@@ -179,7 +178,8 @@ d\ocumentclass[a4paper,11pt]{article}
 			\>	\>\>\>cet individu est sélectionné.\\
 			\>On retourne les individus sélectionné
 		\end{tabbing}
-
+		Complexité dans le pire des cas : O(n²)\\
+		
 		\underline{Gestion d'entrées sorties : }
 		\begin{itemize}
 			\item Calcul des statistiques de l'éxécution : les données d'entrées et les résultats
@@ -193,104 +193,80 @@ d\ocumentclass[a4paper,11pt]{article}
 		Dans tous les modules il faut une fonctionnalité qui lit les valeurs nécessaires dans le fichier des données.
 		
 	\section{Autres aspects du projet}
-		\subsection{Estimation des coûts du projet}
-		%~ \begin{center}
-			%~ \begin{longtable}{|>{\centering}m{3cm}|>{\centering\arraybackslash}m{7cm}|>{\centering}m{4cm}|>{\centering}m{4cm}|}
-				%~ \hline Modules & Nombre de lignes & Temps & Affectation\\
-				%~ \hline \multicolumn{1}{|c|}{\textbf{Modules}} & \multicolumn{1}{c|}{\textbf{Nombre de lignes}} & \multicolumn{1}{|c|}{\textbf{Temps}} &\multicolumn{1}{|c|}{\textbf{Affectation}}\\
-				%~ \hline Interface & 250-300 & 5-6 heures & Rémi et Edouard\\
-				%~ \hline Gestion de la validité des données & 50-60 & 1-2 heures & Maxime et Laureline\\
-				%~ \hline 
-				%~ \multirow{3}{0cm}{Initialisation du programme} & transformation des valeurs en paramètres : 30 & 2-3 heures & Edouard et Rémi\\
-																%~ & création de la population initiale : 40 & &\\ 
-																%~ & lecture du fichier de données : 40 & &\\ 
-				%~ \hline Evaluation de la population & 25-30 & 1-2 heures & Lydia et Ben\\
-				%~ \hline 
-				%~ \multirow{2}{0cm}{Tests d'arrets} & par itération ou forcé : 20 & 2-3 heures  & Laureline et Maxime\\
-													%~ & par convergence : ?? (~50) & &\\
-				%~ \hline Generation de la nouvelle population & 40-50 & 2-3 heures & Ben et Lydia\\
-				%~ \hline Gestion d'entrées sorties & ~200 & 4-5 heures & tout le monde\\
-				%~ \hline \textbf{Coût Total} & \textbf{XXX} & & \\
-				%~ \hline 	
-				%~ \end{longtable}\vspace{1em}
-			%~ \end{center}
-			
-			
+		\subsection{Estimation des coûts du projet}			
 			
 			\begin{center}\begin{longtable}{|>{\centering}m{3cm}|>{\centering}m{5cm}|>{\centering}m{3cm}|>{\centering\arraybackslash}m{3cm}|}			
 				\hline \multicolumn{1}{|c|}{\textbf{Module}} & \multicolumn{1}{c|}{\textbf{Nombre de lignes}} & \multicolumn{1}{c|}{\textbf{Temps}} & \multicolumn{1}{c|}{\textbf{Affectation}} \\
-				\hline 	Interface 								& 250-300 	& 5-6 heures 	& Rémi et Edouard		\\
-				\hline 	Gestion de la validité des données 		& 50-60 	& 1-2 heures 	& Maxime et Laureline	\\
+				\hline 	Interface 								& 250-300 										& 5-6 heures 	& Rémi et Edouard		\\
+				\hline 	Gestion de la validité des données 		& 50-60 										& 1-2 heures 	& Maxime et Laureline	\\
 				\hline 	
-				\multirow{3}{2cm}{Initialisation du programme}	& transformation des valeurs en paramètres : 30 & 2-3 heures & Edouard et Rémi\\
-																& création de la population initiale : 40 & &\\ 
-																& lecture du fichier de données : 40 & &\\
-				\hline 	Evaluation de la population 			& 25-30 	& 1-2 heures	& Lydia et Ben			\\
+				\multirow{3}{2cm}{Initialisation du programme}	& transformation des valeurs en paramètres : 30 & 2-3 heures 	& Edouard et Rémi\\
+																& création de la population initiale : 40 		& 				&\\ 
+																& lecture du fichier de données : 40 			& 				&\\
+				\hline 	Evaluation de la population 			& 25-30 										& 1-2 heures	& Lydia et Ben			\\
 				\hline  
-				\multirow{2}{2cm}{Tests d'arrets} & par itération ou forcé : 20 & 2-3 heures  & Laureline et Maxime\\
-												 & par convergence : ?? (~50) & &\\
-				\hline 	Generation de la nouvelle population 	& 40-50 	& 2-3 heures	& Ben et Lydia			\\
-				\hline 	Gestion d'entrées sorties 				& ~200 		& 4-5 heures	& tout le monde			\\
-				\hline \textbf{Coût Total} & \textbf{565} & \textbf{environ 10000h} & \\
+				\multirow{2}{2cm}{Tests d'arrets} 				& par itération ou forcé : 20 					& 2-3 heures  	& Laureline et Maxime\\
+																& par convergence : ?? (~50) 					& 				&\\
+				\hline 	Generation de la nouvelle population 	& 40-50 										& 2-3 heures	& Ben et Lydia			\\
+				\hline 	Gestion d'entrées sorties 				& ~200 											& 4-5 heures	& tout le monde			\\
+				\hline \textbf{Coût Total} 						& \textbf{745-820} 								& \textbf{14-24 heures} & \\
 				\hline 	
 				\end{longtable}\vspace{1em}\end{center}
 				
 		\subsection{Manuel utilisateur et formations}
 		Un manuel d'utilisation sera fourni pour conseiller à l’utilisateur les données les plus performantes pour avoir des solutions plus efficaces.
 	
-	\section*{Conclusion}
-		Pour résoudre les exigences du client, nous avons élaboré un cahier des charges qui décrit les différents dispositifs nécessaire pour conceptualiser un algorithme génétique générique. Dans ce cahier des charges, nous proposons une solution qui permettra au client de simuler des problèmes variés, tels que des problèmes génétiques, mathématiques, d’optimisation, etc., dont les solutions sont approchées et obtenir les résultats pour chaque générations. 
-	Ce sujet nous intéresse tout particulièrement. De plus, l’écriture d’un cahier des charges est un travail inédit pour nous, il nous a permit de travailler en groupe de six personne pour la première fois, cela nous a appris à développer une organisation particulière.
-	\newline
-	Le langage qui nous semble le plus adapté est le C++. Nous choisissons un langage hybride. D’une part, nous aurons besoin d’un langage objet pour implémenter les individus. En effet, un individu sera un objet caractérisé par plusieurs champs. Les individus formeront une population qui sera elle aussi un objet. 
-	D’autres part, nous aurons besoin d’un langage procédural afin d’effectuer des calculs sur les individus. Le C++ nous semble également avantageux dans l’utilisation d’un parser (utilisé avec la fonction fitness).
+    	\subsection{Choix du langage}
+			Langage choisi : C++. Nous choisissons un langage hybride. D’une part, nous aurons besoin d’un langage objet pour implémenter les individus.
+			En effet, un individu sera un objet caractérisé par plusieurs champs. 
+			Les individus formeront une population qui sera elle aussi un objet. 
+			D’autres part, nous aurons besoin d’un langage procédural afin d’effectuer des calculs sur les individus. 
+			Le C++ nous semble également avantageux dans l’utilisation d’un parser (utilisé avec la fonction fitness).
+	
+	\section{Conclusion}
+		Pour résoudre les exigences du client, nous avons élaboré un cahier des charges qui décrit les différents dispositifs nécessaire pour conceptualiser un algorithme génétique générique. 
+		Dans ce cahier des charges, nous proposons une solution qui permettra au client de simuler des problèmes variés, tels que des problèmes génétiques, mathématiques, d’optimisation, etc., dont les solutions sont approchées et obtenir les résultats pour chaque générations. 
+		Ce sujet nous intéresse tout particulièrement. 
+		De plus, l’écriture d’un cahier des charges est un travail inédit pour nous, il nous a permit de travailler en groupe de six personne pour la première fois, cela nous a appris à développer une organisation particulière.
 
-	\section*{Bibliographie}
+	\section{Bibliographie}
 	\begin{itemize}
-		\item Présentation des algorithmes génétiques et de leurs applications en économie : 
-		\newline
-		http://deptinfo.unice.fr/twiki/pub/Minfo04/IaDecision0405/Prsentationdesalgorithmesgntiquesetdeleursapplicationsenconomie\_P.pdf
+		\item Présentation des algorithmes génétiques et de leurs applications en économie :\\
+		http://deptinfo.unice.fr/twiki/pub/Minfo04/IaDecision0405/Prsentationdesalgorithmesgntiquesetdeleursapplicationsenconomie\_P.pdf\\
 
-		\item La page wikipedia sur l'algorithme génétique : 
-		\newline
-		https://fr.wikipedia.org/wiki/Algorithme\_g%C3%A9n%C3%A9tique
+		\item La page wikipedia sur l'algorithme génétique : \\
+		https://fr.wikipedia.org/wiki/Algorithme\_g$\%$C3$\%$A9n$\%$C3$\%$A9tique\\
 
-		\item Tutoriel Python sur les algorithmes génétiques :
-		\newline
-		https://skyduino.wordpress.com/2015/07/16/tutorielpython-les-algorithmes-genetiques-garantis-sans-ogm/
+		\item Tutoriel Python sur les algorithmes génétiques :\\
+		https://skyduino.wordpress.com/2015/07/16/tutorielpython-les-algorithmes-genetiques-garantis-sans-ogm/\\
 
-		\item Etude sur les algorithmes génétiques :
-		\newline
+		\item Etude sur les algorithmes génétiques :\\
 		http://souqueta.free.fr/Project/files/TE\_AG.pdf
 		
-		\item Exemple d'utilisation sur un jeu vidéo :
-		\newline
-		https://www.youtube.com/watch?v=9tCySY6TLk8
+		\item Exemple d'utilisation sur un jeu vidéo :\\
+		https://www.youtube.com/watch?v=9tCySY6TLk8\\
 
-		\item Vidéos d'explications de l'algorthme génétique : 
-		\newline
-		https://www.youtube.com/watch?v=VOIPosVDkEE
-		https://www.youtube.com/watch?v=bLdrDnZfpPo
-		https://youtu.be/mAybMmf0veY
+		\item Vidéos d'explications de l'algorthme génétique :\\
+		https://www.youtube.com/watch?v=VOIPosVDkEE\\
+		https://www.youtube.com/watch?v=bLdrDnZfpPo\\
+		https://youtu.be/mAybMmf0veY\\
 
-		\item L'application des algorithmes génétique dans la science des données :
-		\newline
+		\item L'application des algorithmes génétique dans la science des données :\\
 		https://www.analyticsvidhya.com/blog/2017/07/introduction-to-genetic-algorithm/ 
 
-
-		\item Explications de l’aglorithme générique :
-		\newline
-		http://khayyam.developpez.com/articles/algo/genetic/
+		\item Explications de l’aglorithme générique :\\
+		http://khayyam.developpez.com/articles/algo/genetic/\\
 		http://informatique.coursgratuits.net/methodes-numeriques/algorithmes-genetiques.php
 
-		\item Etude sur l'inertage de feu :
-		\newline
-		http://www.ligeron.com/telecharger.php?id=11
+		\item Etude sur l'inertage de feu :\\
+		http://www.ligeron.com/telecharger.php?id=11\\
 
-		\item Comparaison de l'algorithme génétique et du réseau de neuronnes :
-		\newline
-		https://stackoverflow.com/questions/1402370/when-to-use-genetic-algorithms-vs-when-to-use-neural-networks
+		\item Comparaison de l'algorithme génétique et du réseau de neuronnes :\\
+		https://stackoverflow.com/questions/1402370/when-to-use-genetic-algorithms-vs-when-to-use-neural-networks\\
 	\end{itemize}
 	
-
+	\newpage
+	\section{Annexe}
+		\underline{Organigramme :}\\
+		\centerline{\includegraphics[width = 12cm,height = 10cm]{OrganigrammeV5.jpeg}}
 \end{document}
