@@ -80,9 +80,9 @@
 			Pour l’utiliser dans des problèmes d’apprentissage, il faudrait le coupler avec un autre programme comme un système de classifieur, ou encore un réseau de neurone, ce qui n’est pas le cas dans ce projet.
 	\section{Exigences fonctionnelles}
 		\subsection{Portée du produit}
-		
+			Il n’y a qu’un seul type d’utilisateur (le client). Le programme est générique, et donc applicable dans toutes sortes de situations.
 		\subsection{Exigences fonctionnelles et exigences sur les données}
-			
+			On doit proposer une interface graphique permettant de rentrer les données du problème. De plus il faut trouver un ensemble de solution à ce problème et les afficher dans un fichier Latex avec une représentation de l’évolution des générations (grâce Xfig). 
 			
 	\section{Exigences non fonctionnelles}
 		\subsection{Ergonomie et convivialité du produit}
@@ -239,10 +239,57 @@
 		Un manuel d'utilisation sera fourni pour conseiller à l’utilisateur les données les plus performantes pour avoir des solutions plus efficaces.
 	
     	\subsection{Choix du langage}
-			
+			Langage choisi : C++. Nous choisissons un langage hybride. D’une part, nous aurons besoin d’un langage objet pour implémenter les individus. En effet, un individu sera un objet caractérisé par plusieurs champs. Les individus formeront une population qui sera elle aussi un objet. D’autres part, nous aurons besoin d’un langage procédural afin d’effectuer des calculs sur les individus. Le C++ nous semble également avantageux dans l’utilisation d’un parser (utilisé avec la fonction fitness).
 	\section*{Conclusion}
-	
+		Pour résoudre les exigences du client, nous avons élaboré un cahier des charges qui décrit les différents dispositifs nécessaire pour conceptualiser un algorithme génétique générique. Dans ce cahier des charges, nous proposons une solution qui permettra au client de simuler des problèmes variés, tels que des problèmes génétiques, mathématiques, d’optimisation, etc., dont les solutions sont approchées et obtenir les résultats pour chaque générations. 
+	Ce sujet nous intéresse tout particulièrement. De plus, l’écriture d’un cahier des charges est un travail inédit pour nous, il nous a permit de travailler en groupe de six personne pour la première fois, cela nous a appris à développer une organisation particulière.
+
 	\section*{Bibliographie}
+	\begin{itemize}
+		\item Présentation des algorithmes génétiques et de leurs applications en économie : 
+		\newline
+		http://deptinfo.unice.fr/twiki/pub/Minfo04/IaDecision0405/Prsentationdesalgorithmesgntiquesetdeleursapplicationsenconomie\_P.pdf
+
+		\item La page wikipedia sur l'algorithme génétique : 
+		\newline
+		https://fr.wikipedia.org/wiki/Algorithme\_g%C3%A9n%C3%A9tique
+
+		\item Tutoriel Python sur les algorithmes génétiques :
+		\newline
+		https://skyduino.wordpress.com/2015/07/16/tutorielpython-les-algorithmes-genetiques-garantis-sans-ogm/
+
+		\item Etude sur les algorithmes génétiques :
+		\newline
+		http://souqueta.free.fr/Project/files/TE\_AG.pdf
+		
+		\item Exemple d'utilisation sur un jeu vidéo :
+		\newline
+		https://www.youtube.com/watch?v=9tCySY6TLk8
+
+		\item Vidéos d'explications de l'algorthme génétique : 
+		\newline
+		https://www.youtube.com/watch?v=VOIPosVDkEE
+		https://www.youtube.com/watch?v=bLdrDnZfpPo
+		https://youtu.be/mAybMmf0veY
+
+		\item L'application des algorithmes génétique dans la science des données :
+		\newline
+		https://www.analyticsvidhya.com/blog/2017/07/introduction-to-genetic-algorithm/ 
+
+
+		\item Explications de l’aglorithme générique :
+		\newline
+		http://khayyam.developpez.com/articles/algo/genetic/
+		http://informatique.coursgratuits.net/methodes-numeriques/algorithmes-genetiques.php
+
+		\item Etude sur l'inertage de feu :
+		\newline
+		http://www.ligeron.com/telecharger.php?id=11
+
+		\item Comparaison de l'algorithme génétique et du réseau de neuronnes :
+		\newline
+		https://stackoverflow.com/questions/1402370/when-to-use-genetic-algorithms-vs-when-to-use-neural-networks
+	\end{itemize}
 	
 
 \end{document}
