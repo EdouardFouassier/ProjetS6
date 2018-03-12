@@ -32,10 +32,10 @@
 		\\
 		L’algorithme génétique s’applique à une grande variété de domaines, tels que la génétique pour étudier l’évolution des gènes d’une espèce donnée sur plusieurs générations. 
 		On peut aussi l'appliquer dans le cas d’apprentissage pour par exemple apprendre à un robot à se déplacer en fonction des obstacles, ou bien on peut l'utiliser dans l'optique de trouver un résultat optimisé.
-		On peut citer dans cette dernière catégorie l’optimisation d'un portefeuille d'action en fonction de leur risques, l’optimisation de la ventilation dans le cas d'incendie dans un espace confiné ou bien simplement l’optimisation d’une fonction.\\ 
+		On peut citer dans cette dernière catégorie l’optimisation d'un portefeuille d'actions en fonction de leur risques, l’optimisation de la ventilation dans le cas d'incendie dans un espace confiné ou bien simplement l’optimisation d’une fonction.\\ 
 		\\
-		L’algorithme génétique est particulièrement utile lorsque l’utilisateur étudie une population et qu’il recherche une solution approchée parmi ces valeurs. 
-		et se démarque des autres algorithme car il est très facilement adaptable à différents problèmes. 
+		L’algorithme génétique est particulièrement utile lorsque l’utilisateur étudie une population de valeurs et qu’il recherche une solution approchée parmi ces valeurs. 
+		Il se démarque des autres algorithmes car il est très facilement adaptable à différents problèmes. 
 		De plus, on utilise des règles de transition probabiliste, ce qui est pertinent pour des problèmes où les résultats sont des valeurs approchées.\\
 
 	\section{Fondement du projet}
@@ -50,7 +50,7 @@
 			
 	\section{Contraintes sur le projet}
 		\subsection{Contraintes non négociables}
-			Le logiciel doit permettre à l’utilisateur d’entrer les données de son problème dans une interface textuelle ou en sélectionnant un fichier texte contenant déjà celles-ci.
+			Le logiciel doit permettre à l’utilisateur d’entrer les données de son problème dans une interface textuelle ou de sélectioner un fichier texte contenant déjà celles-ci.
 			De plus, l’algorithme génétique doit être générique afin de fournir une utilisation indépendante du problème à traiter. 
 			Enfin, l’utilisateur doit pouvoir obtenir en sortie un fichier montrant l’évolution de l’algorithme durant l’opération.
 			Il doit pouvoir choisir entre les formats suivants : Xfig et/ou  LaTeX et/ou PostScript.
@@ -62,7 +62,7 @@
 			\item Un \textbf{individu} ou un \textbf{chromosome} est une solution potentielle.
 			\item La \textbf{taille} d’un individu s’exprime en puissance de 2. C’est la taille de la solution potentielle au problème (elle peut s’exprimer sous la forme d’un tableau, d’une chaîne,...).
 			\item Un \textbf{gène}  est une partie de l'individu.
-			\item L’\textbf{alphabet} est l’ensemble de caractères que peut prendre un gène (ex : {0,1} si on utilise des individus codées en binaire)
+			\item L’\textbf{alphabet} est l’ensemble de caractères que peut prendre un gène (ex : {0,1} si on utilise des individus codés en binaire)
 			\item Une \textbf{génération } est une itération de l’algorithme génétique utilisé dans l’application. Elle correspond à la création d'une nouvelle population. 
 			\item La \textbf{fonction fitness} est la fonction que l’on cherche à optimiser. Elle sert également à évaluer la qualité des individus d'une génération.
 			\item \textbf{L’algorithme génétique} est composé de trois étapes :
@@ -77,7 +77,7 @@
 				\item Le \textbf{crossover} est le croisement d'individus pour en créer de nouveaux.
 				Pour notre logiciel, nous avons choisi d’appliquer un cross-over en un point. 
 				Cette méthode consiste à séparer deux individus parents en deux morceaux, puis de les recombiner pour former deux enfants.
-				Cette méthode nous semble être le meilleur choix pour un algorithme génétique générique. 
+				Cette méthode nous semble être le meilleur choix pour un algorithme génétique générique,
 				car elle permet d’obtenir des individus issus des générations précédentes tout en permettant de proposer une meilleure solution au problème traité.
 				
 				
@@ -95,7 +95,7 @@
 		\subsection{Portée du produit}
 			Le programme est générique, et donc applicable dans toutes sortes de situations.
 		\subsection{Exigences fonctionnelles et exigences sur les données}
-			On doit proposer une interface graphique permettant de rentrer les données du problème. De plus, il faut trouver un ensemble de solution à ce problème et les afficher dans un fichier sortie avec une représentation de l’évolution des générations.
+			On doit proposer une interface graphique permettant de saisir les données du problème. De plus, il faut trouver un ensemble de solutions à ce problème et les afficher dans un fichier sortie avec une représentation de l’évolution des générations.
 			
 	\section{Exigences non fonctionnelles}
 		\subsection{Ergonomie et convivialité du produit}
@@ -148,7 +148,7 @@
 	
 		\underline{Evaluation de la population : }
 		\begin{itemize}
-			\item Evaluation de chaques individus et attribution d'un score
+			\item Evaluation de chaque individu et attribution d'un score
 		\end{itemize}
 		\begin{tabbing} 
 		Algo\=rithme Evaluation : paramètre : une population\\
@@ -169,7 +169,7 @@
 
 		\underline{Génération de la nouvelle population : }
 		\begin{itemize}
-			\item Selection par roulette
+			\item Sélection par roulette
 			\item Cross-over/mutation
 			\item Création de la nouvelle population
 			\item Génération de nombres aléatoires
@@ -181,7 +181,7 @@
 			\>sinon\\
 			\>	\>limite = population-1/2\\
 			\>scoremax = $\sum score$\\
-			\>Pour chaque individus on calcule sa valeur (en pourcentage) en fonction du scoremax\\
+			\>Pour chaque individu on calcule sa valeur (en pourcentage) en fonction du scoremax\\
 			\>Tant qu’on a pas assez d’individu sélectionné\\
 			\>	\>Si l\=e pourcentage du premier individu est supérieur à une valeur aléatoire\\
 			\>	\>\>il est sélectionné\\
@@ -189,7 +189,7 @@
 			\>	\>\>si (l\=e pourcentage de l'individu > à une valeur aléatoire\\ 
 			\>	\>\>ET que le pourcentage de celui qui le précède est inférieur à cette valeur)\\
 			\>	\>\>\>cet individu est sélectionné.\\
-			\>On retourne les individus sélectionné
+			\>On retourne les individus sélectionnés
 		\end{tabbing}
 		Complexité dans le pire des cas : O(n²)\\
 		
@@ -219,7 +219,7 @@
 				\hline  
 				\multirow{2}{2cm}{Tests d'arrets} 				& par itération ou forcé : 40 					& 2-3 heures  	& Laureline et Maxime\\
 																& par convergence : 70					& 				&\\
-				\hline 	Generation de la nouvelle population 	& 40-50 										& 2-3 heures	& Ben et Lydia			\\
+				\hline 	Génération de la nouvelle population 	& 40-50 										& 2-3 heures	& Ben et Lydia			\\
 				\hline 	Gestion d'entrées sorties 				& ~200 											& 4-5 heures	& tout le monde			\\
 				\hline \textbf{Coût Total} 						& \textbf{745-820} 								& \textbf{14-24 heures} & \\
 				\hline 	
@@ -258,14 +258,14 @@
 		https://www.youtube.com/watch?v=bLdrDnZfpPo\\
 		https://youtu.be/mAybMmf0veY\\
 
-		\item L'application des algorithmes génétique dans la science des données :\\
+		\item L'application des algorithmes génétiques dans la science des données :\\
 		https://www.analyticsvidhya.com/blog/2017/07/introduction-to-genetic-algorithm/ 
 
 		\item Explications de l’aglorithme générique :\\
 		http://khayyam.developpez.com/articles/algo/genetic/\\
 		http://informatique.coursgratuits.net/methodes-numeriques/algorithmes-genetiques.php
 
-		\item Etude sur l'inertage de feu :\\
+		\item Etude sur l'inertage de feux :\\
 		http://www.ligeron.com/telecharger.php?id=11\\
 
 		\item Comparaison de l'algorithme génétique et du réseau de neuronnes :\\
