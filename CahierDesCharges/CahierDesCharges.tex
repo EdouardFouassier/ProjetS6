@@ -15,7 +15,7 @@
 \author{Edouard Fouassier - Maxime Gonthier - Benjamin Guillot\\
 		Laureline Martin - Rémi Navarro - Lydia Rodrigez de la Nava
 		\vspace{2em}\\
-		Algorithme Genetique
+		Algorithme Génétique
 		\vspace{2em}}
 
 \begin{document}
@@ -27,28 +27,26 @@
 \newpage\clearpage\pagenumbering{arabic}
 	
 	\section{Introduction}
-		Le nom algorithme génétique vient des ressemblances avec le monde du vivant, il y a en effet des mutations, des générations et de la sélection naturelles pour n’en citer que quelques uns. 
+		Le nom algorithme génétique provient des ressemblances avec le monde du vivant. On utilise des notions telles que la sélection naturelle, les générations ou bien encore la sélection naturelle, dans le but de trouver la meilleure population possible. 
 		Cet algorithme a été étudié par John Holland de 1960 à 1975 dans son ouvrage Adaptation in Natural and Artificial System inspiré entre autres par la “learning machine” de Turing.\\
 		\\
-		L’algorithme génétique s’applique à une grande variété de domaines. 
-		Tout d’abord, il peut s’appliquer en génétique pour étudier l’évolution des gènes d’une espèce donnée sur plusieurs générations. 
-		On peut aussi appliquer l’algorithme dans le cas d’apprentissage comme par exemple apprendre à un robot à se déplacer en fonction des obstacles. 
-		Un troisième domaine d’application possible est l’optimisation. 
-		On peut citer dans cette catégorie l’optimisation de portefeuille d'action en fonction de leurs risques ou bien l’optimisation de la ventilation dans le cas de feu dans des espaces confinées ou bien simplement l’optimisation d’une fonction.\\ 
+		L’algorithme génétique s’applique à une grande variété de domaines, tels que la génétique pour étudier l’évolution des gènes d’une espèce donnée sur plusieurs générations. 
+		On peut aussi l'appliquer dans le cas d’apprentissage pour par exemple apprendre à un robot à se déplacer en fonction des obstacles, ou bien on peut l'utiliser dans l'optique de trouver un résultat optimisé.
+		On peut citer dans cette dernière catégorie l’optimisation d'un portefeuille d'action en fonction de leur risques, l’optimisation de la ventilation dans le cas d'incendie dans un espace confiné ou bien simplement l’optimisation d’une fonction.\\ 
 		\\
 		L’algorithme génétique est particulièrement utile lorsque l’utilisateur étudie une population et qu’il recherche une solution approchée parmi ces valeurs. 
-		Les algorithmes génétiques se démarquent des autres car ils sont très facilement adaptables à différents problèmes. 
-		On utilise des règles de transition probabiliste, ce qui est pertinent pour des problèmes où les résultats sont des valeurs approchées.\\
+		et se démarque des autres algorithme car il est très facilement adaptable à différents problèmes. 
+		De plus, on utilise des règles de transition probabiliste, ce qui est pertinent pour des problèmes où les résultats sont des valeurs approchées.\\
 
 	\section{Fondement du projet}
 		\subsection{But du projet}
-			L'objectif du projet est de réaliser un programme utilisant un algorithme génétique permettant de délivrer une solution ou un ensemble de solutions optimale(s) d’un problème donné à l’utilisateur en fichier de sortie.
+			L'objectif du projet est de réaliser un programme utilisant un algorithme génétique permettant de délivrer une solution ou un ensemble de solutions optimales à problème donné.
 		
 		\subsection{Personnes et organismes impliqués dans les enjeux du projet}
-			Le projet a pour client principal madame Leila Kloul.
+			Le projet a pour client principal le Professeur Leila Kloul.
 			
 		\subsection{ Utilisateurs du produit}
-			Le produit se veut se veut employable par n’importe qui cherchant une réponse adaptée à un problème d’optimisation lié à une fonction.
+			Le produit se veut employable par n’importe qui cherchant une réponse adaptée à un problème d’optimisation lié à une fonction.
 			
 	\section{Contraintes sur le projet}
 		\subsection{Contraintes non négociables}
@@ -60,29 +58,27 @@
 		\subsection{Glossaire et conventions de dénomination}
 			Nous utiliserons dans la suite du cahier des charges les termes suivants pour parler de l’algorithme génétique :\\
 			\begin{itemize}
-			\item Une \textbf{population d’individu} est un ensemble de solutions potentielles. C’est l’ensemble de données sur lequel l’application sera utilisée afin d’en tirer le meilleur résultat possible.
-			\item Un \textbf{individu} ou un \textbf{chromosome} est une solution potentielle au problème donné.
+			\item Une \textbf{population d’individus} est un ensemble de solutions potentielles. C’est l’ensemble de données sur lequel l’application sera utilisée afin d’en tirer le meilleur résultat possible.
+			\item Un \textbf{individu} ou un \textbf{chromosome} est une solution potentielle.
 			\item La \textbf{taille} d’un individu s’exprime en puissance de 2. C’est la taille de la solution potentielle au problème (elle peut s’exprimer sous la forme d’un tableau, d’une chaîne,...).
-			\item Un \textbf{gène}  est une partie de solution.
-			\item L’\textbf{alphabet} est l’ensemble de caractères composant une solution (ex : {0,1} si on utilise des solutions codées en binaire)
-			\item Une \textbf{génération } est une itération de l’algorithme génétique utilisé dans l’application. Elle correspond à une modification de l’ensemble de solution. 
-			\item La \textbf{fonction fitness} est la fonction que l’on cherche à optimiser dans l’application. Elle servira également à évaluer la qualité des solutions de l’ensemble.
-			\item \textbf{L’algorithme génétique} est composé de ces trois étapes :
+			\item Un \textbf{gène}  est une partie de l'individu.
+			\item L’\textbf{alphabet} est l’ensemble de caractères que peut prendre un gène (ex : {0,1} si on utilise des individus codées en binaire)
+			\item Une \textbf{génération } est une itération de l’algorithme génétique utilisé dans l’application. Elle correspond à la création d'une nouvelle population. 
+			\item La \textbf{fonction fitness} est la fonction que l’on cherche à optimiser. Elle sert également à évaluer la qualité des individus d'une génération.
+			\item \textbf{L’algorithme génétique} est composé de trois étapes :
 				\begin{itemize}
-				\item La \textbf{reproduction} correspond à la sélection de solutions de l’ensemble de base afin de les utiliser pour former de nouvelles solutions potentielles.
-				Nous avons choisi une sélection par roulette. C'est à dire que les parents sont sélectionnés selon leurs scores. Plus leurs scores sont élevés, plus ils ont de chance d'être choisi.
-				Il faut imaginer une roulette de casino où l'on lance une bille à chaque itération et on choisi l'individu sur lequel la bille est tombée. 
-				L'avantage de cette sélection est qu'elle est preservative, cela signifie que même les individus les moins performants conservent une chance d’être choisis. 
-				Cela empêche une disparition totale prématurée des individus aux scores les plus faibles.
-				\item La \textbf{mutation} correspond à une modification ponctuelle d’une solution.
-				Il existe plusieurs techniques pour appliquer une mutation. Nous avons choisi une mutation équiprobable basé sur une probabilité très faible qu’un gène subisse une mutation. 
-				Cette méthode nous semble être adéquate pour un algorithme génétique générique, puisqu’elle est équiprobable elle est applicable à un grand nombre de domaines d’application et une probabilité très faible 
-				permet de modifier un gène d’un individu de manière ponctuel, une trop grande probabilité modifierait trop les individus et fausserait nos résultats.
-				\item Le \textbf{crossover} est le croisement de solutions utilisé pour en créer de nouvelles.
-				Il existe plusieurs types de crossover applicables aux algorithmes génétique. Pour notre logiciel, nous avons choisi d’appliquer un cross-over “multipoint”. 
-				Cette méthode consiste à séparer deux individus parents en plusieurs morceaux, nous avons choisi deux morceaux, et de recombiner ces morceaux pour obtenir un individu enfant. 
+				\item La \textbf{reproduction} correspond à la sélection de plusieurs individus de l’ensemble de base pour former de nouveaux individus, potentiellement meilleurs.
+				Ici nous avons choisi une sélection par roulette, où les parents sont sélectionnés selon leurs scores : plus le score d'un individu est élevé, plus il a de chance d'être sélectionné.
+				L'avantage de cette sélection est qu'elle est préservative, cela signifie que même les individus les moins performants conservent une chance d’être sélectionnés, et leur évite une disparition prématurée. 
+				\item La \textbf{mutation} correspond à une modification ponctuelle d’un individu.
+				Nous avons choisi une mutation basée sur une probabilité préférablement faible, c'est-à-dire qu'un gêne a une certaine probabilité d'être modifié. 
+				Cette méthode nous semble être adéquate pour un algorithme génétique générique, car puisqu’elle est équiprobable, elle est applicable à un grand nombre de domaines d’application et une probabilité très faible 
+				évite de fausser les résultats.
+				\item Le \textbf{crossover} est le croisement d'individus pour en créer de nouveaux.
+				Pour notre logiciel, nous avons choisi d’appliquer un cross-over en un point. 
+				Cette méthode consiste à séparer deux individus parents en deux morceaux, puis les recombiner pour former deux enfants.
 				Cette méthode nous semble être le meilleur choix pour un algorithme génétique générique. 
-				En effet, elle permet d’obtenir des individus issus des générations précédentes tout en permettant de proposer une meilleure solution au problème traité.
+				car elle permet d’obtenir des individus issus des générations précédentes tout en permettant de proposer une meilleure solution au problème traité.
 				
 				
 
@@ -94,12 +90,12 @@
 			
 		\subsection{Faits et hypothèses utiles}
 			Il est impossible de produire un programme totalement générique, c’est pourquoi nous limitons ici l’utilisation du logiciel aux problèmes d’optimisation et de prédiction. 
-			Pour l’utiliser dans des problèmes d’apprentissage, il faudrait le coupler avec un autre programme comme un système de classifieur, ou encore un réseau de neurone, ce qui n’est pas le cas dans ce projet.
+			Pour l’utiliser dans des problèmes d’apprentissage, il faudrait le coupler avec un autre programme comme un système de classifieur, ou encore un réseau de neurone, ce qui n’est pas le but de ce projet.
 	\section{Exigences fonctionnelles}
 		\subsection{Portée du produit}
-			Il n’y a qu’un seul type d’utilisateur (le client). Le programme est générique, et donc applicable dans toutes sortes de situations.
+			Le programme est générique, et donc applicable dans toutes sortes de situations.
 		\subsection{Exigences fonctionnelles et exigences sur les données}
-			On doit proposer une interface graphique permettant de rentrer les données du problème. De plus il faut trouver un ensemble de solution à ce problème et les afficher dans un fichier Latex avec une représentation de l’évolution des générations (grâce Xfig). 
+			On doit proposer une interface graphique permettant de rentrer les données du problème. De plus, il faut trouver un ensemble de solution à ce problème et les afficher dans un fichier sortie avec une représentation de l’évolution des générations.
 			
 	\section{Exigences non fonctionnelles}
 		\subsection{Ergonomie et convivialité du produit}
@@ -110,7 +106,7 @@
 			Le logiciel doit ainsi procéder à une vérification de tous les champs remplis.
 		
 		\subsection{Maintenance, support, portabilité, installation du produit}
-			Le logiciel se veut simple à installer sous Linux. Il sera aussi fait en sorte que l'on puisse ajouter de nouveaux module au programme simplement.  
+			Le logiciel se veut simple à installer sous Linux. Il sera aussi fait en sorte que l'on puisse ajouter de nouveaux modules au programme simplement.  
 			
 	\section{Organigramme}
 		Voir Organigramme page annexe (Page 7)\\
@@ -187,7 +183,7 @@
 			\>scoremax = $\sum score$\\
 			\>Pour chaque individus on calcule sa valeur (en pourcentage) en fonction du scoremax\\
 			\>Tant qu’on a pas assez d’individu sélectionné\\
-			\>	\>Si l\=e poucentage du premier individu est supérieur à une valeur aléatoire\\
+			\>	\>Si l\=e pourcentage du premier individu est supérieur à une valeur aléatoire\\
 			\>	\>\>il est sélectionné\\
 			\>	\>Pour chaque individu sauf le premier faire :\\
 			\>	\>\>si (l\=e pourcentage de l'individu > à une valeur aléatoire\\ 
@@ -207,7 +203,6 @@
 			\item Ecriture des valeurs dans un fichier\\
 		\end{itemize}
 		
-		Dans tous les modules il faut une fonctionnalité qui lit les valeurs nécessaires dans le fichier des données.
 		
 	\section{Autres aspects du projet}
 		\subsection{Estimation des coûts du projet}			
@@ -234,11 +229,11 @@
 		Un manuel d'utilisation sera fourni pour conseiller à l’utilisateur les données les plus performantes pour avoir des solutions plus efficaces.
 	
 	\section{Conclusion}
-		Pour résoudre les exigences du client, nous avons élaboré un cahier des charges qui décrit les différents dispositifs nécessaire pour conceptualiser un algorithme génétique générique. Dans ce cahier des charges, nous proposons une solution qui permettra au client de simuler des problèmes variés, tels que des problèmes génétiques, mathématiques, d’optimisation, etc., dont les solutions sont approchées et obtenir les résultats pour chaque générations. 
-		Ce sujet nous intéresse tout particulièrement. De plus, l’écriture d’un cahier des charges est un travail inédit pour nous, il nous a permit de travailler en groupe de six personne pour la première fois, cela nous a appris à développer une organisation particulière.\\
-		Le langage qui nous semble le plus adapté est le C++. Nous choisissons un langage hybride. D’une part, nous aurons besoin d’un langage objet pour implémenter les individus. En effet, un individu sera un objet caractérisé par plusieurs champs. Les individus formeront une population qui sera elle aussi un objet. 
-		D’autres part, nous aurons besoin d’un langage procédural afin d’effectuer des calculs sur les individus. Le C++ nous semble également avantageux dans l’utilisation d’un parser (utilisé avec la fonction fitness).
-		Pour cela nous avons fait le choix de prendre un parser déjà existant. En effet le travail à fournir pour écrire notre propre parser nous aurait demandé un temps long et fastidieux ainsi qu'un grand nombre de lignes de codes pour une seule fonction. Nous avons estimé qu'en utilisant un parser existant nous pourrions ainsi mettre à profit le temps gagné pour travailler au mieux notre application.
+		Pour résoudre les exigences du client, nous avons élaboré un cahier des charges qui décrit les différents dispositifs nécessaire pour conceptualiser un algorithme génétique générique. Dans ce cahier des charges, nous proposons une solution qui permettra au client de simuler des problèmes variés, tels que des problèmes génétiques, mathématiques, d’optimisation, etc.
+		Nous avons conclu de ce cahier des charges que le langage le plus adapté pour notre logiciel est le langage C++ car il est hybride.
+		En effet, nous aurons d’une part besoin d’un langage objet pour implémenter les individus qui seront un objet caractérisé par plusieurs champs. Les individus formeront une population qui sera elle aussi un objet. 
+		D’autre part, nous aurons besoin d’un langage procédural afin d’effectuer des calculs sur les individus. Le C++ nous semble également avantageux pour la fonction fitness qui nécessite l'utilisation d'un parser.
+		Cependant, le travail à fournir pour produire notre propre parser nous semble fastidieux, long en terme de temps et de ligne, et qui ne lira au final qu'une seule fonction. Nous avons donc fait le choix d'utiliser un parser déjà existant et de mettre à profit le temps gagné pour se concentrer complètement sur l'application.
 	
 	\section{Bibliographie}
 	\begin{itemize}
