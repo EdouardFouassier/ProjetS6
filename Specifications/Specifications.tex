@@ -27,14 +27,406 @@
 \newpage\clearpage\pagenumbering{arabic}
 	
 	\section{Introduction}
+		L’algorithme génétique (AG) est un algorithme utilisé principalement pour résoudre des problèmes d’optimisation. 
+		Cet algorithme tire son nom de sa particularité à s’inspirer de l’évolution des espèces dans leur cadre naturel.
+		Sur le même principe, un AG va faire évoluer une population dans le but d’en améliorer les individus sur plusieurs générations.
+		De ce fait, à chaque génération c’est un ensemble d’individu qui sera mis en avant et non un seul, représentant un ensemble de solutions au problèmes posé et non une solution unique.
+		Les solutions seront généralement différentes mais auront pour particularité de toutes répondre au problème posé.
+		%~ Un AG peut également être multicritères, comme par exemple dans le cadre des problèmes d’atelier tel que les Flow Shop ou il convient d’optimiser la minimisation des temps et terminaison mais aussi ceux des retards.
+		Un AG peut également être multicritères, comme par exemple dans le cadre de l'optimisation de la ventilation dans le cas d’incendie dans un espace confiné ou il convient de minimiser de la masse de particules aspirées ainsi que la masse totale de gaz inertant injecté.
+		Afin de pouvoir réaliser une application utilisant un AG pour résoudre des problèmes d’optimisation, nous avons élaboré un organigramme qui en défini la structure. 
+		Ce cahier des spécifications regroupe les fonctions, méthodes et classes que nous allons utiliser lors de l’implémentation des différents modules présents dans l'organigramme de notre application.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\section{Fonctionnement de l'organigramme}
-	\section{Interface}		
-	\section{Gestion de validité des données}
-	\section{Initialisation de la population}
-	\section{Evaluation de la population}	
-	\section{Tests d'arrêt}
-	\section{Génération de la nouvelle population}
-	\section{Gestion d'entrées sorties}
+		Voir Organigramme page annexe (Page XX)\\
+		Lors de l'établissement des spécifications, nous nous sommes vus contraint de changer le decoupage de notre organigramme.
+		Avec le découpage initial, nous utilisions des méthodes de la classe du module Génération de la nouvelle population dans les modules "Tests d’arrêt" et "Évaluation de la population" ce qui rendaient ces modules vides.
+		De même pour le module "Gestion de la validité des données".\\
+		L’organigramme que nous utilisions initialement n’était pas adapté au développement de notre application et travailler sur le cahier des spécifications de notre projet nous a permit de nous en rendre compte.\\
+		Nous avons donc revu l’organisation de notre organigramme pour qu’il soit en adéquation avec les spécifications de notre application. 
+		Les modules "Test d’arrêts" et "Évaluation de la population" sont passés dans le module génération de la nouvelle population. Le module "Gestion de la validité des données" est passé dans le module "Gestion d'entrées sorties".\\
+		
+		%~ Le module "Interface" de l’organigramme est constitué d’une classe Interface implémentée avec des méthodes de la librairie graphique Qt.\\
+		%~ Celui de Gestion des entrées sorties est composé des fonctions utilisées pour valider les données entrées par l’utilisateur dans l’interface, écrire ces données dans un fichier ou bien lire un fichier pour y récupérer les données initiales nécessaires. 
+		%~ En plus de cela il permet d’écrire  à chaques itérations la population correspondant à cette itération ainsi que les statistiques qui lui sont associées. 
+		%~ Enfin il est également utilisé afin d’écrire les résultats de l’application dans un fichier LaTeX, PostScript ou Xfig.\\
+		%~ Le module "Initialisation de la population" est composé uniquement de la classe Individu.\\
+		%~ "Génération de la nouvelle population" est composé de la classe Population.
+		
+		L’organigramme que nous utilisions initialement n’était pas adapté au développement de notre application et travailler sur le cahier des spécification de notre projet nous a permit de nous en rendre compte.\\
+		Nous avons donc revu l’organisation de notre organigramme pour qu’il soit en adéquation avec les spécifications de notre application.
+		Les modules test d’arrêt et évaluation sont passés dans le module génération de la nouvelle population.
+		En effet les tests et l’évaluation on un rapport direct avec la génération d’un nouvelle population, qui correspond à une itération de l’AG, il était donc plus judicieux de rassembler ces trois phases en un seul module .\\
+		Le module de validation des données est quant à lui passé dans le module de gestion des entrées sorties puisque les données pour êtres vérifiées doivent être écrites dans un fichier puis lues ensuite.\\
+		Dans cette nouvelle version de l’organigramme, l’interface aura pour rôle :
+		\begin{itemize}
+		\item l’affichage des différents champs de saisie
+		\item la réception des valeurs
+			\begin{itemize}
+				\item par saisie des champs de l’interface
+				\item par fichier
+			\end{itemize}
+			
+		\item les options d’arrêt pendant l'exécution de l’application
+			\begin{itemize}
+				\item arrêt pour arrêter le programme en pleine exécution mais conserver les données
+				\item quitter pour quitter le programme (perte des données)\\
+			\end{itemize}
+		\end{itemize}
+		Le module de gestion des Entrées Sorties aura pour rôle:
+		\begin{itemize}
+				\item l’enregistrement des valeurs entrées dans l’interface dans un fichier
+				\item la vérification de la validité des valeurs rentrées par l’utilisateur
+				\item l’enregistrement des statistiques de l'exécution
+				\item Ecriture des résultat en LaTeX/PostScript/Xfig*\\
+		\end{itemize}
+		Le module d’initialisation de la population aura pour rôle:
+		\begin{itemize}
+				\item la création des individus
+				\item l’évaluation des individus\\
+		\end{itemize}
+		Le module de génération de la nouvelle population aura pour rôle:
+		\begin{itemize}
+				\item La sélection (par roulette)
+				\item le classement des individus de la population
+				\item le crossover et la mutation
+				\item la création de la nouvelle population
+				\item la génération de nombres aléatoires\\
+		\end{itemize}
+		
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section{Modules}
+		Pour faire fonctionner le programme, nous avons besoin de plusieurs choses.\\
+		\\
+		En premier lieu les données initiales, il faut que l'utilisateur entre certaines données du problème à résoudre.\\
+		On a besoin tout d’abord de la taille d’un individu. 
+		Cette donnée spécifie la valeur maximale que peut prendre une solution, par exemple avec des individus codés en binaire de taille 32, on aura des solutions entre 0 et $2^{32}$ -1.\\
+		Il faut aussi le nombre de générations c’est-à-dire le nombre de population que l’AG doit créer avant de s’arrêter.\\
+		Ensuite, on a besoin de connaître la taille d’une population, c’est-à-dire le nombre d’individus qu’il y a dans une population.\\
+		On a besoin aussi de deux probabilités : la probabilité de mutation, c’est-à-dire la probabilité qu’un gène soit modifié, et la probabilité de croisement, c’est-à-dire la probabilité qu’on croise ou pas deux individus. 
+		Si la probabilité de croisement décide que deux individus ne sont pas croisés, cela veut dire qu’on ajoute directement ces deux individus dans la nouvelle population. 
+		On conseille à l’utilisateur de choisir des probabilités petites pour éviter une convergence des résultats prématurée.\\
+		On demande aussi à l’utilisateur d’entrer une ou deux fonction fitness.
+		Ce sont ces fonctions que l’AG va étudier.
+		Chaque fonction fitness est couplée d’un critère, c’est-à-dire qu’on précise si on veut maximiser ou minimiser sur l’intervalle [0, $2^{tailleIndividu}$ -1] ou bien si on veut observer l’évolution de la fonction vers une valeur approchée.
+		Enfin, on demande à l’utilisateur d’entrer le nom de fichier de sortie qu’il souhaite, sous forme de chaîne de caractères sans espaces.
+		On demande aussi quel(s) format(s) souhaite l’utilisateur.
+		Il a le choix entre LaTex, XFig et PostScript, sachant qu’il peut en demander plusieurs.\\
+		\\
+		Nous avons aussi besoin de plusieurs fichiers :\\
+		Un premier qui contient l’ordre des valeurs ainsique leur type (exemple : Probabilité de mutation : float), ce fichier ne change jamais\\
+		Un second dans lequel on enregistre les valeurs initiales, une fois qu’on a écrit dedans, il n’est plus modifié\\
+		Un troisième dans lequel on écrit tous les scores des individus de chaque itération des générations\\
+		Un quatrième qui contient les statistiques\\
+		Et un dernier qui contiendra la population initiale
+		
+		\subsection{Interface}
+			Pour faire l'interface graphique de notre application, nous avons choisi d'utiliser la librairie Qt car elle est facile à utiliser, générique et donne beaucoup de liberté quand à son utilisation. 
+			On peut donner à l’interface l’apparence que l’on veut. 
+			De plus Qt s’utilise à la fois sur Windows, linux et mac OS ce qui permet d'envisager un eventuel portage du programme vers ces systèmes.\\
+			\\
+			Les includes seront principalement les objets de la librairie Qt (par exemple \#include<QPushButton> pour créer des boutons cliquable) mais on aura également le module "Gestion d'entrée sortie" afin d'avoir accès a une fonction.\\
+			\\
+			\underline{\bf Les attributs privée sont :}\\
+				\begin{itemize}
+				\item Les objets issus de la librairie utilisés pour l'interface, par exemple :\\
+					QPushButton *Lancer : Permet de créer le boutons "Lancer" qui permettra de lancer le programme\vspace{0.2cm}
+				\item String fonctionFitness1 : Contient la fonction fitness 1, rentré par l'utilisateur
+				\item String fonctionFitness2 : Contient la fonction fitness 2, rentré par l'utilisateur
+				\item String nomFichierSortie : Contient le nom que l'utilisateur souhaite donner au fichier
+				\item int taillePopulation : Contient la taille de la population, rentré par l'utilisateur
+				\item int tailleIndividu : Contient la taille d'un individu, rentré par l'utilisateur
+				\item int nbGenerationMax : Contient le nombre de génération maximum, rentré par l'utilisateur
+				\item int critereF1 : 1  = maximisation; 2 = minimisation; 3 = valeur approchée
+				\item int critereF2 : 1  = maximisation; 2 = minimisation; 3 = valeur approchée
+				\item float tauxMutation : Contient la valeur du taux de mutation rentré par l'utilisateur
+				\item float tauxCrossover : Contient la valeur du taux de cross-over rentré par l'utilisateur
+				\item float valeurApproxF1 : Contient la valeur approché si l'utilisateur a choisi cette option pour la fonction fitness 1, rentré par l'utilisateur
+				\item float valeurApproxF2 : Contient la valeur approché si l'utilisateur a choisi cette option pour la fonction fitness 2, rentré par l'utilisateur
+				\item bool latex : VRAI si on souhaite que le fichier soit écrit en Latex
+				\item bool xFig : VRAI si on souhaite que le fichier soit écrit en XFig
+				\item bool postScipt : VRAI si on souhaite que le fichier soit écrit en PostScipt\\
+			\end{itemize}
+			\underline{\bf Les méthodes publiques slots de la classe sont :}(Ce sont des methodes qui permettent de connecter des fonction à des elements graphiques)\\
+			\begin{itemize}
+				\item void connectLancer() : Lance le programme quand le bouton associé est appuyé. Permet de connecter le bouton "Lancer" et la fonction ecrireFichierDonnées (Interface interface, String NomFichier) du module "Gestion d'entrées sorties".\vspace{0.2cm}
+				\item void connectQuitter() : Ouvre une fenêtre de confirmation, puis quitte le programme sans sauvegarder le résultat si confirmé.\vspace{0.2cm}
+				\item void connectArreter() : Ouvre une fenêtre de confirmation, puis arrête le programme en sauvegardant le résultat si confirmé. Permet de connecter le bouton "Arreter" avec la fonction ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichier Stats) du module "Gestion d'entrées sorties".\vspace{0.2cm} 
+				\item void connectCharger() : Ouvre le navigateur de fichier pour permettre à l’utilisateur d’indiquer son fichier de paramètre.\vspace{0.2cm}
+				\item void aide() : Ouvre le manuel d’utilisation pour aider l’utilisateur.\\
+			\end{itemize}
+			
+			\underline{\bf Les méthodes publiques de la classe sont :}(Ce sont toutes des fonctions getteurs)\\
+			\begin{itemize}
+				\item String getFontionFitness1() : Retourne la fonction fitness 1
+				\item String getFontionFitness2() : Retourne la fonction fitness 2
+				\item String getNomFichierSortie() : Retourne le nom du fichier de sortie
+				\item int getTaillePopulation() : Retourne la valeur de la taille de la population
+				\item int getTailleIndividu() : Retourne la valeur de la taille des individus
+				\item int getNbGenerationMax() : Retourne la valeur du nombre de génération maximum
+				\item int getCritereF1() : Retourne la valeur du critère de la fonction fitness 1
+				\item int getCritereF2() : Retourne la valeur du critère de la fonction fitness 2
+				\item float getTauxMutation() : Retourne la valeur du taux de mutation
+				\item float getTauxCrossover() : Retourne la valeur du taux de crossover
+				\item float getValeurApproxF1() : Retourne la valeur approcher de la fonction fitness 1 si il y en a une
+				\item float getValeurApproxF2() : Retourne la valeur approcher de la fonction fitness 2 si il y en a une
+				\item bool getLatex() : Retourne la valeur contenue dans la variable latex
+				\item bool getXFig() : Retourne la valeur contenue dans la variable  xFig
+				\item bool getPostScipt() : Retourne la valeur contenue dans la variable  postScipt\\
+			\end{itemize}
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
+		
+		\subsection{Initialisation de la population}
+			Ce module est constitué de la classe Individu.\\
+			\\
+			\underline{\bf Les attributs privés de la classes sont :}\\
+				\begin{itemize}
+				\item int[tailleIndividu] chromosome : Ce tableau stockera l’ensemble des 0 et 1 qui constituent un individu. C’est ce tableau qui sera évalué pour obtenir le score de l’individu.
+				\item int[nombreCritères] score : Ce tableau permettra de stocker le score de l’individu obtenu grâce à la fonction d’évaluation. 
+													Dans le cadre d’un problème multicritère il y aura plusieurs fonctions fitness, et donc plusieurs scores par individu.
+				\item int[nombreCritères] rang : Ce tableau permet de stocker le rang de l’individu qui sera calculé à partir de son score. 
+													Dans le cadre d’un problème multicritère il y aura plusieurs scores, et donc plusieurs rangs par individu. 
+				\item static int tailleIndividu : La taille de l’individu sera donnée par l’utilisateur, elle défini le nombre de 0 et de 1 qui composent un individu.
+				\item static float probaMutation : La probabilité d’une mutation sur le chromosome d’un individu est donné par l’utilisateur. Cette probabilité sera utilisée dans la méthode mutation.
+				\item static int nombreCritères\\
+			\end{itemize}
+			\underline{\bf Les methodes publiques de la classes sont :} (On a besoin des méthodes de la classe Individu dans la classe Population, donc on a besoin que celles-ci soient publiques.)\\\\
+			\textbf{Constructeurs}
+						\begin{itemize}
+							\item Individu() : Constructeur par défaut, individu vide
+							\item Individu (int taille) //Ce constructeur utilise bool probaAlea(float prob) : Cette fonction renvoie VRAI avec une probabilité prob, qui est un nombre flottant entre 0 et 1. 
+								Il l’applique à tous les gènes jusqu’à ce que l’individu soit complet.
+								Cette méthode fait le lien entre le module d’initialisation de la population et celui de génération de la nouvelle population. 
+								En effet pour générer une population il faut créer des individus. 
+								La génération d’une population fera donc appel au constructeur de la classe individu pour pouvoir remplir la population.\\
+						\end{itemize}
+			\textbf{Destructeur}
+					\begin{itemize}
+							\item ~Individu()\\
+					\end{itemize}
+			\textbf{Getteurs}
+					\begin{itemize}
+							\item int[tailleIndividu] getChromosome()
+							\item int getScore(int i) : récupère le score à l’indice i
+							\item int getRang(int i) : récupère le rang à l’indice i
+							\item static int getTailleIndividu()\\
+					\end{itemize}
+			\textbf{Setteurs}
+					\begin{itemize}
+							\item void ajouterGène(int gène, int i) : Ajoute un gène (0 ou 1) à l’emplacement i du tableau chromosome. 
+																	Ce setteur nous sera utile pour la méthode de crossover.
+																	Du coup, on utilise cette méthode dans une autre classe ?? hum…. Stand by pour cette description
+							\item int$[taille_individu]$ setChromosome();
+							\item int setScore(int score, int i) : Affecte à l’indice i du tableau de score la valeur score
+							\item int setRang((int rang, int i) : Affecte à l’indice i du tableau de rang la valeur rang
+							\item static int setTailleIndividu(int tailleIndividu);\\
+					\end{itemize}
+			\textbf{Autres}
+				\begin{itemize}
+							\item Individu codage(int valeur) : Cette méthode de la classe Individu transforme une valeur entière et la renvoie en binaire sous la forme de tableau d’entier.\vspace{0.2cm}
+							\item int décodage(Individu I) : Cette fonction transforme une suite de 0 et de 1 en un entier. Cette fonction sert à obtenir la valeur entière d’un individu.\vspace{0.2cm}
+							\item bool EvaluationIndividu (String fonctionFitness, int indiceScore) : Cette fonction prend une fonction fitness et évalue chaque individu en utilisant celle-ci (ce paramètre sera récupéré grâces aux getteurs de la classe Population). 
+																									Elle prend également un indice correspondant  au score de l’individu afin de pouvoir, dans le cadre d’un problème multicritère, stocker un score par critère. 
+																									La valeur obtenue grâce la fonction fitness correspondra au score de l’individu et sera écrite dans le tableau des scores à l’indice correspondant à celui passé en paramètre.
+																									Renvoie VRAI s’il n’y a pas eu de problème lors de l’évaluation, FAUX sinon. Cette fonction est appelée par la méthode Evaluation de la classe Population.
+																									Cette méthode fait le lien entre le module d’Initialisation de la population et celui de lGénération de la nouvelle population.
+																									En effet pour générer une population il faut en évaluer les individus afin de sélectionner uniquement un certain nombre (afin que la taille de la population soit toujours la même). 
+																									Cette sélection se fait grâce au score des individus.\vspace{0.2cm}
+							\item *Int mutation(int gene, float prob) : Cette fonction prend en paramètre un gène, c’est à dire une case du tableau chromosome, et une probabilité (cette probabilité appartient à l’intervalle [0; 1]).
+																		Elle utilise la méthode probaAlea(float prob), si la méthode renvoie VRAI, alors on modifie le gène et on le renvoie.
+																		Sinon, on renvoie le gène sans modification.\vspace{0.2cm}
+							\item bool probaAlea(float prob) : Cette fonction renvoie VRAI avec une probabilité prob, qui est un nombre flottant entre 0 et 1.\vspace{0.2cm}
+							\item double calculfitness (const char *c, double x) : Cette fonction prend la fonction fitness en argument et la valeur de x et renvoie la solution du calcul. 
+								Cette fonction utilisera le parser tinyexpr développé par Lewis Van Winkle. 
+								C’est un parser simple et rapide, supportant toutes les formules dont nous avons besoin (racine carré, sin, cos etc…) et facilement adaptable à notre projet. 
+								C’est pourquoi nous l’avons choisi.\\
+					\end{itemize}
+		
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%			
+		\subsection{Génération de la nouvelle population}
+			Ce module est constitué de la classe Population.\\
+			\\
+			\underline{\bf Les attributs privés de la classes sont :}\\
+				\begin{itemize}
+				\item static int nombreIndividus
+				\item static int nombreCritère
+				\item individu[nombreIndividus] ensemble
+				\item static int numéroGeneration
+				\item static int[nombreCritères] critères : 1  = maximisation; 2 = minimisation; 3 = valeur approchée.
+				\item static float valeurApprochée : Si un des critères correspond a une valeur approchée, on stocke la valeur à atteindre ici
+				\item static String fitness1 : On limite le problème multicritères à 2 critères
+				\item static String fitness2
+				\item static int nombreGenerationMax
+				\item static float probaCroisement\\
+			\end{itemize}
+			\underline{\bf Les methodes publiques de la classes sont :} (Dans le main qui lancera l’AG on a besoin de la méthode qui creergénération() et on a ausi besoin de pouvoir évaluer la population, donc on a besoin que les méthodes de Population soient publiques.)\\\\
+			\textbf{Constructeurs}
+						\begin{itemize}
+							\item Population() : Défaut, créer une population sans individu
+							\item Population(Population p) : Copie p dans la population créée
+							\item Population(String nomFichierDonnées) : Crée une population avec les données initiales et utilise le constructeur de la classe Individu pour remplir la population de manière aléatoire\\
+						\end{itemize}
+			\textbf{Destructeur}
+					\begin{itemize}
+							\item ~Population()\\
+					\end{itemize}
+			\textbf{Getteurs}
+					\begin{itemize}
+							\item int getNombresIndividus()
+							\item individu[nombreIndividus] getEnsemble()
+							\item int getnumeroGeneration()
+							\item String getFitness1()
+							\item String getFitness2()
+							\item float getValeurApprochée()\\
+					\end{itemize}
+			\textbf{Setteurs}
+					\begin{itemize}
+							\item void setNombresIndividus (int nombre individu)
+							\item individu[nombreIndividus] setEnsemble() : Cette fonction ajoute un individu à l’indice i dans l’ensemble de la population.
+																			Elle doit vérifier que la population n’est pas pleine.
+							\item void setnumeroGeneration (int numeroGeneration)
+							\item void setFitness1(String fitness1)
+							\item void setFitness2(String fitness2)
+							\item void setValeurApprochée(float valeurApprochee)
+							\item void setProbaCroisement(float probaCroisement)
+							\item void setNombreGenerationMax (int nombreGenerationMax)\\
+					\end{itemize}
+			\textbf{Tests}
+				\begin{itemize}
+							\item Population TestArret() :  Cette fonction teste si on doit continuer à itérer l’algorithme génétique ou non. 
+								On teste l’arrêt avec les deux fonctions ci-dessous. 
+								Si les deux fonctions renvoient VRAI, on continue l’itération de l’AG et on envoie la population au module de Gestion d’entrées/sorties pour qu’il écrive les scores dans le fichier. 
+								Sinon la population est envoyée uniquement au module de gestion d’entrées/sorties.\vspace{0.2cm}
+								\begin{itemize}
+								\item bool TestNombreGénération() : Cette fonction teste si on a atteint le nombre d’itérations que souhaite l’utilisateur.
+									Elle renvoie VRAI si la valeur n’est pas atteinte, FAUX sinon.\vspace{0.2cm}
+								\item bool TestConvergence() : L'objectif est de tester la convergence de la population étudiée. Il utilise static int numéro$\_$generation pour retrouver les générations qu'il doit étudier.
+															TestConvergence renvoie VRAI si une des deux conditions suivantes est rempli.
+															Sinon il renvoie FAUX.Dans un premier temps il vérifie les critères.
+															Si parmis les critères il y a la recherche d’une valeur approchée alors il lit cette valeur entrée par l'utilisateur.
+															Il va comparer cette valeur avec la moyenne réduite des scores de la population actuelle.
+															Si les deux sont identiques (+/- 1,5$\%$), il renvoie VRAI.Ensuite on va lire les moyennes réduites des 10 générations précédente et la comparer avec celle de la population actuelle.
+															Si plus de quatre moyennes réduites consécutives sont égale(+/- 1,5$\%$) à celle de la population actuelle on renvoie VRAI.\vspace{0.2cm}
+								\end{itemize}
+							
+							\item Bool TestPopRemplie() : Cette fonction teste la taille de la population. Si la population est remplie, c’est-à-dire si sa tailel est la taille maximum d’une population, elle renvoie VRAI, sinon FAUX.\vspace{0.2cm}
+					
+					\end{itemize}
+				
+			\textbf{Autres}
+				\begin{itemize}
+							\item Population Evaluation() : Cette fonction sert à donner un rang à chaque individu pour faciliter la sélection. 
+								Elle appelle EvaluationIndividu puis PopulationTri pour pouvoir se servir du score des individus et établir un classement. 
+								Elle ne prend pas de paramètre puisque toutes les données nécessaires sont des attributs de la classe population. 
+								Elle renvoie une population où chaque individu se sera vu attribuer un rang en fonction des critère à évaluer (maximisation, minimisation ou obtention d’une valeur approchée).\vspace{0.2cm}
+								\begin{itemize}
+								\item bool TriPopulation (int indiceScore) : Cette fonction prend un indice afin de savoir à quel score se référer. 
+									Elle permet de trier les individus de la population dans l’ordre croissant de leur score.\vspace{0.2cm}
+								\end{itemize}
+							
+							\item Individu Sélectionner() : Cette fonction sélectionne un individu parmi la population et le renvoie. 
+								Elle utilise l’algorithme de sélection par roulette décrit dans le cahier des charges.\vspace{0.2cm}
+								
+							\item Population crossover(Individu Parent1, Individu Parent2) : Cette fonction prend deux individus (obtenue préalablement avec la méthode individu Sélectionner() ), les croise pour en créer deux nouveaux et renvoie la population enrichie de ces deux individus. 
+								Elle utilise la fonction nombreAlea(int inf, int sup) pour déterminer le point de croisement, c’est-à-dire un entier entre 1 et la taille de l’individu, pour pouvoir créer les nouveaux individus en croisant les moitiés des deux individus.
+								Avant de copier les gènes dans les nouveaux individus, on les entre un par un dans la fonction mutation(int gène, float prob). 
+								Les deux nouveaux individus sont ajoutés directement dans la population  avec la fonction addIndividu.\vspace{0.2cm}
+							
+							\item *Population créerGénération(Population P) : Cette fonction crée une nouvelle population à partir d’une population P.
+								Tout d’abord, elle crée une nouvelle population vide grâce au constructeur de la classe. 
+								Ensuite, elle utilise la fonction crossover(Individu Parent1, Individu Parent2) dont les deux individus sont sélectionnés par la fonction Sélectionner(), pour créer deux nouveaux individus et les ajouter dans la population qu’on vient de créer.
+								On continue d’utiliser le crossover jusqu’à ce que la nouvelle population soit pleine.\vspace{0.2cm}
+							
+							\item Int nombreAlea(int inf, int sup) : Cette fonction sélectionne aléatoirement un entier entre inf et sup.
+					\end{itemize}
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
+		\subsection{Gestion d'entrées sorties}
+			Ce module constitue la partie procédurale du programme.\\
+			\underline{\bf Pour la validation}, on utilisera les methodes suivantes :\\
+			\begin{itemize}
+				\item String testCoherenceDonnéees (String nomFichier) : C’est la fonction qui s’occupe de tester les valeurs entrées par l’utilisateur en vérifiant que chaque donnée correspond bien au type qu’elle est censée avoir. 
+					Elle prend en entrée le nom du fichier où sont écrites les valeurs et renvoie le nom du fichier si les valeurs sont correctes, sinon il doit renvoyer un message d’erreur. 
+					Pour vérifier le type, on a un fichier où sont écrits pour chaque donnée son nom et le type qu’elle doit avoir.\\
+					Elle utilise les 5 fonctions qui suivent. On souhaite que le programme puisse entrer dans les fonctions même si les valeurs ne sont pas du bon type, donc les paramètres sont auto.\vspace{0.2cm}
+				\item bool estEntierPositif (auto valeur) : Cette fonction prend une valeur et renvoie VRAI si la valeur est un entier positif FAUX sinon.\vspace{0.2cm}
+				\item bool estFloatPositif (auto valeur) : Cette fonction prend une valeur et renvoie VRAI si la valeur est un nombre flottant positif FAUX sinon.\vspace{0.2cm}
+				\item bool estProbabilité (auto valeur) : Cette fonction prend une valeur et renvoie VRAI si la valeur est un nombre flottant entre 0 et 1, FAUX sinon.\vspace{0.2cm}
+				\item bool estString (auto nom) : 	Cette fonction prend une valeur et renvoie VRAI si la valeur est une chaîne de caractère, FAUX sinon.\vspace{0.2cm}
+				\item bool estParsable (String fonction) : Cette fonction prend une chaîne de caractère qui correspond à la fonction fitness et renvoie VRAI si la fonction est correcte, FAUX sinon. On dira qu’une fonction est correcte si elle a uniquement 1 variable qui devra toujours être noté x, s’il n’y a pas de division par 0, si elle est correctement parenthésée et si les opérateurs binaires ont bien une opérande de part et d’autre. De plus on vérifie que les fonctions supportées soit bien orthographiés : log, sin, cos, sqrt, pow, exp, log10, tan et fac.  Un exemple de fonction fitness pourrait être : cos(x)+4*x-5.\\
+			\end{itemize}
+			
+			\underline{\bf Pour la lecture}, on utilisera les methodes suivantes :\\
+			\begin{itemize}
+				\item int[3] lireStats (File* F ) : Cette fonction prend en entrée le fichier où se trouvent les statistiques d’exécution de l’algorithme et renvoie un tableau de taille 3 contenant la moyenne, le minimum et le maximum des scores de la ligne où se trouve le pointeur F.\vspace{0.2cm}
+				\item float[3] lireInfoRegen(String nomFichier) : lis le fichier des DI et renvoie un tableau comportant en 0 le taux de crossover et en 1 le taille de la population, en  le nombre de critères.
+					Cette fonction fait le lien entre le module de gestion des Entrées Sorties et celui de génération de la nouvelle population.
+					Elle permet de lire dans le fichier de données les valeurs nécessaires à la création d’une population.\vspace{0.2cm}
+				\item float[3] lireInitialisation (String nomFichier) : lis le fichier des DI et renvoie un tableau comportant en 0 nombre de critère, en 1 la taille d’un individu et en 2 le taux de mutation.Cette fonction fait le lien entre le module de gestion des Entrées Sorties et celui d’initialisation de la population. 
+					Elle permet de lire dans le fichier de données les valeurs nécessaires à la création d’un individu.\vspace{0.2cm}
+				\item int lireScoreIndividu(String nomFichierPopulation, int génération, int indice) : Cette fonction va nous permettre ?????????\\
+			\end{itemize}
+			
+			\underline{\bf Pour l'écriture}, on utilisera les méthodes suivantes :\\
+			\begin{itemize}
+				\item bool ecrireFichierDonnées (Interface interface, String NomFichier) : Cette fonction écrit dans le fichier Interface.nomFichier les données entrées dans l’interface par l’utilisateur. 
+					C’est l’interface qui fournit à la fonction le nom du fichier où les données doivent être écrites, et un tableau qui contient les données dans l’ordre qu’on a choisi. 
+					Elle renvoie FAUX s’il y a une erreur lors de l’écriture, VRAI sinon.\\
+					Cette fonction permet de faire le lien entre le module de l’Interface et celui de gestion des Entrées Sorties en prenant les valeurs rentrées par l’utilisateur en paramètre ainsi qu’un nom de fichier prédéfini afin de créer un fichier dans l’objectif de stocker les données.\vspace{0.2cm}
+				\item bool ecrirePopulation (Population P, String nomFichier) : Cette fonction prend comme argument une population et le nom d’un fichier. 
+					Elle se charge d’écrire les scores de chaque individu de la population P dans le fichier nomFichier. 
+					Elle sera appelée à chaque création d’une nouvelle population, il faut donc aussi écrire de quelle itération de l’algorithme il s’agit, valeur qu’on trouve dans la classe Population.\\
+					Cette fonction permet de faire le lien entre le module de génération de la nouvelle population et celui de gestion des Entrées Sorties. 
+					Elle prend en paramètre une population ainsi que le nom du fichier contenant les résultats de l’application et écrit la population dans le fichier. 
+					Cela permet de garder une trace de toute l’execution de l’application et d’analyser les données.\vspace{0.2cm}
+				\item bool calculerEcrireStats(Population P, String nomFichierPopulation, String nomFichierStats) : Cette fonction cherche le score minimum, maximum,la moyenne de tous les scores et la moyenne réduite des scores. 
+					Pour cela elle lit dans le fichier où se trouvent les scores, fait les calculs, puis écrit les résultats dans le fichier des statistiques. 
+					Elle récupère le score d’un individu avec int lireScoreIndividu(String nomFichierPopulation, int génération, int indice) qui renvoi le score de l’individu situé à l’indice i de la génération passée en argument dans le fichier nomFichierPopulation.
+					Cette fonction correspond à la fonctionnalité du calcul des statistiques qui seront ensuite utilisées pour décrire l’évolution de l’algorithme dans le fichier de sortie de l’utilisateur.
+					Pour la moyenne réduite des score on veut savoir combien d'extrêmes il faut enlever.
+					Ainsi on fait : (static int nombre$\_$individus) / 5 si c'est pair et (static int nombre$\_$individus - 1) / 5 si c'est impair.
+					Cette fonction permet de faire le lien entre le module de génération de la nouvelle population et celui de gestion des Entrées Sorties. 
+					Elle permet de consigner les statistiques de chaques générations dans un fichier pour pouvoir les exploiter ensuite dans la réalisation d’un graphique.\vspace{0.2cm}
+				\item bool ecrireFichier(string nomFichierSortie, string nomFichierParametre, string nomFichier Stats) : Cette fonction teste quel type de sortie l’utilisateur désire puis fait appel aux 3 fonctions ci-dessous. 
+					Elle utilise le fichier des paramètres et le nom du fichier des statistiques pour la création du fichier final. 
+					Chacune des fonctions renvoie FAUX s’il y a une erreur dans l’écriture. Elles utilisent la fonction lireStats pour remplir le fichier de sortie.\vspace{0.2cm}
+				\item bool ecrireLatex(string nomFichierSortie) : Cette fonction crée un fichier NomFichierSortie.tex.
+					Elle renvoie FAUX s’il y a une erreur lors de l’écriture, VRAI sinon.\vspace{0.2cm}
+				\item bool ecrirePostscript(string nomFichierSortie)  : Cette fonction crée un fichier nomFichierSortie.ps.
+					Elle renvoie FAUX s’il y a une erreur lors de l’écriture, VRAI sinon.\vspace{0.2cm}
+				\item bool écrireXfig(string nomFichierSortie)  : Cette fonction crée un fichier nomFichierSortie.xfig.
+					Elle renvoie FAUX s’il y a une erreur lors de l’écriture, VRAI sinon.\vspace{0.2cm}
+				\item bool écrireUnScore(int score, FILE *F) : écrit un score à l’emplacement du pointeur F.
+					Elle renvoie FAUX s’il y a une erreur lors de l’écriture, VRAI sinon.\\
+			\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
 	\section{Conclusion}
+		L’utilisation du C++ pour le développement de notre application nous permet d’utiliser des notions propres aux langages orientés objets.
+		En premier lieu la notion d’objet, en effet l’interface est dans notre application un objet identifiable.
+		Nous utilisons également des méthodes pour décrire le comportement des objets que nous utilisons.
+		Les individus et les populations qui seront instanciés durant l'exécution de notre application sont également des objets sous forme de classes puisque ce seront deux ensembles d’objets ayant tous le même type dont le comportement sera dicté par les mêmes méthodes.
+		Les attributs de ces deux classes étant privés nous utilisons aussi la notion d’encapsulation afin de ne pas pouvoir modifier d’attributs par inadvertance.
+		La classe population devra durant le déroulement de l’application communiquer avec la classe individu, nous profitons donc de la notion d’envoi de message pour communiquer entre plusieurs objets.
+		La notion d’héritage n’est en revanche pas utilisée puisque les classes Individu et Population n’ont pas le même comportement, il n’est pas utile de créer un lien d’héritage entre les deux.
+		La notion de surcharge est utilisé, notamment pour les constructeurs des classes Individu et Population.
+		Le polymorphisme, la lésion tardive des méthodes et la génériques ne sont en revanche pas utilisé dans notre application.\\
+		Nous avons explicité dans ce cahier des spécifications le contenu de chaque module, ainsi que les liens avec l’organigramme.
+		Nous avons également décrit les types et propriétés des attributs et méthodes de nos classes.
+		L’écriture de cahier des spécifications nous a permis d’approfondir la manière dont nous allons implémenter notre programme.
+		
+	\newpage
+	\section{Annexe}
+		\subsection{Organigramme}
+		\centerline{\includegraphics{OrganigrammeV7.png}}
+		
+		\subsection{Apercu de l'interface}
+		\centerline{\includegraphics{InterfaceExpliquer.png}}
 	
 \end{document}
