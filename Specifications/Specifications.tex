@@ -206,7 +206,7 @@
 						\end{itemize}
 			\textbf{Destructeur}
 					\begin{itemize}
-							\item ~Individu()\\
+							\item $\sim$Individu()\\
 					\end{itemize}
 			\textbf{Getteurs}
 					\begin{itemize}
@@ -273,7 +273,7 @@
 						\end{itemize}
 			\textbf{Destructeur}
 					\begin{itemize}
-							\item ~Population()\\
+							\item $\sim$Population()\\
 					\end{itemize}
 			\textbf{Getteurs}
 					\begin{itemize}
@@ -348,6 +348,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
 		\subsection{Gestion d'entrées sorties}
 			Ce module constitue la partie procédurale du programme.\\
+			\\
 			\underline{\bf Pour la validation}, on utilisera les methodes suivantes :\\
 			\begin{itemize}
 				\item String testCoherenceDonnéees (String nomFichier) : C’est la fonction qui s’occupe de tester les valeurs entrées par l’utilisateur en vérifiant que chaque donnée correspond bien au type qu’elle est censée avoir. 
@@ -404,19 +405,21 @@
 				\item bool écrireUnScore(int score, FILE *F) : écrit un score à l’emplacement du pointeur F.
 					Elle renvoie FAUX s’il y a une erreur lors de l’écriture, VRAI sinon.\\
 			\end{itemize}
+		
+		\subsection{Notions du langage utilisées}
+			L’utilisation du C++ pour le développement de notre application nous permet d’utiliser des notions propres aux langages orientés objets.
+			En premier lieu la notion d’objet, en effet l’interface est dans notre application un objet identifiable.
+			Nous utilisons également des méthodes pour décrire le comportement des objets que nous utilisons.
+			Les individus et les populations qui seront instanciés durant l'exécution de notre application sont également des objets sous forme de classes puisque ce seront deux ensembles d’objets ayant tous le même type dont le comportement sera dicté par les mêmes méthodes.
+			Les attributs de ces deux classes étant privés nous utilisons aussi la notion d’encapsulation afin de ne pas pouvoir modifier d’attributs par inadvertance.
+			La classe population devra durant le déroulement de l’application communiquer avec la classe individu, nous profitons donc de la notion d’envoi de message pour communiquer entre plusieurs objets.
+			La notion d’héritage n’est en revanche pas utilisée puisque les classes Individu et Population n’ont pas le même comportement, il n’est pas utile de créer un lien d’héritage entre les deux.
+			La notion de surcharge est utilisé, notamment pour les constructeurs des classes Individu et Population.
+			Le polymorphisme, la lésion tardive des méthodes et la génériques ne sont en revanche pas utilisé dans notre application.\\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
-	\section{Conclusion}
-		L’utilisation du C++ pour le développement de notre application nous permet d’utiliser des notions propres aux langages orientés objets.
-		En premier lieu la notion d’objet, en effet l’interface est dans notre application un objet identifiable.
-		Nous utilisons également des méthodes pour décrire le comportement des objets que nous utilisons.
-		Les individus et les populations qui seront instanciés durant l'exécution de notre application sont également des objets sous forme de classes puisque ce seront deux ensembles d’objets ayant tous le même type dont le comportement sera dicté par les mêmes méthodes.
-		Les attributs de ces deux classes étant privés nous utilisons aussi la notion d’encapsulation afin de ne pas pouvoir modifier d’attributs par inadvertance.
-		La classe population devra durant le déroulement de l’application communiquer avec la classe individu, nous profitons donc de la notion d’envoi de message pour communiquer entre plusieurs objets.
-		La notion d’héritage n’est en revanche pas utilisée puisque les classes Individu et Population n’ont pas le même comportement, il n’est pas utile de créer un lien d’héritage entre les deux.
-		La notion de surcharge est utilisé, notamment pour les constructeurs des classes Individu et Population.
-		Le polymorphisme, la lésion tardive des méthodes et la génériques ne sont en revanche pas utilisé dans notre application.\\
+	\section{Conclusion}	
 		Nous avons explicité dans ce cahier des spécifications le contenu de chaque module, ainsi que les liens avec l’organigramme.
 		Nous avons également décrit les types et propriétés des attributs et méthodes de nos classes.
 		L’écriture de cahier des spécifications nous a permis d’approfondir la manière dont nous allons implémenter notre programme.
