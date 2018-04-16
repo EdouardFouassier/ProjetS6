@@ -167,7 +167,7 @@
 			\underline{\bf Les méthodes publiques slots de la classe sont :}(Ce sont des méthodes qui permettent de connecter des fonction à des éléments graphiques)\\
 
 			\begin{itemize}
-				\item ??void connectLancer() : Lance le programme quand le bouton associé est appuyé. Permet de connecter le bouton "Lancer" et la fonction ecrireFichierDonnées (Interface interface, String NomFichier) du module "Gestion d'entrées sorties" //lier a initialisation aussi non ?.\vspace{0.2cm}
+				\item void connectLancer() : Lance le programme quand le bouton associé est appuyé. Permet de connecter le bouton "Lancer" et la fonction ecrireFichierDonnées (Interface interface, String NomFichier) du module "Gestion d'entrées sorties".\vspace{0.2cm}
 				\item void connectQuitter() : Ouvre une fenêtre de confirmation, puis quitte le programme sans sauvegarder le résultat si confirmé.\vspace{0.2cm}
 				\item void connectArreter() : Ouvre une fenêtre de confirmation, puis arrête le programme en sauvegardant le résultat si confirmé. Permet de connecter le bouton "Arrêter" avec la fonction ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichier Stats) du module "Gestion d'entrées sorties".\vspace{0.2cm} 
 				\item void connectCharger() : Ouvre le navigateur de fichier pour permettre à l’utilisateur d’indiquer son fichier de paramètre.\vspace{0.2cm}
@@ -278,7 +278,7 @@
 			\end{itemize}
 
 
-			\underline{\bf Les methodes publiques de la classes sont :} ??%(Dans le main qui lancera l’AG on a besoin de la méthode qui creergénération() et on a ausi besoin de pouvoir évaluer la population, donc on a besoin que les méthodes de Population soient publiques.)|| a revoir si on lance l'ag depuis la fenetre\\\\
+			\underline{\bf Les methodes publiques de la classes sont :} (Dans l'interface qui lancera l’AG on a besoin de la méthode creergénération() et on a ausi besoin de pouvoir évaluer la population, donc on a besoin que les méthodes de Population soient publiques.)\\\\
 
 			\textbf{Constructeurs}
 						\begin{itemize}
@@ -320,16 +320,12 @@
 								\begin{itemize}
 								\item bool TestNombreGénération() : Cette fonction teste si on a atteint le nombre d’itérations que souhaite l’utilisateur.
 									Elle renvoie VRAI si la valeur n’est pas atteinte, FAUX sinon.\vspace{0.2cm}
-								\item bool TestConvergence() : Cette fonction vérifie que les dernières populations ne convergent pas, c'est-à-dire que les valeurs n'évoluent plus. %Il utilise static int numéro$\_$generation pour retrouver les générations qu'il doit étudier.	
-								Elle utilise le fichier où sont écrites les statistiques de toutes les générations. Elle va lire en particulier les moyennes réduites des 10 générations précédentes
-															%~ TestConvergence renvoie VRAI si une des deux conditions suivantes est remplie.
-															%~ Sinon il renvoie FAUX.Dans un premier temps il vérifie les critères.
-															%~  Si parmis les critères il y a la recherche d’une valeur approchée alors il lit cette valeur entrée par l'utilisateur.
-															%~ Il va comparer cette valeur avec la moyenne réduite des scores de la population actuelle.
-															%~ Si les deux sont identiques (+/- 1,5$\%$), il renvoie VRAI.Ensuite on va lire les moyennes réduites des 10 générations précédente et la comparer avec celle de la population actuelle.
-															Si plus de quatre moyennes réduites consécutives sont égale(+/- 1,5$\%$) à celle de la population actuelle, on renvoie VRAI.
-
-															Si le critère est de trouver une valeur approchée, alors on compare uniquement la moyenne réduite de la population actuelle et la compare à la valeur entrée par l'utilisateur.\vspace{0.2cm}
+								\item bool TestConvergence() : Cette fonction vérifie que les dernières populations ne convergent pas, c'est-à-dire que les valeurs n'évoluent plus.
+									Cette méthode utilise static int numéro$\_$generation pour retrouver les générations qu'elle doit étudier. Elle utilise le fichier où sont écrites les statistiques de toutes les générations. Elle va lire en particulier les moyennes réduites des 10 générations précédentes
+									TestConvergence renvoie VRAI si une des deux conditions suivantes est remplie. Elle renvoie FAUX sinon. 
+									Dans un premier temps, la méthode vérifie les critères :
+									Si un critère est la recherche d’une valeur approchée, alors la méthode va comparer cette valeur approchée à la moyenne réduite de l’ensemble des individus de la population actuelle. Si elles sont identiques (+/- 1,5$\%$), il renvoie VRAI. Puis, on lira les moyennes réduites de l’ensemble des individus  des 10 générations précédentes et la comparer avec celle de la population actuelle.
+									S’il s’agit de critères de maximisation ou de minimalisation, si au moins les quatre dernières moyennes réduites de l’ensemble des individus des générations précédentes sont égale (+/- 1,5$\%$) à celle de la population actuelle, on renvoie VRAI. \vspace{0.2cm}
 								\end{itemize}
 							
 							\item Bool TestPopRemplie() : Cette fonction teste la taille de la population. Si la population est remplie, c’est-à-dire si sa taille est la taille maximum d’une population, elle renvoie VRAI, sinon FAUX.\vspace{0.2cm}
@@ -363,7 +359,6 @@
 							
 							\item Int nombreAlea(int inf, int sup) : Cette fonction sélectionne aléatoirement un entier entre inf et sup.
 
-							\item fonction de lancement de l'AG
 					\end{itemize}
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
@@ -425,8 +420,8 @@
 					Elle renvoie FAUX s’il y a une erreur lors de l’écriture, VRAI sinon.\vspace{0.2cm}
 				\item bool écrireXfig(string nomFichierSortie)  : Cette fonction crée un fichier nomFichierSortie.xfig.
 					Elle renvoie FAUX s’il y a une erreur lors de l’écriture, VRAI sinon.\vspace{0.2cm}
-				\item ??bool écrireUnScore(int score, FILE *F) : écrit un score à l’emplacement du pointeur F.
-					Elle renvoie FAUX s’il y a une erreur lors de l’écriture, VRAI sinon. ||Vraiment utile ? On ecrit déja la population, les scores sont écrit en même temps non ?\\
+				\item bool écrireUnScore(int score, FILE *F) : écrit un score à l’emplacement du pointeur F.
+					Elle renvoie FAUX s’il y a une erreur lors de l’écriture, VRAI sinon. \\
 			\end{itemize}
 		
 		\subsection{Notions du langage utilisées}
@@ -438,8 +433,7 @@
 			La classe population devra durant le déroulement de l’application communiquer avec la classe individu, nous profitons donc de la notion d’envoi de message pour communiquer entre plusieurs objets.
 			La notion de surcharge est utilisée, notamment pour les constructeurs des classes Individu et Population.
 			La notion d’héritage n’est en revanche pas utilisée puisque les classes Individu et Population n’ont pas le même comportement, il n’est pas utile de créer un lien d’héritage entre les deux.
-			?? Le polymorphisme, la lésion tardive des méthodes et la génériques ne sont en revanche pas utilisé dans notre application. ||si vous avez une idée de justif pour ne pas ajouter ces notions 
-			j'suis preneur, sinon on laisse comme ca\\
+			Le polymorphisme, la lésion tardive des méthodes et la génériques ne sont en revanche pas utilisé dans notre application.\\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
