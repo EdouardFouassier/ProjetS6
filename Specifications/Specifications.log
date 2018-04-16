@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.7)  16 APR 2018 21:57
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.7)  16 APR 2018 22:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1048,6 +1048,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 391--392
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 400--401
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 404--405
 
  []
@@ -1099,7 +1104,7 @@ texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/l
 mr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fo
 nts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb>
 </usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on Specifications.pdf (15 pages, 432828 bytes).
+Output written on Specifications.pdf (15 pages, 432815 bytes).
 PDF statistics:
  95 PDF objects out of 1000 (max. 8388607)
  66 compressed objects within 1 object stream
