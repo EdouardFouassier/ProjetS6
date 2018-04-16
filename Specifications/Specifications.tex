@@ -319,16 +319,12 @@
 								\begin{itemize}
 								\item bool TestNombreGénération() : Cette fonction teste si on a atteint le nombre d’itérations que souhaite l’utilisateur.
 									Elle renvoie VRAI si la valeur n’est pas atteinte, FAUX sinon.\vspace{0.2cm}
-								\item bool TestConvergence() : Cette fonction vérifie que les dernières populations ne convergent pas, c'est-à-dire que les valeurs n'évoluent plus. %Il utilise static int numéro$\_$generation pour retrouver les générations qu'il doit étudier.	
-								Elle utilise le fichier où sont écrites les statistiques de toutes les générations. Elle va lire en particulier les moyennes réduites des 10 générations précédentes
-															%~ TestConvergence renvoie VRAI si une des deux conditions suivantes est remplie.
-															%~ Sinon il renvoie FAUX.Dans un premier temps il vérifie les critères.
-															%~  Si parmis les critères il y a la recherche d’une valeur approchée alors il lit cette valeur entrée par l'utilisateur.
-															%~ Il va comparer cette valeur avec la moyenne réduite des scores de la population actuelle.
-															%~ Si les deux sont identiques (+/- 1,5$\%$), il renvoie VRAI.Ensuite on va lire les moyennes réduites des 10 générations précédente et la comparer avec celle de la population actuelle.
-															Si plus de quatre moyennes réduites consécutives sont égale(+/- 1,5$\%$) à celle de la population actuelle, on renvoie VRAI.
-
-															Si le critère est de trouver une valeur approchée, alors on compare uniquement la moyenne réduite de la population actuelle et la compare à la valeur entrée par l'utilisateur.\vspace{0.2cm}
+								\item bool TestConvergence() : Cette fonction vérifie que les dernières populations ne convergent pas, c'est-à-dire que les valeurs n'évoluent plus.
+									Cette méthode utilise static int numéro$\_$generation pour retrouver les générations qu'elle doit étudier. Elle utilise le fichier où sont écrites les statistiques de toutes les générations. Elle va lire en particulier les moyennes réduites des 10 générations précédentes
+									TestConvergence renvoie VRAI si une des deux conditions suivantes est remplie. Elle renvoie FAUX sinon. 
+									Dans un premier temps, la méthode vérifie les critères :
+									Si un critère est la recherche d’une valeur approchée, alors la méthode va comparer cette valeur approchée à la moyenne réduite de l’ensemble des individus de la population actuelle. Si elles sont identiques (+/- 1,5$\%$), il renvoie VRAI. Puis, on lira les moyennes réduites de l’ensemble des individus  des 10 générations précédentes et la comparer avec celle de la population actuelle.
+									S’il s’agit de critères de maximisation ou de minimalisation, si au moins les quatre dernières moyennes réduites de l’ensemble des individus des générations précédentes sont égale (+/- 1,5$\%$) à celle de la population actuelle, on renvoie VRAI. \vspace{0.2cm}
 								\end{itemize}
 							
 							\item Bool TestPopRemplie() : Cette fonction teste la taille de la population. Si la population est remplie, c’est-à-dire si sa taille est la taille maximum d’une population, elle renvoie VRAI, sinon FAUX.\vspace{0.2cm}
