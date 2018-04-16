@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.3.28)  16 APR 2018 16:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.3.28)  16 APR 2018 16:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -687,18 +687,7 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \c@LT@chunks=\count94
 \LT@p@ftn=\toks26
 )
-(./Specifications.aux
-
-! Package babel Error: You haven't defined the language french yet.
-
-See the babel package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.6 \select@language{french}
-                            
-? 
-)
+(./Specifications.aux)
 \openout1 = `Specifications.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
@@ -720,7 +709,6 @@ File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 21.
 LaTeX Font Info:    Try loading font information for T1+lmr on input line 21.
-
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -864,94 +852,100 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Specifications.toc
-
-! Package babel Error: You haven't defined the language french yet.
-
-See the babel package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1 \select@language {french}
-                             
-? 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 5.
+(Font)              <10.95> on input line 4.
 )
 \tf@toc=\write3
 \openout3 = `Specifications.toc'.
 
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 43--50
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
 
  []
 
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 65.
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--53
+
+ []
+
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 69.
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
 
  []
 
 [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 83--84
+Underfull \hbox (badness 10000) in paragraph at lines 87--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--125
+Underfull \hbox (badness 10000) in paragraph at lines 106--108
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--125
+Underfull \hbox (badness 10000) in paragraph at lines 106--108
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--125
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--125
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 127--134
+Underfull \hbox (badness 10000) in paragraph at lines 127--131
 
  []
 
 
-Overfull \hbox (23.87871pt too wide) in paragraph at lines 127--134
-\T1/lmr/m/n/10.95 Les in-cludes seront prin-ci-pale-ment les ob-jets de la li-b
-rairie Qt (par ex-em-ple #in-clude<QPushButton>
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 127--134
+Underfull \hbox (badness 10000) in paragraph at lines 133--136
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--134
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.138 			L
+          es includes seront principalement les objets de la librairie Qt (p...
+
+? 
+
+Overfull \hbox (40.87871pt too wide) in paragraph at lines 138--142
+[]\T1/lmr/m/n/10.95 Les in-cludes seront prin-ci-pale-ment les ob-jets de la li
+-brairie Qt (par ex-em-ple #in-clude<QPushButton>
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--142
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 153--154
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 159--160
 
  []
@@ -961,43 +955,48 @@ Underfull \hbox (badness 10000) in paragraph at lines 162--163
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
+
+ []
+
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 178--179
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--187
+Underfull \hbox (badness 10000) in paragraph at lines 194--197
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--187
+Underfull \hbox (badness 10000) in paragraph at lines 194--197
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--196
+Underfull \hbox (badness 10000) in paragraph at lines 205--206
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 197--199
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 201--206
+Underfull \hbox (badness 10000) in paragraph at lines 207--209
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 209--210
+Underfull \hbox (badness 10000) in paragraph at lines 219--220
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 216--217
+Underfull \hbox (badness 10000) in paragraph at lines 226--227
 
  []
 
@@ -1008,7 +1007,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.224 							\item
+l.235 							\item
                    void setScore(int score, int i) : Affecte à l’indice i...
 
 ? 
@@ -1019,7 +1018,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.224 							\item v
+l.235 							\item v
                     oid setScore(int score, int i) : Affecte à l’indice i...
 
 ? 
@@ -1030,15 +1029,15 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.224 							\item v
+l.235 							\item v
                     oid setScore(int score, int i) : Affecte à l’indice i...
 
 ? 
 
-LaTeX Warning: Command \` invalid in math mode on input line 224.
+LaTeX Warning: Command \` invalid in math mode on input line 235.
 
 
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 224.
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 235.
 
 
 ! LaTeX Error: Command \item invalid in math mode.
@@ -1047,26 +1046,26 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.225 							\item
+l.236 							\item
                    void setRang((int rang, int i) : Affecte à l’indice i ...
 
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.225 							\item v
+l.236 							\item v
                     oid setRang((int rang, int i) : Affecte à l’indice i ...
 
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.225 							\item v
+l.236 							\item v
                     oid setRang((int rang, int i) : Affecte à l’indice i ...
 
 ? 
 
-Overfull \hbox (213.70369pt too wide) in paragraph at lines 223--225
+Overfull \hbox (213.70369pt too wide) in paragraph at lines 234--236
 []\T1/lmr/m/n/10.95 void setChro-mo-some(int $\OT1/lmr/m/n/10.95 [\OML/lmm/m/it
 /10.95 tailleIndividu\OT1/lmr/m/n/10.95 ]\OML/lmm/m/it/10.95 chromosome\OT1/lmr
 /m/n/10.95 ); \OML/lmm/m/it/10.95 voidsetScore\OT1/lmr/m/n/10.95 (\OML/lmm/m/it
@@ -1077,42 +1076,22 @@ Overfull \hbox (213.70369pt too wide) in paragraph at lines 223--225
 ! Extra }, or forgotten \endgroup.
 \par ...m \@noitemerr {\@@par }\fi \else {\@@par }
                                                   \fi 
-l.225 							\item v
+l.236 							\item v
                     oid setRang((int rang, int i) : Affecte à l’indice i ...
 
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--227
+Underfull \hbox (badness 10000) in paragraph at lines 237--238
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 243--247
+Underfull \hbox (badness 10000) in paragraph at lines 263--266
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 252--255
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 252--255
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 265--266
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 267--269
-
- []
-
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 272--273
+Underfull \hbox (badness 10000) in paragraph at lines 263--266
 
  []
 
@@ -1122,58 +1101,73 @@ Underfull \hbox (badness 10000) in paragraph at lines 276--277
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 285--286
+Underfull \hbox (badness 10000) in paragraph at lines 279--280
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 297--298
+Underfull \hbox (badness 10000) in paragraph at lines 279--280
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 286--287
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--291
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 299--300
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 311--312
 
  []
 
 [8]
-Overfull \hbox (12.15335pt too wide) in paragraph at lines 306--308
+Overfull \hbox (12.15335pt too wide) in paragraph at lines 320--322
 []\T1/lmr/m/n/10.95 bool Test-Nom-breG�n�ra-tion() : Cette fonc-tion teste si o
 n a at-teint le nom-bre d'it�rations
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 350--353
+Underfull \hbox (badness 10000) in paragraph at lines 367--370
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 350--353
+Underfull \hbox (badness 10000) in paragraph at lines 367--370
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--363
+Underfull \hbox (badness 10000) in paragraph at lines 379--380
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 382--383
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 365--366
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 373--374
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 376--377
+Underfull \hbox (badness 10000) in paragraph at lines 395--396
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 405--407
+Underfull \hbox (badness 10000) in paragraph at lines 424--426
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--420
+Underfull \hbox (badness 10000) in paragraph at lines 429--439
 
  []
 
@@ -1181,27 +1175,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 410--420
 <OrganigrammeV7.png, id=62, 608.2725pt x 434.62375pt>
 File: OrganigrammeV7.png Graphic file (type png)
 <use OrganigrammeV7.png>
-Package pdftex.def Info: OrganigrammeV7.png  used on input line 432. on input l
-ine 432.
+Package pdftex.def Info: OrganigrammeV7.png  used on input line 450. on input l
+ine 450.
 Package pdftex.def Info: Requested size: 608.27103pt x 434.62268pt on input lin
-e 432.
+e 450.
 <InterfaceExpliquer.png, id=64, 484.81125pt x 538.26094pt>
 File: InterfaceExpliquer.png Graphic file (type png)
 <use InterfaceExpliquer.png>
-Package pdftex.def Info: InterfaceExpliquer.png  used on input line 435. on inp
-ut line 435.
+Package pdftex.def Info: InterfaceExpliquer.png  used on input line 453. on inp
+ut line 453.
 Package pdftex.def Info: Requested size: 484.81006pt x 538.25963pt on input lin
-e 435.
+e 453.
  [14 <./OrganigrammeV7.png>] [15 <./InterfaceExpliquer.png>]
 (./Specifications.aux) ) 
 Here is how much of TeX's memory you used:
- 3741 strings out of 494931
- 50290 string characters out of 6180851
- 101961 words of memory out of 5000000
- 6942 multiletter control sequences out of 15000+600000
+ 3739 strings out of 494931
+ 50274 string characters out of 6180851
+ 100961 words of memory out of 5000000
+ 6940 multiletter control sequences out of 15000+600000
  44587 words of font info for 45 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 41i,7n,26p,677b,207s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,7n,26p,741b,205s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/us
 r/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvip
 s/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texm
@@ -1212,7 +1206,7 @@ sr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/pu
 blic/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share
 /texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/l
 msy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb>
-Output written on Specifications.pdf (17 pages, 440498 bytes).
+Output written on Specifications.pdf (17 pages, 439738 bytes).
 PDF statistics:
  112 PDF objects out of 1000 (max. 8388607)
  79 compressed objects within 1 object stream
