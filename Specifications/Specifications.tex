@@ -117,11 +117,11 @@
 		Il a le choix entre LaTex, XFig et PostScript, sachant qu’il peut en demander plusieurs.\\
 		\\
 		Nous avons aussi besoin de plusieurs fichiers :\\
-		Un premier qui contient l’ordre des valeurs ainsi que leur type (exemple : Probabilité de mutation : float), ce fichier ne change jamais\\
+		??Un premier qui contient l’ordre des valeurs ainsique leur type (exemple : Probabilité de mutation : float), ce fichier ne change jamais\\
 		Un second dans lequel on enregistre les valeurs initiales, une fois qu’on a écrit dedans, il n’est plus modifié\\
 		Un troisième dans lequel on écrit tous les scores des individus de chaque itération des générations\\
 		Un quatrième qui contient les statistiques\\
-		Et un dernier qui contiendra la population initiale
+		??Et un dernier qui contiendra la population initiale
 		
 		\subsection{Interface}
 			Pour faire l'interface graphique de notre application, nous avons choisi d'utiliser la librairie Qt car elle est facile à utiliser, générique et donne beaucoup de liberté quant à son utilisation. 
@@ -152,7 +152,7 @@
 			\end{itemize}
 			\underline{\bf Les méthodes publiques slots de la classe sont :} (Ce sont des methodes qui permettent de connecter des fonctions à des élements graphiques)\\
 			\begin{itemize}
-				\item void connectLancer() : Lance le programme quand le bouton associé est appuyé. Permet de connecter le bouton "Lancer" et la fonction ecrireFichierDonnées (Interface interface, String NomFichier) du module "Gestion d'entrées sorties".\vspace{0.2cm}
+				\item ??void connectLancer() : Lance le programme quand le bouton associé est appuyé. Permet de connecter le bouton "Lancer" et la fonction ecrireFichierDonnées (Interface interface, String NomFichier) du module "Gestion d'entrées sorties" //lier a initialisation aussi non ?.\vspace{0.2cm}
 				\item void connectQuitter() : Ouvre une fenêtre de confirmation, puis quitte le programme sans sauvegarder le résultat si confirmé.\vspace{0.2cm}
 				\item void connectArreter() : Ouvre une fenêtre de confirmation, puis arrête le programme en sauvegardant le résultat si confirmé. Permet de connecter le bouton "Arreter" avec la fonction ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichier Stats) du module "Gestion d'entrées sorties".\vspace{0.2cm} 
 				\item void connectCharger() : Ouvre le navigateur de fichier pour permettre à l’utilisateur d’indiquer son fichier de paramètre.\vspace{0.2cm}
@@ -217,13 +217,13 @@
 					\end{itemize}
 			\textbf{Setteurs}
 					\begin{itemize}
-							\item void ajouterGène(int gène, int i) : Ajoute un gène (0 ou 1) à l’emplacement i du tableau chromosome. 
+							\item ??void ajouterGène(int gène, int i) : Ajoute un gène (0 ou 1) à l’emplacement i du tableau chromosome. 
 																	Ce setteur nous sera utile pour la méthode de crossover.
 																	Du coup, on utilise cette méthode dans une autre classe ?? hum…. Stand by pour cette description
-							\item int$[taille_individu]$ setChromosome();
-							\item int setScore(int score, int i) : Affecte à l’indice i du tableau de score la valeur score
-							\item int setRang((int rang, int i) : Affecte à l’indice i du tableau de rang la valeur rang
-							\item static int setTailleIndividu(int tailleIndividu);\\
+							\item void setChromosome(int $[tailleIndividu] chromosome);
+							\item void setScore(int score, int i) : Affecte à l’indice i du tableau de score la valeur score
+							\item void setRang((int rang, int i) : Affecte à l’indice i du tableau de rang la valeur rang
+							\item void setTailleIndividu(int tailleIndividu);\\
 					\end{itemize}
 			\textbf{Autres}
 				\begin{itemize}
@@ -264,7 +264,7 @@
 				\item static int nombreGenerationMax
 				\item static float probaCroisement\\
 			\end{itemize}
-			\underline{\bf Les methodes publiques de la classes sont :} (Dans le main qui lancera l’AG on a besoin de la méthode creergeneration() et aussi de pouvoir évaluer la population, donc on a besoin que les méthodes de Population soient publiques.)\\\\
+			\underline{\bf Les methodes publiques de la classes sont :} ??(Dans le main qui lancera l’AG on a besoin de la méthode qui creergénération() et on a ausi besoin de pouvoir évaluer la population, donc on a besoin que les méthodes de Population soient publiques.)|| a revoir si on lance l'ag depuis la fenetre\\\\
 			\textbf{Constructeurs}
 						\begin{itemize}
 							\item Population() : Défaut, créer une population sans individu
@@ -370,7 +370,7 @@
 					Elle permet de lire dans le fichier de données les valeurs nécessaires à la création d’une population.\vspace{0.2cm}
 				\item float[3] lireInitialisation (String nomFichier) : lis le fichier des DI et renvoie un tableau comportant en 0 nombre de critère, en 1 la taille d’un individu et en 2 le taux de mutation.Cette fonction fait le lien entre le module de gestion des Entrées Sorties et celui d’initialisation de la population. 
 					Elle permet de lire dans le fichier de données les valeurs nécessaires à la création d’un individu.\vspace{0.2cm}
-				\item int lireScoreIndividu(String nomFichierPopulation, int génération, int indice) : Cette fonction va nous permettre ?????????\\
+				\item ??int lireScoreIndividu(String nomFichierPopulation, int génération, int indice) : Cette fonction va nous permettre ?????????\\
 			\end{itemize}
 			
 			\underline{\bf Pour l'écriture}, on utilisera les méthodes suivantes :\\
@@ -402,8 +402,8 @@
 					Elle renvoie FAUX s’il y a une erreur lors de l’écriture, VRAI sinon.\vspace{0.2cm}
 				\item bool écrireXfig(string nomFichierSortie)  : Cette fonction crée un fichier nomFichierSortie.xfig.
 					Elle renvoie FAUX s’il y a une erreur lors de l’écriture, VRAI sinon.\vspace{0.2cm}
-				\item bool écrireUnScore(int score, FILE *F) : écrit un score à l’emplacement du pointeur F.
-					Elle renvoie FAUX s’il y a une erreur lors de l’écriture, VRAI sinon.\\
+				\item ??bool écrireUnScore(int score, FILE *F) : écrit un score à l’emplacement du pointeur F.
+					Elle renvoie FAUX s’il y a une erreur lors de l’écriture, VRAI sinon. ||Vraiment utile ? On ecrit déja la population, les scores sont écrit en même temps non ?\\
 			\end{itemize}
 		
 		\subsection{Notions du langage utilisées}
@@ -415,7 +415,9 @@
 			La classe population devra durant le déroulement de l’application communiquer avec la classe individu, nous profitons donc de la notion d’envoi de message pour communiquer entre plusieurs objets.
 			La notion d’héritage n’est en revanche pas utilisée puisque les classes Individu et Population n’ont pas le même comportement, il n’est pas utile de créer un lien d’héritage entre les deux.
 			La notion de surcharge est utilisé, notamment pour les constructeurs des classes Individu et Population.
-			Le polymorphisme, la lésion tardive des méthodes et la génériques ne sont en revanche pas utilisé dans notre application.\\
+			?? Le polymorphisme, la lésion tardive des méthodes et la génériques ne sont en revanche pas utilisé dans notre application. ||si vous avez une idée de justif pour ne pas ajouter ces notions 
+			j'suis preneur, sinon on laisse comme ca\\
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
