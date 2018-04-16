@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.7)  16 APR 2018 20:43
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.7)  16 APR 2018 20:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -830,34 +830,29 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \openout3 = `Specifications.toc'.
 
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 46--47
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 48--54
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--81
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 93--94
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
 
  []
 
 [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
 
  []
 
@@ -917,7 +912,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 166--167
 
  []
 
-
+[3]
 Underfull \hbox (badness 10000) in paragraph at lines 173--174
 
  []
@@ -927,7 +922,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 176--177
 
  []
 
-[3]
+
 Underfull \hbox (badness 10000) in paragraph at lines 192--193
 
  []
@@ -968,57 +963,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 236--237
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 261--264
+Underfull \hbox (badness 10000) in paragraph at lines 259--262
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--264
+Underfull \hbox (badness 10000) in paragraph at lines 259--262
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 274--275
+Underfull \hbox (badness 10000) in paragraph at lines 272--273
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 278--279
+Underfull \hbox (badness 10000) in paragraph at lines 276--277
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 278--279
+Underfull \hbox (badness 10000) in paragraph at lines 276--277
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--285
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 288--289
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 297--298
+Underfull \hbox (badness 10000) in paragraph at lines 286--287
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 309--310
+Underfull \hbox (badness 10000) in paragraph at lines 295--296
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 307--308
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 367--370
+Underfull \hbox (badness 10000) in paragraph at lines 364--367
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 367--370
+Underfull \hbox (badness 10000) in paragraph at lines 364--367
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 376--377
 
  []
 
@@ -1027,29 +1027,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 379--380
 
  []
 
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 382--383
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 395--396
+Underfull \hbox (badness 10000) in paragraph at lines 392--393
 
  []
 
 [9]
-Overfull \hbox (6.76355pt too wide) in paragraph at lines 415--418
+Overfull \hbox (6.76355pt too wide) in paragraph at lines 412--415
 []\T1/lmr/bx/n/10.95 bool ecri-re-Fi-chier(string nom-Fi-chier-Sor-tie, string 
 nom-Fi-chier-Pa-ra-metre, string
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 424--426
+Underfull \hbox (badness 10000) in paragraph at lines 421--423
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 429--438
+Underfull \hbox (badness 10000) in paragraph at lines 426--435
 
  []
 
@@ -1057,25 +1052,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 429--438
 File: OrganigrammeV7.png Graphic file (type png)
 
 <use OrganigrammeV7.png>
-Package pdftex.def Info: OrganigrammeV7.png used on input line 449.
+Package pdftex.def Info: OrganigrammeV7.png used on input line 445.
 (pdftex.def)             Requested size: 608.27103pt x 434.62268pt.
 
 <InterfaceExpliquer.png, id=55, 484.81125pt x 538.26094pt>
 File: InterfaceExpliquer.png Graphic file (type png)
 
 <use InterfaceExpliquer.png>
-Package pdftex.def Info: InterfaceExpliquer.png used on input line 452.
+Package pdftex.def Info: InterfaceExpliquer.png used on input line 448.
 (pdftex.def)             Requested size: 484.81006pt x 538.25963pt.
  [12 <./OrganigrammeV7.png>] [13 <./InterfaceExpliquer.png>] (./Specifications.
 aux) ) 
 Here is how much of TeX's memory you used:
  5505 strings out of 494999
  75799 string characters out of 6180229
- 144273 words of memory out of 5000000
+ 143273 words of memory out of 5000000
  8588 multiletter control sequences out of 15000+600000
  44991 words of font info for 45 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,7n,26p,750b,223s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,7n,26p,750b,279s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/font
 s/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/u
 sr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/publi
@@ -1084,7 +1079,7 @@ texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/l
 mr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fo
 nts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb>
 </usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on Specifications.pdf (15 pages, 432534 bytes).
+Output written on Specifications.pdf (15 pages, 432633 bytes).
 PDF statistics:
  95 PDF objects out of 1000 (max. 8388607)
  66 compressed objects within 1 object stream

@@ -34,7 +34,8 @@
 		Les solutions seront généralement différentes mais auront pour particularité de toutes répondre au problème posé.
 		%~ Un AG peut également être multicritères, comme par exemple dans le cadre des problèmes d’atelier tel que les Flow Shop ou il convient d’optimiser la minimisation des temps et terminaison mais aussi ceux des retards.
 
-		Un AG peut également dépendre de plus d'un critère, comme par exemple dans le cadre de l'optimisation de la ventilation dans le cas d’un incendie dans un espace confiné où il convient de minimiser la masse de particules aspirées ainsi que la masse totale de gaz inertant injecté.
+		Un AG peut également dépendre de plus d'un critère, comme par exemple dans le cadre de l'optimisation de la ventilation dans le cas d’un incendie dans un espace confiné où il convient de minimiser la masse de particules aspirées par le système d'aération ainsi que la masse totale de gaz inertant injecté.
+
 		Dans le cadre de notre projet de Semestre 6 de notre licence Informatique, nous devont produire un logiciel utilisant un algorithme génétique dans lequel un utilisateur peut entrer les données de son problème dans une interface graphique et obtenir le résultat de celui-ci en sortie. Le logiciel se doit donc d'être générique pour s'adapter à un maximum de problèmes.
 		%~ Afin de pouvoir réaliser une application utilisant un AG pour résoudre des problèmes d’optimisation, nous avons élaboré un organigramme qui en défini la structure. 
 		Ce cahier des spécifications regroupe les fonctions, méthodes et classes que nous allons utiliser lors de l’implémentation des différents modules présents dans l'organigramme de notre application qui sera codée en langage C++.
@@ -47,7 +48,8 @@
 
 		Lors de l'établissement des spécifications, nous nous sommes vus contraint de changer le découpage de notre organigramme pour qu’il soit en adéquation avec les spécifications de notre application. 
 		Avec le découpage initial, nous utilisions uniquement des méthodes de la classe du module Génération de la nouvelle population dans les modules "Tests d’arrêt" et "Évaluation de la population", il vaut mieux donc les inclure directement dans le module Génération.
-		De même, le module "Gestion de la validité des données" vérifie la validité des données entrées en interface, et on peut donc faire partie du module d'interface.\\
+		De même, le module "Gestion de la validité des données" vérifie la validité des données entrées dans un fichier, il peut donc être rapatrié dans le module "Gestion d'entrées sorties". \\
+		Toutes ces modifications nous évitent de nous retrouver avec 3 modules artificiels qui n'utilisent que des fonctions et méthodes d'autres modules.
 		%~ L’organigramme que nous utilisions initialement n’était pas adapté au développement de notre application et travailler sur le cahier des spécifications de notre projet nous a permis de nous en rendre compte.\\
 		%~ Nous avons donc revu l’organisation de notre organigramme p
 		%~Les modules "Test d’arrêts" et "Évaluation de la population" sont passés dans le module génération de la nouvelle population. Le module "Gestion de la validité des données" est passé dans le module "Gestion d'entrées sorties".\\
@@ -101,8 +103,6 @@
 				\item la génération de nombres aléatoires\\
 		\end{itemize}
 		
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\section{Modules}
 		Pour faire fonctionner le programme, nous avons besoin de plusieurs choses.\\
 		\\
@@ -254,9 +254,7 @@
 								C’est un parser simple et rapide, supportant toutes les formules dont nous avons besoin (racine carré, sin, cos etc…) et facilement adaptable à notre projet. 
 								%~ C’est pourquoi nous l’avons choisi.\\
 					\end{itemize}
-		
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%			
+					
 		\subsection{Génération de la nouvelle population}
 			Ce module est constitué de la classe Population.\\
 			\\
@@ -361,8 +359,7 @@
 							\item \textbf{Int nombreAlea(int inf, int sup)} : Cette fonction sélectionne aléatoirement un entier entre inf et sup.
 
 					\end{itemize}
-		
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
+			
 		\subsection{Gestion d'entrées sorties}
 			Ce module constitue la partie procédurale du programme.\\
 			\\
@@ -436,8 +433,7 @@
 			La notion d’héritage n’est en revanche pas utilisée puisque les classes Individu et Population n’ont pas le même comportement, il n’est pas utile de créer un lien d’héritage entre les deux.
 			Le polymorphisme, la lésion tardive des méthodes et la génériques ne sont en revanche pas utilisé dans notre application.\\
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
+	
 	\section{Conclusion}	
 		Nous avons explicité dans ce cahier des spécifications le contenu de chaque module pour répondre aux problèmes décrits dans le cahier des charges.
 		Nous y avons notamment décrit les types et propriétés des attributs et méthodes de nos classes.
