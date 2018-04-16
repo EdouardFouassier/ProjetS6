@@ -210,18 +210,18 @@
 			\end{itemize}
 			\underline{\bf Les methodes publiques de la classes sont :} (On a besoin des méthodes de la classe Individu dans la classe Population, donc on a besoin que celles-ci soient publiques.)\\\\
 			\textbf{Constructeurs}
-						\begin{itemize}
-							\item Individu() : Constructeur par défaut, individu vide
-							\item Individu (int taille) //Ce constructeur utilise bool probaAlea(float prob) : Cette fonction renvoie VRAI avec une probabilité flottante prob.
-								Il l’applique à tous les gènes jusqu’à ce que l’individu soit complet.
-								Cette méthode fait le lien entre le module d’initialisation de la population et celui de génération de la nouvelle population, c'est ce constructeur qui créera un nouvel individu d'une population. 
-								En effet pour générer une population il faut créer des individus. 
+				\begin{itemize}
+					\item Individu() : Constructeur par défaut, individu vide
+					\item Individu (int taille) //Ce constructeur utilise bool probaAlea(float prob) : Cette fonction renvoie VRAI avec une probabilité flottante prob.
+						Il l’applique à tous les gènes jusqu’à ce que l’individu soit complet.
+						Cette méthode fait le lien entre le module d’initialisation de la population et celui de génération de la nouvelle population, c'est ce constructeur qui créera un nouvel individu d'une population. 
+						En effet pour générer une population il faut créer des individus. 
 								%~ L~a génération d’une population fera donc appel au constructeur de la classe individu pour pouvoir remplir la population.\\
-						\end{itemize}
+				\end{itemize}
 			\textbf{Destructeur}
-					\begin{itemize}
-							\item $\sim$Individu()\\
-					\end{itemize}
+				\begin{itemize}
+					\item $\sim$Individu()\\
+				\end{itemize}
 			\textbf{Getteurs}
 					\begin{itemize}
 							\item int[tailleIndividu] getChromosome()
@@ -231,13 +231,11 @@
 					\end{itemize}
 			\textbf{Setteurs}
 					\begin{itemize}
-
 							\item void ajouterGène(int gène, int i) : Ajoute un gène (0 ou 1) à l’emplacement i du tableau chromosome.
 							\item void setChromosome(int [tailleIndividu] chromosome);
 							\item void setScore(int score, int i) : Affecte à l’indice i du tableau de score la valeur score
 							\item void setRang((int rang, int i) : Affecte à l’indice i du tableau de rang la valeur rang
 							\item void setTailleIndividu(int tailleIndividu);\\
-
 					\end{itemize}
 			\textbf{Autres}
 				\begin{itemize}
