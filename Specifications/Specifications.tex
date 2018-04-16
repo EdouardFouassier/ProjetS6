@@ -121,18 +121,12 @@
 	\section{Modules}
 		Pour faire fonctionner le programme, nous avons besoin de plusieurs choses.\\
 		\\
-<<<<<<< HEAD
+
 		En premier lieu les données initiales, c'est-à-dire la description du problème de l'utilisateur.\\
 		On a besoin tout d’abord de la taille d’un individu. 
 		Cette donnée spécifie la valeur maximale que peut prendre une solution, par exemple avec des individus codés en binaire de taille 32, on aura des solutions entre 0 et $2^{32}$ -1.\\
 		Il faut aussi le nombre de générations, c’est-à-dire le nombre de populations que l’AG doit créer avant de s’arrêter.\\
-=======
 
-		En premier lieu, les données initiales. Il faut que l'utilisateur entre certaines données du problème à résoudre.\\
-		On a besoin tout d’abord de la taille d’un individu. 
-		Cette donnée spécifie la valeur maximale que peut prendre une solution, par exemple avec des individus codés en binaire de taille 32, on aura des solutions entre 0 et $2^{32}$ -1.\\
-		Il faut aussi le nombre de générations, c’est-à-dire le nombre de population que l’AG doit créer avant de s’arrêter.\\
->>>>>>> 7286762a33e72c25f957478dd63fda3043f99b14
 		Ensuite, on a besoin de connaître la taille d’une population, c’est-à-dire le nombre d’individus qu’il y a dans une population.\\
 		On a besoin aussi de deux probabilités : la probabilité de mutation, c’est-à-dire la probabilité qu’un gène soit modifié, et la probabilité de croisement, c’est-à-dire la probabilité qu’on croise ou pas deux individus. 
 		
@@ -145,30 +139,20 @@
 		Il a le choix entre LaTex, XFig et PostScript, sachant qu’il peut en demander plusieurs.\\
 		\\
 		Nous avons aussi besoin de plusieurs fichiers :\\
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 7286762a33e72c25f957478dd63fda3043f99b14
 		Un premier qui contient l’ordre des valeurs ainsi que leur type, et qui décrit l'ordre des valeurs dans le fichier de données que l'utilisateur doit suivre s'il souhaite entrer lui-même son fichier de données (exemple : Probabilité de mutation : float). Ce fichier n'est jamais modifié.\\
 		Un second dans lequel on enregistre les valeurs initiales que l'utilisateur a entrées. Une fois le valeurs écrites, le fichier n'es plus modifié.\\
 		Un troisième dans lequel on écrit tous les scores des individus de chaque génération.\\
 		Un quatrième qui contient les statistiques de chage génération.\\
-<<<<<<< HEAD
+
 		% Et un dernier qui contiendra la population initiale
 		
 		\subsection{Interface}
 			Pour faire l'interface graphique de notre application, nous avons choisi d'utiliser la librairie Qt car elle est facile à utiliser, générique et donne beaucoup de liberté quand à son utilisation. 
 			%~  On peut donner à l’interface l’apparence que l’on veut. 
 			%~ e plus Qt s’utilise à la fois sur Windows, linux et mac OS ce qui permet d'envisager un eventuel portage du programme vers ces systèmes.\\
-=======
-		
-		\subsection{Interface}
-			Pour faire l'interface graphique de notre application, nous avons choisi d'utiliser la librairie Qt car elle est facile à utiliser, générique et donne beaucoup de liberté quant à son utilisation. 
-			On peut donner à l’interface l’apparence que l’on souhaite. 
-			De plus Qt s’utilise à la fois sur Windows, Linux et MacOS, ce qui permet d'envisager un éventuel portage du programme vers ces systèmes.\\
 
->>>>>>> 7286762a33e72c25f957478dd63fda3043f99b14
+
 			\\
 			Les includes seront principalement les objets de la librairie Qt (par exemple \#include<QPushButton> pour créer des boutons cliquables.
 			% mais on aura également le module "Gestion d'entrée sortie" afin d'avoir accès a une fonction.\\
@@ -193,13 +177,9 @@
 				\item bool xFig : VRAI si on souhaite que le fichier soit écrit en XFig
 				\item bool postScipt : VRAI si on souhaite que le fichier soit écrit en PostScipt\\
 			\end{itemize}
-<<<<<<< HEAD
+
 			\underline{\bf Les méthodes publiques slots de la classe sont :}(Ce sont des methodes qui permettent de connecter des fonction à des éléments graphiques)\\
-=======
 
-			\underline{\bf Les méthodes publiques slots de la classe sont :} (Ce sont des methodes qui permettent de connecter des fonctions à des élements graphiques)\\
-
->>>>>>> 7286762a33e72c25f957478dd63fda3043f99b14
 			\begin{itemize}
 				\item ??void connectLancer() : Lance le programme quand le bouton associé est appuyé. Permet de connecter le bouton "Lancer" et la fonction ecrireFichierDonnées (Interface interface, String NomFichier) du module "Gestion d'entrées sorties" //lier a initialisation aussi non ?.\vspace{0.2cm}
 				\item void connectQuitter() : Ouvre une fenêtre de confirmation, puis quitte le programme sans sauvegarder le résultat si confirmé.\vspace{0.2cm}
