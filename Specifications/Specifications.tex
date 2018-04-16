@@ -33,40 +33,25 @@
 		%~De ce fait, à chaque génération c’est un ensemble d’individus qui sera mis en avant et non un seul, représentant un ensemble de solutions au problèmes posé et non une solution unique.
 		Les solutions seront généralement différentes mais auront pour particularité de toutes répondre au problème posé.
 		%~ Un AG peut également être multicritères, comme par exemple dans le cadre des problèmes d’atelier tel que les Flow Shop ou il convient d’optimiser la minimisation des temps et terminaison mais aussi ceux des retards.
-<<<<<<< HEAD
+
 		Un AG peut également dépendre de plus d'un critère, comme par exemple dans le cadre de l'optimisation de la ventilation dans le cas d’un incendie dans un espace confiné où il convient de minimiser la masse de particules aspirées ainsi que la masse totale de gaz inertant injecté.
 		Dans le cadre de notre projet de Semestre 6 de notre licence Informatique, nous devont produire un logiciel utilisant un algorithme génétique dans lequel un utilisateur peut entrer les données de son problème dans une interface graphique et obtenir le résultat de celui-ci en sortie. Le logiciel se doit donc d'être générique pour s'adapter à un maximum de problèmes.
 		%~ Afin de pouvoir réaliser une application utilisant un AG pour résoudre des problèmes d’optimisation, nous avons élaboré un organigramme qui en défini la structure. 
 		Ce cahier des spécifications regroupe les fonctions, méthodes et classes que nous allons utiliser lors de l’implémentation des différents modules présents dans l'organigramme de notre application qui sera codée en langage C++.
-=======
 
-		Un AG peut également être multicritères, comme par exemple dans le cadre de l'optimisation de la ventilation dans le cas d’incendie dans un espace confiné où il convient de minimiser la masse de particules aspirées ainsi que la masse totale de gaz inertant injecté.
-		Afin de pouvoir réaliser une application utilisant un AG pour résoudre des problèmes d’optimisation, nous avons élaboré un organigramme qui en défini la structure. 
-		Ce cahier des spécifications regroupe les différentes fonctions, méthodes et classes que nous allons utiliser lors de l’implémentation des différents modules constituant l'organigramme de notre application.
-
->>>>>>> 7286762a33e72c25f957478dd63fda3043f99b14
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\section{Fonctionnement de l'organigramme}
 		Voir Organigramme page annexe (Page XX)\\
-<<<<<<< HEAD
+
 		Lors de l'établissement des spécifications, nous nous sommes vus contraint de changer le découpage de notre organigramme pour qu’il soit en adéquation avec les spécifications de notre application. 
 		Avec le découpage initial, nous utilisions uniquement des méthodes de la classe du module Génération de la nouvelle population dans les modules "Tests d’arrêt" et "Évaluation de la population", il vaut mieux donc les inclure directement dans le module Génération.
 		De même, le module "Gestion de la validité des données" vérifie la validité des données entrées en interface, et on peut donc faire partie du module d'interface.\\
 		%~ L’organigramme que nous utilisions initialement n’était pas adapté au développement de notre application et travailler sur le cahier des spécifications de notre projet nous a permis de nous en rendre compte.\\
 		%~ Nous avons donc revu l’organisation de notre organigramme p
 		%~Les modules "Test d’arrêts" et "Évaluation de la population" sont passés dans le module génération de la nouvelle population. Le module "Gestion de la validité des données" est passé dans le module "Gestion d'entrées sorties".\\
-=======
 
-		Lors de l'établissement des spécifications, nous nous sommes vus contraint de changer le découpage de notre organigramme.
-		Avec le découpage initial, nous utilisions des méthodes de la classe du module "Génération de la nouvelle population" dans les modules "Tests d’arrêt" et "Évaluation de la population" ce qui rendaient ces modules vides.
-		De même pour le module "Gestion de la validité des données".\\
-		L’organigramme que nous utilisions initialement n’était pas adapté au développement de notre application et travailler sur le cahier des spécifications de notre projet nous a permis de nous en rendre compte.\\
-		Nous avons donc revu l’organisation de notre organigramme pour qu’il soit en adéquation avec les spécifications de notre application. 
-		Les modules "Test d’arrêts" et "Évaluation de la population" sont passés dans le module "Génération de la nouvelle population". Le module "Gestion de la validité des données" est passé dans le module "Gestion d'entrées sorties".\\
-
->>>>>>> 7286762a33e72c25f957478dd63fda3043f99b14
 		
 		%~ Le module "Interface" de l’organigramme est constitué d’une classe Interface implémentée avec des méthodes de la librairie graphique Qt.\\
 		%~ Celui de Gestion des entrées sorties est composé des fonctions utilisées pour valider les données entrées par l’utilisateur dans l’interface, écrire ces données dans un fichier ou bien lire un fichier pour y récupérer les données initiales nécessaires. 
