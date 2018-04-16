@@ -5,10 +5,10 @@
 int main()
 {
   
-	double a = 10;
-	char *c = "cos(10 + x)";
-	calculfitness (c,a);
-
-
+	double a = 2;
+	char *c = "(5%x)";
+	calculfitness (c, a);
    
+   return 0;
 }
+
