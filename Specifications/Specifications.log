@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.9.4)  16 APR 2018 15:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.9.4)  16 APR 2018 16:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1198,7 +1198,7 @@ s/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb><
 /usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/
 public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/shar
 e/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on Specifications.pdf (15 pages, 433658 bytes).
+Output written on Specifications.pdf (15 pages, 433644 bytes).
 PDF statistics:
  99 PDF objects out of 1000 (max. 8388607)
  69 compressed objects within 1 object stream

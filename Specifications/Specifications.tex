@@ -99,34 +99,34 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\section{Modules}
-		Pour faire fonctionner le programme, nous avons besoin de plusieurs choses.\\
+		Pour faire fonctionner le programme, nous avons besoin de plusieurs choses:\\
 		\\
-		En premier lieu les données initiales, il faut que l'utilisateur entre certaines données du problème à résoudre.\\
+		En premier lieu, les données initiales. Il faut que l'utilisateur entre certaines données du problème à résoudre.\\
 		On a besoin tout d’abord de la taille d’un individu. 
 		Cette donnée spécifie la valeur maximale que peut prendre une solution, par exemple avec des individus codés en binaire de taille 32, on aura des solutions entre 0 et $2^{32}$ -1.\\
-		Il faut aussi le nombre de générations c’est-à-dire le nombre de population que l’AG doit créer avant de s’arrêter.\\
+		Il faut aussi le nombre de générations, c’est-à-dire le nombre de population que l’AG doit créer avant de s’arrêter.\\
 		Ensuite, on a besoin de connaître la taille d’une population, c’est-à-dire le nombre d’individus qu’il y a dans une population.\\
-		On a besoin aussi de deux probabilités : la probabilité de mutation, c’est-à-dire la probabilité qu’un gène soit modifié, et la probabilité de croisement, c’est-à-dire la probabilité qu’on croise ou pas deux individus. 
-		Si la probabilité de croisement décide que deux individus ne sont pas croisés, cela veut dire qu’on ajoute directement ces deux individus dans la nouvelle population. 
+		On a besoin aussi de deux probabilités : la probabilité de mutation, c’est-à-dire la probabilité qu’un gène soit modifié, et la probabilité de croisement, c’est-à-dire la probabilité que deux individus soient croisés. 
+		Si la probabilité de croisement indique que deux individus ne seront pas croisés, cela signifie que ces deux individus seront directement ajoutés à la nouvelle population. 
 		On conseille à l’utilisateur de choisir des probabilités petites pour éviter une convergence des résultats prématurée.\\
-		On demande aussi à l’utilisateur d’entrer une ou deux fonction fitness.
+		Nous demandons aussi à l’utilisateur d’entrer une ou deux fonction(s) fitness.
 		Ce sont ces fonctions que l’AG va étudier.
-		Chaque fonction fitness est couplée d’un critère, c’est-à-dire qu’on précise si on veut maximiser ou minimiser sur l’intervalle [0, $2^{tailleIndividu}$ -1] ou bien si on veut observer l’évolution de la fonction vers une valeur approchée.
+		Chaque fonction fitness est couplée d’un critère, c’est-à-dire qu’on précise si on veut maximiser ou minimiser sur l’intervalle [0, $2^{tailleIndividu}$ -1] ou bien si on veut observer l’évolution de la fonction vers une valeur approchée.\\
 		Enfin, on demande à l’utilisateur d’entrer le nom de fichier de sortie qu’il souhaite, sous forme de chaîne de caractères sans espaces.
 		On demande aussi quel(s) format(s) souhaite l’utilisateur.
 		Il a le choix entre LaTex, XFig et PostScript, sachant qu’il peut en demander plusieurs.\\
 		\\
 		Nous avons aussi besoin de plusieurs fichiers :\\
-		Un premier qui contient l’ordre des valeurs ainsique leur type (exemple : Probabilité de mutation : float), ce fichier ne change jamais\\
+		Un premier qui contient l’ordre des valeurs ainsi que leur type (exemple : Probabilité de mutation : float), ce fichier ne change jamais\\
 		Un second dans lequel on enregistre les valeurs initiales, une fois qu’on a écrit dedans, il n’est plus modifié\\
 		Un troisième dans lequel on écrit tous les scores des individus de chaque itération des générations\\
 		Un quatrième qui contient les statistiques\\
 		Et un dernier qui contiendra la population initiale
 		
 		\subsection{Interface}
-			Pour faire l'interface graphique de notre application, nous avons choisi d'utiliser la librairie Qt car elle est facile à utiliser, générique et donne beaucoup de liberté quand à son utilisation. 
-			On peut donner à l’interface l’apparence que l’on veut. 
-			De plus Qt s’utilise à la fois sur Windows, linux et mac OS ce qui permet d'envisager un eventuel portage du programme vers ces systèmes.\\
+			Pour faire l'interface graphique de notre application, nous avons choisi d'utiliser la librairie Qt car elle est facile à utiliser, générique et donne beaucoup de liberté quant à son utilisation. 
+			On peut donner à l’interface l’apparence que l’on souhaite. 
+			De plus Qt s’utilise à la fois sur Windows, Linux et MacOS, ce qui permet d'envisager un éventuel portage du programme vers ces systèmes.\\
 			\\
 			Les includes seront principalement les objets de la librairie Qt (par exemple \#include<QPushButton> pour créer des boutons cliquable) mais on aura également le module "Gestion d'entrée sortie" afin d'avoir accès a une fonction.\\
 			\\
@@ -150,7 +150,7 @@
 				\item bool xFig : VRAI si on souhaite que le fichier soit écrit en XFig
 				\item bool postScipt : VRAI si on souhaite que le fichier soit écrit en PostScipt\\
 			\end{itemize}
-			\underline{\bf Les méthodes publiques slots de la classe sont :}(Ce sont des methodes qui permettent de connecter des fonction à des elements graphiques)\\
+			\underline{\bf Les méthodes publiques slots de la classe sont :} (Ce sont des methodes qui permettent de connecter des fonctions à des élements graphiques)\\
 			\begin{itemize}
 				\item void connectLancer() : Lance le programme quand le bouton associé est appuyé. Permet de connecter le bouton "Lancer" et la fonction ecrireFichierDonnées (Interface interface, String NomFichier) du module "Gestion d'entrées sorties".\vspace{0.2cm}
 				\item void connectQuitter() : Ouvre une fenêtre de confirmation, puis quitte le programme sans sauvegarder le résultat si confirmé.\vspace{0.2cm}
@@ -159,7 +159,7 @@
 				\item void aide() : Ouvre le manuel d’utilisation pour aider l’utilisateur.\\
 			\end{itemize}
 			
-			\underline{\bf Les méthodes publiques de la classe sont :}(Ce sont toutes des fonctions getteurs)\\
+			\underline{\bf Les méthodes publiques de la classe sont :} (Ce sont toutes des méthodes getteurs)\\
 			\begin{itemize}
 				\item String getFontionFitness1() : Retourne la fonction fitness 1
 				\item String getFontionFitness2() : Retourne la fonction fitness 2
@@ -264,7 +264,7 @@
 				\item static int nombreGenerationMax
 				\item static float probaCroisement\\
 			\end{itemize}
-			\underline{\bf Les methodes publiques de la classes sont :} (Dans le main qui lancera l’AG on a besoin de la méthode qui creergénération() et on a ausi besoin de pouvoir évaluer la population, donc on a besoin que les méthodes de Population soient publiques.)\\\\
+			\underline{\bf Les methodes publiques de la classes sont :} (Dans le main qui lancera l’AG on a besoin de la méthode creergeneration() et aussi de pouvoir évaluer la population, donc on a besoin que les méthodes de Population soient publiques.)\\\\
 			\textbf{Constructeurs}
 						\begin{itemize}
 							\item Population() : Défaut, créer une population sans individu
