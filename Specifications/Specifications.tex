@@ -41,10 +41,9 @@
 		Ce cahier des spécifications regroupe les fonctions, méthodes et classes que nous allons utiliser lors de l’implémentation des différents modules présents dans l'organigramme de notre application qui sera codée en langage C++.
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	
 	\section{Fonctionnement de l'organigramme}
-		Voir Organigramme page annexe (Page XX)\\
+		Voir Organigramme page annexe (Page 14)\\
 
 		Lors de l'établissement des spécifications, nous nous sommes vus contraint de changer le découpage de notre organigramme pour qu’il soit en adéquation avec les spécifications de notre application. 
 		Avec le découpage initial, nous utilisions uniquement des méthodes de la classe du module Génération de la nouvelle population dans les modules "Tests d’arrêt" et "Évaluation de la population", il vaut mieux donc les inclure directement dans le module Génération.
@@ -173,24 +172,37 @@
 				\item \textbf{void aide()} : Ouvre le manuel d’utilisation pour aider l’utilisateur.\\
 			\end{itemize}
 			
-			\underline{\bf Les méthodes publiques de la classe sont :}(Ce sont toutes des fonctions getteurs)\\
-			\begin{itemize}
-				\item \textbf{String getFontionFitness1()} : Retourne la fonction fitness 1
-				\item \textbf{String getFontionFitness2()} : Retourne la fonction fitness 2
-				\item \textbf{String getNomFichierSortie()} : Retourne le nom du fichier de sortie
-				\item \textbf{int getTaillePopulation()} : Retourne la valeur de la taille de la population
-				\item \textbf{int getTailleIndividu()} : Retourne la valeur de la taille des individus
-				\item \textbf{int getNbGenerationMax()} : Retourne la valeur du nombre de génération maximum
-				\item \textbf{int getCritereF1()} : Retourne la valeur du critère de la fonction fitness 1
-				\item \textbf{int getCritereF2()} : Retourne la valeur du critère de la fonction fitness 2
-				\item \textbf{float getTauxMutation()} : Retourne la valeur du taux de mutation
-				\item \textbf{float getTauxCrossover()} : Retourne la valeur du taux de crossover
-				\item \textbf{float getValeurApproxF1()} : Retourne la valeur approcher de la fonction fitness 1 si il y en a une
-				\item \textbf{float getValeurApproxF2()} : Retourne la valeur approcher de la fonction fitness 2 si il y en a une
-				\item \textbf{bool getLatex()} : Retourne la valeur contenue dans la variable latex
-				\item \textbf{bool getXFig()} : Retourne la valeur contenue dans la variable  xFig
-				\item \textbf{bool getPostScipt()} : Retourne la valeur contenue dans la variable  postScipt\\
-			\end{itemize}	
+			\underline{\bf Les méthodes publiques de la classe sont :}\\\\
+			\textbf{Constructeur}
+				\begin{itemize}
+					\item \textbf{Interface()} : Constructeur par défaut, créant l'interface.\\
+					\end{itemize}
+			\textbf{Destructeur}
+				\begin{itemize}
+					\item \textbf{$\sim$Individu()}\\
+				\end{itemize}
+			\textbf{Getteurs}
+				\begin{itemize}
+					\item \textbf{String getFontionFitness1()} : Retourne la fonction fitness 1.
+					\item \textbf{String getFontionFitness2()} : Retourne la fonction fitness 2.
+					\item \textbf{String getNomFichierSortie()} : Retourne le nom du fichier de sortie.
+					\item \textbf{int getTaillePopulation()} : Retourne la valeur de la taille de la population.
+					\item \textbf{int getTailleIndividu()} : Retourne la valeur de la taille des individus.
+					\item \textbf{int getNbGenerationMax()} : Retourne la valeur du nombre de génération maximum.
+					\item \textbf{int getCritereF1()} : Retourne la valeur du critère de la fonction fitness 1.
+					\item \textbf{int getCritereF2()} : Retourne la valeur du critère de la fonction fitness 2.
+					\item \textbf{float getTauxMutation()} : Retourne la valeur du taux de mutation.
+					\item \textbf{float getTauxCrossover()} : Retourne la valeur du taux de crossover.
+					\item \textbf{float getValeurApproxF1()} : Retourne la valeur approcher de la fonction fitness 1 si il y en a une.
+					\item \textbf{float getValeurApproxF2()} : Retourne la valeur approcher de la fonction fitness 2 si il y en a une.
+					\item \textbf{bool getLatex()} : Retourne la valeur contenue dans la variable latex.
+					\item \textbf{bool getXFig()} : Retourne la valeur contenue dans la variable  xFig.
+					\item \textbf{bool getPostScipt()} : Retourne la valeur contenue dans la variable  postScipt.\\
+				\end{itemize}
+			\textbf{Autre}
+				\begin{itemize}
+					\item \textbf{void algoGen()} : Lance l'algorithme génétique.
+				\end{itemize}
 		
 		\subsection{Initialisation de la population}
 			Ce module est constitué de la classe Individu.\\
@@ -210,15 +222,15 @@
 			\textbf{Constructeurs}
 				\begin{itemize}
 					\item \textbf{Individu()} : Constructeur par défaut, individu vide
-					\item \textbf{Individu (int taille)} //Ce constructeur utilise \textbf{bool probaAlea(float prob)} : Cette fonction renvoie VRAI avec une probabilité flottante prob.
+					\item \textbf{Individu (int taille)} : Ce constructeur utilise \textbf{bool probaAlea(float prob)} : Cette fonction renvoie VRAI avec une probabilité flottante prob.
 						Il l’applique à tous les gènes jusqu’à ce que l’individu soit complet.
 						Cette méthode fait le lien entre le module d’initialisation de la population et celui de génération de la nouvelle population, c'est ce constructeur qui créera un nouvel individu d'une population. 
-						En effet pour générer une population il faut créer des individus. 
+						En effet pour générer une population il faut créer des individus. \\
 								%~ L~a génération d’une population fera donc appel au constructeur de la classe individu pour pouvoir remplir la population.\\
 				\end{itemize}
 			\textbf{Destructeur}
 				\begin{itemize}
-					\item $\sim$Individu()\\
+					\item \textbf{$\sim$Individu()}\\
 				\end{itemize}
 			\textbf{Getteurs}
 					\begin{itemize}
@@ -283,7 +295,7 @@
 						\end{itemize}
 			\textbf{Destructeur}
 					\begin{itemize}
-							\item $\sim$Population()\\
+							\item \textbf{$\sim$Population()}\\
 					\end{itemize}
 			\textbf{Getteurs}
 					\begin{itemize}

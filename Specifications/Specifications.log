@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.7)  16 APR 2018 20:52
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.7)  16 APR 2018 21:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -830,175 +830,185 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \openout3 = `Specifications.toc'.
 
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 47--48
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--83
+Underfull \hbox (badness 10000) in paragraph at lines 81--82
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
 
  []
 
 [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--104
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--109
+Underfull \hbox (badness 10000) in paragraph at lines 106--108
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--109
+Underfull \hbox (badness 10000) in paragraph at lines 106--108
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--114
+Underfull \hbox (badness 10000) in paragraph at lines 109--113
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 118--127
+Underfull \hbox (badness 10000) in paragraph at lines 117--126
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 118--127
+Underfull \hbox (badness 10000) in paragraph at lines 117--126
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--132
+Underfull \hbox (badness 10000) in paragraph at lines 127--131
 
  []
 
 [2]
-Overfull \hbox (40.87871pt too wide) in paragraph at lines 141--146
+Overfull \hbox (40.87871pt too wide) in paragraph at lines 140--145
 []\T1/lmr/m/n/10.95 Les in-cludes se-ront prin-ci-pa-le-ment les ob-jets de la 
 li-brai-rie Qt (par exemple #in-clude<QPushButton>
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--146
+Underfull \hbox (badness 10000) in paragraph at lines 140--145
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--164
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
 
  []
 
 
-Overfull \hbox (0.33029pt too wide) in paragraph at lines 166--167
+Overfull \hbox (0.33029pt too wide) in paragraph at lines 165--166
 []$[]$\T1/lmr/m/n/10.95 (Ce sont des mé-thodes qui per-mettent
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 173--174
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--177
+Underfull \hbox (badness 10000) in paragraph at lines 175--177
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 192--193
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--199
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--199
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--208
+Underfull \hbox (badness 10000) in paragraph at lines 208--211
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--211
+Underfull \hbox (badness 10000) in paragraph at lines 208--211
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 221--222
+Underfull \hbox (badness 10000) in paragraph at lines 219--220
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--229
+Underfull \hbox (badness 10000) in paragraph at lines 221--223
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 236--237
+Underfull \hbox (badness 10000) in paragraph at lines 225--230
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 233--234
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--249
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 259--262
+Underfull \hbox (badness 10000) in paragraph at lines 271--274
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--262
+Underfull \hbox (badness 10000) in paragraph at lines 271--274
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 272--273
+Underfull \hbox (badness 10000) in paragraph at lines 284--285
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 276--277
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 276--277
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--283
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 286--287
+Underfull \hbox (badness 10000) in paragraph at lines 294--295
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 295--296
+Underfull \hbox (badness 10000) in paragraph at lines 298--299
 
  []
 
@@ -1007,44 +1017,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 307--308
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
+
+ []
+
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 364--367
+Underfull \hbox (badness 10000) in paragraph at lines 376--379
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 364--367
+Underfull \hbox (badness 10000) in paragraph at lines 376--379
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 376--377
+Underfull \hbox (badness 10000) in paragraph at lines 388--389
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 379--380
+Underfull \hbox (badness 10000) in paragraph at lines 391--392
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 392--393
+Underfull \hbox (badness 10000) in paragraph at lines 404--405
 
  []
 
 [9]
-Overfull \hbox (6.76355pt too wide) in paragraph at lines 412--415
+Overfull \hbox (6.76355pt too wide) in paragraph at lines 424--427
 []\T1/lmr/bx/n/10.95 bool ecri-re-Fi-chier(string nom-Fi-chier-Sor-tie, string 
 nom-Fi-chier-Pa-ra-metre, string
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--423
+Underfull \hbox (badness 10000) in paragraph at lines 433--435
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 426--435
+Underfull \hbox (badness 10000) in paragraph at lines 438--447
 
  []
 
@@ -1052,25 +1067,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 426--435
 File: OrganigrammeV7.png Graphic file (type png)
 
 <use OrganigrammeV7.png>
-Package pdftex.def Info: OrganigrammeV7.png used on input line 445.
+Package pdftex.def Info: OrganigrammeV7.png used on input line 457.
 (pdftex.def)             Requested size: 608.27103pt x 434.62268pt.
 
 <InterfaceExpliquer.png, id=55, 484.81125pt x 538.26094pt>
 File: InterfaceExpliquer.png Graphic file (type png)
 
 <use InterfaceExpliquer.png>
-Package pdftex.def Info: InterfaceExpliquer.png used on input line 448.
+Package pdftex.def Info: InterfaceExpliquer.png used on input line 460.
 (pdftex.def)             Requested size: 484.81006pt x 538.25963pt.
  [12 <./OrganigrammeV7.png>] [13 <./InterfaceExpliquer.png>] (./Specifications.
 aux) ) 
 Here is how much of TeX's memory you used:
  5505 strings out of 494999
  75799 string characters out of 6180229
- 143273 words of memory out of 5000000
+ 145273 words of memory out of 5000000
  8588 multiletter control sequences out of 15000+600000
  44991 words of font info for 45 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,7n,26p,750b,279s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,7n,26p,750b,221s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/font
 s/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/u
 sr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/publi
@@ -1079,7 +1094,7 @@ texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/l
 mr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fo
 nts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb>
 </usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on Specifications.pdf (15 pages, 432633 bytes).
+Output written on Specifications.pdf (15 pages, 432821 bytes).
 PDF statistics:
  95 PDF objects out of 1000 (max. 8388607)
  66 compressed objects within 1 object stream
