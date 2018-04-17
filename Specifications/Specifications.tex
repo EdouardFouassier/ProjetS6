@@ -177,13 +177,10 @@
 							\item \textbf{Individu codage(int valeur)} : Cette méthode de la classe Individu transforme une valeur entière et la renvoie en binaire sous la forme de tableau d’entier.\vspace{0.2cm}
 							\item \textbf{int décodage(Individu I)} : Cette fonction transforme une suite de 0 et de 1 en un entier. Cette fonction sert à obtenir la valeur entière d’un individu.\vspace{0.2cm}
 							\item \textbf{bool EvaluationIndividu (String fonctionFitness, int indiceScore)} : Cette fonction prend une fonction fitness et évalue chaque individu en utilisant celle-ci. 
-<<<<<<< HEAD
+
 																									Elle prend également un indice correspondant  au score de l’individu afin de pouvoir stocker un score par critère, s'il y en a plus d'un. 
 																									La valeur obtenue grâce à \textbf{calculfitness(const char *c, double x)} correspondra au score de l’individu et sera écrite dans le tableau des scores à l’indice passé en paramètre.
-=======
-																									Elle prend également un indice correspondant  au score de l’individu afin de pouvoir, dans le cadre d’un problème multicritère, stocker un score par critère. 
-																									La valeur obtenue grâce à \textbf{calculfitness(const char *c, int x)} correspondra au score de l’individu et sera écrite dans le tableau des scores à l’indice passé en paramètre.
->>>>>>> 28bb8a97085959476c6791e7257ba6ab51eb7c23
+
 																									On renvoie VRAI s’il n’y a pas eu de problème lors de l’évaluation, FAUX sinon. Cette fonction est appelée par la méthode Evaluation de la classe Population.
 																									Cette méthode fait le lien entre les modules "Initialisation de la population" et "Génération de la nouvelle population".
 																									En effet pour générer une population il faut en évaluer les individus pour savoir lesquels ont le plus de chance d'être sélectionnés dans la suite de l'algorithme.\vspace{0.2cm}
@@ -238,14 +235,10 @@
 			\textbf{Setteurs}
 					\begin{itemize}
 							\item \textbf{void setNombresIndividus (int nombre individu)}
-<<<<<<< HEAD
+
 							\item \textbf{individu[nombreIndividus] setEnsemble()} : Cette fonction ajoute un individu à l’indice i dans l’ensemble de la population.
 							\item \textbf{void setnumeroGeneration (int numeroGeneration)}
-=======
-							\item \textbf{void setEnsemble(Individu indiv, int i)} : Cette fonction ajoute un individu à l’indice i dans l’ensemble de la population.
-																			Elle doit vérifier que la population n’est pas pleine.
-							\item \textbf{void setNumeroGeneration (int numeroGeneration)}
->>>>>>> 28bb8a97085959476c6791e7257ba6ab51eb7c23
+
 							\item \textbf{void setFitness1(String fitness1)}
 							\item \textbf{void setFitness2(String fitness2)}
 							\item \textbf{void setValeurApprochée(float valeurApprochee)}
@@ -261,7 +254,7 @@
 								\begin{itemize}
 								\item \textbf{bool TestNombreGénération()} : Cette fonction teste si on a atteint le nombre d’itérations que souhaite l’utilisateur.
 									Elle renvoie VRAI si la valeur n’est pas atteinte, FAUX sinon.\vspace{0.2cm}
-<<<<<<< HEAD
+
 								\item \textbf{bool TestConvergence()} : Cette fonction vérifie que les dernières populations ne convergent pas, c'est-à-dire que les valeurs n'évoluent plus. %Il utilise static int numéro$\_$generation pour retrouver les générations qu'il doit étudier.	
 								Elle utilise le fichier où sont écrites les statistiques de toutes les générations. Elle va lire en particulier les moyennes réduites des 10 générations précédentes
 															%~ TestConvergence renvoie VRAI si une des deux conditions suivantes est remplie.
@@ -272,15 +265,7 @@
 															Si plus de quatre moyennes réduites consécutives sont égale (+/- 1,5$\%$) à celle de la population actuelle, on renvoie VRAI.
 
 															Si le critère est de trouver une valeur approchée, alors on compare uniquement la moyenne réduite des scores de la population actuelle et la compare à la valeur entrée par l'utilisateur.\vspace{0.2cm}
-=======
-								\item \textbf{bool TestConvergence()} : Cette fonction vérifie que les dernières populations ne convergent pas, c'est-à-dire que les valeurs n'évoluent plus.
-Cette méthode utilise static int numéro$\_$generation pour retrouver les générations qu'elle doit étudier. Elle utilise le fichier où sont écrites les statistiques de toutes les générations. Elle va lire en particulier les moyennes réduites des 10 générations précédentes
-TestConvergence renvoie VRAI si une des deux conditions suivantes est remplie. Elle renvoie FAUX sinon. 
-Dans un premier temps, la méthode vérifie les critères :
-Si un critère est la recherche d’une valeur approchée, alors la méthode va comparer cette valeur approchée à la moyenne réduite de l’ensemble des individus de la population actuelle. Si elles sont identiques (+/- 1,5$\%$), il renvoie VRAI. Puis, on lira les moyennes réduites de l’ensemble des individus  des 10 générations précédentes et la comparer avec celle de la population actuelle.
-	S’il s’agit de critères de maximisation ou de minimalisation, si au moins les quatre dernières moyennes réduites de l’ensemble des individus des générations précédentes sont égale (+/- 1,5$\%$) à celle de la population actuelle, on renvoie VRAI. \vspace{0.2cm}
 
->>>>>>> 28bb8a97085959476c6791e7257ba6ab51eb7c23
 								\end{itemize}
 							
 							\item \textbf{Bool TestPopRemplie()} : Cette fonction teste la taille de la population. Si la population est remplie, c’est-à-dire si sa taille est la taille maximum d’une population, elle renvoie VRAI, sinon FAUX.\vspace{0.2cm}
