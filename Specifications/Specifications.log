@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.3.28)  17 APR 2018 15:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.3.28)  17 APR 2018 15:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -687,7 +687,83 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \c@LT@chunks=\count94
 \LT@p@ftn=\toks26
 )
-(./Specifications.aux)
+(./Specifications.aux
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 <
+     <<<<<< HEAD
+? 
+Missing character: There is no < in font nullfont!
+Missing character: There is no < in font nullfont!
+Missing character: There is no < in font nullfont!
+Missing character: There is no < in font nullfont!
+Missing character: There is no < in font nullfont!
+Missing character: There is no < in font nullfont!
+Missing character: There is no < in font nullfont!
+Missing character: There is no H in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no A in font nullfont!
+Missing character: There is no D in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no > in font nullfont!
+Missing character: There is no > in font nullfont!
+Missing character: There is no > in font nullfont!
+Missing character: There is no > in font nullfont!
+Missing character: There is no > in font nullfont!
+Missing character: There is no > in font nullfont!
+Missing character: There is no > in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no 6 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no 6 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no 6 in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no 8 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no 3 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+)
 \openout1 = `Specifications.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
@@ -709,6 +785,7 @@ File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 21.
 LaTeX Font Info:    Try loading font information for T1+lmr on input line 21.
+
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -811,9 +888,11 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 24.
+[1
 
-(/usr/share/texmf/tex/latex/lm/ot1lmr.fd
+]
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 24.
+ (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Try loading font information for OML+lmm on input line 24.
@@ -848,8 +927,7 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 24.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
-
+) [2
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Specifications.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -858,7 +936,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \tf@toc=\write3
 \openout3 = `Specifications.toc'.
 
- [2]
+ [3]
 Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
@@ -1005,12 +1083,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 241--242
  []
 
 [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 298--301
+Underfull \hbox (badness 10000) in paragraph at lines 295--298
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 298--301
+Underfull \hbox (badness 10000) in paragraph at lines 295--298
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 307--308
 
  []
 
@@ -1019,110 +1102,105 @@ Underfull \hbox (badness 10000) in paragraph at lines 310--311
 
  []
 
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 313--314
+
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--323
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 326--327
+Underfull \hbox (badness 10000) in paragraph at lines 323--324
 
  []
 
 [9]
-Overfull \hbox (1.27046pt too wide) in paragraph at lines 346--349
+Overfull \hbox (1.27046pt too wide) in paragraph at lines 343--346
 []\T1/lmr/bx/n/10.95 bool ecrireFichier(string nom-Fichier-Sor-tie, string nom-
 Fichier-Parame-tre, string
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 355--357
+Underfull \hbox (badness 10000) in paragraph at lines 352--354
 
  []
 
 
-Overfull \hbox (23.87871pt too wide) in paragraph at lines 360--368
+Overfull \hbox (23.87871pt too wide) in paragraph at lines 357--365
 \T1/lmr/m/n/10.95 Les in-cludes seront prin-ci-pale-ment les ob-jets de la li-b
 rairie Qt (par ex-em-ple #in-clude<QPushButton>
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 360--368
+Underfull \hbox (badness 10000) in paragraph at lines 357--365
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 360--368
+Underfull \hbox (badness 10000) in paragraph at lines 357--365
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 385--386
+Underfull \hbox (badness 10000) in paragraph at lines 382--383
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 387--388
+Underfull \hbox (badness 10000) in paragraph at lines 384--385
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 394--395
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 396--398
+Underfull \hbox (badness 10000) in paragraph at lines 391--392
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 399--400
+Underfull \hbox (badness 10000) in paragraph at lines 393--395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--404
+Underfull \hbox (badness 10000) in paragraph at lines 396--397
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--422
+Underfull \hbox (badness 10000) in paragraph at lines 400--401
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 429--438
+Underfull \hbox (badness 10000) in paragraph at lines 418--419
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 426--435
 
  []
 
 [12] [13]
-<OrganigrammeV7.png, id=60, 608.2725pt x 434.62375pt>
-File: OrganigrammeV7.png Graphic file (type png)
-<use OrganigrammeV7.png>
-Package pdftex.def Info: OrganigrammeV7.png  used on input line 448. on input l
-ine 448.
+<OrganigrammeV8.png, id=63, 608.2725pt x 434.62375pt>
+File: OrganigrammeV8.png Graphic file (type png)
+<use OrganigrammeV8.png>
+Package pdftex.def Info: OrganigrammeV8.png  used on input line 445. on input l
+ine 445.
 Package pdftex.def Info: Requested size: 608.27103pt x 434.62268pt on input lin
-e 448.
-<InterfaceExpliquer.png, id=62, 484.81125pt x 538.26094pt>
+e 445.
+<InterfaceExpliquer.png, id=65, 484.81125pt x 538.26094pt>
 File: InterfaceExpliquer.png Graphic file (type png)
 <use InterfaceExpliquer.png>
-Package pdftex.def Info: InterfaceExpliquer.png  used on input line 451. on inp
-ut line 451.
+Package pdftex.def Info: InterfaceExpliquer.png  used on input line 448. on inp
+ut line 448.
 Package pdftex.def Info: Requested size: 484.81006pt x 538.25963pt on input lin
-e 451.
- [14 <./OrganigrammeV7.png>] [15 <./InterfaceExpliquer.png>]
+e 448.
+ [14 <./OrganigrammeV8.png>] [15 <./InterfaceExpliquer.png>]
 (./Specifications.aux) ) 
 Here is how much of TeX's memory you used:
- 3739 strings out of 494931
- 50274 string characters out of 6180851
+ 3738 strings out of 494931
+ 50259 string characters out of 6180851
  101961 words of memory out of 5000000
- 6940 multiletter control sequences out of 15000+600000
+ 6939 multiletter control sequences out of 15000+600000
  44587 words of font info for 45 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  41i,7n,26p,750b,209s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1135,10 +1213,10 @@ ype1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></us
 r/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/pub
 lic/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/t
 exmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on Specifications.pdf (17 pages, 433451 bytes).
+Output written on Specifications.pdf (18 pages, 437075 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 73 compressed objects within 1 object stream
+ 107 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
