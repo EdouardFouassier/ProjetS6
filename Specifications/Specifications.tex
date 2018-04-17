@@ -320,10 +320,11 @@
 			\underline{\bf Pour la lecture}, on utilisera les methodes suivantes :\\
 			\begin{itemize}
 				\item \textbf{int[3] lireStats (File* F )} : Cette fonction prend en entrée le fichier où se trouvent les statistiques d’exécution de l’algorithme et renvoie un tableau de taille 3 contenant la moyenne, le minimum et le maximum des scores de la ligne où se trouve le pointeur F. Elle sera utilisée pour résumer le déroulement de l'AG dans le fichier final.\vspace{0.2cm}
-				\item \textbf{float[3] lireInfoRegen(String nomFichier)} : Cette fonction lit le fichier des DI et renvoie un tableau comportant en 0 le taux de crossover et en 1 le taille de la population, en 2 le nombre de critères.
+
+				\item \textbf{String[9] lireInfoRegen(String nomFichier)} : lis le fichier des DI et renvoie un tableau comportant en 0 le taux de crossover et en 1 le taille de la population, en 2 le nombre de critères, en 3 le nombre de génération max, en 4 la valeur approchée recherchée (vide s'il n'y en a pas) en 5 une fonction fitness et en 6 une deuxieme fonction fitness (vide s'il s'agit d'un problème simple critère), en 7 le premier critère et en 8 le second critère(vide dans le cas d'un problème simple critère).
 					Cette fonction fait le lien entre le module de gestion des Entrées Sorties et celui de génération de la nouvelle population.
 					Elle permet de lire dans le fichier de données les valeurs nécessaires à la création d’une population.\vspace{0.2cm}
-				\item \textbf{float[3] lireInitialisation (String nomFichier)} : Cette fonction lit le fichier des DI et renvoie un tableau comportant en 0 nombre de critère, en 1 la taille d’un individu et en 2 le taux de mutation. Cette fonction fait le lien entre le module de gestion des Entrées Sorties et celui d’initialisation de la population. 
+				\item \textbf{float[2] lireInitialisation (String nomFichier)} : lis le fichier des DI et renvoie un tableau comportant en 0 la taille d’un individu et en 2 le taux de mutation.Cette fonction fait le lien entre le module de gestion des Entrées Sorties et celui d’initialisation de la population. 
 					Elle permet de lire dans le fichier de données les valeurs nécessaires à la création d’un individu.\vspace{0.2cm}
 
 				\item \textbf{int lireScoreIndividu(String nomFichierPopulation, int gén, int i)} : Cette fonction lit à le i-ème individu de la génération gén dans le fichier qui contient tous les scores, et renvoie sa valeur. Elle sera utilisée notamment pour calculer les statistiques.\\
@@ -452,7 +453,7 @@
 	\newpage
 	\section{Annexe}
 		\subsection{Organigramme}
-		\centerline{\includegraphics{OrganigrammeV8.png}}
+		\centerline{\includegraphics{OrganigrammeV9.png}}
 		
 		\subsection{Apercu de l'interface}
 		\centerline{\includegraphics{InterfaceExpliquer.png}}
