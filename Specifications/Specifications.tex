@@ -48,7 +48,7 @@
 		Lors de l'établissement des spécifications, nous nous sommes vus contraint de changer le découpage de notre organigramme pour qu’il soit en adéquation avec les spécifications de notre application. 
 		Avec le découpage initial, nous utilisions uniquement des méthodes de la classe du module "Génération de la nouvelle population" dans les modules "Tests d’arrêt" et "Évaluation de la population", il vaut mieux donc les inclure directement dans le module "Génération de la nouvelle population".
 		De même, le module "Gestion de la validité des données" vérifie la validité des données entrées dans un fichier, il peut donc être rapatrié dans le module "Gestion d'entrées sorties". \\
-		Toutes ces modifications nous évitent de nous retrouver avec 3 modules artificiels qui n'utilisent que des fonctions et méthodes d'autres modules.
+		Toutes ces modifications nous évitent de nous retrouver avec 3 modules artificiels qui n'utilisent que des fonctions et méthodes d'autres modules.\\
 		%~ L’organigramme que nous utilisions initialement n’était pas adapté au développement de notre application et travailler sur le cahier des spécifications de notre projet nous a permis de nous en rendre compte.\\
 		%~ Nous avons donc revu l’organisation de notre organigramme p
 		%~Les modules "Test d’arrêts" et "Évaluation de la population" sont passés dans le module génération de la nouvelle population. Le module "Gestion de la validité des données" est passé dans le module "Gestion d'entrées sorties".\\
@@ -66,7 +66,7 @@
 		%~ Les modules test d’arrêt et évaluation sont passés dans le module génération de la nouvelle population.
 		%~ En effet les tests et l’évaluation on un rapport direct avec la génération d’un nouvelle population, qui correspond à une itération de l’AG, il était donc plus judicieux de rassembler ces trois phases en un seul module .\\
 		%~ Le module de validation des données est quant à lui passé dans le module de gestion des entrées sorties puisque les données pour êtres vérifiées doivent être écrites dans un fichier puis lues ensuite.\\
-		Dans cette nouvelle version de l’organigramme, l’interface aura pour rôle :
+		\noindent Dans cette nouvelle version de l’organigramme, l’interface aura pour rôle :
 		\begin{itemize}
 		\item L’affichage des différents champs de saisie
 		\item La réception des valeurs :
@@ -103,8 +103,7 @@
 		
 	\section{Modules}
 		Pour faire fonctionner le programme, nous avons besoin de plusieurs choses.\\
-		\\
-
+		
 		En premier lieu les données initiales, c'est-à-dire la description du problème de l'utilisateur.\\
 		On a besoin tout d’abord de la taille d’un individu. 
 		Cette donnée spécifie la valeur maximale que peut prendre une solution, par exemple avec des individus codés en binaire de taille 32, on aura des solutions entre 0 et $2^{32}$ -1.\\
@@ -129,79 +128,6 @@
 		Un quatrième qui contient les statistiques de chage génération.\\
 
 		% Et un dernier qui contiendra la population initiale
-		
-		\subsection{Interface}
-			Pour faire l'interface graphique de notre application, nous avons choisi d'utiliser la librairie Qt car elle est facile à utiliser, générique et donne beaucoup de liberté quand à son utilisation. 
-			%~  On peut donner à l’interface l’apparence que l’on veut. 
-			%~ e plus Qt s’utilise à la fois sur Windows, linux et mac OS ce qui permet d'envisager un eventuel portage du programme vers ces systèmes.\\
-
-			
-			Les includes seront principalement les objets de la librairie Qt 
-			(par exemple \#include<QPushButton> pour créer des boutons cliquables).\\
-			% mais on aura également le module "Gestion d'entrée sortie" afin d'avoir accès a une fonction.\\
-			\\
-			\underline{\bf Les attributs privées sont :}\\
-				\begin{itemize}
-				\item Les objets issus de la librairie utilisés pour l'interface, par exemple :\\
-					QPushButton *Lancer : Permet de créer le boutons "Lancer" qui permettra de lancer le programme\vspace{0.2cm}
-				\item String fonctionFitness1 : Contient la fonction fitness 1, rentrée par l'utilisateur
-				\item String fonctionFitness2 : Contient la fonction fitness 2, rentrée par l'utilisateur
-				\item String nomFichierSortie : Contient le nom que l'utilisateur souhaite donner au fichier
-				\item int taillePopulation : Contient la taille de la population, rentrée par l'utilisateur
-				\item int tailleIndividu : Contient la taille d'un individu, rentrée par l'utilisateur
-				\item int nbGenerationMax : Contient le nombre de génération maximum, rentré par l'utilisateur
-				\item int critereF1 : 1  = maximisation; 2 = minimisation; 3 = valeur approchée
-				\item int critereF2 : 1  = maximisation; 2 = minimisation; 3 = valeur approchée
-				\item float tauxMutation : Contient la valeur du taux de mutation rentré par l'utilisateur
-				\item float tauxCrossover : Contient la valeur du taux de crossover rentré par l'utilisateur
-				\item float valeurApproxF1 : Contient la valeur approché si l'utilisateur a choisi cette option pour la fonction fitness 1, rentré par l'utilisateur
-				\item float valeurApproxF2 : Contient la valeur approché si l'utilisateur a choisi cette option pour la fonction fitness 2, rentré par l'utilisateur
-				\item bool latex : VRAI si on souhaite que le fichier soit écrit en Latex
-				\item bool xFig : VRAI si on souhaite que le fichier soit écrit en XFig
-				\item bool postScipt : VRAI si on souhaite que le fichier soit écrit en PostScipt\\
-			\end{itemize}
-
-			\underline{\bf Les méthodes publiques slots de la classe sont :}(Ce sont des méthodes qui permettent de connecter des fonction à des éléments graphiques)\\
-
-			\begin{itemize}
-				\item \textbf{void connectLancer()} : Lance le programme quand le bouton associé est appuyé. Permet de connecter le bouton "Lancer" et la fonction \textbf{ecrireFichierDonnées(Interface interface, String NomFichier)} du module "Gestion d'entrées sorties".\vspace{0.2cm}
-				\item \textbf{void connectQuitter()} : Ouvre une fenêtre de confirmation, puis quitte le programme sans sauvegarder le résultat si confirmé.\vspace{0.2cm}
-				\item \textbf{void connectArreter()} : Ouvre une fenêtre de confirmation, puis arrête le programme en sauvegardant le résultat si confirmé. Permet de connecter le bouton "Arrêter" avec la fonction \textbf{ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichier Stats)} du module "Gestion d'entrées sorties".\vspace{0.2cm} 
-				\item \textbf{void connectCharger()} : Ouvre le navigateur de fichier pour permettre à l’utilisateur d’indiquer son fichier de paramètre.\vspace{0.2cm}
-				\item \textbf{void aide()} : Ouvre le manuel d’utilisation pour aider l’utilisateur.\\
-			\end{itemize}
-			
-			\underline{\bf Les méthodes publiques de la classe sont :}\\\\
-			\textbf{Constructeur}
-				\begin{itemize}
-					\item \textbf{Interface()} : Constructeur par défaut, créant l'interface.\\
-					\end{itemize}
-			\textbf{Destructeur}
-				\begin{itemize}
-					\item \textbf{$\sim$Individu()}\\
-				\end{itemize}
-			\textbf{Getteurs}
-				\begin{itemize}
-					\item \textbf{String getFontionFitness1()} : Retourne la fonction fitness 1.
-					\item \textbf{String getFontionFitness2()} : Retourne la fonction fitness 2.
-					\item \textbf{String getNomFichierSortie()} : Retourne le nom du fichier de sortie.
-					\item \textbf{int getTaillePopulation()} : Retourne la valeur de la taille de la population.
-					\item \textbf{int getTailleIndividu()} : Retourne la valeur de la taille des individus.
-					\item \textbf{int getNbGenerationMax()} : Retourne la valeur du nombre de génération maximum.
-					\item \textbf{int getCritereF1()} : Retourne la valeur du critère de la fonction fitness 1.
-					\item \textbf{int getCritereF2()} : Retourne la valeur du critère de la fonction fitness 2.
-					\item \textbf{float getTauxMutation()} : Retourne la valeur du taux de mutation.
-					\item \textbf{float getTauxCrossover()} : Retourne la valeur du taux de crossover.
-					\item \textbf{float getValeurApproxF1()} : Retourne la valeur approcher de la fonction fitness 1 si il y en a une.
-					\item \textbf{float getValeurApproxF2()} : Retourne la valeur approcher de la fonction fitness 2 si il y en a une.
-					\item \textbf{bool getLatex()} : Retourne la valeur contenue dans la variable latex.
-					\item \textbf{bool getXFig()} : Retourne la valeur contenue dans la variable  xFig.
-					\item \textbf{bool getPostScipt()} : Retourne la valeur contenue dans la variable  postScipt.\\
-				\end{itemize}
-			\textbf{Autre}
-				\begin{itemize}
-					\item \textbf{void algoGen()} : Lance l'algorithme génétique.
-				\end{itemize}
 		
 		\subsection{Initialisation de la population}
 			Ce module est constitué de la classe Individu.\\
@@ -282,10 +208,7 @@
 				\item static int nombreGenerationMax
 				\item static float probaCroisement\\
 			\end{itemize}
-
-
 			\underline{\bf Les methodes publiques de la classes sont :} (Dans l'interface qui lancera l’AG on a besoin de la méthode \textbf{creergénération()} et on a ausi besoin de pouvoir évaluer la population, donc on a besoin que les méthodes de Population soient publiques.)\\\\
-
 			\textbf{Constructeurs}
 						\begin{itemize}
 							\item \textbf{Population()} : Défaut, créer une population sans individu
@@ -432,6 +355,75 @@
 				\item \textbf{bool écrireUnScore(int score, FILE *F)} : écrit un score à l’emplacement du pointeur F.
 					Elle renvoie FAUX s’il y a une erreur lors de l’écriture, VRAI sinon. \\
 			\end{itemize}
+			
+		\subsection{Interface}
+			Pour faire l'interface graphique de notre application, nous avons choisi d'utiliser la librairie Qt car elle est facile à utiliser, générique et donne beaucoup de liberté quand à son utilisation.\\
+			%~  On peut donner à l’interface l’apparence que l’on veut. 
+			%~ e plus Qt s’utilise à la fois sur Windows, linux et mac OS ce qui permet d'envisager un eventuel portage du programme vers ces systèmes.\\
+			Les includes seront principalement les objets de la librairie Qt 
+			(par exemple \#include<QPushButton> pour créer des boutons cliquables).\\
+			% mais on aura également le module "Gestion d'entrée sortie" afin d'avoir accès a une fonction.\\
+			\\
+			\underline{\bf Les attributs privées sont :}\\
+				\begin{itemize}
+				\item Les objets issus de la librairie utilisés pour l'interface, par exemple :\\
+					QPushButton *Lancer : Permet de créer le boutons "Lancer" qui permettra de lancer le programme\vspace{0.2cm}
+				\item String fonctionFitness1 : Contient la fonction fitness 1, rentrée par l'utilisateur
+				\item String fonctionFitness2 : Contient la fonction fitness 2, rentrée par l'utilisateur
+				\item String nomFichierSortie : Contient le nom que l'utilisateur souhaite donner au fichier
+				\item int taillePopulation : Contient la taille de la population, rentrée par l'utilisateur
+				\item int tailleIndividu : Contient la taille d'un individu, rentrée par l'utilisateur
+				\item int nbGenerationMax : Contient le nombre de génération maximum, rentré par l'utilisateur
+				\item int critereF1 : 1  = maximisation; 2 = minimisation; 3 = valeur approchée
+				\item int critereF2 : 1  = maximisation; 2 = minimisation; 3 = valeur approchée
+				\item float tauxMutation : Contient la valeur du taux de mutation rentré par l'utilisateur
+				\item float tauxCrossover : Contient la valeur du taux de crossover rentré par l'utilisateur
+				\item float valeurApproxF1 : Contient la valeur approché si l'utilisateur a choisi cette option pour la fonction fitness 1, rentré par l'utilisateur
+				\item float valeurApproxF2 : Contient la valeur approché si l'utilisateur a choisi cette option pour la fonction fitness 2, rentré par l'utilisateur
+				\item bool latex : VRAI si on souhaite que le fichier soit écrit en Latex
+				\item bool xFig : VRAI si on souhaite que le fichier soit écrit en XFig
+				\item bool postScipt : VRAI si on souhaite que le fichier soit écrit en PostScipt\\
+			\end{itemize}
+			\underline{\bf Les méthodes publiques slots de la classe sont :}(Ce sont des méthodes qui permettent de connecter des fonction à des éléments graphiques)\\
+
+			\begin{itemize}
+				\item \textbf{void connectLancer()} : Lance le programme quand le bouton associé est appuyé. Permet de connecter le bouton "Lancer" et la fonction \textbf{ecrireFichierDonnées(Interface interface, String NomFichier)} du module "Gestion d'entrées sorties".\vspace{0.2cm}
+				\item \textbf{void connectQuitter()} : Ouvre une fenêtre de confirmation, puis quitte le programme sans sauvegarder le résultat si confirmé.\vspace{0.2cm}
+				\item \textbf{void connectArreter()} : Ouvre une fenêtre de confirmation, puis arrête le programme en sauvegardant le résultat si confirmé. Permet de connecter le bouton "Arrêter" avec la fonction \textbf{ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichier Stats)} du module "Gestion d'entrées sorties".\vspace{0.2cm} 
+				\item \textbf{void connectCharger()} : Ouvre le navigateur de fichier pour permettre à l’utilisateur d’indiquer son fichier de paramètre.\vspace{0.2cm}
+				\item \textbf{void aide()} : Ouvre le manuel d’utilisation pour aider l’utilisateur.\\
+			\end{itemize}
+			\underline{\bf Les méthodes publiques de la classe sont :}\\\\
+			\textbf{Constructeur}
+				\begin{itemize}
+					\item \textbf{Interface()} : Constructeur par défaut, créant l'interface.\\
+					\end{itemize}
+			\textbf{Destructeur}
+				\begin{itemize}
+					\item \textbf{$\sim$Individu()}\\
+				\end{itemize}
+			\textbf{Getteurs}
+				\begin{itemize}
+					\item \textbf{String getFontionFitness1()} : Retourne la fonction fitness 1.
+					\item \textbf{String getFontionFitness2()} : Retourne la fonction fitness 2.
+					\item \textbf{String getNomFichierSortie()} : Retourne le nom du fichier de sortie.
+					\item \textbf{int getTaillePopulation()} : Retourne la valeur de la taille de la population.
+					\item \textbf{int getTailleIndividu()} : Retourne la valeur de la taille des individus.
+					\item \textbf{int getNbGenerationMax()} : Retourne la valeur du nombre de génération maximum.
+					\item \textbf{int getCritereF1()} : Retourne la valeur du critère de la fonction fitness 1.
+					\item \textbf{int getCritereF2()} : Retourne la valeur du critère de la fonction fitness 2.
+					\item \textbf{float getTauxMutation()} : Retourne la valeur du taux de mutation.
+					\item \textbf{float getTauxCrossover()} : Retourne la valeur du taux de crossover.
+					\item \textbf{float getValeurApproxF1()} : Retourne la valeur approcher de la fonction fitness 1 si il y en a une.
+					\item \textbf{float getValeurApproxF2()} : Retourne la valeur approcher de la fonction fitness 2 si il y en a une.
+					\item \textbf{bool getLatex()} : Retourne la valeur contenue dans la variable latex.
+					\item \textbf{bool getXFig()} : Retourne la valeur contenue dans la variable  xFig.
+					\item \textbf{bool getPostScipt()} : Retourne la valeur contenue dans la variable  postScipt.\\
+				\end{itemize}
+			\textbf{Autre}
+				\begin{itemize}
+					\item \textbf{void algoGen()} : Lance l'algorithme génétique.
+				\end{itemize}
 		
 		\subsection{Notions du langage utilisées}
 			L’utilisation du C++ pour le développement de notre application nous permet d’utiliser des notions propres aux langages orientés objets.
