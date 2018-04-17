@@ -46,7 +46,7 @@
 		Voir Organigramme page annexe (page 12)\\
 
 		Lors de l'établissement des spécifications, nous nous sommes vus contraint de changer le découpage de notre organigramme pour qu’il soit en adéquation avec les spécifications de notre application. 
-		Avec le découpage initial, nous utilisions uniquement des méthodes de la classe du module "Génération de la nouvelle population" dans les modules "Tests d’arrêt" et "Évaluation de la population", il vaut mieux donc les inclure directement dans le module Génération.
+		Avec le découpage initial, nous utilisions uniquement des méthodes de la classe du module "Génération de la nouvelle population" dans les modules "Tests d’arrêt" et "Évaluation de la population", il vaut mieux donc les inclure directement dans le module "Génération de la nouvelle population".
 		De même, le module "Gestion de la validité des données" vérifie la validité des données entrées dans un fichier, il peut donc être rapatrié dans le module "Gestion d'entrées sorties". \\
 		Toutes ces modifications nous évitent de nous retrouver avec 3 modules artificiels qui n'utilisent que des fonctions et méthodes d'autres modules.
 		%~ L’organigramme que nous utilisions initialement n’était pas adapté au développement de notre application et travailler sur le cahier des spécifications de notre projet nous a permis de nous en rendre compte.\\
@@ -68,25 +68,24 @@
 		%~ Le module de validation des données est quant à lui passé dans le module de gestion des entrées sorties puisque les données pour êtres vérifiées doivent être écrites dans un fichier puis lues ensuite.\\
 		Dans cette nouvelle version de l’organigramme, l’interface aura pour rôle :
 		\begin{itemize}
-		\item l’affichage des différents champs de saisie
-		\item la réception des valeurs
+		\item L’affichage des différents champs de saisie
+		\item La réception des valeurs :
 			\begin{itemize}
 				\item par saisie des champs de l’interface
 				\item par fichier
 			\end{itemize}
-			
-		\item les options d’arrêt pendant l'exécution de l’application
+		\item Les options d’arrêt pendant l'exécution de l’application :
 			\begin{itemize}
-				\item arrêt pour arrêter le programme en pleine exécution mais conserver les données
-				\item quitter pour quitter le programme (perte des données)\\
+				\item "arrêt" pour arrêter le programme en pleine exécution mais conserver les données
+				\item "quitter" pour quitter le programme (perte des données)\\
 			\end{itemize}
 		\end{itemize}
 		Le module de gestion des Entrées Sorties aura pour rôle:
 		\begin{itemize}
-				\item l’enregistrement des valeurs entrées dans l’interface dans un fichier
-				\item la vérification de la validité des valeurs rentrées par l’utilisateur
-				\item l’enregistrement des statistiques de l'exécution
-				\item Ecriture des résultat en LaTeX/PostScript/Xfig\\
+			\item L’enregistrement des valeurs entrées dans l’interface dans un fichier
+			\item La vérification de la validité des valeurs rentrées par l’utilisateur
+			\item L’enregistrement des statistiques de l'exécution
+			\item L'écriture des résultat en LaTeX/PostScript/Xfig\\
 		\end{itemize}
 		Le module d’initialisation de la population aura pour rôle:
 		\begin{itemize}
