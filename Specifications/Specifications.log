@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.9.4)  17 APR 2018 14:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.9.4)  17 APR 2018 15:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1094,12 +1094,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 241--242
  []
 
 [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 298--301
+Underfull \hbox (badness 10000) in paragraph at lines 295--298
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 298--301
+Underfull \hbox (badness 10000) in paragraph at lines 295--298
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 307--308
 
  []
 
@@ -1108,85 +1113,80 @@ Underfull \hbox (badness 10000) in paragraph at lines 310--311
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 313--314
-
- []
-
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 322--323
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--327
+Underfull \hbox (badness 10000) in paragraph at lines 323--324
 
  []
 
 
-Overfull \hbox (6.76355pt too wide) in paragraph at lines 346--349
+Overfull \hbox (6.76355pt too wide) in paragraph at lines 343--346
 []\T1/lmr/bx/n/10.95 bool ecri-re-Fi-chier(string nom-Fi-chier-Sor-tie, string 
 nom-Fi-chier-Pa-ra-metre, string
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 355--357
+Underfull \hbox (badness 10000) in paragraph at lines 352--354
 
  []
 
 
-Overfull \hbox (23.87871pt too wide) in paragraph at lines 360--368
+Overfull \hbox (23.87871pt too wide) in paragraph at lines 357--365
 \T1/lmr/m/n/10.95 Les in-cludes se-ront prin-ci-pa-le-ment les ob-jets de la li
 -brai-rie Qt (par exemple #in-clude<QPushButton>
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 360--368
+Underfull \hbox (badness 10000) in paragraph at lines 357--365
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 360--368
+Underfull \hbox (badness 10000) in paragraph at lines 357--365
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 385--386
+Underfull \hbox (badness 10000) in paragraph at lines 382--383
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 387--388
+Underfull \hbox (badness 10000) in paragraph at lines 384--385
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 394--395
+Underfull \hbox (badness 10000) in paragraph at lines 391--392
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 396--398
+Underfull \hbox (badness 10000) in paragraph at lines 393--395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 399--400
+Underfull \hbox (badness 10000) in paragraph at lines 396--397
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--404
+Underfull \hbox (badness 10000) in paragraph at lines 400--401
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--422
+Underfull \hbox (badness 10000) in paragraph at lines 418--419
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 429--438
+Underfull \hbox (badness 10000) in paragraph at lines 426--435
 
  []
 
@@ -1194,25 +1194,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 429--438
 <OrganigrammeV7.png, id=53, 608.2725pt x 434.62375pt>
 File: OrganigrammeV7.png Graphic file (type png)
 <use OrganigrammeV7.png>
-Package pdftex.def Info: OrganigrammeV7.png  used on input line 448. on input l
-ine 448.
+Package pdftex.def Info: OrganigrammeV7.png  used on input line 445. on input l
+ine 445.
 Package pdftex.def Info: Requested size: 608.27103pt x 434.62268pt on input lin
-e 448.
+e 445.
 <InterfaceExpliquer.png, id=55, 484.81125pt x 538.26094pt>
 File: InterfaceExpliquer.png Graphic file (type png)
 <use InterfaceExpliquer.png>
-Package pdftex.def Info: InterfaceExpliquer.png  used on input line 451. on inp
-ut line 451.
+Package pdftex.def Info: InterfaceExpliquer.png  used on input line 448. on inp
+ut line 448.
 Package pdftex.def Info: Requested size: 484.81006pt x 538.25963pt on input lin
-e 451.
+e 448.
  [12 <./OrganigrammeV7.png>] [13 <./InterfaceExpliquer.png>]
 (./Specifications.aux) ) 
 Here is how much of TeX's memory you used:
- 5930 strings out of 494829
- 81761 string characters out of 6178001
- 149639 words of memory out of 5000000
- 9109 multiletter control sequences out of 15000+600000
- 44991 words of font info for 45 fonts, out of 8000000 for 9000
+ 5934 strings out of 494829
+ 81799 string characters out of 6178001
+ 150639 words of memory out of 5000000
+ 9111 multiletter control sequences out of 15000+600000
+ 50971 words of font info for 47 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  41i,7n,30p,750b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/us
@@ -1223,7 +1223,7 @@ s/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf
 /type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></
 usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/p
 ublic/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on Specifications.pdf (15 pages, 432112 bytes).
+Output written on Specifications.pdf (15 pages, 432432 bytes).
 PDF statistics:
  95 PDF objects out of 1000 (max. 8388607)
  66 compressed objects within 1 object stream
