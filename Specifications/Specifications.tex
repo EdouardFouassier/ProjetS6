@@ -36,7 +36,7 @@
 
 		Un AG peut également dépendre de plus d'un critère, comme par exemple dans le cadre de l'optimisation de la ventilation dans le cas d’un incendie dans un espace confiné où il convient de minimiser la masse de particules aspirées par le système d'aération ainsi que la masse totale de gaz inertant injecté.
 
-		Dans le cadre de notre projet de Semestre 6 de notre licence Informatique, nous devont produire un logiciel utilisant un algorithme génétique dans lequel un utilisateur peut entrer les données de son problème dans une interface graphique et obtenir le résultat de celui-ci en sortie. Le logiciel se doit donc d'être générique pour s'adapter à un maximum de problèmes.
+		Dans le cadre de notre projet de Semestre 6 de notre licence Informatique, nous devons produire un logiciel qui utilise un algorithme génétique dans lequel un utilisateur peut entrer les données de son problème dans une interface graphique et obtenir le résultat de celui-ci en sortie. Le logiciel se doit donc d'être générique pour s'adapter à un maximum de problèmes.
 		%~ Afin de pouvoir réaliser une application utilisant un AG pour résoudre des problèmes d’optimisation, nous avons élaboré un organigramme qui en défini la structure. 
 		Ce cahier des spécifications regroupe les fonctions, méthodes et classes que nous allons utiliser lors de l’implémentation des différents modules présents dans l'organigramme de notre application qui sera codée dans le langage C++.
 
@@ -48,7 +48,7 @@
 		Lors de l'établissement des spécifications, nous nous sommes vus contraint de changer le découpage de notre organigramme pour qu’il soit en adéquation avec les spécifications de notre application. 
 		Avec le découpage initial, nous utilisions uniquement des méthodes de la classe du module "Génération de la nouvelle population" dans les modules "Tests d’arrêt" et "Évaluation de la population", il vaut mieux donc les inclure directement dans le module "Génération de la nouvelle population".
 		De même, le module "Gestion de la validité des données" vérifie la validité des données entrées dans un fichier, il peut donc être rapatrié dans le module "Gestion d'entrées sorties". \\
-		Toutes ces modifications nous évitent de nous retrouver avec 3 modules artificiels qui n'utilisent que des fonctions et méthodes d'autres modules.\\
+		Toutes ces modifications nous évitent de nous retrouver avec 3 modules artificiels qui n'utilisent que des fonctions et méthodes d'autres modules et semblent donc essentielles au bon déroulement de la suite du projet.\\
 		%~ L’organigramme que nous utilisions initialement n’était pas adapté au développement de notre application et travailler sur le cahier des spécifications de notre projet nous a permis de nous en rendre compte.\\
 		%~ Nous avons donc revu l’organisation de notre organigramme p
 		%~Les modules "Test d’arrêts" et "Évaluation de la population" sont passés dans le module génération de la nouvelle population. Le module "Gestion de la validité des données" est passé dans le module "Gestion d'entrées sorties".\\
@@ -113,9 +113,9 @@
 		On a besoin aussi de deux probabilités : la probabilité de mutation, c’est-à-dire la probabilité qu’un gène soit modifié, et la probabilité de croisement, c’est-à-dire la probabilité qu’on croise ou pas deux individus. 
 		
 		On conseille à l’utilisateur de choisir des probabilités petites pour éviter une convergence des résultats prématurée.\\
-		On demande aussi à l’utilisateur d’entrer une ou deux fonction fitness.
+		On demande aussi à l’utilisateur d’entrer une ou deux fonction(s) fitness.
 		Ce sont ces fonctions que l’AG va étudier.
-		Chaque fonction fitness est couplée d’un critère, c’est-à-dire qu’on précise si on veut maximiser ou minimiser sur l’intervalle [0, $2^{tailleIndividu}$ -1] ou bien si on veut observer l’évolution de la fonction vers une valeur approchée.
+		Chaque fonction fitness est couplée d’un critère, c’est-à-dire qu’on précise si on veut maximiser ou minimiser sur l’intervalle [0, $2^{tailleIndividu}$ -1] ou bien si on souhaite observer l’évolution de la fonction vers une valeur approchée.
 		Enfin, on demande à l’utilisateur d’entrer le nom de fichier de sortie qu’il souhaite, sous forme de chaîne de caractères sans espaces.
 		On demande aussi quel(s) format(s) souhaite l’utilisateur.
 		Il a le choix entre LaTex, XFig et PostScript, sachant qu’il peut en demander plusieurs.\\
@@ -139,7 +139,7 @@
 													Dans le cadre d’un problème multicritère il y aura plusieurs fonctions fitness, et donc plusieurs scores par individu.
 				\item int[nombreCritères] rang : Ce tableau permet de stocker le rang de l’individu qui sera calculé à partir de son score. 
 													Dans le cadre d’un problème multicritère il y aura plusieurs scores, et donc plusieurs rangs par individu. 
-				\item static int tailleIndividu : La taille de l’individu sera donnée par l’utilisateur, elle définie le nombre de 0 et de 1 qui composent un individu.
+				\item static int tailleIndividu : La taille de l’individu sera donnée par l’utilisateur, elle définit le nombre de 0 et de 1 qui composent un individu.
 				\item static float probaMutation : La probabilité d’une mutation sur le chromosome d’un individu est donnée par l’utilisateur. Cette probabilité sera utilisée dans la méthode mutation.
 				\item static int nombreCritères\\
 			\end{itemize}
@@ -184,8 +184,8 @@
 																									On renvoie VRAI s’il n’y a pas eu de problème lors de l’évaluation, FAUX sinon. Cette fonction est appelée par la méthode Evaluation de la classe Population.
 																									Cette méthode fait le lien entre les modules "Initialisation de la population" et "Génération de la nouvelle population".
 																									En effet pour générer une population il faut en évaluer les individus pour savoir lesquels ont le plus de chance d'être sélectionnés dans la suite de l'algorithme.\vspace{0.2cm}
-							\item \textbf{Int mutation(int gene, float prob)} : Cette fonction prend en paramètre un gène, c’est-à-dire une case du tableau chromosome, et une probabilité.
-																		Elle utilise la méthode \textbf{probaAlea(float prob)}, si la méthode renvoie VRAI, alors on modifie le gène et on le renvoie.
+							\item \textbf{Int mutation(int gene)} : Cette fonction prend en paramètre un gène, c’est-à-dire une case du tableau chromosome.
+																		Elle utilise la méthode \textbf{probaAlea(float prob)} avec prob la probabilité de mutation, si la méthode renvoie VRAI, alors on modifie le gène et on le renvoie.
 																		Sinon, on renvoie le gène sans modification.\vspace{0.2cm}
 							\item \textbf{bool probaAlea(float prob)} : Cette fonction renvoie VRAI avec une probabilité prob.\vspace{0.2cm}
 
@@ -247,15 +247,15 @@
 					\end{itemize}
 			\textbf{Tests}
 				\begin{itemize}
-							\item \textbf{Population TestArret()} :  Cette fonction teste si on doit continuer à itérer l’algorithme génétique ou non. 
+							\item \textbf{Population testArret()} :  Cette fonction teste si on doit continuer à itérer l’algorithme génétique ou non. 
 								On teste l’arrêt avec les deux fonctions ci-dessous. 
 								Si les deux fonctions renvoient VRAI, on continue l’itération de l’AG et on envoie la population au module de Gestion d’entrées/sorties pour qu’il écrive les scores dans le fichier. 
 								Sinon on arrête l'algorithme et la population est envoyée au module de gestion d’entrées/sorties pour écrire le fichier final.\vspace{0.2cm}
 								\begin{itemize}
-								\item \textbf{bool TestNombreGénération()} : Cette fonction teste si on a atteint le nombre d’itérations que souhaite l’utilisateur.
+								\item \textbf{bool testNombreGénération()} : Cette fonction teste si on a atteint le nombre d’itérations que souhaite l’utilisateur.
 									Elle renvoie VRAI si la valeur n’est pas atteinte, FAUX sinon.\vspace{0.2cm}
 
-								\item \textbf{bool TestConvergence()} : Cette fonction vérifie que les dernières populations ne convergent pas, c'est-à-dire que les valeurs n'évoluent plus. %Il utilise static int numéro$\_$generation pour retrouver les générations qu'il doit étudier.	
+								\item \textbf{bool testConvergence()} : Cette fonction vérifie que les dernières populations ne convergent pas, c'est-à-dire que les valeurs n'évoluent plus. %Il utilise static int numéro$\_$generation pour retrouver les générations qu'il doit étudier.	
 								Elle utilise le fichier où sont écrites les statistiques de toutes les générations. Elle va lire en particulier les moyennes réduites des 10 générations précédentes
 															%~ TestConvergence renvoie VRAI si une des deux conditions suivantes est remplie.
 															%~ Sinon il renvoie FAUX.Dans un premier temps il vérifie les critères.
@@ -268,28 +268,28 @@
 
 								\end{itemize}
 							
-							\item \textbf{Bool TestPopRemplie()} : Cette fonction teste la taille de la population. Si la population est remplie, c’est-à-dire si sa taille est la taille maximum d’une population, elle renvoie VRAI, sinon FAUX.\vspace{0.2cm}
+							\item \textbf{Bool testPopRemplie()} : Cette fonction teste la taille de la population. Si la population est remplie, c’est-à-dire si sa taille est la taille maximum d’une population, elle renvoie VRAI, sinon FAUX.\vspace{0.2cm}
 					
 					\end{itemize}
 				
 			\textbf{Autres}
 				\begin{itemize}
-							\item \textbf{Population Evaluation()} : Cette fonction sert à donner un rang à chaque individu pour faciliter la sélection. 
+							\item \textbf{Population evaluation()} : Cette fonction sert à donner un rang à chaque individu pour faciliter la sélection. 
 								Elle appelle EvaluationIndividu puis PopulationTri pour pouvoir se servir du score des individus et établir un classement. 
 								Elle ne prend pas de paramètre puisque toutes les données nécessaires sont des attributs de la classe population. 
 								Elle renvoie une population où chaque individu se sera vu attribuer un rang en fonction des critères à évaluer (maximisation, minimisation ou obtention d’une valeur approchée).\vspace{0.2cm}
 								\begin{itemize}
-								\item \textbf{bool TriPopulation (int indiceScore)} : Cette fonction prend un indice afin de savoir à quel score se référer. 
+								\item \textbf{bool triPopulation (int indiceScore)} : Cette fonction prend un indice afin de savoir à quel score se référer. 
 									Elle permet de trier les individus de la population dans l’ordre croissant de leur score.\vspace{0.2cm}
 								\end{itemize}
 							
-							\item \textbf{Individu Sélectionner()} : Cette fonction sélectionne un individu parmi la population et le renvoie. 
+							\item \textbf{Individu sélectionner()} : Cette fonction sélectionne un individu parmi la population et le renvoie. 
 								Elle utilise l’algorithme de sélection par roulette décrit dans le cahier des charges.\vspace{0.2cm}
 								
-							\item \textbf{Population crossover(Individu Parent1, Individu Parent2, float prob)} : Cette fonction prend deux individus choisis par la fonction \textbf{Sélectionner()}, les croise pour en créer deux nouveaux qui seront ajoutés à la population puis on renvoie celle-ci. 
-							Si la prob décide que deux individus ne sont pas croisés, cela veut dire qu’on ajoute directement ces deux individus dans la nouvelle population sans les modifier. 
+							\item \textbf{Population crossover(Individu Parent1, Individu Parent2)} : Cette fonction prend deux individus choisis par la fonction \textbf{sélectionner()}, les croise pour en créer deux nouveaux qui seront ajoutés à la population puis on renvoie celle-ci. 
+							Si la probabilité de crossover décide que deux individus ne sont pas croisés, cela veut dire qu’on ajoute directement ces deux individus dans la nouvelle population sans les modifier. 
 								Elle utilise la fonction \textbf{nombreAlea(int inf, int sup)} pour déterminer le point de croisement, pour pouvoir créer les nouveaux individus en croisant les moitiés des deux individus.
-								Avant de copier les gènes dans les nouveaux individus, on les entre un par un dans la fonction \textbf{mutation(int gène, float prob)}. 
+								Avant de copier les gènes dans les nouveaux individus, on les entre un par un dans la fonction \textbf{mutation(int gène)}. 
 								Les deux nouveaux individus sont ajoutés directement dans la population  avec la fonction addIndividu.\vspace{0.2cm}
 							
 							\item \textbf{Population créerGénération(Population P)} : Cette fonction crée une nouvelle population à partir d’une population P.
@@ -302,7 +302,7 @@
 					\end{itemize}
 			
 		\subsection{Gestion d'entrées sorties}
-			Ce module constitue la partie procédurale du programme.\\
+			Ce module constitue la partie procédurale du programme. On utilise dans la suite DI pour données initiales.\\
 			\\
 			\underline{\bf Pour la validation}, on utilisera les methodes suivantes :\\
 			\begin{itemize}
@@ -321,10 +321,10 @@
 			\begin{itemize}
 				\item \textbf{int[3] lireStats (File* F )} : Cette fonction prend en entrée le fichier où se trouvent les statistiques d’exécution de l’algorithme et renvoie un tableau de taille 3 contenant la moyenne, le minimum et le maximum des scores de la ligne où se trouve le pointeur F. Elle sera utilisée pour résumer le déroulement de l'AG dans le fichier final.\vspace{0.2cm}
 
-				\item \textbf{String[9] lireInfoRegen(String nomFichier)} : lis le fichier des DI et renvoie un tableau comportant en 0 le taux de crossover et en 1 le taille de la population, en 2 le nombre de critères, en 3 le nombre de génération max, en 4 la valeur approchée recherchée (vide s'il n'y en a pas) en 5 une fonction fitness et en 6 une deuxieme fonction fitness (vide s'il s'agit d'un problème simple critère), en 7 le premier critère et en 8 le second critère(vide dans le cas d'un problème simple critère).
+				\item \textbf{String[9] lireInfoRegen(String nomFichier)} : Cette fonction lit le fichier des DI et renvoie un tableau comportant en 0 le taux de crossover et en 1 le taille de la population, en 2 le nombre de critères, en 3 le nombre de génération max, en 4 la valeur approchée recherchée (vide s'il n'y en a pas) en 5 une fonction fitness et en 6 une deuxieme fonction fitness (vide s'il s'agit d'un problème simple critère), en 7 le premier critère et en 8 le second critère(vide dans le cas d'un problème simple critère).
 					Cette fonction fait le lien entre le module de gestion des Entrées Sorties et celui de génération de la nouvelle population.
 					Elle permet de lire dans le fichier de données les valeurs nécessaires à la création d’une population.\vspace{0.2cm}
-				\item \textbf{float[2] lireInitialisation (String nomFichier)} : lis le fichier des DI et renvoie un tableau comportant en 0 la taille d’un individu et en 2 le taux de mutation.Cette fonction fait le lien entre le module de gestion des Entrées Sorties et celui d’initialisation de la population. 
+				\item \textbf{float[2] lireInitialisation (String nomFichier)} : Cette fonction lit le fichier des DI et renvoie un tableau comportant en 0 la taille d’un individu et en 2 le taux de mutation.Cette fonction fait le lien entre le module de gestion des Entrées Sorties et celui d’initialisation de la population. 
 					Elle permet de lire dans le fichier de données les valeurs nécessaires à la création d’un individu.\vspace{0.2cm}
 
 				\item \textbf{int lireScoreIndividu(String nomFichierPopulation, int gén, int i)} : Cette fonction lit à le i-ème individu de la génération gén dans le fichier qui contient tous les scores, et renvoie sa valeur. Elle sera utilisée notamment pour calculer les statistiques.\\
@@ -395,7 +395,7 @@
 			\underline{\bf Les méthodes publiques slots de la classe sont :}(Ce sont des méthodes qui permettent de connecter des fonction à des éléments graphiques)\\
 
 			\begin{itemize}
-				\item \textbf{void connectLancer()} : Lance le programme quand le bouton associé est appuyé. Permet de connecter le bouton "Lancer" et la fonction \textbf{ecrireFichierDonnées(Interface interface, String NomFichier)} du module "Gestion d'entrées sorties".\vspace{0.2cm}
+				\item \textbf{void connectLancer()} : Lance le programme quand le bouton associé est appuyé. Permet de connecter le bouton "Lancer" et la fonction \textbf{void algoGénétique()} décrite plus tard.\vspace{0.2cm}
 				\item \textbf{void connectQuitter()} : Ouvre une fenêtre de confirmation, puis quitte le programme sans sauvegarder le résultat si confirmé.\vspace{0.2cm}
 				\item \textbf{void connectArreter()} : Ouvre une fenêtre de confirmation, puis arrête le programme en sauvegardant le résultat si confirmé. Permet de connecter le bouton "Arrêter" avec la fonction \textbf{ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichier Stats)} du module "Gestion d'entrées sorties".\vspace{0.2cm} 
 				\item \textbf{void connectCharger()} : Ouvre le navigateur de fichier pour permettre à l’utilisateur d’indiquer son fichier de paramètre.\vspace{0.2cm}
@@ -430,7 +430,7 @@
 				\end{itemize}
 			\textbf{Autre}
 				\begin{itemize}
-					\item \textbf{void algoGénétique()} : C'est la fonction qui va procéder au déroulement de l'algorithme génétique lorsque le bouton lancer est activé. Elle va tout d'abord procéder à l'initialisation, autrement dit une population initiale va être créée. Ensuite tant que TestArrêt est vrai, elle appelle créerGénération, elle évalue la population obtenue puis écrit les scores de tous les individus grâce à la fonction écrirePopulation. A la fin, le fichier final est écrit et fourni à l'utilisateur avec la fonction écrireFichier.
+					\item \textbf{void algoGénétique()} : C'est la fonction qui va procéder au déroulement de l'algorithme génétique lorsque le bouton lancer est activé.  Elle va tout d'abord écrire les données dans le fichier des DI puis procéder à l'initialisation, autrement dit une population initiale va être créée. Ensuite tant que TestArrêt est vrai, elle appelle créerGénération, elle évalue la population obtenue puis écrit les scores de tous les individus grâce à la fonction écrirePopulation. A la fin, le fichier final est écrit et fourni à l'utilisateur avec la fonction écrireFichier.
 				\end{itemize}
 		
 		\subsection{Notions du langage utilisées}
