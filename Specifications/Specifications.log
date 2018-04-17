@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.3.28)  17 APR 2018 15:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.3.28)  17 APR 2018 15:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1102,56 +1102,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 426--435
  []
 
 [13]
-
-LaTeX Warning: File `OrganigrammeV8.png' not found on input line 445.
-
-
-! Package pdftex.def Error: File `OrganigrammeV8.png' not found: using draft se
-tting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.445 ...ine{\includegraphics{OrganigrammeV8.png}}
-                                                  
-? 
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 445.
-
-(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-<InterfaceExpliquer.png, id=60, 484.81125pt x 538.26094pt>
+<OrganigrammeV9.png, id=60, 608.2725pt x 460.72125pt>
+File: OrganigrammeV9.png Graphic file (type png)
+<use OrganigrammeV9.png>
+Package pdftex.def Info: OrganigrammeV9.png  used on input line 445. on input l
+ine 445.
+Package pdftex.def Info: Requested size: 608.27103pt x 460.72012pt on input lin
+e 445.
+<InterfaceExpliquer.png, id=62, 484.81125pt x 538.26094pt>
 File: InterfaceExpliquer.png Graphic file (type png)
 <use InterfaceExpliquer.png>
 Package pdftex.def Info: InterfaceExpliquer.png  used on input line 448. on inp
 ut line 448.
 Package pdftex.def Info: Requested size: 484.81006pt x 538.25963pt on input lin
 e 448.
- [14] [15 <./InterfaceExpliquer.png>]
+ [14 <./OrganigrammeV9.png>] [15 <./InterfaceExpliquer.png>]
 (./Specifications.aux) ) 
 Here is how much of TeX's memory you used:
- 3774 strings out of 494931
- 50776 string characters out of 6180851
+ 3738 strings out of 494931
+ 50259 string characters out of 6180851
  100961 words of memory out of 5000000
- 6971 multiletter control sequences out of 15000+600000
- 44906 words of font info for 46 fonts, out of 8000000 for 9000
+ 6939 multiletter control sequences out of 15000+600000
+ 44587 words of font info for 45 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  41i,7n,26p,750b,209s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/sh
-are/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm
-/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf
-/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.p
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/us
+r/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvip
+s/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texm
+f/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.p
 fb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/t
 ype1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></us
 r/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/pub
 lic/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/t
-exmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/l
-mtt10.pfb>
-Output written on Specifications.pdf (17 pages, 436830 bytes).
+exmf/fonts/type1/public/lm/lmsy10.pfb>
+Output written on Specifications.pdf (17 pages, 438736 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
+ 104 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
