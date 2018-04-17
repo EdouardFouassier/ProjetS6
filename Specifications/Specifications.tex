@@ -27,7 +27,7 @@
 \newpage\clearpage\pagenumbering{arabic}
 	
 	\section{Introduction}
-		L’algorithme génétique (AG) est un algorithme utilisé principalement pour résoudre des problèmes d’optimisation. 
+		Un algortithme génétique (ou AG) est utilisé principalement pour résoudre des problèmes d’optimisation. 
 		Cet algorithme tire son nom de sa particularité à s’inspirer de l’évolution des espèces dans leur cadre naturel.
 		Sur le même principe, un AG va faire évoluer une population dans le but d’en améliorer les individus sur plusieurs générations.
 		%~De ce fait, à chaque génération c’est un ensemble d’individus qui sera mis en avant et non un seul, représentant un ensemble de solutions au problèmes posé et non une solution unique.
@@ -177,7 +177,7 @@
 							\item \textbf{Individu codage(int valeur)} : Cette méthode de la classe Individu transforme une valeur entière et la renvoie en binaire sous la forme de tableau d’entier.\vspace{0.2cm}
 							\item \textbf{int décodage(Individu I)} : Cette fonction transforme une suite de 0 et de 1 en un entier. Cette fonction sert à obtenir la valeur entière d’un individu.\vspace{0.2cm}
 							\item \textbf{bool EvaluationIndividu (String fonctionFitness, int indiceScore)} : Cette fonction prend une fonction fitness et évalue chaque individu en utilisant celle-ci. 
-																									Elle prend également un indice correspondant  au score de l’individu afin de pouvoir, dans le cadre d’un problème multicritère, stocker un score par critère. 
+																									Elle prend également un indice correspondant  au score de l’individu afin de pouvoir stocker un score par critère, s'il y en a plus d'un. 
 																									La valeur obtenue grâce à \textbf{calculfitness(const char *c, double x)} correspondra au score de l’individu et sera écrite dans le tableau des scores à l’indice passé en paramètre.
 																									On renvoie VRAI s’il n’y a pas eu de problème lors de l’évaluation, FAUX sinon. Cette fonction est appelée par la méthode Evaluation de la classe Population.
 																									Cette méthode fait le lien entre le module d’Initialisation de la population et celui de lGénération de la nouvelle population.
@@ -186,7 +186,7 @@
 																		Elle utilise la méthode \textbf{probaAlea(float prob)}, si la méthode renvoie VRAI, alors on modifie le gène et on le renvoie.
 																		Sinon, on renvoie le gène sans modification.\vspace{0.2cm}
 							\item \textbf{bool probaAlea(float prob)} : Cette fonction renvoie VRAI avec une probabilité prob.\vspace{0.2cm}
-							\item \textbf{double calculfitness (const char *c, double x)} : Cette fonction prend la fonction fitness en argument et la valeur de x et renvoie la solution du calcul. La valeur x devra être préalablement transformée en entier par décodage.
+							\item \textbf{double calculfitness (const char *c, double x)} : Cette fonction prend la fonction fitness en argument et une valeur x et renvoie la solution du calcul. La valeur x devra être préalablement transformée en entier par décodage.
 								Cette fonction utilisera le parser tinyexpr développé par Lewis Van Winkle. 
 								C’est un parser simple et rapide, supportant toutes les formules dont nous avons besoin (racine carré, sin, cos etc…) et facilement adaptable à notre projet. 
 								%~ C’est pourquoi nous l’avons choisi.\\
@@ -208,12 +208,12 @@
 				\item static int nombreGenerationMax
 				\item static float probaCroisement\\
 			\end{itemize}
-			\underline{\bf Les methodes publiques de la classes sont :} (Dans l'interface qui lancera l’AG on a besoin de la méthode \textbf{creergénération()} et on a ausi besoin de pouvoir évaluer la population, donc on a besoin que les méthodes de Population soient publiques.)\\\\
+			\underline{\bf Les methodes publiques de la classes sont :} (La fonction de lancement de l'AG qui se trouve dans le module Interface nécessite l'utilisation de méthods de la classe Population, notamment créerGénération, donc il faut que les méthodes soient publiques.)\\\\
 			\textbf{Constructeurs}
 						\begin{itemize}
 							\item \textbf{Population()} : Défaut, créer une population sans individu
 							\item \textbf{Population(Population p)} : Copie p dans la population créée
-							\item \textbf{Population(String nomFichierDonnées)} : Crée une population avec les données initiales et utilise le constructeur de la classe Individu pour remplir la population de manière aléatoire\\
+							\item \textbf{Population(int nbIndiv, int nbCrit, String fitness1, String fitness2, int nbGen, float probaCrois)} : Crée une population avec les en paramètre et utilise le constructeur de la classe Individu pour remplir la population de manière aléatoire. \\
 						\end{itemize}
 			\textbf{Destructeur}
 					\begin{itemize}
@@ -232,7 +232,6 @@
 					\begin{itemize}
 							\item \textbf{void setNombresIndividus (int nombre individu)}
 							\item \textbf{individu[nombreIndividus] setEnsemble()} : Cette fonction ajoute un individu à l’indice i dans l’ensemble de la population.
-																			Elle doit vérifier que la population n’est pas pleine.
 							\item \textbf{void setnumeroGeneration (int numeroGeneration)}
 							\item \textbf{void setFitness1(String fitness1)}
 							\item \textbf{void setFitness2(String fitness2)}
@@ -256,9 +255,9 @@
 															%~  Si parmis les critères il y a la recherche d’une valeur approchée alors il lit cette valeur entrée par l'utilisateur.
 															%~ Il va comparer cette valeur avec la moyenne réduite des scores de la population actuelle.
 															%~ Si les deux sont identiques (+/- 1,5$\%$), il renvoie VRAI.Ensuite on va lire les moyennes réduites des 10 générations précédente et la comparer avec celle de la population actuelle.
-															Si plus de quatre moyennes réduites consécutives sont égale(+/- 1,5$\%$) à celle de la population actuelle, on renvoie VRAI.
+															Si plus de quatre moyennes réduites consécutives sont égale (+/- 1,5$\%$) à celle de la population actuelle, on renvoie VRAI.
 
-															Si le critère est de trouver une valeur approchée, alors on compare uniquement la moyenne réduite de la population actuelle et la compare à la valeur entrée par l'utilisateur.\vspace{0.2cm}
+															Si le critère est de trouver une valeur approchée, alors on compare uniquement la moyenne réduite des scores de la population actuelle et la compare à la valeur entrée par l'utilisateur.\vspace{0.2cm}
 								\end{itemize}
 							
 							\item \textbf{Bool TestPopRemplie()} : Cette fonction teste la taille de la population. Si la population est remplie, c’est-à-dire si sa taille est la taille maximum d’une population, elle renvoie VRAI, sinon FAUX.\vspace{0.2cm}
@@ -280,7 +279,7 @@
 								Elle utilise l’algorithme de sélection par roulette décrit dans le cahier des charges.\vspace{0.2cm}
 								
 							\item \textbf{Population crossover(Individu Parent1, Individu Parent2, float prob)} : Cette fonction prend deux individus choisis par la fonction \textbf{Sélectionner()}, les croise pour en créer deux nouveaux qui seront ajoutés à la population puis on renvoie celle-ci. 
-							Si la prob décide que deux individus ne sont pas croisés, cela veut dire qu’on ajoute directement ces deux individus dans la nouvelle population. 
+							Si la prob décide que deux individus ne sont pas croisés, cela veut dire qu’on ajoute directement ces deux individus dans la nouvelle population sans les modifier. 
 								Elle utilise la fonction \textbf{nombreAlea(int inf, int sup)} pour déterminer le point de croisement, pour pouvoir créer les nouveaux individus en croisant les moitiés des deux individus.
 								Avant de copier les gènes dans les nouveaux individus, on les entre un par un dans la fonction \textbf{mutation(int gène, float prob)}. 
 								Les deux nouveaux individus sont ajoutés directement dans la population  avec la fonction addIndividu.\vspace{0.2cm}
@@ -301,7 +300,7 @@
 			\begin{itemize}
 				\item \textbf{bool testCoherenceDonnéees (String nomFichier)} : C’est la fonction qui s’occupe de tester les valeurs entrées par l’utilisateur en vérifiant que chaque donnée correspond bien au type qu’elle est censée avoir, si l'utilisateur décide d'entrer son propre fichier de données. Cette fonction n'est pas utilisée si l'utilisateur entre ses données via l'interface.
 					Elle prend en entrée le nom du fichier où sont écrites les valeurs et renvoie VRAI si l'écriture s'est bien passée.
-					Pour vérifier le type, on a un fichier où sont écrits pour chaque donnée son nom et le type qu’elle doit avoir.\\
+					Pour vérifier le type, on a un fichier où sont écrits pour chaque donnée son nom et le type qu’elle doit avoir, dans un ordre qui doit absolument être respecté dans le fichier d'entrée de l'utilisateur.\\
 					Elle utilise les 5 fonctions qui suivent. On souhaite que le programme puisse entrer dans les fonctions même si les valeurs ne sont pas du bon type, donc les paramètres sont auto.\vspace{0.2cm}
 				\item \textbf{bool estEntierPositif (auto valeur)} : Cette fonction prend une valeur et renvoie VRAI si la valeur est un entier positif FAUX sinon.\vspace{0.2cm}
 				\item \textbf{bool estFloatPositif (auto valeur)} : Cette fonction prend une valeur et renvoie VRAI si la valeur est un nombre flottant positif FAUX sinon.\vspace{0.2cm}
@@ -313,10 +312,10 @@
 			\underline{\bf Pour la lecture}, on utilisera les methodes suivantes :\\
 			\begin{itemize}
 				\item \textbf{int[3] lireStats (File* F )} : Cette fonction prend en entrée le fichier où se trouvent les statistiques d’exécution de l’algorithme et renvoie un tableau de taille 3 contenant la moyenne, le minimum et le maximum des scores de la ligne où se trouve le pointeur F. Elle sera utilisée pour résumer le déroulement de l'AG dans le fichier final.\vspace{0.2cm}
-				\item \textbf{float[3] lireInfoRegen(String nomFichier)} : lis le fichier des DI et renvoie un tableau comportant en 0 le taux de crossover et en 1 le taille de la population, en 3 le nombre de critères.
+				\item \textbf{float[3] lireInfoRegen(String nomFichier)} : Cette fonction lit le fichier des DI et renvoie un tableau comportant en 0 le taux de crossover et en 1 le taille de la population, en 2 le nombre de critères.
 					Cette fonction fait le lien entre le module de gestion des Entrées Sorties et celui de génération de la nouvelle population.
 					Elle permet de lire dans le fichier de données les valeurs nécessaires à la création d’une population.\vspace{0.2cm}
-				\item \textbf{float[3] lireInitialisation (String nomFichier)} : lis le fichier des DI et renvoie un tableau comportant en 0 nombre de critère, en 1 la taille d’un individu et en 2 le taux de mutation.Cette fonction fait le lien entre le module de gestion des Entrées Sorties et celui d’initialisation de la population. 
+				\item \textbf{float[3] lireInitialisation (String nomFichier)} : Cette fonction lit le fichier des DI et renvoie un tableau comportant en 0 nombre de critère, en 1 la taille d’un individu et en 2 le taux de mutation. Cette fonction fait le lien entre le module de gestion des Entrées Sorties et celui d’initialisation de la population. 
 					Elle permet de lire dans le fichier de données les valeurs nécessaires à la création d’un individu.\vspace{0.2cm}
 
 				\item \textbf{int lireScoreIndividu(String nomFichierPopulation, int gén, int i)} : Cette fonction lit à le i-ème individu de la génération gén dans le fichier qui contient tous les scores, et renvoie sa valeur. Elle sera utilisée notamment pour calculer les statistiques.\\
@@ -335,7 +334,7 @@
 					Cette fonction permet de faire le lien entre le module de génération de la nouvelle population et celui de gestion des Entrées Sorties. 
 					Elle prend en paramètre une population ainsi que le nom du fichier contenant les résultats de l’application et écrit la population dans le fichier. 
 					Cela permet de garder une trace de toute l’éxécution de l’application et d’analyser les données.\vspace{0.2cm}
-				\item \textbf{bool calculerEcrireStats(Population P, String nomFichierPopulation, String nomFichierStats)} : Cette fonction cherche le score minimum, maximum,la moyenne de tous les scores et la moyenne réduite des scores. 
+				\item \textbf{bool calculerEcrireStats(Population P, String nomFichierPopulation, String nomFichierStats)} : Cette fonction cherche le score minimum, maximum, la moyenne de tous les scores et la moyenne réduite des scores. 
 					Pour cela elle lit dans le fichier où se trouvent les scores, fait les calculs, puis écrit les résultats dans le fichier des statistiques. 
 					Elle récupère le score d’un individu avec \textbf{int lireScoreIndividu(String nomFichierPopulation, int génération, int indice)}. %qui renvoie le score de l’individu situé à l’indice i de la génération passée en argument dans le fichier nomFichierPopulation.
 					%cette fonction correspond à la fonctionnalité du calcul des statistiques qui sservent ) décrire l’évolution de l’algorithme dans le fichier de sortie de l’utilisateur.
@@ -357,7 +356,7 @@
 			\end{itemize}
 			
 		\subsection{Interface}
-			Pour faire l'interface graphique de notre application, nous avons choisi d'utiliser la librairie Qt car elle est facile à utiliser, générique et donne beaucoup de liberté quand à son utilisation.\\
+			Pour faire l'interface graphique de notre application, nous avons choisi d'utiliser la librairie Qt car elle est simple à utiliser, générique et donne beaucoup de liberté quand à son utilisation.\\
 			%~  On peut donner à l’interface l’apparence que l’on veut. 
 			%~ e plus Qt s’utilise à la fois sur Windows, linux et mac OS ce qui permet d'envisager un eventuel portage du programme vers ces systèmes.\\
 			Les includes seront principalement les objets de la librairie Qt 
