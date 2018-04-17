@@ -166,7 +166,7 @@
 					\end{itemize}
 			\textbf{Setteurs}
 					\begin{itemize}
-							\item \textbf{void ajouterGène(int gène, int i)} : Ajoute un gène (0 ou 1) à l’emplacement i du tableau chromosome.
+							\item \textbf{void setGene(int gene, int i)} : Ajoute un gène (0 ou 1) à l’emplacement i du tableau chromosome.
 							\item \textbf{void setChromosome(int [tailleIndividu] chromosome)};
 							\item \textbf{void setScore(int score, int i)} : Affecte à l’indice i du tableau de score la valeur score
 							\item \textbf{void setRang(int rang, int i)} : Affecte à l’indice i du tableau de rang la valeur rang
@@ -178,17 +178,17 @@
 							\item \textbf{int décodage(Individu I)} : Cette fonction transforme une suite de 0 et de 1 en un entier. Cette fonction sert à obtenir la valeur entière d’un individu.\vspace{0.2cm}
 							\item \textbf{bool EvaluationIndividu (String fonctionFitness, int indiceScore)} : Cette fonction prend une fonction fitness et évalue chaque individu en utilisant celle-ci. 
 																									Elle prend également un indice correspondant  au score de l’individu afin de pouvoir, dans le cadre d’un problème multicritère, stocker un score par critère. 
-																									La valeur obtenue grâce à \textbf{calculfitness(const char *c, double x)} correspondra au score de l’individu et sera écrite dans le tableau des scores à l’indice passé en paramètre.
+																									La valeur obtenue grâce à \textbf{calculfitness(const char *c, int x)} correspondra au score de l’individu et sera écrite dans le tableau des scores à l’indice passé en paramètre.
 																									On renvoie VRAI s’il n’y a pas eu de problème lors de l’évaluation, FAUX sinon. Cette fonction est appelée par la méthode Evaluation de la classe Population.
-																									Cette méthode fait le lien entre le module d’Initialisation de la population et celui de lGénération de la nouvelle population.
+																									Cette méthode fait le lien entre les modules "Initialisation de la population" et "Génération de la nouvelle population".
 																									En effet pour générer une population il faut en évaluer les individus pour savoir lesquels ont le plus de chance d'être sélectionnés dans la suite de l'algorithme.\vspace{0.2cm}
-							\item \textbf{Int mutation(int gene, float prob)} : Cette fonction prend en paramètre un gène, c’est à dire une case du tableau chromosome, et une probabilité.
+							\item \textbf{Int mutation(int gene, float prob)} : Cette fonction prend en paramètre un gène, c’est-à-dire une case du tableau chromosome, et une probabilité.
 																		Elle utilise la méthode \textbf{probaAlea(float prob)}, si la méthode renvoie VRAI, alors on modifie le gène et on le renvoie.
 																		Sinon, on renvoie le gène sans modification.\vspace{0.2cm}
 							\item \textbf{bool probaAlea(float prob)} : Cette fonction renvoie VRAI avec une probabilité prob.\vspace{0.2cm}
-							\item \textbf{double calculfitness (const char *c, double x)} : Cette fonction prend la fonction fitness en argument et la valeur de x et renvoie la solution du calcul. La valeur x devra être préalablement transformée en entier par décodage.
+							\item \textbf{int calculfitness (const char *c, int x)} : Cette fonction prend la fonction fitness en argument et la valeur de x et renvoie la solution du calcul. La valeur x devra être préalablement transformée en entier par décodage.
 								Cette fonction utilisera le parser tinyexpr développé par Lewis Van Winkle. 
-								C’est un parser simple et rapide, supportant toutes les formules dont nous avons besoin (racine carré, sin, cos etc…) et facilement adaptable à notre projet. 
+								C’est un parser simple et rapide, supportant toutes les formules dont nous avons besoin (racine carré, sin, cos, etc.) et facilement adaptable à notre projet. 
 								%~ C’est pourquoi nous l’avons choisi.\\
 					\end{itemize}
 					
@@ -223,7 +223,7 @@
 					\begin{itemize}
 							\item \textbf{int getNombresIndividus()}
 							\item \textbf{individu[nombreIndividus] getEnsemble()}
-							\item \textbf{int getnumeroGeneration()}
+							\item \textbf{int getNumeroGeneration()}
 							\item \textbf{String getFitness1()}
 							\item \textbf{String getFitness2()}
 							\item \textbf{float getValeurApprochée()}\\
