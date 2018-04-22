@@ -8,6 +8,7 @@
 #define __ENTREE_SORTIE_H
 
 #include <string>
+#include <stdlib.h>
 
 // Validation
 bool testCoherenceDonnees(string nomFichier);
@@ -16,6 +17,9 @@ bool estFloatPositif(auto valeur);
 bool estProbabilite(auto valeur);
 bool estString(auto valeur);
 bool estParsable(string fonction);
+
+// Lecture
+int* lireStat(FILE *F);
 
 
 
