@@ -1,0 +1,4 @@
+Bonjour !
+prealablement faire : qmake
+pour compiler : make
+pour lancer : ./Implementation_AG
