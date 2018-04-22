@@ -1,4 +1,5 @@
 Bonjour !
-prealablement faire : qmake
+prealablement ajouter le nom des fichiers supplémentaire au .pro puis faire un qmake
 pour compiler : make
 pour lancer : ./Implementation_AG
+Contenu actuel du main à commenter pour faire les tests.
