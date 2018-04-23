@@ -97,7 +97,7 @@ bool Population::testNombreGeneration(){
 }
 
 bool Population::testPopulationRemplie(){
-	//if taille(ensemble )  < nombreIndividu   	renvoie vrai
+	//if taille(ensemble )  < nombreIndividu   	renvoie vrai			pb : on a rien qui nous dit combien d'individu il y a déjà...
 }
 
 /**** LES ALGOS ****/
