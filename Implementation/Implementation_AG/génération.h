@@ -13,23 +13,23 @@ using namespace std;
 
 class Population{
 
-private:
-	static int nombreIndividus;
-	static int nombreCriteres;
-	//Individu ensemble []; //pb : je sais pas quoi mettre entre les crochets lolz, ça marche pas avec rien
+private: //pas certain que mettre tout les attributs en static soit vraiment utile
+	int nombreIndividus;
+	int nombreCriteres;
+	Individu* ensemble; //bon ca a l'air de marcher avec  *
 	static int numeroGeneration;
-	static int criteres []; 		//alors qu'ici ça marche avec rien ¯\_(ツ)_/¯
-	static float valeurApprochee;
-	static string fitness1;
-	static string fitness2;
-	static int nombreGenerationMax;
-	static float probaCroisement;
+	int* criteres; 		//alors qu'ici ça marche avec rien ¯\_(ツ)_/¯
+	float valeurApprochee;
+	string fitness1;
+	string fitness2;
+	int nombreGenerationMax;
+	float probaCroisement;
 
 public: 
 	/* LES CONSTRUCTEURS ET DESTRUCTEUR*/
 	Population();
-	Population(const Population& P);
-	Population(string donnees); 		//données est censé être un tableau mais ça compile pas quand j'en fais un tab
+	Population(Population const& P);
+	Population(string* const& donnees); 		//données est censé être un tableau mais ça compile pas quand j'en fais un tab
 	~Population();
 
 
