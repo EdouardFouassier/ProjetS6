@@ -12,9 +12,7 @@ int main(int argc, char *argv[])
     //~ interface.show(); //affiche...
     
     
-    int i = 1;
-    bool x = estEntierPositif(i);
-    printf(x ? "true\n" : "false\n");
+    
    // return app.exec();
     return 0;
 }

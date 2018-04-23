@@ -15,14 +15,7 @@ using namespace std;
 //~ bool testCoherenceDonnees(string nomFichier) {
 //~ }
 
-bool estEntierPositif(auto valeur) {
-	
-	 if(valeur==(int)valeur && valeur >= 0)
-        return true;
-    else {
-		return false;
-	}
-}
+bool estEntierPositif(auto valeur);
 //~ bool estFloatPositif(auto valeur) {
 //~ }
 
