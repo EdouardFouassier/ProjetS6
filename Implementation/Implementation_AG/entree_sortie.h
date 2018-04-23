@@ -9,20 +9,29 @@
 
 #include <string>
 #include <stdlib.h>
-#include <stdio.h>
-
+using namespace std;
 
 // Validation
-//~ bool testCoherenceDonnees(string nomFichier);
-bool estEntierPositif(auto valeur);
-//~ bool estFloatPositif(auto valeur);
-//~ bool estProbabilite(auto valeur);
-//~ bool estString(auto valeur);
-//~ bool estParsable(string fonction);
+//~ bool testCoherenceDonnees(string nomFichier) {
+//~ }
+
+//~ bool estEntierPositif(auto valeur) {
+}
+
+//~ bool estFloatPositif(auto valeur) {
+//~ }
+
+//~ bool estProbabilite(auto valeur) {
+//~ }
+
+//~ bool estString(auto valeur) {
+//~ }
+
+//~ bool estParsable(string fonction) {
+//~ }
 
 // Lecture
-//~ int* lireStat(FILE *F);
-
-
+//~ int* lireStat(FILE *F) {
+//~ }
 
 #endif
