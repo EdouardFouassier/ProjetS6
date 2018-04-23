@@ -1,5 +1,11 @@
 Bonjour !
-prealablement ajouter le nom des fichiers supplémentaire au .pro puis faire un qmake
+Pour installer QT :
+    sudo apt-get update
+    sudo apt-get install qtbase5-dev
+		sudo apt-get install libgtkmm-3.0-dev
+Pour ajouter une classe :
+    ajouter le nom des fichiers supplémentaire au .pro 
+    faire un qmake
 pour compiler : make
 pour lancer : ./Implementation_AG
 Contenu actuel du main à commenter pour faire les tests.
