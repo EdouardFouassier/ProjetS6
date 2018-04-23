@@ -25,7 +25,7 @@ public:
 	/* LES CONSTRUCTEURS ET DESTRUCTEUR*/
 	Population();
 	Population(const Population& P);
-	Population(string donnees);
+	Population(string donnees); 		//données est censé être un tableau mais ça compile pas quand j'en fais un tab
 	~Population();
 
 
@@ -44,9 +44,9 @@ public:
 	void setNumeroGeneration(int numGen);
 	void setFitness1(string fit1);
 	void setFitness2(string fit2);
-	void serValeurApprochee(float val);
+	void setValeurApprochee(float val);
 	void setProbaCroisement(float proba);
-	void serNombreGenerationMax (int nbGen);
+	void setNombreGenerationMax (int nbGen);
 
 	/*LES TESTS*/
 	Population testArret();
