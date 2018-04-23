@@ -4,42 +4,44 @@
 //////////////////////////////////////////////////
 #include "génération.h"
 
-using namespace std;
+/**** STATIC ****/
+
+int Population::nombreIndividus = 0;
+int Population::nombreCriteres = 0;
+int Population::numeroGeneration = 0;
+int* Population::criteres = nullptr;
+float Population::valeurApprochee = 0.0;
+string Population::fitness1 = "";
+string Population::fitness2 = "";
+int Population::nombreGenerationMax = 0;
+float Population::probaCroisement = 0.0;
 
 /**** CONSTRUCTEURS****/
 
-Population::Population()
-	: nombreIndividus(0), nombreCriteres(0), ensemble(NULL),criteres(NULL), valeurApprochee(0.0),
-	 fitness1(""), fitness2(""), nombreGenerationMax(0), probaCroisement(0.0)
+Population::Population() : ensemble(nullptr)
 {
-	numeroGeneration = 0;
+	numeroGeneration += 1;
 }
 
-Population::Population(Population const& P)
-	: nombreIndividus(P.nombreIndividus), nombreCriteres(P.nombreCriteres),
-	 ensemble(P.ensemble),criteres(P.criteres), valeurApprochee(P.valeurApprochee),
-	 fitness1(P.fitness1), fitness2(P.fitness2), nombreGenerationMax(P.nombreGenerationMax),
-	 probaCroisement(P.probaCroisement) 
+Population::Population(Population const& P) : ensemble(P.ensemble)
 {
-	numeroGeneration = P.numeroGeneration;
-}
-
-Population::Population(string* const& donnees){
-	float tmpTauxCross, tmpValApp;
-	int tmpTaillePop, tmpNbCrit, tmpGMax, tmpCrit1, tmpCrit2;
-	string tmpFit1, tmpFit2;
-
-
-	tmpTaillePop = stoi(donnees[1], 0, 10);
-	tmpNbCrit = stoi(donnees[2], 0, 10);
-	nombreGenerationMax = stoi(donnees[3], 0, 10);	
-
+	numeroGeneration += 1;
 	
-	tmpFit1 = donnees[5];
-	tmpFit2 = donnees[6];
-	tmpCrit1 = stoi(donnees[7], 0, 10);
-	tmpCrit2 = stoi(donnees[8], 0, 10);
-	//this->setProbaCroisement((float)donnees[0]);
+}
+
+Population::Population(string* const& donnees) :  ensemble(nullptr){
+	
+	probaCroisement = std::stof(donnees[0],nullptr); // string to float
+	nombreIndividus = std::stoi(donnees[1], nullptr, 10);
+	nombreCriteres = std::stoi(donnees[2], nullptr, 10);
+	nombreGenerationMax = std::stoi(donnees[3], nullptr, 10);	
+	valeurApprochee = std::stof(donnees[4], nullptr);
+	fitness1 = donnees[5];
+	fitness2 = donnees[6];
+	criteres[0] = std::stoi(donnees[7], nullptr, 10);
+	criteres[1] = std::stoi(donnees[8], nullptr, 10);
+	numeroGeneration += 1;
+	
 }
 
 /**** DESTRUCTEUR ****/
@@ -171,3 +173,7 @@ int Population::nombreAlea(int inf, int sup){
 	return 0;
 }
 */
+
+int main(){
+	return 0;
+}

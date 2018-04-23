@@ -13,17 +13,17 @@ using namespace std;
 
 class Population{
 
-private: //pas certain que mettre tout les attributs en static soit vraiment utile
-	int nombreIndividus;
-	int nombreCriteres;
+private:
+	static int nombreIndividus;
+	static int nombreCriteres;
 	Individu* ensemble; //bon ca a l'air de marcher avec  *
 	static int numeroGeneration;
-	int* criteres; 		//alors qu'ici ça marche avec rien ¯\_(ツ)_/¯
-	float valeurApprochee;
-	string fitness1;
-	string fitness2;
-	int nombreGenerationMax;
-	float probaCroisement;
+	static int* criteres; 		//alors qu'ici ça marche avec rien ¯\_(ツ)_/¯
+	static float valeurApprochee;
+	static string fitness1;
+	static string fitness2;
+	static int nombreGenerationMax;
+	static float probaCroisement;
 
 public: 
 	/* LES CONSTRUCTEURS ET DESTRUCTEUR*/
