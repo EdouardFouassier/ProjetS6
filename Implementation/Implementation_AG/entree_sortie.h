@@ -9,6 +9,8 @@
 
 #include <string>
 #include <stdlib.h>
+#include <iostream>  
+#include <typeinfo>
 using namespace std;
 
 // Validation
@@ -16,8 +18,7 @@ using namespace std;
 //~ }
 
 bool estEntierPositif(auto valeur);
-//~ bool estFloatPositif(auto valeur) {
-//~ }
+//~ bool estFloatPositif(auto valeur);
 
 //~ bool estProbabilite(auto valeur) {
 //~ }
@@ -25,8 +26,7 @@ bool estEntierPositif(auto valeur);
 //~ bool estString(auto valeur) {
 //~ }
 
-//~ bool estParsable(string fonction) {
-//~ }
+bool estParsable(string fonction);
 
 // Lecture
 //~ int* lireStat(FILE *F) {
