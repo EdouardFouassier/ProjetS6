@@ -173,7 +173,3 @@ int Population::nombreAlea(int inf, int sup){
 	return 0;
 }
 */
-
-int main(){
-	return 0;
-}
