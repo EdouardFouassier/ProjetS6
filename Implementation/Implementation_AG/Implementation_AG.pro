@@ -7,7 +7,6 @@ HEADERS += \
 SOURCES += \
     interface.cpp \
     main.cpp \
-    entree_sortie.cpp \
 
 QT += widgets
 
