@@ -1,5 +1,6 @@
 #ifndef INTERFACE_H
 #define INTERFACE_H
+#include <string>
 #include <iostream>
 #include <QProgressBar>
 #include <QApplication>
@@ -31,6 +32,7 @@
 #include <QMenuBar>
 #include <QMenu>
 #include <QFileDialog>
+using namespace std;
 
 class Interface : public QWidget
 {
@@ -74,9 +76,9 @@ private:
     QLineEdit *liensFichier;
     QComboBox *nbF;
     QToolBar *toolBar;
-    QCheckBox *xFig;
-    QCheckBox *postScrit;
-    QCheckBox *laTeX;
+    QCheckBox *checkXFig;
+    QCheckBox *checkPostScrit;
+    QCheckBox *checkLaTeX;
     QGroupBox *groupF1;
     QGroupBox *groupF2;
     QLabel *labNbF;
@@ -95,8 +97,25 @@ private:
     QLabel *labParcourir;
     QFileDialog *FFile;
 
-    bool encours;
 
+//////// attributs
+
+    string fonctionFitness1;
+    string fonctionFitness2;
+    string nomFichierSortie;
+    int taillePopulation;
+    int tailleIndividu;
+    int nbGenerationMax;
+    int critereF1;
+    int critereF2;
+    float tauxMutation;
+    float tauxCrossover;
+    float valeurApproxF1;
+    float valeurApproxF2;
+    bool latex;
+    bool xFig;
+    bool postScipt;
+    bool encours;
 
 
 public:
@@ -111,6 +130,7 @@ public:
     void afficherAppF1();
     void afficherAppF2();
     void connectlancer();
+    void connectquitter();
 
 
 

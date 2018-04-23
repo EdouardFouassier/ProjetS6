@@ -42,9 +42,9 @@ Interface::Interface() : QWidget()
     nbF->addItem("1");
     nbF->addItem("2");
 
-    xFig=new QCheckBox("xFig");
-    postScrit=new QCheckBox("PostScrit");
-    laTeX=new QCheckBox("LaTeX");
+    checkXFig=new QCheckBox("xFig");
+    checkPostScrit=new QCheckBox("PostScrit");
+    checkLaTeX=new QCheckBox("LaTeX");
 
     labNbF=new QLabel("Nombre de fonctions fitness");
     labNbGen=new QLabel("Nombre de generation max");
@@ -94,9 +94,9 @@ Interface::Interface() : QWidget()
     layoutParcourir->addWidget(parcourir);
 
     layoutOut=new QHBoxLayout();
-    layoutOut->addWidget(xFig);
-    layoutOut->addWidget(postScrit);
-    layoutOut->addWidget(laTeX);
+    layoutOut->addWidget(checkXFig);
+    layoutOut->addWidget(checkPostScrit);
+    layoutOut->addWidget(checkLaTeX);
 
     layoutdroitehaut = new QVBoxLayout();
     layoutdroitehaut->addWidget(labTauxCross);
@@ -149,6 +149,7 @@ Interface::Interface() : QWidget()
     QObject::connect(minF2, SIGNAL(clicked(bool)), this, SLOT(cacherAppF2()));
     QObject::connect(maxF2, SIGNAL(clicked(bool)), this, SLOT(cacherAppF2()));
     QObject::connect(valider, SIGNAL(clicked()), this, SLOT(connectlancer()));
+     QObject::connect(quitter, SIGNAL(clicked()), this, SLOT(connectquitter()));
 
     groupF1->setTitle("Fitness1");
     groupF2->setTitle("Fitness2");
@@ -157,7 +158,7 @@ Interface::Interface() : QWidget()
     this->setLayout(mainLayout);
     minF1->setChecked(1);
     minF2->setChecked(1);
-    laTeX->setChecked(1);
+    checkLaTeX->setChecked(1);
     groupF2->setVisible(0);
     valeurF1->setVisible(0);
     valeurF2->setVisible(0);
@@ -170,10 +171,6 @@ Interface::Interface() : QWidget()
 
 bool Interface::getEnCours(){
     return encours;
-}
-
-void Interface::connectlancer(){
-    encours=true;
 }
 
 void Interface::enableF2(int s){
@@ -195,6 +192,64 @@ void Interface::cacherAppF2(){
 
 void Interface::afficherAppF2(){
     valeurF2->setVisible(1);
+}
+
+void Interface::connectquitter(){
+    int reponse=QMessageBox::question(this,"Confirmer?" ,"Quitter perdra les la progression actuel de l'algorithme.\nEtes vous sure?", QMessageBox::Yes | QMessageBox::No );
+        if (reponse == QMessageBox::Yes)
+        {
+            QMessageBox::information(this, "Fermeture", "A bientot");
+            close();
+        }
+}
+
+void Interface::connectlancer(){
+    if(liensFichier->text().length()==0){
+    fonctionFitness1=F1->text().toUtf8().constData();
+    fonctionFitness2=F2->text().toUtf8().constData();
+    nomFichierSortie=nomFichier->text().toUtf8().constData();
+    taillePopulation=taillePop->value();
+    tailleIndividu=tailleIndi->value();
+    nbGenerationMax=nbGen->value();
+    if(maxF1->isChecked()) critereF1=1;
+    else {
+        if(minF1->isChecked()) critereF1=2;
+        else critereF1=3;
+    }
+    if(nbF->currentIndex()==1){
+        if(maxF2->isChecked()) critereF2=1;
+        else {
+            if(minF2->isChecked()) critereF2=2;
+            else critereF2=3;
+        }
+    }
+    else critereF2=0;
+    tauxMutation=tauxMut->value();
+    tauxCrossover=tauxCross->value();
+    valeurApproxF1=valeurF1->value();
+    valeurApproxF2=valeurF2->value();
+    latex=checkLaTeX->isChecked();
+    xFig=checkXFig->isChecked();
+    postScipt=checkPostScrit->isChecked();
+    encours=1;
+    cout<<fonctionFitness1<<endl;
+    cout<<fonctionFitness2 <<endl;
+    cout<< nomFichierSortie<<endl;
+    cout<< taillePopulation<<endl;
+    cout<<tailleIndividu <<endl;
+    cout<<nbGenerationMax <<endl;
+    cout<< critereF1<<endl;
+    cout<< critereF2<<endl;
+    cout<< tauxMutation<<endl;
+    cout<< tauxCrossover<<endl;
+    cout<< valeurApproxF1<<endl;
+    cout<<valeurApproxF2 <<endl;
+    cout<<latex <<endl;
+    cout<< xFig<<endl;
+    cout<< postScipt<<endl;
+    }
+    else cout<<liensFichier->text().toUtf8().constData()<<endl;
+
 }
 
 void Interface::chercher(){
