@@ -1,3 +1,7 @@
+//////////////////////////////////////////////////
+/// Projet S6 - Sujet 4 - Algorithme Génétique ///
+///              génération.h                  ///
+//////////////////////////////////////////////////
 #ifndef __GENERATION_H
 #define __GENERATION_H
 
