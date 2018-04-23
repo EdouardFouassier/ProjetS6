@@ -7,8 +7,10 @@
 #ifndef __ENTREE_SORTIE_H
 #define __ENTREE_SORTIE_H
 
-#include <string.h>
+#include <string>
 #include <stdlib.h>
+#include <stdio.h>
+
 
 // Validation
 //~ bool testCoherenceDonnees(string nomFichier);
