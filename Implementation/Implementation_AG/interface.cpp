@@ -249,6 +249,8 @@ void Interface::connectlancer(){
     cout<< postScipt<<endl;
     }
     else cout<<liensFichier->text().toUtf8().constData()<<endl;
+    
+    ecrireFichierDonnees(this, "DonneesInitiales.txt");
 
 }
 
@@ -272,4 +274,9 @@ void Interface::chercher(){
     }
     else
         dialog.reject();
+}
+
+int Interface::getTaillePopulation()
+{
+	return taillePop->value();
 }

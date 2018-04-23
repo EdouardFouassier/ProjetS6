@@ -11,6 +11,8 @@
 #include <stdlib.h>
 #include <iostream>  
 #include <typeinfo>
+#include <fstream>
+#include "Interface.h"
 using namespace std;
 
 // Validation
@@ -31,5 +33,9 @@ bool estParsable(string fonction);
 // Lecture
 //~ int* lireStat(FILE *F) {
 //~ }
+
+// Ecriture
+class Interface;
+bool ecrireFichierDonnees(Interface *interface, string nomFichier);
 
 #endif

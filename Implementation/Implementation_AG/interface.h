@@ -32,6 +32,9 @@
 #include <QMenuBar>
 #include <QMenu>
 #include <QFileDialog>
+
+#include "entree_sortie.h"
+
 using namespace std;
 
 class Interface : public QWidget
@@ -121,7 +124,8 @@ private:
 public:
     Interface();
     bool getEnCours();
-
+	int getTaillePopulation();
+	
     public slots:
     void enableF2(int s);
     void chercher();

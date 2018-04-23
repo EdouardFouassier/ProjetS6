@@ -110,8 +110,28 @@ bool estParsable(string fonction) {
 //~ int* lireStat(FILE *F) {
 //~ }
 
+// Ecriture
+bool ecrireFichierDonnees(Interface *interface, string nomFichier)
+{
+    ofstream fichier(nomFichier.c_str(), ios::out | ios::trunc);
+
+            if(fichier)
+            {
+                    fichier << interface->getTaillePopulation() <<  endl;
+
+                    fichier.close();
+                    return true;
+            }
+            else
+                   return false;
+
+      return true;
+
+}
+
 int main (){
 	//~ float i = 3.2;
     bool x = estParsable("+ 2 +  2");
     printf(x ? "true" : "false");
 }
+
