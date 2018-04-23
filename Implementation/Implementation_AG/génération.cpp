@@ -47,7 +47,9 @@ Population::Population(string* const& donnees) :  ensemble(nullptr){
 /**** DESTRUCTEUR ****/
 
 Population::~Population(){
-
+	/*for (int i = 0; i < nombreIndividus; i ++)
+		delete &ensemble[i];
+	delete[];*/
 }
 
 
