@@ -36,7 +36,8 @@ public:
 	int getNumeroGeneration();
 	string getFitness1();
 	string getFitness2();
-	float getVAleurApprochee();
+	float getValeurApprochee();
+	int getNombreGenerationMax();
 
 	/*LES SETTEURS*/
 	void setNombreIndividus(int nbIndiv);

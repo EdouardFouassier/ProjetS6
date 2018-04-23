@@ -26,50 +26,54 @@ int Population::getNombreIndividus(){
 }
 
 int Population::getNumeroGeneration(){
-	return 1;
+	return this->numeroGeneration;
 }
 
 string Population::getFitness1(){
-	return "";
+	return this->fitness1;
 }
 
 string Population::getFitness2(){
-	return "";
+	return this->fitness2;
 }
 
-float getValeurApprochee(){
-	return 0.0;
+float Population::getValeurApprochee(){
+	return this->valeurApprochee;
+}
+
+int Population::getNombreGenerationMax(){		//fonction qu'on a oubliée dans le cds :(
+	return this->nombreGenerationMax;
 }
 
 
 /**** SETTEURS ****/
 
 void Population::setNombreIndividus(int nbIndiv){
-
+	this->nombreIndividus = nbIndiv;
 }
 
 void Population::setNumeroGeneration(int num){
-
+	this->numeroGeneration = num;
 }
 
 void Population::setFitness1(string fit1){
-
+	this->fitness1 = fit1;
 }
 
 void Population::setFitness2(string fit2){
-
+	this->fitness2 = fit2;
 }
 
 void Population::setValeurApprochee(float val){
-
+	this->valeurApprochee = val;
 }
 
 void Population::setProbaCroisement(float proba){
-
+	this->probaCroisement = proba;
 }
 
 void Population::setNombreGenerationMax(int nb){
-
+	this->nombreGenerationMax = nb;
 }
 
 
@@ -77,19 +81,23 @@ void Population::setNombreGenerationMax(int nb){
 /**** TESTS ****/
 
 Population Population::testArret(){
+	if(this->testConvergence() && this->testNombreGeneration()){
+		//ecrire fichier score
+	}
 	return *this;
-}
 
 bool Population::testConvergence(){
 	return NULL;
 }
 
 bool Population::testNombreGeneration(){
-	return NULL;
+	if(this->getNumeroGeneration() < this->getNombreGenerationMax() )
+		return true;
+	return false;
 }
 
 bool Population::testPopulationRemplie(){
-	return NULL;
+	//if taille(ensemble )  < nombreIndividu   	renvoie vrai
 }
 
 /**** LES ALGOS ****/
