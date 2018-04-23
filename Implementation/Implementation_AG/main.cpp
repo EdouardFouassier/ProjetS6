@@ -6,7 +6,7 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    //QApplication app(argc, argv);
 
     //~ Interface interface; //crée la fenetre
     //~ interface.show(); //affiche...
@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
     
     int i = 1;
     bool x = estEntierPositif(i);
-    printf(x ? "true" : "false");
-    return app.exec();
+    printf(x ? "true\n" : "false\n");
+   // return app.exec();
+    return 0;
 }
