@@ -232,21 +232,21 @@ void Interface::connectlancer(){
     xFig=checkXFig->isChecked();
     postScipt=checkPostScrit->isChecked();
     encours=1;
-    cout<<fonctionFitness1<<endl;
-    cout<<fonctionFitness2 <<endl;
-    cout<< nomFichierSortie<<endl;
-    cout<< taillePopulation<<endl;
-    cout<<tailleIndividu <<endl;
-    cout<<nbGenerationMax <<endl;
-    cout<< critereF1<<endl;
-    cout<< critereF2<<endl;
-    cout<< tauxMutation<<endl;
-    cout<< tauxCrossover<<endl;
-    cout<< valeurApproxF1<<endl;
-    cout<<valeurApproxF2 <<endl;
-    cout<<latex <<endl;
-    cout<< xFig<<endl;
-    cout<< postScipt<<endl;
+    cout<<"fonctionFitness1 "<<getFonctionFitness1()<<endl;
+    cout<<"fonctionFitness2 " <<getFonctionFitness2()<<endl;
+    cout<< "nomFichierSortie "<<getNomFichierSortie()<<endl;
+    cout<< "taillePopulation "<<getTaillePopulation()<<endl;
+    cout<<"tailleIndividu "<<getTailleIndividu()<<endl;
+    cout<<"nbGenerationMax "<<getNbGenerationMax()<<endl;
+    cout<< "critereF1 "<<getCritereF1()<<endl;
+    cout<< "critereF2 "<<getCritereF2()<<endl;
+    cout<< "tauxMutation "<<getTauxMutation()<<endl;
+    cout<< "tauxCrossover "<<getTauxCrossover()<<endl;
+    cout<< "valeurApproxF1 "<<getValeurApproxF1()<<endl;
+    cout<<"valeurApproxF2 "<<getValeurApproxF2()<<endl;
+    cout<<"latex "<<getLatex()<<endl;
+    cout<< "xFig "<<getXFig()<<endl;
+    cout<< "postScipt "<<getPostScript()<<endl;
     }
     else cout<<liensFichier->text().toUtf8().constData()<<endl;
     
@@ -276,7 +276,65 @@ void Interface::chercher(){
         dialog.reject();
 }
 
-int Interface::getTaillePopulation()
-{
-	return taillePop->value();
+
+string Interface::getFonctionFitness1(){
+	return fonctionFitness1;
 }
+
+string Interface::getFonctionFitness2(){
+	return fonctionFitness2;
+}
+
+string Interface::getNomFichierSortie(){
+	return nomFichierSortie;
+}
+
+	
+int Interface::getTaillePopulation(){
+	return taillePopulation;
+}
+
+int Interface::getTailleIndividu(){
+    return tailleIndividu;
+}
+
+int Interface::getNbGenerationMax(){
+    return nbGenerationMax;
+}
+
+int Interface::getCritereF1(){
+    return critereF1;
+}
+
+int Interface::getCritereF2(){
+    return critereF2;
+}
+
+float Interface::getTauxMutation(){
+    return tauxMutation;
+}
+
+float Interface::getTauxCrossover(){
+    return tauxCrossover;
+}
+
+float Interface::getValeurApproxF1(){
+    return valeurApproxF1;
+}
+
+float Interface::getValeurApproxF2(){
+    return valeurApproxF2;
+}
+
+bool Interface::getLatex(){
+    return latex;
+}
+
+bool Interface::getXFig(){
+    return xFig;
+}
+
+bool Interface::getPostScript(){
+    return postScipt;
+}
+

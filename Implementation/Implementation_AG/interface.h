@@ -124,7 +124,21 @@ private:
 public:
     Interface();
     bool getEnCours();
+	string getFonctionFitness1();
+	string getFonctionFitness2();
+	string getNomFichierSortie();
 	int getTaillePopulation();
+	int getTailleIndividu();
+	int getNbGenerationMax();
+	int getCritereF1();
+	int getCritereF2();
+	float getTauxMutation();
+	float getTauxCrossover();
+	float getValeurApproxF1();
+	float getValeurApproxF2();
+	bool getLatex();
+	bool getXFig();
+	bool getPostScript();
 	
     public slots:
     void enableF2(int s);
