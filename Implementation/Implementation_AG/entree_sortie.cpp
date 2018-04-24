@@ -19,13 +19,18 @@ bool estEntierPositif(auto valeur){
 	}
 }
 
-//~ bool estFloatPositif(auto valeur){
+bool estFloatPositif(auto valeur){
+	if(valeur[1] == '.') { return true; }
 	
-	
-//~ }
+}
 
-//~ bool estProbabilite(auto valeur) {
-//~ }
+bool estProbabilite(auto valeur) {
+	if((valeur <= 1) && (valeur >= 0)) {
+		return true; }
+		else {
+			return false;
+		}
+}
 
 //~ bool estString(auto valeur) {
 //~ }
@@ -79,7 +84,7 @@ bool estParsable(string fonction) {
 		else {	
 		if (fonction[i] == 's') {
 			if ( ((fonction[i+1] == 'i') && (fonction[i+2] == 'n')) ) { i += 2; }
-			else { if ( ((fonction[i+1] == 'i') && (fonction[i+2] == 'n') && (fonction[i+3] == 'h') || ((fonction[i+1] == 'q') && (fonction[i+2] == 'r')) && (fonction[i+3] == 't')) ){ i += 3; }
+			else { if ( ((fonction[i+1] == 'i') && (fonction[i+2] == 'n') && (fonction[i+3] == 'h')) || ((fonction[i+1] == 'q') && (fonction[i+2] == 'r') && (fonction[i+3] == 't')) ){ i += 3; }
 			else { return false; }}}
 		else { 
 		if (fonction[i] == 't') {
@@ -129,9 +134,11 @@ bool ecrireFichierDonnees(Interface *interface, string nomFichier)
 
 }
 
-int main (){
+//~ int main (){
 	//~ float i = 3.2;
-    bool x = estParsable("+ 2 +  2");
-    printf(x ? "true" : "false");
-}
+	//~ bool y = estProbabilite(i);
+	//~ printf(y ? "true" : "false");
+    //~ bool x = estParsable("+ 2 +  2");
+    //~ printf(x ? "true" : "false");
+//~ }
 

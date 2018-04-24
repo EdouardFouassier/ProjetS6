@@ -12,7 +12,7 @@
 #include <iostream>  
 #include <typeinfo>
 #include <fstream>
-#include "Interface.h"
+#include "interface.h"
 using namespace std;
 
 // Validation
@@ -20,10 +20,9 @@ using namespace std;
 //~ }
 
 bool estEntierPositif(auto valeur);
-//~ bool estFloatPositif(auto valeur);
+bool estFloatPositif(auto valeur);
 
-//~ bool estProbabilite(auto valeur) {
-//~ }
+bool estProbabilite(auto valeur);
 
 //~ bool estString(auto valeur) {
 //~ }
