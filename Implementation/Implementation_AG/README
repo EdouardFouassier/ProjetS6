@@ -9,3 +9,7 @@ Pour ajouter une classe :
 pour compiler : make
 pour lancer : ./Implementation_AG
 Contenu actuel du main à commenter pour faire les tests.
+
+ATTENTION, quand on fait qmake, le makefile de qt se refait en entier.
+Ainsi si vous faites qmake ajouter a la ligne 312 (en dessous de la cible all) ceci : cd tinyexpr && $(MAKE)
+btw la fonction du parser s'appelle : double calculfitness (const char *c, double x) et est dans le dossier tinyexpr
