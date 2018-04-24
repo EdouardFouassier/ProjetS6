@@ -625,7 +625,7 @@ double calculfitness (const char *c, double x) {
     te_variable vars[] = {{"x", &x}, {"y", &y}};
 
 
-    int err;
+    int err;    
     te_expr *n = te_compile(c, vars, 2, &err);
 
     if (n) {

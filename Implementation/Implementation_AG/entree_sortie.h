@@ -13,6 +13,7 @@
 #include <typeinfo>
 #include <fstream>
 #include "interface.h"
+#include "tinyexpr/tinyexpr.h"
 using namespace std;
 
 // Validation
