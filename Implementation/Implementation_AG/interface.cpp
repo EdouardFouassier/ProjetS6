@@ -232,21 +232,21 @@ void Interface::connectlancer(){
     xFig=checkXFig->isChecked();
     postScipt=checkPostScrit->isChecked();
     encours=1;
-    cout<<"fonctionFitness1 "<<getFonctionFitness1()<<endl;
-    cout<<"fonctionFitness2 " <<getFonctionFitness2()<<endl;
-    cout<< "nomFichierSortie "<<getNomFichierSortie()<<endl;
-    cout<< "taillePopulation "<<getTaillePopulation()<<endl;
-    cout<<"tailleIndividu "<<getTailleIndividu()<<endl;
-    cout<<"nbGenerationMax "<<getNbGenerationMax()<<endl;
-    cout<< "critereF1 "<<getCritereF1()<<endl;
-    cout<< "critereF2 "<<getCritereF2()<<endl;
-    cout<< "tauxMutation "<<getTauxMutation()<<endl;
-    cout<< "tauxCrossover "<<getTauxCrossover()<<endl;
-    cout<< "valeurApproxF1 "<<getValeurApproxF1()<<endl;
-    cout<<"valeurApproxF2 "<<getValeurApproxF2()<<endl;
-    cout<<"latex "<<getLatex()<<endl;
-    cout<< "xFig "<<getXFig()<<endl;
-    cout<< "postScipt "<<getPostScript()<<endl;
+    cout<<getFonctionFitness1()<<endl;
+    cout<<getFonctionFitness2()<<endl;
+    cout<<getNomFichierSortie()<<endl;
+    cout<<getTaillePopulation()<<endl;
+    cout<<getTailleIndividu()<<endl;
+    cout<<getNbGenerationMax()<<endl;
+    cout<<getCritereF1()<<endl;
+    cout<<getCritereF2()<<endl;
+    cout<<getTauxMutation()<<endl;
+    cout<<getTauxCrossover()<<endl;
+    cout<<getValeurApproxF1()<<endl;
+    cout<<getValeurApproxF2()<<endl;
+    cout<<getLatex()<<endl;
+    cout<<getXFig()<<endl;
+    cout<<getPostScript()<<endl;
     }
     else cout<<liensFichier->text().toUtf8().constData()<<endl;
     
