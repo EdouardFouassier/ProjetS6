@@ -7,8 +7,8 @@
 using namespace std;
 
 // Validation
-//~ bool testCoherenceDonnees(string nomFichier) {
-//~ }
+bool testCoherenceDonnees(string nomFichier) {
+}
 
 bool estEntierPositif(auto valeur){
 	
@@ -36,8 +36,8 @@ bool estProbabilite(auto valeur) {
 		}
 }
 
-//~ bool estString(auto valeur) {
-//~ }
+bool estString(auto valeur) {
+}
 
 bool estParsable(string fonction) {
 
@@ -123,6 +123,14 @@ bool estParsable(string fonction) {
 //~ int* lireStat(FILE *F) {
 //~ }
 
+float* lireInfoRegen(string nomFichier){
+}
+float* lireInitialisation(string nomFichier){
+}
+
+int lireScoreIndividu(string nomFichierPopulation, int generation, int indice){
+}
+
 // Ecriture
 bool ecrireFichierDonnees(Interface *interface, string nomFichier)
 {
@@ -141,6 +149,20 @@ bool ecrireFichierDonnees(Interface *interface, string nomFichier)
       return true;
 
 }
+
+//~ bool ecrirePopulation(Population P, string nomFichier){
+//~ }
+//~ bool calculerEcrireStats(Population P, string nomFichierPopulation, string nomFichierStats){
+//~ }
+//~ bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichierStats){
+//~ }
+//~ bool ecrireLatex(string nomFichierSortie){
+//~ }
+//~ bool ecrirePostscript(string nomFichierSortie){
+//~ }
+//~ bool ecrireXfig(string nomFichierSortie){
+//~ }
+//bool ecrireUnScore(int score, File *F); //lui je sais plus si on l'a laissé dans le cahier des specs
 
 //~ int main (){
 	//~ float i = 3.2;
