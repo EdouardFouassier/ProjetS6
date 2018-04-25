@@ -20,7 +20,11 @@ bool estEntierPositif(auto valeur){
 }
 
 bool estFloatPositif(auto valeur){
-	if(valeur[1] == '.') { return true; }
+	double d; int n;
+	d = valeur;
+	n = (int)d;
+	if (n == d) { return false; }
+	else { return true; }
 	
 }
 
