@@ -12,7 +12,14 @@
 
 // Constructeurs //
 Individu::Individu() {}
-Individu::Individu(int tailleIndividu) {}
+Individu::Individu(int taille) {
+	Individu::tailleIndividu = taille;
+	Individu::chromosome[taille];
+	for(int i = 0, i < taille, i ++){
+		this->chromosome[i] = 0;
+	}
+
+}
 
 // Destructeur //
 Individu::~Individu() {}
@@ -37,19 +44,17 @@ void Individu::setGene(int gene, int i){
 }
 void Individu::setChromosome(int* chromosome2){
 	this->chromosome = chromosome2;
-	//// Je ne crois pas que ça, ça existe dans le cahier des specs ////
+	// Non pas comme ça //
 }
 void Individu::setScore(int score, int i){
 	this->score[i] = score;
 }
-
 void Individu::setRang(int rang, int i){
 	this->rang[i] = rang;
 }
-
 void Individu::setTailleIndividu(int tailleIndividu2){
 	this->tailleIndividu = tailleIndividu2;
-	// Et ça c'est sensé être un static, ON NE PEUT PAS SET UN STATIC //
+	// Et ça c'est sensé être un static, ça n'a pas de sens de set un static //
 }
 
 // Méthodes //
