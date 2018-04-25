@@ -11,7 +11,7 @@ using namespace std;
 
 class Individu{
 private:
-	static int tailleIndividu;
+	int tailleIndividu;  //// static c'est relou !
 	// int[tailleIndividu] chromosome;
 	int* chromosome;
 	static int nombreCritere;
@@ -35,7 +35,7 @@ public:
 	int* getChromosome();
 	int getScore(int i);
 	int getRang(int i);
-	static int getTailleIndividu();
+	int getTailleIndividu();
 	
 	// Setteurs
 	void setGene(int gene, int i);
