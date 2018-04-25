@@ -31,6 +31,12 @@ public:
 	// Destructeur
 	~Individu();
 
+	/*LES GETTEURS*/
+	int* getChromosome();
+	int getScore(int i);
+	int getRang(int i);
+	static int getTailleIndividu();
+	
 	// Setteurs
 	void setGene(int gene, int i);
 	// void setChromosome(int[tailleIndividu] chromosome);

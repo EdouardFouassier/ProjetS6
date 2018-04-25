@@ -309,8 +309,7 @@ qmake_all: FORCE
 
 
 all: Makefile $(TARGET)
-	cd tinyexpr && $(MAKE)
-	
+
 dist: distdir FORCE
 	(cd `dirname $(DISTDIR)` && $(TAR) $(DISTNAME).tar $(DISTNAME) && $(COMPRESS) $(DISTNAME).tar) && $(MOVE) `dirname $(DISTDIR)`/$(DISTNAME).tar.gz . && $(DEL_FILE) -r $(DISTDIR)
 
