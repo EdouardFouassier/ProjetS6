@@ -38,7 +38,7 @@ public:
 
 	/*LES GETTEURS*/
 	int getNombreIndividus();
-	//Individu[] getEnsemble();
+	vector<Individu> getEnsemble();
 	int getNumeroGeneration();
 	string getFitness1();
 	string getFitness2();

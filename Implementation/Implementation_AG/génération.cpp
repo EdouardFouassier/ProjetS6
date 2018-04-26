@@ -82,9 +82,9 @@ float Population::getValeurApprochee2(){
 	return this->valeurApprochee2;
 }
 
-/*Individu* getEnsemble(){
+vector<Individu> Population::getEnsemble(){
 	return this->ensemble;
-}*/
+}
 
 int Population::getNombreGenerationMax(){		//fonction qu'on a oubliée dans le cds :(
 	return this->nombreGenerationMax;
@@ -210,6 +210,6 @@ Population Population::creerGeneration(Population P){
 
 int Population::nombreAlea(int inf, int sup){
 	inf++;	//parce qu'on ne veut pas que inf soit inclu
-	return rand()%(b-a) + a;
+	return rand()%(sup-inf) + sup;
 }
 
