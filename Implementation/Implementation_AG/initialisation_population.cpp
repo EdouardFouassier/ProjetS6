@@ -55,7 +55,6 @@ void Individu::setRang(int rang, int i){
 
 // Méthodes //
 Individu Individu::codage(int valeur) {
-<<<<<<< HEAD
 	int inter = 0;
 	int* res;
 	int i = 0;
@@ -83,18 +82,7 @@ int Individu::decodage(Individu i) {
 	return res;
 }
 bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) {}
-int Individu::mutation(int gene) {}
-bool Individu::probAlea(float prob) {}
-=======
 
-}
-int Individu::decodage(Individu i) {
-
-}
-
-bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) {
-
-}
 
 int Individu::mutation(int gene) {
 	if(probAlea(this->probaMutation))
@@ -107,7 +95,6 @@ bool Individu::probAlea(float prob) {
 	if(alea < prob) return true;
 	return false;
 }
->>>>>>> bb00b0cadc44c0a3520f46b613cb64a30f6b3d87
 double Individu::calculFitness(const char* c, double x) {}
 
 
