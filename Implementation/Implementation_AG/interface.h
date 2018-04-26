@@ -147,8 +147,10 @@ public:
     void cacherAppF2();
     void afficherAppF1();
     void afficherAppF2();
-    void connectlancer();
-    void connectquitter();
+    void connectLancer();
+    void connectQuitter();
+    void connectArreter();
+    void connectAide();
 
 
 

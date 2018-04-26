@@ -6,7 +6,7 @@ int main()
 {
   
 	double a = 2;
-	char *c = "(5%x)";
+	char *c = "(5/0)";
 	calculfitness (c, a);
    
    return 0;

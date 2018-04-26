@@ -51,6 +51,8 @@ Population::Population(string* const& donnees) :  ensemble(0){
 
 Population::~Population(){
 	std::cout<<"DESTRUCTEUR POPULATION"<<endl;
+	//for(int i = 0; i < this->nombreIndividus;i++)
+
 }
 
 

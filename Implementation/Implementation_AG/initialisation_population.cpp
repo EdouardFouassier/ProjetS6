@@ -55,6 +55,7 @@ void Individu::setRang(int rang, int i){
 
 // Méthodes //
 Individu Individu::codage(int valeur) {
+
 	int inter = 0;
 	int* res;
 	int i = 0;
@@ -77,17 +78,21 @@ Individu Individu::codage(int valeur) {
 int Individu::decodage(Individu i) {
 	int res = 0;
 	for(int j = 0; j < i.getTailleIndividu(); j++){
-		res += i.chromosome[j] * pow(2, j);  /// res = chromosome[j] * 2 puissance j
+
+		//res += i.chromosome[j] * pow(2, j);  /// res = chromosome[j] * 2 puissance j //le pow est pas declaré encore ici
 	}
 	return res;
 }
-bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) {}
 
+
+bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) {
+
+}
 
 int Individu::mutation(int gene) {
-	if(probAlea(this->probaMutation))
-		return (gene+1)%2;
-	return gene;
+	//~ if(probAlea(this->probaMutation))
+		//~ return (gene+1)%2;
+	//~ return gene;
 }
 bool Individu::probAlea(float prob) {
 	double alea = rand()/(double)RAND_MAX; 	//génère un nb dans [0,1]
@@ -95,6 +100,7 @@ bool Individu::probAlea(float prob) {
 	if(alea < prob) return true;
 	return false;
 }
+
 double Individu::calculFitness(const char* c, double x) {}
 
 

@@ -112,10 +112,14 @@ bool estParsable(string fonction) {
 	}
 
 	
-	} { double a = 2;
-		char* fonction2 = new char[fonction.length() + 1];
-		strcpy(fonction2,fonction.c_str());
-		//calculfitness(fonction2, a);
+	} { double a = 1;
+		//~ for(i = 0; i < size; i++) {	
+		//~ if (fonction[i] == '/'){ 
+		
+		//~ char* fonction2 = new char[fonction.length() + 1];
+		//~ strcpy(fonction2,fonction.c_str());
+		
+		//~ calculfitness(fonction2, a);
 		return true; }
 }
 
@@ -231,7 +235,25 @@ bool ecrireFichierDonnees(Interface *interface, string nomFichier) {
 }
 
 //~ bool ecrirePopulation(Population P, string nomFichier){
+    //~ ofstream fichier(nomFichier.c_str(), ios::out);
+
+   //~ if(fichier)
+   //~ {
+       //~ for(int i=0;i<P.getNombreIndivudus();i++){
+           //~ for(int j=0;j<P.getEnsemble()[i].getTailleIndividu();j++){
+               //~ fichier << P.getEnsemble()[i].getChromosome()[j] << " ";
+           //~ }
+           //~ fichier << endl;
+       //~ }
+       //~ fichier << endl;
+       //~ fichier.close();
+       //~ return true;
+   //~ }
+   //~ else return false;
+
+   //~ return true;
 //~ }
+
 //~ bool calculerEcrireStats(Population P, string nomFichierPopulation, string nomFichierStats){
 //~ }
 //~ bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichierStats){
