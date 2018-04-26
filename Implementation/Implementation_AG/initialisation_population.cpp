@@ -16,6 +16,7 @@ Individu::Individu(int taille) {
 	for(int i = 0; i < taille; i++){
 		this->chromosome[i] = rand()%2;
 	}
+	Individu::tailleIndividu = taille;
 	// this->tailleIndividu = taille;
 	// this->chromosome[taille];
 	// for(int i = 0; i < taille; i ++){
