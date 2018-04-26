@@ -78,12 +78,11 @@ Individu Individu::codage(int valeur) {
 int Individu::decodage(Individu i) {
 	int res = 0;
 	for(int j = 0; j < i.getTailleIndividu(); j++){
+
 		//res += i.chromosome[j] * pow(2, j);  /// res = chromosome[j] * 2 puissance j //le pow est pas declaré encore ici
 	}
 	return res;
 }
-
-
 
 
 
