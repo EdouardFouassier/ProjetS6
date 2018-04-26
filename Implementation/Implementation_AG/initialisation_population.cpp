@@ -11,14 +11,13 @@
 // float Individu::probaMutation = 0;
 
 // Constructeurs //
-Individu::Individu() {}
-Individu::Individu(int taille) {
+Individu::Individu() {}		//// Là je ne sais pas trop pour l'instant
+Individu::Individu(const int taille) {
 	Individu::tailleIndividu = taille;
 	Individu::chromosome[taille];
 	for(int i = 0; i < taille; i ++){
 		this->chromosome[i] = 0;
 	}
-
 }
 
 // Destructeur //
@@ -52,13 +51,41 @@ void Individu::setScore(int score, int i){
 void Individu::setRang(int rang, int i){
 	this->rang[i] = rang;
 }
-void Individu::setTailleIndividu(int tailleIndividu2){
-	this->tailleIndividu = tailleIndividu2;
-	// Et ça c'est sensé être un static, ça n'a pas de sens de set un static //
-}
+
 
 // Méthodes //
 Individu Individu::codage(int valeur) {
+<<<<<<< HEAD
+	int inter = 0;
+	int* res;
+	int i = 0;
+	int j = 0;
+	while(valeur != 0){
+		if(valeur%2 == 0){
+			res[i] = 0;
+		}
+		else{
+			res[i] = 1;
+		}
+		valeur /= 2;
+		i++;
+	}
+	for(int k = i; k > 0; k++){
+		this->chromosome[j] = res[k];
+		j++;
+	}
+}
+int Individu::decodage(Individu i) {
+	int res = 0;
+	for(int j = 0; j < i.getTailleIndividu(); j++){
+		res += i.chromosome[j] * pow(2, j);  /// res = chromosome[j] * 2 puissance j
+	}
+	return res;
+}
+bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) {}
+int Individu::mutation(int gene) {}
+bool Individu::probAlea(float prob) {}
+=======
 
 }
 int Individu::decodage(Individu i) {
@@ -80,6 +107,7 @@ bool Individu::probAlea(float prob) {
 	if(alea < prob) return true;
 	return false;
 }
+>>>>>>> bb00b0cadc44c0a3520f46b613cb64a30f6b3d87
 double Individu::calculFitness(const char* c, double x) {}
 
 
