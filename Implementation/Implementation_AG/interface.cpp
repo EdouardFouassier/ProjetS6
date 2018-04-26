@@ -148,8 +148,10 @@ Interface::Interface() : QWidget()
     QObject::connect(maxF1, SIGNAL(clicked(bool)), this, SLOT(cacherAppF1()));
     QObject::connect(minF2, SIGNAL(clicked(bool)), this, SLOT(cacherAppF2()));
     QObject::connect(maxF2, SIGNAL(clicked(bool)), this, SLOT(cacherAppF2()));
-    QObject::connect(valider, SIGNAL(clicked()), this, SLOT(connectlancer()));
-     QObject::connect(quitter, SIGNAL(clicked()), this, SLOT(connectquitter()));
+    QObject::connect(valider, SIGNAL(clicked()), this, SLOT(connectLancer()));
+    QObject::connect(quitter, SIGNAL(clicked()), this, SLOT(connectQuitter()));
+    QObject::connect(arreter, SIGNAL(clicked()), this, SLOT(connectArreter()));
+    QObject::connect(aide, SIGNAL(clicked()), this, SLOT(connectAide()));
 
     groupF1->setTitle("Fitness1");
     groupF2->setTitle("Fitness2");
@@ -194,44 +196,75 @@ void Interface::afficherAppF2(){
     valeurF2->setVisible(1);
 }
 
-void Interface::connectquitter(){
-    int reponse=QMessageBox::question(this,"Confirmer?" ,"Quitter perdra les la progression actuel de l'algorithme.\nEtes vous sure?", QMessageBox::Yes | QMessageBox::No );
+void Interface::connectAide(){
+    QDesktopServices::openUrl(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/try.pdf"));
+}
+
+void Interface::connectArreter(){
+    if(encours==1){
+        int reponse=QMessageBox::question(this,"Confirmer?" ,"Arreter enregistrera le resultat actuel.\nL'algorithme n'est pas fini.\nEtes vous sure?", QMessageBox::Yes | QMessageBox::No );
         if (reponse == QMessageBox::Yes)
         {
             QMessageBox::information(this, "Fermeture", "A bientot");
             close();
         }
-}
-
-void Interface::connectlancer(){
-    if(liensFichier->text().length()==0){
-    fonctionFitness1=F1->text().toUtf8().constData();
-    fonctionFitness2=F2->text().toUtf8().constData();
-    nomFichierSortie=nomFichier->text().toUtf8().constData();
-    taillePopulation=taillePop->value();
-    tailleIndividu=tailleIndi->value();
-    nbGenerationMax=nbGen->value();
-    if(maxF1->isChecked()) critereF1=1;
-    else {
-        if(minF1->isChecked()) critereF1=2;
-        else critereF1=3;
     }
-    if(nbF->currentIndex()==1){
-        if(maxF2->isChecked()) critereF2=1;
-        else {
-            if(minF2->isChecked()) critereF2=2;
-            else critereF2=3;
+    else{
+        int reponse=QMessageBox::question(this,"C'est facheux" ,"L'algorithme n'a pas ete lance.\nEtes vous sure?", QMessageBox::Yes | QMessageBox::No );
+        if (reponse == QMessageBox::Yes)
+        {
+            QMessageBox::information(this, "Fermeture", "A bientot");
+            close();
         }
     }
-    else critereF2=0;
-    tauxMutation=tauxMut->value();
-    tauxCrossover=tauxCross->value();
-    valeurApproxF1=valeurF1->value();
-    valeurApproxF2=valeurF2->value();
-    latex=checkLaTeX->isChecked();
-    xFig=checkXFig->isChecked();
-    postScipt=checkPostScrit->isChecked();
-    encours=1;
+
+}
+
+void Interface::connectQuitter(){
+    if(encours==1){
+        int reponse=QMessageBox::question(this,"Confirmer?" ,"Quitter perdra la progression actuel de l'algorithme.\nEtes vous sure?", QMessageBox::Yes | QMessageBox::No );
+        if (reponse == QMessageBox::Yes)
+        {
+            QMessageBox::information(this, "Fermeture", "A bientot");
+            close();
+        }
+    }
+    else{
+        QMessageBox::information(this, "Fermeture", "A bientot");
+        close();
+    }
+}
+
+void Interface::connectLancer(){
+    if(encours==0){
+        if(liensFichier->text().length()==0){
+        fonctionFitness1=F1->text().toUtf8().constData();
+        fonctionFitness2=F2->text().toUtf8().constData();
+        nomFichierSortie=nomFichier->text().toUtf8().constData();
+        taillePopulation=taillePop->value();
+        tailleIndividu=tailleIndi->value();
+        nbGenerationMax=nbGen->value();
+        if(maxF1->isChecked()) critereF1=1;
+        else {
+            if(minF1->isChecked()) critereF1=2;
+            else critereF1=3;
+        }
+        if(nbF->currentIndex()==1){
+            if(maxF2->isChecked()) critereF2=1;
+            else {
+                if(minF2->isChecked()) critereF2=2;
+                else critereF2=3;
+            }
+        }
+	else critereF2=0;
+	tauxMutation=tauxMut->value();
+	tauxCrossover=tauxCross->value();
+	valeurApproxF1=valeurF1->value();
+	valeurApproxF2=valeurF2->value();
+	latex=checkLaTeX->isChecked();
+	xFig=checkXFig->isChecked();
+	postScipt=checkPostScrit->isChecked();
+	encours=1;
     
     //~ cout<<getFonctionFitness1()<<endl;
     //~ cout<<getFonctionFitness2()<<endl;
@@ -256,6 +289,7 @@ void Interface::connectlancer(){
    
     }
     else cout<<liensFichier->text().toUtf8().constData()<<endl;
+	}
 }
 
 void Interface::chercher(){

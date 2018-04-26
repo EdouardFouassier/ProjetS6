@@ -231,7 +231,25 @@ bool ecrireFichierDonnees(Interface *interface, string nomFichier) {
 }
 
 //~ bool ecrirePopulation(Population P, string nomFichier){
+    //~ ofstream fichier(nomFichier.c_str(), ios::out);
+
+   //~ if(fichier)
+   //~ {
+       //~ for(int i=0;i<P.getNombreIndivudus();i++){
+           //~ for(int j=0;j<P.getEnsemble()[i].getTailleIndividu();j++){
+               //~ fichier << P.getEnsemble()[i].getChromosome()[j] << " ";
+           //~ }
+           //~ fichier << endl;
+       //~ }
+       //~ fichier << endl;
+       //~ fichier.close();
+       //~ return true;
+   //~ }
+   //~ else return false;
+
+   //~ return true;
 //~ }
+
 //~ bool calculerEcrireStats(Population P, string nomFichierPopulation, string nomFichierStats){
 //~ }
 //~ bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichierStats){
