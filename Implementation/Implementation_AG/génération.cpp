@@ -207,6 +207,7 @@ Population Population::creerGeneration(Population P){
 }
 
 int Population::nombreAlea(int inf, int sup){
-	return 0;
+	inf++;	//parce qu'on ne veut pas que inf soit inclu
+	return rand()%(b-a) + a;
 }
 
