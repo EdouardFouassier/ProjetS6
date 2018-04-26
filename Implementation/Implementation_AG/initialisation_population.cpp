@@ -58,11 +58,28 @@ void Individu::setTailleIndividu(int tailleIndividu2){
 }
 
 // Méthodes //
-Individu Individu::codage(int valeur) {}
-int Individu::decodage(Individu i) {}
-bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) {}
-int Individu::mutation(int gene) {}
-bool Individu::probAlea(float prob) {}
+Individu Individu::codage(int valeur) {
+
+}
+int Individu::decodage(Individu i) {
+
+}
+
+bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) {
+
+}
+
+int Individu::mutation(int gene) {
+	if(probAlea(this->probaMutation))
+		return (gene+1)%2;
+	return gene;
+}
+bool Individu::probAlea(float prob) {
+	double alea = rand()/(double)RAND_MAX; 	//génère un nb dans [0,1]
+	
+	if(alea < prob) return true;
+	return false;
+}
 double Individu::calculFitness(const char* c, double x) {}
 
 
