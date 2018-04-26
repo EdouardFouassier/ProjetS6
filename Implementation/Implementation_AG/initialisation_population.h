@@ -7,11 +7,13 @@
 #define __INITIALISATION_POPULATION_H
 
 #include <string>
+#include <cmath>
+#include "tinyexpr/tinyexpr.h"
 using namespace std;
 
 class Individu{
 private:
-	int tailleIndividu;  //// static c'est relou !
+	static int tailleIndividu;  //// static c'est relou !
 	// int[tailleIndividu] chromosome;
 	int* chromosome;
 	static int nombreCritere;
@@ -20,8 +22,6 @@ private:
 	// int[nombreCritere] rang;
 	int* rang;
 	static float probaMutation;
-
-
 
 public:
 	// Constructeurs
@@ -43,11 +43,11 @@ public:
 	void setChromosome(int* chromosome);
 	void setScore(int score, int i);
 	void setRang(int rang, int i);
-	void setTailleIndividu(int tailleIndividu);
 
 	// Méthodes
-	Individu codage(int valeur);
+	// Individu codage(int valeur);
 	int decodage(Individu i);
+	int decodage(int* binaire);
 	bool evaluationIndividu(string fonctionFitness, int indiceScore);
 	int mutation(int gene);
 	bool probAlea(float prob);
