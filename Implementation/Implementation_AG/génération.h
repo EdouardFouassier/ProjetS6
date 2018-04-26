@@ -8,6 +8,7 @@
 #include "initialisation_population.h"
 #include "entree_sortie.h"
 #include <string>
+#include <vector>
 using namespace std;
 
 
@@ -16,10 +17,11 @@ class Population{
 private:
 	static int nombreIndividus;
 	static int nombreCriteres;
-	Individu* ensemble; //bon ca a l'air de marcher avec  *
+	vector<Individu> ensemble; 
 	static int numeroGeneration;
 	static int* criteres; 		//alors qu'ici ça marche avec rien ¯\_(ツ)_/¯
 	static float valeurApprochee;
+	static float valeurApprochee2; ///pas dans le cds///
 	static string fitness1;
 	static string fitness2;
 	static int nombreGenerationMax;
@@ -41,6 +43,7 @@ public:
 	string getFitness1();
 	string getFitness2();
 	float getValeurApprochee();
+	float getValeurApprochee2(); //pas dans le cds
 	int getNombreGenerationMax();
 
 	/*LES SETTEURS*/
@@ -50,6 +53,7 @@ public:
 	void setFitness1(string fit1);
 	void setFitness2(string fit2);
 	void setValeurApprochee(float val);
+	void setValeurApprochee2(float val); //pas dans le cds 
 	void setProbaCroisement(float proba);
 	void setNombreGenerationMax (int nbGen);
 

@@ -15,7 +15,7 @@ Individu::Individu() {}
 Individu::Individu(int taille) {
 	Individu::tailleIndividu = taille;
 	Individu::chromosome[taille];
-	for(int i = 0, i < taille, i ++){
+	for(int i = 0; i < taille; i ++){
 		this->chromosome[i] = 0;
 	}
 

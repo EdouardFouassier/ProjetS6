@@ -8,6 +8,8 @@ SOURCES += \
     interface.cpp \
     main.cpp \
     entree_sortie.cpp \
+    initialisation_population.cpp\
+    génération.cpp \
 
 QT += widgets
 
