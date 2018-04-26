@@ -7,8 +7,8 @@
 using namespace std;
 
 // Validation
-bool testCoherenceDonnees(string nomFichier) {
-}
+//~ bool testCoherenceDonnees(string nomFichier) {
+//~ }
 
 bool estEntierPositif(auto valeur){
 	
@@ -36,8 +36,8 @@ bool estProbabilite(auto valeur) {
 		}
 }
 
-bool estString(auto valeur) {
-}
+//~ bool estString(auto valeur) {
+//~ }
 
 bool estParsable(string fonction) {
 
@@ -123,31 +123,111 @@ bool estParsable(string fonction) {
 //~ int* lireStat(FILE *F) {
 //~ }
 
-float* lireInfoRegen(string nomFichier){
-}
-float* lireInitialisation(string nomFichier){
+string* lireInfoRegen(string nomFichier){
+	
+	ifstream fichier(nomFichier.c_str(), ios::in);
+	if(fichier) {
+		string *tableauInfoRegen;										//On declare un tableau de string qu'on initialise a NULL
+		tableauInfoRegen = new string[10];
+		string sautligne;
+		getline(fichier,sautligne);										//On saute les deux premieres lignes du fichier
+		getline(fichier,sautligne);
+		fichier >> tableauInfoRegen[0] >> tableauInfoRegen[1]			//On lit les lignes du fichier que l'on stocke dans les cases du tableau, 0 -> Taux de crossover, 1 -> Taille de la population
+				>> tableauInfoRegen[3] >> tableauInfoRegen[2]			//3 -> Nombre de generation max, 2 -> nombre de criteres 
+				>> tableauInfoRegen[6] >> tableauInfoRegen[8]			//6 -> Fonction fitness1, 8 -> Critere Fonction fitness1
+				>> tableauInfoRegen[4] >> tableauInfoRegen[7]			//4 -> Valeur approchée Fonction fitness1, 7 -> Fonction fitness2
+				>> tableauInfoRegen[9] >> tableauInfoRegen[5];			//9 -> Critere Fonction fitness2, 5 -> Valeur approchée Fonction fitness1
+		fichier.close();												//On ferme le fichier
+		
+		//~ printf("\n");		
+		//~ cout << tableauInfoRegen[0] << " Taux de crossover " << endl;
+		//~ cout << tableauInfoRegen[1] << " Taille de la population "<< endl;
+		//~ cout << tableauInfoRegen[2] << " nombre de criteres " << endl;
+		//~ cout << tableauInfoRegen[3] << " Noombre de generation max " << endl;
+		//~ cout << tableauInfoRegen[4] << " Valeur approchée Fct1 " << endl;
+		//~ cout << tableauInfoRegen[5] << " Valeur approchée Fct2 " << endl;
+		//~ cout << tableauInfoRegen[6] << " Fct1 " << endl;
+		//~ cout << tableauInfoRegen[7] << " Fct2 " << endl;
+		//~ cout << tableauInfoRegen[8] << " Premier critere " << endl;
+		//~ cout << tableauInfoRegen[9] << " Deuxieme critere " << endl;
+		
+		delete[] tableauInfoRegen;
+		return tableauInfoRegen;										//On retourne le tableau
+	}
+	
+	else {
+		cerr << "Erreur ouverture fichier" << endl;
+		return NULL;
+	}
 }
 
-int lireScoreIndividu(string nomFichierPopulation, int generation, int indice){
+float* lireInitialisation (string nomFichier) {
+	
+	ifstream fichier(nomFichier.c_str(), ios::in);						//On ouvre le fichier en lecture
+
+	if(fichier) {
+		float *tableauInitialisation;		
+		tableauInitialisation = new float[2];							
+		
+		fichier >> tableauInitialisation[0] >> tableauInitialisation[1];//On lit les lignes deux premieres lignes du fichier que l'on stocke dans les cases du tableau, 0 -> Taille des individus, 1 -> Taux de mutation
+		fichier.close();												//On ferme le fichier
+				
+		//~ cout << tableauInitialisation[0] << " Taille Individu "<< endl;
+		//~ cout << tableauInitialisation[1] << " Taux Mutation " << endl;
+		
+		delete[] tableauInitialisation;
+		return tableauInitialisation;									//On retourne le tableau
+	}
+	
+	else {
+		cerr << "Erreur ouverture fichier" << endl;
+		return NULL;
+	}
 }
+
+//~ int lireScoreIndividu(string nomFichierPopulation, int generation, int indice){
+//~ }
 
 // Ecriture
-bool ecrireFichierDonnees(Interface *interface, string nomFichier)
-{
-    ofstream fichier(nomFichier.c_str(), ios::out | ios::trunc);
+bool ecrireFichierDonnees(Interface *interface, string nomFichier) {
+	
+	ofstream fichier(nomFichier.c_str(), ios::out | ios::trunc);		//On ouvre le fichier en ecriture, son contenu est efface
 
-            if(fichier)
-            {
-                    fichier << interface->getTaillePopulation() <<  endl;
+	if(fichier)
+	{
+		fichier << interface->getTailleIndividu() <<  endl; 			//Taille Individu
+		fichier << interface->getTauxMutation() <<  endl;				//Taux Mutation
+		
+		fichier << interface->getTauxCrossover() <<  endl;				//Taux Crossover
+		fichier << interface->getTaillePopulation() <<  endl;			//Taille Population
+		fichier << interface->getNbGenerationMax() <<  endl;			//Nombre de Generation Maximum
+		
+		if(interface->getCritereF2() == 0) {							//Nombre de criteres, 1 si pas de fonction fitness 2, sinon 2
+				fichier << "1" <<  endl;
+		}																	
+		else { fichier << "2" <<  endl; }
+		
+		fichier << interface->getFonctionFitness1() <<  endl;			//Fonction Fitness 1
+		fichier << interface->getCritereF1() <<  endl;					//Critère Fonction Fitness 1 : 1 -> Maximisation, 2 -> Minimisation, 3 -> Valeur approchée
+		if(interface->getCritereF1() == 3) {							//Valeur approchee, si le critere n'a pas ete selectionne, il y a un blanc
+				fichier << interface->getValeurApproxF1() <<  endl;
+		}																	
+		else { fichier << "" <<  endl; }
+		
+		fichier << interface->getFonctionFitness2() <<  endl;			//Fonction Fitness 2
+		if(interface->getCritereF2() != 0) {							//Critère Fonction Fitness 2 : 1 -> Maximisation, 2 -> Minimisation, 3 -> Valeur approchée
+				fichier << interface->getCritereF2() <<  endl;
+		}																	
+		else { fichier << "" <<  endl; }
+		if(interface->getCritereF2() == 3) {							//Valeur approchée, si le critere n'a pas ete selectionne il y a un blanc
+				fichier << interface->getValeurApproxF2() <<  endl;
+		}																	
+		else { fichier << "" <<  endl; }
 
-                    fichier.close();
-                    return true;
-            }
-            else
-                   return false;
-
-      return true;
-
+		fichier.close();
+		return true;
+	}
+	else {return false;}
 }
 
 //~ bool ecrirePopulation(Population P, string nomFichier){
@@ -162,7 +242,7 @@ bool ecrireFichierDonnees(Interface *interface, string nomFichier)
 //~ }
 //~ bool ecrireXfig(string nomFichierSortie){
 //~ }
-//bool ecrireUnScore(int score, File *F); //lui je sais plus si on l'a laissé dans le cahier des specs
+//~ bool ecrireUnScore(int score, File *F); //lui je sais plus si on l'a laissé dans le cahier des specs
 
 //~ int main (){
 	//~ float i = 3.2;

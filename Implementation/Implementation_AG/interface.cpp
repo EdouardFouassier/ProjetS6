@@ -232,26 +232,30 @@ void Interface::connectlancer(){
     xFig=checkXFig->isChecked();
     postScipt=checkPostScrit->isChecked();
     encours=1;
-    cout<<getFonctionFitness1()<<endl;
-    cout<<getFonctionFitness2()<<endl;
-    cout<<getNomFichierSortie()<<endl;
-    cout<<getTaillePopulation()<<endl;
-    cout<<getTailleIndividu()<<endl;
-    cout<<getNbGenerationMax()<<endl;
-    cout<<getCritereF1()<<endl;
-    cout<<getCritereF2()<<endl;
-    cout<<getTauxMutation()<<endl;
-    cout<<getTauxCrossover()<<endl;
-    cout<<getValeurApproxF1()<<endl;
-    cout<<getValeurApproxF2()<<endl;
-    cout<<getLatex()<<endl;
-    cout<<getXFig()<<endl;
-    cout<<getPostScript()<<endl;
+    
+    //~ cout<<getFonctionFitness1()<<endl;
+    //~ cout<<getFonctionFitness2()<<endl;
+    //~ cout<<getNomFichierSortie()<<endl;
+    //~ cout<<getTaillePopulation()<<endl;
+    //~ cout<<getTailleIndividu()<<endl;
+    //~ cout<<getNbGenerationMax()<<endl;
+    //~ cout<<getCritereF1()<<endl;
+    //~ cout<<getCritereF2()<<endl;
+    //~ cout<<getTauxMutation()<<endl;
+    //~ cout<<getTauxCrossover()<<endl;
+    //~ cout<<getValeurApproxF1()<<endl;
+    //~ cout<<getValeurApproxF2()<<endl;
+    //~ cout<<getLatex()<<endl;
+    //~ cout<<getXFig()<<endl;
+    //~ cout<<getPostScript()<<endl;
+    
+    /*** TEST ECRITURE LECTURE ***/
+    //ecrireFichierDonnees(this, "DonneesInitiales.txt");
+    //lireInitialisation("DonneesInitiales.txt");
+    //lireInfoRegen("DonneesInitiales.txt");
+   
     }
     else cout<<liensFichier->text().toUtf8().constData()<<endl;
-    
-    ecrireFichierDonnees(this, "DonneesInitiales.txt");
-
 }
 
 void Interface::chercher(){

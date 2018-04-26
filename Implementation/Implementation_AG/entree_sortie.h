@@ -14,17 +14,18 @@
 #include <fstream>
 #include "interface.h"
 #include "tinyexpr/tinyexpr.h"
+
 using namespace std;
 
 // Validation
-bool testCoherenceDonnees(string nomFichier);
+//~ bool testCoherenceDonnees(string nomFichier);
 
 bool estEntierPositif(auto valeur);
 bool estFloatPositif(auto valeur);
 
 bool estProbabilite(auto valeur);
 
-bool estString(auto valeur);
+//~ bool estString(auto valeur);
 
 bool estParsable(string fonction);
 
@@ -32,9 +33,9 @@ bool estParsable(string fonction);
 //~ int* lireStat(FILE *F) {
 //~ }
 
-float* lireInfoRegen(string nomFichier);
+string* lireInfoRegen(string nomFichier);
 float* lireInitialisation(string nomFichier);
-int lireScoreIndividu(string nomFichierPopulation, int generation, int indice);
+//~ int lireScoreIndividu(string nomFichierPopulation, int generation, int indice);
 
 // Ecriture
 class Interface;
