@@ -5,7 +5,7 @@
 #include "initialisation_population.h"
 
 
-//////// ALORS ÇA, FAUT M'EXPLIQUER L'INTERET ////////
+//////// Valeurs statiques ////////
 int Individu::tailleIndividu = 0;
 int Individu::nombreCritere = 0;
 float Individu::probaMutation = 0;
@@ -13,6 +13,9 @@ float Individu::probaMutation = 0;
 // Constructeurs //
 Individu::Individu() {}		//// Là je ne sais pas trop pour l'instant
 Individu::Individu(int taille) {
+	for(int i = 0; i < taille; i++){
+		this->chromosome[i] = rand()%2;
+	}
 	// this->tailleIndividu = taille;
 	// this->chromosome[taille];
 	// for(int i = 0; i < taille; i ++){
@@ -96,13 +99,12 @@ int Individu::decodage(int* binaire) {
 bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) {
 	int res = calculfitness(fonctionFitness.c_str(), decodage(this->chromosome));	// .c_str : convert string to char*
 	this->score[indiceScore] = res;
-	return true;
+	return true;	// Pas de vérif' pour le moment
 }
 int Individu::mutation(int gene) {
-	//~ if(probAlea(this->probaMutation))
-		//~ return (gene+1)%2;
-	//~ return gene;
-	return 0;
+	if(probAlea(this->probaMutation))
+		return (gene+1)%2;
+	return gene;
 }
 bool Individu::probAlea(float prob) {
 	double alea = rand()/(double)RAND_MAX; 	//génère un nb dans [0,1]
