@@ -35,7 +35,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = Implementation_AG1.0.0
-DISTDIR = /home/ben/Documents/Cours/S6/projet/ProjetS6/Implementation/Implementation_AG/.tmp/Implementation_AG1.0.0
+DISTDIR = /home/user/ProjetS6/Implementation/Implementation_AG/.tmp/Implementation_AG1.0.0
 LINK          = g++
 LFLAGS        = -m64 -Wl,-O1
 LIBS          = $(SUBLIBS) -L/usr/X11R6/lib64 -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
@@ -54,12 +54,14 @@ SOURCES       = interface.cpp \
 		main.cpp \
 		entree_sortie.cpp \
 		initialisation_population.cpp \
-		génération.cpp moc_interface.cpp
+		génération.cpp \
+		tinyexpr/tinyexpr.c moc_interface.cpp
 OBJECTS       = interface.o \
 		main.o \
 		entree_sortie.o \
 		initialisation_population.o \
 		génération.o \
+		tinyexpr.o \
 		moc_interface.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -137,11 +139,13 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		Implementation_AG.pro interface.h \
 		initialisation_population.h \
 		entree_sortie.h \
-		génération.h interface.cpp \
+		génération.h \
+		tinyexpr/tinyexpr.h interface.cpp \
 		main.cpp \
 		entree_sortie.cpp \
 		initialisation_population.cpp \
-		génération.cpp
+		génération.cpp \
+		tinyexpr/tinyexpr.c
 QMAKE_TARGET  = Implementation_AG
 DESTDIR       = 
 TARGET        = Implementation_AG
@@ -323,8 +327,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents interface.h initialisation_population.h entree_sortie.h génération.h $(DISTDIR)/
-	$(COPY_FILE) --parents interface.cpp main.cpp entree_sortie.cpp initialisation_population.cpp génération.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents interface.h initialisation_population.h entree_sortie.h génération.h tinyexpr/tinyexpr.h $(DISTDIR)/
+	$(COPY_FILE) --parents interface.cpp main.cpp entree_sortie.cpp initialisation_population.cpp génération.cpp tinyexpr/tinyexpr.c $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -365,7 +369,7 @@ moc_interface.cpp: entree_sortie.h \
 		interface.h \
 		moc_predefs.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/ben/Documents/Cours/S6/projet/ProjetS6/Implementation/Implementation_AG -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include interface.h -o moc_interface.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/user/ProjetS6/Implementation/Implementation_AG -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include interface.h -o moc_interface.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -402,6 +406,9 @@ initialisation_population.o: initialisation_population.cpp initialisation_popula
 
 génération.o: génération.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o génération.o génération.cpp
+
+tinyexpr.o: tinyexpr/tinyexpr.c tinyexpr/tinyexpr.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o tinyexpr.o tinyexpr/tinyexpr.c
 
 moc_interface.o: moc_interface.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_interface.o moc_interface.cpp

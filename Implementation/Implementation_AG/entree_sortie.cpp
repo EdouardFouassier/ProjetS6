@@ -112,10 +112,14 @@ bool estParsable(string fonction) {
 	}
 
 	
-	} { double a = 2;
-		char* fonction2 = new char[fonction.length() + 1];
-		strcpy(fonction2,fonction.c_str());
-		//calculfitness(fonction2, a);
+	} { double a = 1;
+		//~ for(i = 0; i < size; i++) {	
+		//~ if (fonction[i] == '/'){ 
+		
+		//~ char* fonction2 = new char[fonction.length() + 1];
+		//~ strcpy(fonction2,fonction.c_str());
+		
+		//~ calculfitness(fonction2, a);
 		return true; }
 }
 

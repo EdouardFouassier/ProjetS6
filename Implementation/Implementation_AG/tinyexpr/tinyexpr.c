@@ -632,11 +632,12 @@ double calculfitness (const char *c, double x) {
       
         y = 4;
         r = te_eval(n); printf("Result:\n\t%f\n", r);
-
+		
         te_free(n);
     } else {
   
         printf("\t%*s^\nError near here", err-1, "");
     }
+    printf("d vaut : %f \n", r);
     return r;
 }
