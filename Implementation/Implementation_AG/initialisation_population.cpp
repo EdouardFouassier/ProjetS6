@@ -25,7 +25,7 @@ Individu::Individu(int taille) {		//Constructeur qui initialise aléatoirement
 	// }
 }
 
-Individu::Individu(int donnes[3]){
+Individu::Individu(int donnees[3]){
 	
 }
 
@@ -90,16 +90,13 @@ int Individu::decodage(Individu i) {
 	return res;
 }
 //// Pour évaluation, ça ne m'arrange pas d'avoir un decodage(Individu) ///
-/*
 int Individu::decodage(int* binaire) {
 	int res = 0;
-	for(int j = 0; j < sizeof(binaire); j++){
+	for(unsigned int j = 0; j < (sizeof(binaire)/sizeof(int)); j++){
 		res += this->chromosome[j] * pow(2, j);  /// res = chromosome[j] * 2 puissance j
 	}
 	return res;
 }
-*/
-
 bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) {
 	int res = calculfitness(fonctionFitness.c_str(), decodage(this->chromosome));	// .c_str : convert string to char*
 	this->score[indiceScore] = res;
