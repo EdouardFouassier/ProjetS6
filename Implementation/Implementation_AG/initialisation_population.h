@@ -6,6 +6,7 @@
 #ifndef __INITIALISATION_POPULATION_H
 #define __INITIALISATION_POPULATION_H
 
+#include <cstring>
 #include <string>
 #include <cmath>
 #include "tinyexpr/tinyexpr.h"
@@ -27,7 +28,7 @@ public:
 	// Constructeurs
 	Individu();	// Constructeur par défaut
 	Individu(int taille); // Constructeur qui crée un Individu aléatoire
-	Individu::Individu(int donnes[3]); //Constructeur qui initialise ls données (qu'on utilise qu'une seule fois) les données sont envoyées par io
+	Individu(int donnees[3]); //Constructeur qui initialise ls données (qu'on utilise qu'une seule fois) les données sont envoyées par io
 
 	// Destructeur
 	~Individu();
