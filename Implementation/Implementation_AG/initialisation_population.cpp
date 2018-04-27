@@ -12,7 +12,8 @@ float Individu::probaMutation = 0;
 
 // Constructeurs //
 Individu::Individu() {}		//// Là je ne sais pas trop pour l'instant
-Individu::Individu(int taille) {
+
+Individu::Individu(int taille) {		//Constructeur qui initialise aléatoirement
 	for(int i = 0; i < taille; i++){
 		this->chromosome[i] = rand()%2;
 	}
@@ -22,6 +23,10 @@ Individu::Individu(int taille) {
 	// for(int i = 0; i < taille; i ++){
 		// this->chromosome[i] = 0;
 	// }
+}
+
+Individu::Individu(int donnes[3]){
+	
 }
 
 // Destructeur //
