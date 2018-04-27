@@ -44,6 +44,14 @@ Population::Population(string* const& donnees) :  ensemble(0){
 	criteres[0] = std::stoi(donnees[8], nullptr, 10);
 	criteres[1] = std::stoi(donnees[9], nullptr, 10);
 	numeroGeneration += 1;
+	//il faudrait aussi que ce constructeur fasse la première pop initialisé aléatoirement
+	/*		à tester quand les constructeurs d'individus seront faits
+	for(int i = 0; i < nombreIndividus; i++){
+		Individu nouv = new Individu();
+		ensemble.push_back(nouv);
+	}
+	*/
+
 	
 }
 
@@ -150,7 +158,7 @@ Population Population::testArret(){ //pourquoi ça doit renvoyer un population?
 	else {
 		//on envoie juste la pop à l'io
 	}
-		
+
 	return *this;
 }
 
@@ -219,12 +227,14 @@ Population Population::crossover(Individu parent1, Individu parent2){
 			enfant1->ensemble[i] = mutation(parent2[i]);
 			enfant2->ensemble[i] = mutation(parent1[i]);
 		}
-		addIndividu(enfant1);
-		addIndividu(enfant2);
 	}
 	else{
-		addIndividu(parent1);
-		addIndividu(parent2);
+		enfant1 = parent1;
+		enfant2 = parent2;
+	}
+	if(testPopulationRemplie() ){		//il faudrait quand même vérifier qu'il y a la place pour deux nouveaux individus
+		ensemble.push_back(enfant1);
+		ensemble.push_back(enfant2);
 	}
 	*/
 	return *this;
