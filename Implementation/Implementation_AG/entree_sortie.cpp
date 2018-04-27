@@ -160,8 +160,8 @@ string* lireInfoRegen(string nomFichier){
 	
 	ifstream fichier(nomFichier.c_str(), ios::in);
 	if(fichier) {
-		string *tableauInfoRegen;										//On declare un tableau de string qu'on initialise a NULL
-		tableauInfoRegen = new string[10];
+		string *tableauInfoRegen;										
+		tableauInfoRegen = new string[10];								//On declare un tableau de string qu'on initialise a NULL
 		string sautligne;
 		getline(fichier,sautligne);										//On saute les deux premieres lignes du fichier
 		getline(fichier,sautligne);
@@ -184,7 +184,6 @@ string* lireInfoRegen(string nomFichier){
 		//~ cout << tableauInfoRegen[8] << " Premier critere " << endl;
 		//~ cout << tableauInfoRegen[9] << " Deuxieme critere " << endl;
 		
-		delete[] tableauInfoRegen;
 		return tableauInfoRegen;										//On retourne le tableau
 	}
 	
@@ -208,7 +207,6 @@ float* lireInitialisation (string nomFichier) {
 		//~ cout << tableauInitialisation[0] << " Taille Individu "<< endl;
 		//~ cout << tableauInitialisation[1] << " Taux Mutation " << endl;
 		
-		delete[] tableauInitialisation;
 		return tableauInitialisation;									//On retourne le tableau
 	}
 	
