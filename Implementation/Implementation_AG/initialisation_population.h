@@ -45,7 +45,7 @@ public:
 	void setRang(int rang, int i);
 
 	// Méthodes
-	// Individu codage(int valeur);
+	//Individu codage(int valeur);
 	int decodage(Individu i);
 	int decodage(int* binaire);
 	bool evaluationIndividu(string fonctionFitness, int indiceScore);

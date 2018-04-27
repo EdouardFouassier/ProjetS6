@@ -66,21 +66,17 @@ Individu Individu::codage(int valeur) {
 	int i = 0;
 	int j = 0;
 	while(valeur != 0){
-		if(valeur%2 == 0){
-			res[i] = 0;
-		}
-		else{
-			res[i] = 1;
-		}
+		res[i] = valeur % 2;
 		valeur /= 2;
 		i++;
 	}
-	for(int k = i; k > 0; k++){
-		this->chromosome[j] = res[k];
+	for(int k = i; k < 0; k--){
+		indiv->chromosome[j] = res[k];
 		j++;
 	}
 	return indiv;
-}*/
+}
+*/
 int Individu::decodage(Individu i) {
 	int res = 0;
 	for(int j = 0; j < i.getTailleIndividu(); j++){
@@ -89,6 +85,7 @@ int Individu::decodage(Individu i) {
 	return res;
 }
 //// Pour évaluation, ça ne m'arrange pas d'avoir un decodage(Individu) ///
+/*
 int Individu::decodage(int* binaire) {
 	int res = 0;
 	for(int j = 0; j < sizeof(binaire); j++){
@@ -96,6 +93,7 @@ int Individu::decodage(int* binaire) {
 	}
 	return res;
 }
+*/
 
 bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) {
 	int res = calculfitness(fonctionFitness.c_str(), decodage(this->chromosome));	// .c_str : convert string to char*
