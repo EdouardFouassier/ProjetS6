@@ -141,10 +141,16 @@ void Population::setNombreGenerationMax(int nb){
 
 /**** TESTS ****/
 
-Population Population::testArret(){
+Population Population::testArret(){ //pourquoi ça doit renvoyer un population? 
 	if(this->testConvergence() && this->testNombreGeneration()){
-		//ecrire fichier score
+		//calculerEcrireStats(this*, string nomFichierPopulation, string nomFichierStats)
+		//d'après cds : on continue l'itération
+							//on envoie la population au module io
 	}
+	else {
+		//on envoie juste la pop à l'io
+	}
+		
 	return *this;
 }
 
@@ -153,22 +159,21 @@ bool Population::testConvergence(){
 }
 
 bool Population::testNombreGeneration(){
-	//if(this->getNumeroGeneration() < this->getNombreGenerationMax() )
 	if (numeroGeneration < nombreGenerationMax)
 		return true;
 	return false;
 }
 
 bool Population::testPopulationRemplie(){
-	//if taille(ensemble )  < nombreIndividu   	renvoie vrai			pb : on a rien qui nous dit combien d'individu il y a déjà...
-	//solution potentielle au pb, dans cette fonction on teste la taille de l'ensemble et on utilise cette fonction plus souvent que prévu
+	if(this->ensemble.size() < nombreIndividus)
+		return true;
+	return false;
 }
-
 /**** LES ALGOS ****/
 
 Population Population::evaluation(){
 
-string fitnessTmp;
+	string fitnessTmp;
 	for (int iCritere = 0; iCritere < nombreCriteres - 1; iCritere ++){
 		for (int iIndiv = 0; iIndiv < ensemble.size() - 1; iIndiv ++){
 			if(iCritere == 0)
@@ -199,17 +204,55 @@ bool Population::triPopulation(int indiceScore){
 Individu Population::selectionner(){
 
 }
-
+//à tester quand toutes les fonctions seront dispos
 Population Population::crossover(Individu parent1, Individu parent2){
+	/*
+	Individu enfant1, enfant2;
+	if(probAlea(this->probaCroisement)){
+		int ptcrois = nombreAlea(1,this->nombreIndividus);
+		
+		for(int i = 0; i < ptcrois ;i++){
+			enfant1->ensemble[i] = mutation(parent1[i]);
+			enfant2->ensemble[i] = mutation(parent2[i]);
+		}
+		for(i = ptcrois + 1; i < enfant1->tailleIndividu){
+			enfant1->ensemble[i] = mutation(parent2[i]);
+			enfant2->ensemble[i] = mutation(parent1[i]);
+		}
+		addIndividu(enfant1);
+		addIndividu(enfant2);
+	}
+	else{
+		addIndividu(parent1);
+		addIndividu(parent2);
+	}
+	*/
 	return *this;
 }
 
+//à tester quand toutes les fonctions seront dispos
 Population Population::creerGeneration(Population P){
+	/*
+	Population new;
+	while(new->testPopulationRemplie){
+		new = crossover(P->selectionner(),P->selectionner());		//la population avec deux nouveaux individus
+	}
+	ecrirePopulation(P, "");		//c'est potentiellement testArret qui fait ça
+	P->~Population();
+	return new;
+	*/
 	return *this;
+}
+
+bool Individu::probAlea(float prob) {
+	double alea = rand()/(double)RAND_MAX; 	//génère un nb dans [0,1]
+	
+	if(alea < prob) return true;
+	return false;
 }
 
 int Population::nombreAlea(int inf, int sup){
-	inf++;	//parce qu'on ne veut pas que inf soit inclu
+	//inf++;	//parce qu'on ne veut pas que inf soit inclu
 	return rand()%(sup-inf) + sup;
 }
 
