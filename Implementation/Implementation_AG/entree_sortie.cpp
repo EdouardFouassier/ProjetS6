@@ -2,6 +2,7 @@
 /// Projet S6 - Sujet 4 - Algorithme Génétique ///
 ///              entree_sortie.cpp             ///
 //////////////////////////////////////////////////
+
 #include "entree_sortie.h"
 
 using namespace std;
@@ -10,28 +11,33 @@ using namespace std;
 //~ bool testCoherenceDonnees(string nomFichier) {
 //~ }
 
-bool estEntierPositif(auto valeur){
-	
-	 if(valeur==(int)valeur && valeur >= 0)
+bool estEntierPositif(string valeur){
+    QString tmp=QString::fromStdString(valeur);
+    bool ok;
+    int val=tmp.toInt(&ok,10);
+     if(ok && val==(int)val && val >= 0)
         return true;
     else {
 		return false;
 	}
 }
 
-bool estFloatPositif(auto valeur){
-	double d; int n;
-	d = valeur;
-	n = (int)d;
-	if (n == d) { return false; }
-	else { return true; }
+bool estFloatPositif(string valeur){
+    QString tmp=QString::fromStdString(valeur);
+    bool ok;
+    float val=tmp.toFloat(&ok);
+    if (ok && val>0) { return true; }
+    else { return false; }
 	
 }
 
-bool estProbabilite(auto valeur) {
-	if((valeur <= 1) && (valeur >= 0)) {
-		return true; }
-		else {
+bool estProbabilite(string valeur) {
+    QString tmp=QString::fromStdString(valeur);
+    bool ok;
+    float val=tmp.toFloat(&ok);
+    if(ok && (val <= 1) && (val >= 0)) {
+    return true; }
+    else {
 			return false;
 		}
 }
@@ -118,9 +124,9 @@ bool estParsable(string fonction) {
 	}
 	}
 
-	
-	} { 
-		//~ char* fonction2 = new char[fonction.length() + 1];
+
+    } { //double a = 1;
+        //~ char* fonction2 = new char[fonction.length() + 1];
 		//~ for(i = 0; i < size; i++) {	
 		//~ if (fonction[i] == '/'){ 
 		//~ fonction2[i] = fonction[i];
@@ -205,7 +211,7 @@ bool ecrireFichierDonnees(Interface *interface, string nomFichier) {
 	
 	ofstream fichier(nomFichier.c_str(), ios::out | ios::trunc);		//On ouvre le fichier en ecriture, son contenu est efface
 
-	if(fichier)
+    if(fichier)
 	{
 		fichier << interface->getTailleIndividu() <<  endl; 			//Taille Individu
 		fichier << interface->getTauxMutation() <<  endl;				//Taux Mutation
@@ -242,25 +248,25 @@ bool ecrireFichierDonnees(Interface *interface, string nomFichier) {
 	else {return false;}
 }
 
-//~ bool ecrirePopulation(Population P, string nomFichier){
-    //~ ofstream fichier(nomFichier.c_str(), ios::out);
+bool ecrirePopulation(Population P, string nomFichier){
+    ofstream fichier(nomFichier.c_str(), ios::out);
 
-   //~ if(fichier)
-   //~ {
-       //~ for(int i=0;i<P.getNombreIndivudus();i++){
-           //~ for(int j=0;j<P.getEnsemble()[i].getTailleIndividu();j++){
-               //~ fichier << P.getEnsemble()[i].getChromosome()[j] << " ";
-           //~ }
-           //~ fichier << endl;
-       //~ }
-       //~ fichier << endl;
-       //~ fichier.close();
-       //~ return true;
-   //~ }
-   //~ else return false;
+   if(fichier)
+   {
+       for(int i=0;i<P.getNombreIndividus();i++){
+           for(int j=0;j<P.getEnsemble()[i].getTailleIndividu();j++){
+               fichier << P.getEnsemble()[i].getChromosome()[j] << " ";
+           }
+           fichier << endl;
+       }
+       fichier << endl;
+       fichier.close();
+       return true;
+   }
+   else return false;
 
-   //~ return true;
-//~ }
+   return true;
+}
 
 //~ bool calculerEcrireStats(Population P, string nomFichierPopulation, string nomFichierStats){
 //~ }

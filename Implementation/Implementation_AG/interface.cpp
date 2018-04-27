@@ -286,6 +286,28 @@ void Interface::connectLancer(){
     //ecrireFichierDonnees(this, "DonneesInitiales.txt");
     //lireInitialisation("DonneesInitiales.txt");
     //lireInfoRegen("DonneesInitiales.txt");
+/*
+    cout<< estEntierPositif("2")<<endl;
+    cout<< estEntierPositif("2.5")<<endl;
+    cout<< estEntierPositif("-221452")<<endl;
+    cout<< estEntierPositif("2a")<<endl;
+    cout<< estEntierPositif("a2")<<endl;
+    cout<<endl;
+
+    cout<< estFloatPositif("2")<<endl;
+    cout<< estFloatPositif("2.5")<<endl;
+    cout<< estFloatPositif("-221452")<<endl;
+    cout<< estFloatPositif("2a")<<endl;
+    cout<< estFloatPositif("a2")<<endl;
+    cout<<endl;
+
+    cout<< estProbabilite("0.2")<<endl;
+    cout<< estProbabilite("2.5")<<endl;
+    cout<< estProbabilite("-221452")<<endl;
+    cout<< estProbabilite("2a")<<endl;
+    cout<< estProbabilite("a2")<<endl;
+*/
+
    
     }
     else cout<<liensFichier->text().toUtf8().constData()<<endl;
