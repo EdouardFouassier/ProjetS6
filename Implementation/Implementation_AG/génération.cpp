@@ -254,12 +254,12 @@ Population Population::creerGeneration(Population P){
 	return *this;
 }
 
-bool Individu::probAlea(float prob) {
+/*bool Individu::probAlea(float prob) {
 	double alea = rand()/(double)RAND_MAX; 	//génère un nb dans [0,1]
 	
 	if(alea < prob) return true;
 	return false;
-}
+}*/
 
 int Population::nombreAlea(int inf, int sup){
 	//inf++;	//parce qu'on ne veut pas que inf soit inclu
