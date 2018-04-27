@@ -19,7 +19,7 @@ Individu::Individu() {}		//// Là je ne sais pas trop pour l'instant
 
 Individu::Individu(int taille) {		// Constructeur qui initialise aléatoirement
 	for(int i = 0; i < taille; i++){
-		this->chromosome[i] = rand()%2;	// Je ne suis pas sûre pour le "%2"
+		this->chromosome[i] = rand()%2;
 	}
 	Individu::tailleIndividu = taille;
 	// this->tailleIndividu = taille;
@@ -29,29 +29,32 @@ Individu::Individu(int taille) {		// Constructeur qui initialise aléatoirement
 	// }
 }
 
-Individu::Individu(float donnees[3]){
+Individu::Individu(float donnees[3]){		// ça ok
 //// Récup' du tableau donnees : ////
 	this->tailleIndividu = donnees[0];
 	this->probaMutation = donnees[1];
 	this->nombreCritere = donnees[2];
-
 	//// Chromosome random ////
 	this->chromosome = (int*)malloc(this->tailleIndividu*sizeof(int));
 	for(int i = 0; i < this->tailleIndividu; i++){
-		chromosome[i] = rand()%2;	
+		chromosome[i] = rand()%2;
+		cout << donnees[i] << endl;
 	}
 	//// Initialisation de score et rang ////
-	this->score =(int*) malloc(this->nombreCritere*sizeof(int));
+	/* this->score =(int*) malloc(this->nombreCritere*sizeof(int));
 	this->rang =(int*) malloc(this->nombreCritere*sizeof(int));
 	for(int i = 0; i < this->nombreCritere; i++){
 		this->score[i] = 0;
 		this->rang[i] = 0;
-	} 
+	} */
 }
 
 // Destructeur //
 Individu::~Individu() {
-	free(this->chromosome);
+	///// Il n'aime pas /////
+	// free(this->chromosome);
+	// free(this->score);
+	// free(this->rang);
 }
 
 // Getteurs//
@@ -108,6 +111,8 @@ int Individu::decodage(Individu i) {
 	int res = 0;
 	for(int j = 0; j < i.getTailleIndividu(); j++){
 		res += i.chromosome[j] * pow(2, j);  /// res = chromosome[j] * 2 puissance j
+		cout << "chromosome[i]: " << i.chromosome[j] << " ";
+		cout << "res: " << res << endl;
 	}
 	return res;
 }

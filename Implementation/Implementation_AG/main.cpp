@@ -31,9 +31,10 @@ int main(int argc, char *argv[])
     donnees[1] = 0.01;
     donnees[2] = 1.0;
     Individu indiv(donnees);
-    cout << indiv.getTailleIndividu() << endl;
+    cout << "Taille: " << indiv.getTailleIndividu() << endl;
     // cout << indiv.getProbaMutation() << endl;
-    cout << indiv.getChromosome() << endl;
+    cout << "Decodage: " << indiv.decodage(indiv) << endl;
+    indiv.~Individu();
 
 
 
