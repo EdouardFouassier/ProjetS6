@@ -9,26 +9,29 @@
 #include <cstring>
 #include <string>
 #include <cmath>
+#include <iostream>
+#include <stdlib.h>
 #include "tinyexpr/tinyexpr.h"
 using namespace std;
 
 class Individu{
 private:
-	static int tailleIndividu;  //// static c'est relou !
-	// int[tailleIndividu] chromosome;
-	int* chromosome;
+	static int tailleIndividu;
 	static int nombreCritere;
-	// int[nombreCritere] score;
-	int* score;
-	// int[nombreCritere] rang;
-	int* rang;
 	static float probaMutation;
+	int* chromosome;
+	int* score;
+	int* rang;
+	// int[tailleIndividu] chromosome;
+	// int[nombreCritere] score;
+	// int[nombreCritere] rang;
+	
 
 public:
 	// Constructeurs
 	Individu();	// Constructeur par défaut
 	Individu(int taille); // Constructeur qui crée un Individu aléatoire
-	Individu(int donnees[3]); //Constructeur qui initialise ls données (qu'on utilise qu'une seule fois) les données sont envoyées par io
+	Individu(float donnees[3]); //Constructeur qui initialise ls données (qu'on utilise qu'une seule fois) les données sont envoyées par io
 
 	// Destructeur
 	~Individu();

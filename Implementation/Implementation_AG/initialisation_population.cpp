@@ -3,12 +3,16 @@
 ///       initialisation_population.cpp        ///
 //////////////////////////////////////////////////
 #include "initialisation_population.h"
+using namespace std;
 
 
 //////// Valeurs statiques ////////
 int Individu::tailleIndividu = 0;
 int Individu::nombreCritere = 0;
 float Individu::probaMutation = 0;
+int* chromosome = NULL;
+int* score = NULL;
+int* rang = NULL;
 
 // Constructeurs //
 Individu::Individu() {}		//// Là je ne sais pas trop pour l'instant
@@ -25,28 +29,31 @@ Individu::Individu(int taille) {		// Constructeur qui initialise aléatoirement
 	// }
 }
 
-Individu::Individu(int donnees[3]){
+Individu::Individu(float donnees[3]){
 //// Récup' du tableau donnees : ////
 	this->tailleIndividu = donnees[0];
 	this->probaMutation = donnees[1];
 	this->nombreCritere = donnees[2];
 
 	//// Chromosome random ////
-	// this->*chromosome = malloc(this->tailleIndividu*sizeof(int));
+	this->chromosome = malloc(this->tailleIndividu*sizeof(int));
 	for(int i = 0; i < this->tailleIndividu; i++){
-		this->chromosome[i] = rand()%2;	// Je ne suis pas sûre pour le "%2"
+		chromosome[i] = rand()%2;	// Je ne suis pas sûre pour le "%2"
 	}
+
 
 	// this->score = malloc(this->nombreCritere*sizeof(int));
 	// this->rang = malloc(this->nombreCritere*sizeof(int));
-	for(int i = 0; i < this->nombreCritere; i++){
+	/* for(int i = 0; i < this->nombreCritere; i++){
 		this->score[i] = 0;
 		this->rang[i] = 0;
-	}
+	}*/ 
 }
 
 // Destructeur //
-Individu::~Individu() {}
+Individu::~Individu() {
+	free(this->chromosome);
+}
 
 // Getteurs//
 int* Individu::getChromosome(){
