@@ -13,6 +13,7 @@
 #include <typeinfo>
 #include <fstream>
 #include "interface.h"
+#include "génération.h"
 #include "tinyexpr/tinyexpr.h"
 #include <regex>
 #include <sstream>
@@ -22,10 +23,10 @@ using namespace std;
 // Validation
 //~ bool testCoherenceDonnees(string nomFichier);
 
-bool estEntierPositif(auto valeur);
-bool estFloatPositif(auto valeur);
+bool estEntierPositif(string valeur);
+bool estFloatPositif(string valeur);
 
-bool estProbabilite(auto valeur);
+bool estProbabilite(string valeur);
 
 bool estString(auto valeur);
 
