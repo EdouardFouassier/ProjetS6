@@ -47,7 +47,7 @@ bool estString(auto valeur) {
 }
 
 bool estParsable(string fonction) {
-
+	
 	int size=fonction.size();
 	int i = 0;
 	int ouvrante = 0;
@@ -104,7 +104,7 @@ bool estParsable(string fonction) {
 			else { return false; }}}
 		else {
 		if ((fonction[i] != 'x') && (fonction[i] != '1') && (fonction[i] != '2') && (fonction[i] != '3') && (fonction[i] != '4') && (fonction[i] != '5') && (fonction[i] != '6') && (fonction[i] != '7') &&
-		(fonction[i] != '8') && (fonction[i] != '9') && (fonction[i] != '0') && (fonction[i] != '+') && (fonction[i] != '-') && (fonction[i] != ' ') && (fonction[i] != '/') && (fonction[i] != '*') && (fonction[i] != '%') && (fonction[i] != '^') && (fonction[i] != ',')) { return false; }
+		(fonction[i] != '8') && (fonction[i] != '9') && (fonction[i] != '0') && (fonction[i] != '+') && (fonction[i] != '-') && (fonction[i] != ' ') && (fonction[i] != '/') && (fonction[i] != '*') && (fonction[i] != '%') && (fonction[i] != '^') && (fonction[i] != ',') && (fonction[i] != '(') && (fonction[i] != ')') ) { return false; }
 		}}}}}}}}	
 	}
 	
@@ -119,13 +119,14 @@ bool estParsable(string fonction) {
 	}
 
 	
-	} { double a = 1;
+	} { 
+		//~ char* fonction2 = new char[fonction.length() + 1];
 		//~ for(i = 0; i < size; i++) {	
 		//~ if (fonction[i] == '/'){ 
-		
-		//~ char* fonction2 = new char[fonction.length() + 1];
-		//~ strcpy(fonction2,fonction.c_str());
-		
+		//~ fonction2[i] = fonction[i];
+		//~ i++;
+		//~ }
+		//~ }
 		//~ calculfitness(fonction2, a);
 		return true; }
 }

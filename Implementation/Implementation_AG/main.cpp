@@ -12,6 +12,16 @@ int main(int argc, char *argv[])
     //Interface interface; //crée la fenetre
     //interface.show(); //affiche...
     
+    
+    //Test validation//
+    
+    //~ bool y = estString(2);
+    //~ printf(y ? "true" : "false");
+    bool x = estParsable("((2+x/)4))");
+    printf(x ? "true" : "false");
+    
+    //Test validation//
+    
     /**TEST DE DU MODULE GENERATION */
     /*
     Population pop;
