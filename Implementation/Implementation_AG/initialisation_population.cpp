@@ -13,9 +13,9 @@ float Individu::probaMutation = 0;
 // Constructeurs //
 Individu::Individu() {}		//// Là je ne sais pas trop pour l'instant
 
-Individu::Individu(int taille) {		//Constructeur qui initialise aléatoirement
+Individu::Individu(int taille) {		// Constructeur qui initialise aléatoirement
 	for(int i = 0; i < taille; i++){
-		this->chromosome[i] = rand()%2;
+		this->chromosome[i] = rand()%2;	// Je ne suis pas sûre pour le "%2"
 	}
 	Individu::tailleIndividu = taille;
 	// this->tailleIndividu = taille;
@@ -26,7 +26,23 @@ Individu::Individu(int taille) {		//Constructeur qui initialise aléatoirement
 }
 
 Individu::Individu(int donnees[3]){
-	
+//// Récup' du tableau donnees : ////
+	this->tailleIndividu = donnees[0];
+	this->probaMutation = donnees[1];
+	this->nombreCritere = donnees[2];
+
+	//// Chromosome random ////
+	// this->*chromosome = malloc(this->tailleIndividu*sizeof(int));
+	for(int i = 0; i < this->tailleIndividu; i++){
+		this->chromosome[i] = rand()%2;	// Je ne suis pas sûre pour le "%2"
+	}
+
+	// this->score = malloc(this->nombreCritere*sizeof(int));
+	// this->rang = malloc(this->nombreCritere*sizeof(int));
+	for(int i = 0; i < this->nombreCritere; i++){
+		this->score[i] = 0;
+		this->rang[i] = 0;
+	}
 }
 
 // Destructeur //
