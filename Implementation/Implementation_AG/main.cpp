@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     
     //Test validation//
     
-    //~ bool y = estString(2);
+    //~ bool y = estString("e");
     //~ printf(y ? "true" : "false");
     bool x = estParsable("((2+x/)4))");
     printf(x ? "true" : "false");

@@ -28,7 +28,7 @@ bool estFloatPositif(string valeur);
 
 bool estProbabilite(string valeur);
 
-bool estString(auto valeur);
+bool estString(string valeur);
 
 bool estParsable(string fonction);
 

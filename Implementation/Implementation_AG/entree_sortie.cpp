@@ -42,7 +42,7 @@ bool estProbabilite(string valeur) {
 		}
 }
 
-bool estString(auto valeur) {
+bool estString(string valeur) {
 	string s;
     regex e ("^-?\\d+");
     stringstream s2; 
@@ -125,15 +125,30 @@ bool estParsable(string fonction) {
 	}
 
 
-    } { //double a = 1;
-        //~ char* fonction2 = new char[fonction.length() + 1];
-		//~ for(i = 0; i < size; i++) {	
-		//~ if (fonction[i] == '/'){ 
-		//~ fonction2[i] = fonction[i];
-		//~ i++;
-		//~ }
-		//~ }
-		//~ calculfitness(fonction2, a);
+    } { // 4/(3+x)
+		double a = 1;
+		int y = 0;
+		int ouvrante2 = 0; int fermante2 = 0;
+        char* fonction2 = new char[fonction.length() + 1];
+		for(i = 0; i < size; i++) {	
+		if (fonction[i] == '/'){ 
+			if (fonction[i+1] == '(') { 
+				ouvrante2++;
+				i = i + 2;
+				while (ouvrante2 != fermante2) {
+					fonction2[y] = fonction[i];
+					 if (fonction[i] == '(') { ouvrante++; }
+					if (fonction[i] == ')') { fermante++; }
+					i++;
+					y++;
+				}
+				}
+				else { if(fonction[i + 1] == '0') { return false;} else { return true; } }
+		
+		
+		}
+		}
+		//calculfitness(fonction2, a);
 		return true; }
 }
 
