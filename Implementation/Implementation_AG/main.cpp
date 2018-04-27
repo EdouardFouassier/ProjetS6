@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     Individu indiv(donnees);
     cout << indiv.getTailleIndividu() << endl;
     // cout << indiv.getProbaMutation() << endl;
-    // cout << indiv.getChromosome() << endl;
+    cout << indiv.getChromosome() << endl;
 
 
 

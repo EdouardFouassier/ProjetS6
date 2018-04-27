@@ -36,18 +36,17 @@ Individu::Individu(float donnees[3]){
 	this->nombreCritere = donnees[2];
 
 	//// Chromosome random ////
-	this->chromosome = malloc(this->tailleIndividu*sizeof(int));
+	this->chromosome = (int*)malloc(this->tailleIndividu*sizeof(int));
 	for(int i = 0; i < this->tailleIndividu; i++){
-		chromosome[i] = rand()%2;	// Je ne suis pas sûre pour le "%2"
+		chromosome[i] = rand()%2;	
 	}
-
-
-	// this->score = malloc(this->nombreCritere*sizeof(int));
-	// this->rang = malloc(this->nombreCritere*sizeof(int));
-	/* for(int i = 0; i < this->nombreCritere; i++){
+	//// Initialisation de score et rang ////
+	this->score =(int*) malloc(this->nombreCritere*sizeof(int));
+	this->rang =(int*) malloc(this->nombreCritere*sizeof(int));
+	for(int i = 0; i < this->nombreCritere; i++){
 		this->score[i] = 0;
 		this->rang[i] = 0;
-	}*/ 
+	} 
 }
 
 // Destructeur //
