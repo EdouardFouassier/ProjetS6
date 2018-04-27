@@ -36,8 +36,15 @@ bool estProbabilite(auto valeur) {
 		}
 }
 
-//~ bool estString(auto valeur) {
-//~ }
+bool estString(auto valeur) {
+	string s;
+    regex e ("^-?\\d+");
+    stringstream s2; 
+    s2 << valeur;
+    s2 >> s;
+    if (regex_match (s,e)) return false;
+    else return true;
+}
 
 bool estParsable(string fonction) {
 

@@ -14,6 +14,8 @@
 #include <fstream>
 #include "interface.h"
 #include "tinyexpr/tinyexpr.h"
+#include <regex>
+#include <sstream>
 
 using namespace std;
 
@@ -25,7 +27,7 @@ bool estFloatPositif(auto valeur);
 
 bool estProbabilite(auto valeur);
 
-//~ bool estString(auto valeur);
+bool estString(auto valeur);
 
 bool estParsable(string fonction);
 
