@@ -15,12 +15,11 @@ float Individu::probaMutation = 0;
 // int* rang = NULL;
 
 // Constructeurs //
-Individu::Individu() {
+Individu::Individu() {					// ça ok
 	int* chromosome = NULL;
 	int* score = NULL;
 	int* rang = NULL;
-}		//// Là je ne sais pas trop pour l'instant
-
+}
 Individu::Individu(int taille) {		// Constructeur qui initialise aléatoirement
 	for(int i = 0; i < taille; i++){
 		this->chromosome[i] = rand()%2;
@@ -32,12 +31,11 @@ Individu::Individu(int taille) {		// Constructeur qui initialise aléatoirement
 		// this->chromosome[i] = 0;
 	// }
 }
-
-Individu::Individu(float donnees[3]){		// ça ok
-//// Récup' du tableau donnees : ////
+Individu::Individu(float donnees[3]){	// ça ok
 	int* chromosome = NULL;
 	int* score = NULL;
 	int* rang = NULL;
+//// Récup' du tableau donnees : ////
 	this->tailleIndividu = donnees[0];
 	this->probaMutation = donnees[1];
 	this->nombreCritere = donnees[2];
@@ -59,7 +57,9 @@ Individu::Individu(float donnees[3]){		// ça ok
 // Destructeur //
 Individu::~Individu() {
 	///// Il n'aime pas /////
-	// free(this->chromosome); tente avec une boucle genre (pour i de 0 ç taillechromosome, free this->chromosome[i])
+	for(int i = 0; i < this->tailleIndividu; i++){
+		free(this->chromosome); // tente avec une boucle genre (pour i de 0 ç taillechromosome, free this->chromosome[i])
+	}
 	// free(this->score);
 	// free(this->rang);
 }
