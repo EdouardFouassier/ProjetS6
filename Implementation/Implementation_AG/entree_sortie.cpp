@@ -12,22 +12,34 @@ bool testCoherenceDonnees(string nomFichier) {
 
 	int i = 0;
 	ifstream fichier(nomFichier, ios::in);
+	string donnees;
+	bool x;
+	int fitness2 = 0;
 	if(fichier)  
     { 
-	while(i != 12) {  
-		   string donnees;
-           getline(fichier, donnees); 
-           cout << donnees;
-            cout << endl; 
- 
-          
-          i++;
-	  }
-	  fichier.close(); 
-          return true;
-        }
-        else
-           { cerr << "Erreur ouverture fichier \n" << endl; }
+	while(i != 12) { 
+			
+		   getline(fichier, donnees); 
+           if (i == 0) { x = estEntierPositif(donnees); }
+           if (i == 1) { x = estProbabilite(donnees); }
+           if (i == 2) { x = estProbabilite(donnees); }
+           if (i == 3) { x = estEntierPositif(donnees); }
+           if (i == 4) { x = estEntierPositif(donnees); }
+           if (i == 5) { x = estEntierPositif(donnees); }
+           if (i == 6) { x = estParsable(donnees); }
+           if (i == 7) { x = estEntierPositif(donnees); }
+           if (i == 8) { if (!donnees.empty()) { x = estEntierPositif(donnees); } }
+           if (i == 9) { if (!donnees.empty()) { x = estParsable(donnees); fitness2 = 1; } }
+           if ((i == 10) && (fitness2 == 1)) { x = estEntierPositif(donnees); }
+           if (i == 11) { if (!donnees.empty()) { x = estEntierPositif(donnees); } }
+           if (x == false) { return false; }
+           i++;
+           
+	}
+	fichier.close(); 
+	return true;
+    }
+    else { cerr << "Erreur ouverture fichier \n" << endl; }
 
 }
 
