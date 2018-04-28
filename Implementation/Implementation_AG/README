@@ -43,4 +43,4 @@ Voici comment l'odre des données à lire pour le constructeur de Population: //
 8	valeur approchee 1				par defaut : -1.0
 9	valeur approchee 2				par defaut : -1.0
 
-
+Attention pour la fonction fitness, si on met un /, on met des parentheses ! : 2/(4+x)

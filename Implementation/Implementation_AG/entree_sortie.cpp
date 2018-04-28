@@ -125,30 +125,44 @@ bool estParsable(string fonction) {
 	}
 
 
-    } { // 4/(3+x)
+    } { // (2/(4+2))
 		double a = 1;
+		int temp = 0;
 		int y = 0;
+		
 		int ouvrante2 = 0; int fermante2 = 0;
         char* fonction2 = new char[fonction.length() + 1];
 		for(i = 0; i < size; i++) {	
 		if (fonction[i] == '/'){ 
+			
+			temp = i + 1;
 			if (fonction[i+1] == '(') { 
+				fonction2[y] = '(';
+				y++;
 				ouvrante2++;
 				i = i + 2;
 				while (ouvrante2 != fermante2) {
+					
+					
 					fonction2[y] = fonction[i];
-					 if (fonction[i] == '(') { ouvrante++; }
-					if (fonction[i] == ')') { fermante++; }
+					if (fonction[i] == '(') { ouvrante2++; }
+					if (fonction[i] == ')') { fermante2++; }
+					
 					i++;
 					y++;
 				}
+				if (calculfitness(fonction2, a) == 0) { return false; }
+				
 				}
-				else { if(fonction[i + 1] == '0') { return false;} else { return true; } }
+				else { if(fonction[i + 1] == '0') { return false;} }
 		
+		i = temp;
+		while (y != 0) { fonction2[y] = 0; y--; }
+		ouvrante2 = 0; fermante2 = 0;
+		}
 		
 		}
-		}
-		//calculfitness(fonction2, a);
+		
 		return true; }
 }
 
