@@ -10,9 +10,9 @@ using namespace std;
 int Individu::tailleIndividu = 0;
 int Individu::nombreCritere = 0;
 float Individu::probaMutation = 0;
-int* chromosome = nullptr;
-int* score = nullptr;
-int* rang = nullptr;
+int* chromosome = NULL;
+int* score = NULL;
+int* rang = NULL;
 
 // Constructeurs //
 Individu::Individu() {					// ça ok
@@ -32,9 +32,9 @@ Individu::Individu(int taille) {		// Constructeur qui initialise aléatoirement
 	// }
 }
 Individu::Individu(float donnees[3]){	// ça ok
-	int* chromosome = NULL;
-	int* score = NULL;
-	int* rang = NULL;
+	// int* chromosome = NULL;
+	// int* score = NULL;
+	// int* rang = NULL;
 //// Récup' du tableau donnees : ////
 	this->tailleIndividu = donnees[0];
 	this->probaMutation = donnees[1];
@@ -43,7 +43,7 @@ Individu::Individu(float donnees[3]){	// ça ok
 	this->chromosome = (int*)malloc(this->tailleIndividu*sizeof(int));
 	for(int i = 0; i < this->tailleIndividu; i++){
 		chromosome[i] = rand()%2;
-		cout << donnees[i] << endl;
+		cout << chromosome[i] << endl;
 	}
 	//// Initialisation de score et rang ////
 	this->score =(int*) malloc(this->nombreCritere*sizeof(int));
@@ -57,9 +57,9 @@ Individu::Individu(float donnees[3]){	// ça ok
 // Destructeur //
 Individu::~Individu() {
 	///// Il n'aime pas /////
-	for(int i = 0; i < this->tailleIndividu; i++){
-		free(this->chromosome); // tente avec une boucle genre (pour i de 0 ç taillechromosome, free this->chromosome[i])
-	}
+	// for(int i = 0; i < this->tailleIndividu; i++){
+	//	free(this->chromosome); // tente avec une boucle genre (pour i de 0 ç taillechromosome, free this->chromosome[i])
+	// }
 	// free(this->score);
 	// free(this->rang);
 }
@@ -116,18 +116,22 @@ Individu Individu::codage(int valeur) {
 */
 int Individu::decodage(Individu i) {
 	int res = 0;
-	for(int j = 0; j < i.getTailleIndividu(); j++){
-		res += i.chromosome[j] * pow(2, j);  /// res = chromosome[j] * 2 puissance j
+	int k = 0;
+	for(int j = i.getTailleIndividu() -1; j >= 0; j--){
+		res += i.chromosome[j] * pow(2, k);  /// res = chromosome[j] * 2 puissance j
 		cout << "chromosome[i]: " << i.chromosome[j] << " ";
 		cout << "res: " << res << endl;
+		k++;
 	}
 	return res;
 }
 //// Pour évaluation, ça ne m'arrange pas d'avoir un decodage(Individu) ///
 int Individu::decodage(int* binaire) {
 	int res = 0;
-	for(unsigned int j = 0; j < (sizeof(binaire)/sizeof(int)); j++){
-		res += this->chromosome[j] * pow(2, j);  /// res = chromosome[j] * 2 puissance j
+	int k = 0;
+	for(unsigned int j = (sizeof(binaire)/sizeof(int))- 1; j >= 0; j--){
+		res += this->chromosome[j] * pow(2, k);  /// res = chromosome[j] * 2 puissance j
+	k++;
 	}
 	return res;
 }
