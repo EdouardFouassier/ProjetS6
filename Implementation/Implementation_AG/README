@@ -31,4 +31,16 @@ Fct Fitness 1		//Fonction Fitness 1
 (1 || 2 || 3)		//Critere Fonction Fitness 2, Blanc si pas de Fonction Fitness 2
 (99)				//Valeur approchee, Blanc si le critere a pas ete selectionne ou si pas de Fonction Fitness 2
 
+Voici comment l'odre des données à lire pour le constructeur de Population: //modifiable au besoin
+0	probabilitée de crossover
+1	nombre d'individu (taille de la population)
+2	nombre de génération max	
+3	nombre de critères
+4	critère 1
+5	critère 2
+6 	fitness 1
+7	fitness 2
+8	valeur approchee 1
+9	valeur approchee 2
+
 

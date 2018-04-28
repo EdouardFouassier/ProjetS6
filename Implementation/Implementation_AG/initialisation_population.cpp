@@ -52,7 +52,7 @@ Individu::Individu(float donnees[3]){		// ça ok
 // Destructeur //
 Individu::~Individu() {
 	///// Il n'aime pas /////
-	// free(this->chromosome);
+	// free(this->chromosome); tente avec une boucle genre (pour i de 0 ç taillechromosome, free this->chromosome[i])
 	// free(this->score);
 	// free(this->rang);
 }

@@ -35,16 +35,35 @@ Population::Population(string* const& donnees) :  ensemble(0){
 	
 	probaCroisement = std::stof(donnees[0],nullptr); // string to float
 	nombreIndividus = std::stoi(donnees[1], nullptr, 10);
-	nombreCriteres = std::stoi(donnees[2], nullptr, 10);
-	nombreGenerationMax = std::stoi(donnees[3], nullptr, 10);	
-	valeurApprochee = std::stof(donnees[4], nullptr);
-	valeurApprochee2 = std::stof(donnees[5], nullptr); ///pas dans le cds///
-	fitness1 = donnees[6];
-	fitness2 = donnees[7];
-	criteres[0] = std::stoi(donnees[8], nullptr, 10);
-	criteres[1] = std::stoi(donnees[9], nullptr, 10);
+	nombreGenerationMax = std::stoi(donnees[2], nullptr, 10);	
+	nombreCriteres = std::stoi(donnees[3], nullptr, 10);
+
+	if(nombreCriteres != 1 || nombreCriteres != 2)
+		std::cerr<<"error : nombre de criteres non conforme"<<std::endl;
+
+	else if(nombreCriteres == 1){ 							 //si on à un seul critere
+		criteres = (int*)malloc(nombreCriteres*sizeof(int)); //initialisation de la taille du tableau de criteres
+		criteres[0] = std::stoi(donnees[4], nullptr, 10);    //initialisation du critere
+		fitness1 = donnees[6];                               //initialisation de la fonction fitness
+
+		if (criteres[0] == 3)								 //si le critere est la recherche d'une valeur approchée
+			valeurApprochee = std::stof(donnees[8], nullptr);//initialisation de la valeur approchée
+
+	}
+	else {
+		criteres = (int*)malloc(nombreCriteres*sizeof(int)); //initialisation de la taille du tableau de criteres
+		criteres[0] = std::stoi(donnees[4], nullptr, 10);    //initialisation du critere 1
+		criteres[1] = std::stoi(donnees[4], nullptr, 10);    //initialisation du critere 2
+		fitness1 = donnees[6];                               //initialisation de la fonction fitness 1
+		fitness2 = donnees[7];                               //initialisation de la fonction fitness 2
+
+		if (criteres[0] == 3)								 //si le critere 1 est la recherche d'une valeur approchée
+			valeurApprochee = std::stof(donnees[8], nullptr);//initialisation de la valeur approchée 1
+		if (criteres[1] == 3)								 //si le critere  2est la recherche d'une valeur approchée
+			valeurApprochee2 = std::stof(donnees[9], nullptr);//initialisation de la valeur approchée 2
+	}
 	numeroGeneration += 1;
-	//il faudrait aussi que ce constructeur fasse la première pop initialisé aléatoirement
+	//il faudrait aussi que ce constructeur fasse la premiere pop initialisé aléatoirement
 	/*		à tester quand les constructeurs d'individus seront faits
 	for(int i = 0; i < nombreIndividus; i++){
 		Individu nouv = new Individu();
@@ -152,7 +171,7 @@ void Population::setNombreGenerationMax(int nb){
 Population Population::testArret(){ //pourquoi ça doit renvoyer un population? 
 	if(this->testConvergence() && this->testNombreGeneration()){
 		//calculerEcrireStats(this*, string nomFichierPopulation, string nomFichierStats)
-		//d'après cds : on continue l'itération
+		//d'apres cds : on continue l'itération
 							//on envoie la population au module io
 	}
 	else {
@@ -255,7 +274,7 @@ Population Population::creerGeneration(Population P){
 }
 
 /*bool Individu::probAlea(float prob) {
-	double alea = rand()/(double)RAND_MAX; 	//génère un nb dans [0,1]
+	double alea = rand()/(double)RAND_MAX; 	//génere un nb dans [0,1]
 	
 	if(alea < prob) return true;
 	return false;
