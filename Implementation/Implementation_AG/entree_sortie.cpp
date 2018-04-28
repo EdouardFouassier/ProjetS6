@@ -158,7 +158,7 @@ bool estParsable(string fonction) {
 
 string* lireInfoRegen(string nomFichier){
 	
-	ifstream fichier(nomFichier.c_str(), ios::in);
+	ifstream fichier(nomFichier.c_str(), ios::in);						//On ouvre le fichier en lecture
 	if(fichier) {
 		string *tableauInfoRegen;										
 		tableauInfoRegen = new string[10];								//On declare un tableau de string qu'on initialise a NULL
@@ -166,7 +166,7 @@ string* lireInfoRegen(string nomFichier){
 		getline(fichier,sautligne);										//On saute les deux premieres lignes du fichier
 		getline(fichier,sautligne);
 		fichier >> tableauInfoRegen[0] >> tableauInfoRegen[1]			//On lit les lignes du fichier que l'on stocke dans les cases du tableau, 0 -> Taux de crossover, 1 -> Taille de la population
-				>> tableauInfoRegen[3] >> tableauInfoRegen[2]			//3 -> Nombre de generation max, 2 -> nombre de criteres 
+				>> tableauInfoRegen[3] >> tableauInfoRegen[2]			//3 -> Nombre de generation max, 2 -> Nombre de criteres 
 				>> tableauInfoRegen[6] >> tableauInfoRegen[8]			//6 -> Fonction fitness1, 8 -> Critere Fonction fitness1
 				>> tableauInfoRegen[4] >> tableauInfoRegen[7]			//4 -> Valeur approchée Fonction fitness1, 7 -> Fonction fitness2
 				>> tableauInfoRegen[9] >> tableauInfoRegen[5];			//9 -> Critere Fonction fitness2, 5 -> Valeur approchée Fonction fitness1
@@ -199,13 +199,20 @@ float* lireInitialisation (string nomFichier) {
 
 	if(fichier) {
 		float *tableauInitialisation;		
-		tableauInitialisation = new float[2];							
+		tableauInitialisation = new float[3];							
 		
 		fichier >> tableauInitialisation[0] >> tableauInitialisation[1];//On lit les lignes deux premieres lignes du fichier que l'on stocke dans les cases du tableau, 0 -> Taille des individus, 1 -> Taux de mutation
+		string sautligne;
+		getline(fichier,sautligne);										//On saute les trois lignes suivante du fichier	pour aller jusqu'a la valeur du nombre de critere				
+		getline(fichier,sautligne);
+		getline(fichier,sautligne);
+		getline(fichier,sautligne);
+		fichier >> tableauInitialisation[2];							//On lit la sixieme ligne que l'on stocke dans la derniere case du tableau, 3 -> Nombre de criteres 
 		fichier.close();												//On ferme le fichier
 				
 		//~ cout << tableauInitialisation[0] << " Taille Individu "<< endl;
 		//~ cout << tableauInitialisation[1] << " Taux Mutation " << endl;
+		//~ cout << tableauInitialisation[2] << " Nombre de critères " << endl;
 		
 		return tableauInitialisation;									//On retourne le tableau
 	}
@@ -224,8 +231,7 @@ bool ecrireFichierDonnees(Interface *interface, string nomFichier) {
 	
 	ofstream fichier(nomFichier.c_str(), ios::out | ios::trunc);		//On ouvre le fichier en ecriture, son contenu est efface
 
-    if(fichier)
-	{
+    if(fichier) {
 		fichier << interface->getTailleIndividu() <<  endl; 			//Taille Individu
 		fichier << interface->getTauxMutation() <<  endl;				//Taux Mutation
 		
@@ -258,28 +264,29 @@ bool ecrireFichierDonnees(Interface *interface, string nomFichier) {
 		fichier.close();
 		return true;
 	}
-	else {return false;}
+	else { return false; }
 }
 
-bool ecrirePopulation(Population P, string nomFichier){
-    ofstream fichier(nomFichier.c_str(), ios::out);
+//~ bool ecrirePopulation(Population P, string nomFichier){
+    //~ ofstream fichier(nomFichier.c_str(), ios::out);
 
-   if(fichier)
-   {
-       for(int i=0;i<P.getNombreIndividus();i++){
-           for(int j=0;j<P.getEnsemble()[i].getTailleIndividu();j++){
-               fichier << P.getEnsemble()[i].getChromosome()[j] << " ";
-           }
-           fichier << endl;
-       }
-       fichier << endl;
-       fichier.close();
-       return true;
-   }
-   else return false;
+   //~ if(fichier)
+   //~ {
+       //~ for(int i=0;i<P.getNombreIndividus()-1;i++){
+		   //~ fichier << P.getEnsemble()[i].getScore() << " ";
+		   
+           //~ //for(int j=0;j<P.getEnsemble()[i].getTailleIndividu();j++){
+               //~ //fichier << P.getEnsemble()[i].getChromosome()[j] << " ";
+           //~ //}
+       //~ }
+       //~ fichier << P.getEnsemble()[P.getNombreIndividus()-1].getScore() << endl;
+       //~ fichier.close();
+       //~ return true;
+   //~ }
+   //~ else return false;
 
-   return true;
-}
+   //~ return true;
+//~ }
 
 //~ bool calculerEcrireStats(Population P, string nomFichierPopulation, string nomFichierStats){
 //~ }

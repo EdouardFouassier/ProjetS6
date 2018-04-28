@@ -16,3 +16,19 @@ btw la fonction du parser s'appelle : double calculfitness (const char *c, doubl
 
 transformer un string en char* (utile pour fitness) : 		char* fonction2 = new char[fonction.length() + 1];
 															strcpy(fonction2,fonction.c_str());
+															
+Voici comment le fichier des données initiales sera : (Il peut être amener a changer) (Les données entre parenthèses sont celles qui peuvent être remplacé par un blanc)
+12					//Taille Individu
+0.1					//Taux Mutation
+0.2					//Taux Crossover
+13					//Taille Population
+11					//Nombre Generation Maximum
+1 || 2				//Nombre de Critères
+Fct Fitness 1		//Fonction Fitness 1
+1 || 2 || 3			//Critère Fonction Fitness 1 : 1 -> Maximisation, 2 -> Minimisation, 3 -> Valeur approchée
+(99)				//Valeur approchee, Blanc si le critere n'a pas ete selectionnee
+(Fct Fitness 2)		//Fonction Fitness 2, Blanc si il n'y en a pas
+(1 || 2 || 3)		//Critere Fonction Fitness 2, Blanc si pas de Fonction Fitness 2
+(99)				//Valeur approchee, Blanc si le critere a pas ete selectionne ou si pas de Fonction Fitness 2
+
+
