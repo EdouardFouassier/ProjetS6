@@ -77,8 +77,10 @@ Population::Population(string* const& donnees) :  ensemble(0){
 
 Population::~Population(){
 	std::cout<<"DESTRUCTEUR POPULATION"<<endl;
-	//for(int i = 0; i < this->nombreIndividus;i++)
-
+	for(int i = 0; i < nombreIndividus;i++)
+		delete ensemble[i];
+	delete[] &ensemble; 
+	free(criteres);
 }
 
 
@@ -197,7 +199,7 @@ bool Population::testPopulationRemplie(){
 }
 /**** LES ALGOS ****/
 
-Population Population::evaluation(){
+Population Population::evaluation(){// entheorie c'est bon, a tester 
 
 	string fitnessTmp;
 	for (int iCritere = 0; iCritere < nombreCriteres - 1; iCritere ++){
@@ -223,7 +225,103 @@ Population Population::evaluation(){
 	return *this;
 }
 
-bool Population::triPopulation(int indiceScore){
+bool Population::triPopulation(int indiceScore){ //va falloir maroufler parce que le tri a bulle ca pue , a tester
+	bool tab_en_ordre = false;
+	if (criteres[indiceScore] == 1) //MAXIMISATION
+	{
+		int taille = ensemble.size();
+    	while(!tab_en_ordre)
+		{	
+			tab_en_ordre = true;
+        	for(int i=0 ; i < taille-1 ; i++)
+        	{
+            	if(ensemble[i] > ensemble[i+1])
+            	{
+                	swap(ensemble[i],ensemble[i+1]);
+                	tab_en_ordre = false;
+            	}
+        	}
+        	taille--;
+    	}
+	}
+	else if (criteres[indiceScore] == 2) //MINIMISATION
+	{
+		int taille = ensemble.size();
+    	while(!tab_en_ordre)
+		{	
+			tab_en_ordre = true;
+        	for(int i=0 ; i < taille-1 ; i++)
+        	{
+            	if(ensemble[i] < ensemble[i+1])
+            	{
+                	swap(ensemble[i],ensemble[i+1]);
+                	tab_en_ordre = false;
+            	}
+        	}
+        	taille--;
+    	}
+	}
+	else if (criteres[indiceScore] == 3) //VALEUR APPROCHEE
+	{
+		int val;
+		if (indiceScore == 1)
+			val = valeurApprochee;
+		else if (indiceScore == 2)
+			val = valeurApprochee2;
+		else 
+			std::cerr<<"error triPopulation" <<std::endl;
+
+		int taille = ensemble.size();
+		vector<Individu*> ensembleTmpSup;  //vecteur regroupant les indiv d'un score inferieur à la valeur
+		vector<Individu*> ensembleTmpInf;  //vecteur regroupant les indiv d'un score superieur à la valeur
+
+		/** SEPARATION DU VECTEUR D'INDIVIDU **/
+        for(int i=0 ; i < taille-1 ; i++)
+        {
+         	if(ensemble[i]->Individu::getScore(indiceScore) > val)
+              	ensembleTmpSup.push_back(ensemble[i]);
+           	else if (ensemble[i]->Individu::getScore(indiceScore) < val)
+           		ensembleTmpInf.push_back(ensemble[i]);
+        }
+
+
+        for(int i = 0; i < nombreIndividus;i++)
+			delete ensemble[i];
+		int tailleInf = ensembleTmpInf.size();
+		int tailleSup = ensembleTmpSup.size();
+    	
+    	/** TRI DU VECTEUR INF **/
+        for(int i=0 ; i < tailleInf-1 ; i++)
+        {
+           	if(ensembleTmpInf[i] < ensembleTmpInf[i+1])
+               	swap(ensembleTmpInf[i],ensembleTmpInf[i+1]);
+        }
+
+        /** TRI DU VECTEUR SUP **/
+        for(int i=0 ; i < tailleSup-1 ; i++)
+        {
+           	if(ensembleTmpSup[i] < ensembleTmpSup[i+1])
+               	swap(ensembleTmpSup[i],ensembleTmpSup[i+1]);
+        }
+
+        /** FUSION DE INF ET SUP DANS ENSEMBLE **/
+        for (int i = 0; i <  tailleInf-1 ; i ++)
+        	ensemble.push_back(ensembleTmpInf[i]);
+        for (int i = 0; i <  tailleInf-1 ; i ++)
+        	delete ensembleTmpInf[i];
+        delete[] &ensembleTmpInf;
+
+        /**SUPPRESSION DES TMP **/
+        for (int i = 0; i <  tailleSup-1 ; i ++)
+        	ensemble.push_back(ensembleTmpSup[i]);
+        for (int i = 0; i <  tailleSup-1 ; i ++)
+        	delete ensembleTmpSup[i];
+        delete[] &ensembleTmpSup;
+
+        tab_en_ordre = true;
+	}
+	else 
+		std::cerr<<"error triPopulation" <<std::endl;
 	return NULL;
 }
 
@@ -284,3 +382,37 @@ int Population::nombreAlea(int inf, int sup){
 	return rand()%(sup-inf) + sup;
 }
 
+
+
+/** quick sort **/
+/*
+void quickSort(int tableau[], int debut, int fin)
+{
+    int gauche = debut-1;
+    int droite = fin+1;
+    const int pivot = tableau[debut];
+
+    // Si le tableau est de longueur nulle, il n'y a rien à faire. 
+    if(debut >= fin)
+        return;
+
+    // Sinon, on parcourt le tableau, une fois de droite à gauche, et une
+    // autre de gauche à droite, à la recherche d'éléments mal placés,
+    // que l'on permute. Si les deux parcours se croisent, on arrête. 
+    while(1)
+    {
+        do droite--; while(tableau[droite] > pivot);
+        do gauche++; while(tableau[gauche] < pivot);
+
+        if(gauche < droite)
+            echanger(tableau, gauche, droite);
+        else break;
+    }
+
+    // Maintenant, tous les éléments inférieurs au pivot sont avant ceux
+    // supérieurs au pivot. On a donc deux groupes de cases à trier. On utilise
+    // pour cela... la méthode quickSort elle-même ! 
+    quickSort(tableau, debut, droite);
+    quickSort(tableau, droite+1, fin);
+}
+*/
