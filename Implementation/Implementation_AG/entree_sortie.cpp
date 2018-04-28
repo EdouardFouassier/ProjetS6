@@ -8,8 +8,29 @@
 using namespace std;
 
 // Validation
-//~ bool testCoherenceDonnees(string nomFichier) {
-//~ }
+bool testCoherenceDonnees(string nomFichier) {
+
+	int i = 0;
+	ifstream fichier(nomFichier, ios::in);
+	if(fichier)  
+    { 
+	while(i != 12) {  
+		   string donnees;
+           getline(fichier, donnees); 
+           cout << donnees;
+            cout << endl; 
+ 
+          
+          i++;
+	  }
+	  fichier.close(); 
+          return true;
+        }
+        else
+           { cerr << "Erreur ouverture fichier \n" << endl; }
+
+}
+
 
 bool estEntierPositif(string valeur){
     QString tmp=QString::fromStdString(valeur);

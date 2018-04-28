@@ -17,11 +17,12 @@
 #include "tinyexpr/tinyexpr.h"
 #include <regex>
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
 // Validation
-//~ bool testCoherenceDonnees(string nomFichier);
+bool testCoherenceDonnees(string nomFichier);
 
 bool estEntierPositif(string valeur);
 bool estFloatPositif(string valeur);
