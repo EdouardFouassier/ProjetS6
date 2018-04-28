@@ -10,9 +10,9 @@ using namespace std;
 int Individu::tailleIndividu = 0;
 int Individu::nombreCritere = 0;
 float Individu::probaMutation = 0;
-// int* chromosome = NULL;
-// int* score = NULL;
-// int* rang = NULL;
+int* chromosome = nullptr;
+int* score = nullptr;
+int* rang = nullptr;
 
 // Constructeurs //
 Individu::Individu() {					// ça ok

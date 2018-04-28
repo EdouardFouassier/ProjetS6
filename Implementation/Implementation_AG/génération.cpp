@@ -7,15 +7,15 @@
 
 /**** STATIC ****/
 
-float Population::probaCroisement = nullptr;
-int Population::nombreIndividus = nullptr;
-int Population::nombreGenerationMax = nullptr;
-int Population::nombreCriteres = nullptr;
+float Population::probaCroisement = -1.0;
+int Population::nombreIndividus = -1;
+int Population::nombreGenerationMax = -1;
+int Population::nombreCriteres = -1;
 int* Population::criteres = nullptr;
 string Population::fitness1 = "";
 string Population::fitness2 = "";
-float Population::valeurApprochee = nullptr;
-float Population::valeurApprochee2 = nullptr; ///pas dans le cds///
+float Population::valeurApprochee = -1.0;
+float Population::valeurApprochee2 = -1.0; ///pas dans le cds///
 
 int Population::numeroGeneration = 0;
 
@@ -66,15 +66,11 @@ Population::Population(string* const& donnees) :  ensemble(0){
 	}
 	numeroGeneration += 1;
 
-	//il faudrait aussi que ce constructeur fasse la premiere pop initialisé aléatoirement
-	/*		à tester quand les constructeurs d'individus seront faits
+	/*POPULATION INITIALE*/
 	for(int i = 0; i < nombreIndividus; i++){
-		Individu nouv = new Individu();
+		Individu *nouv = new Individu();
 		ensemble.push_back(nouv);
 	}
-	*/
-
-	
 }
 
 /**** DESTRUCTEUR ****/
@@ -112,7 +108,7 @@ float Population::getValeurApprochee2(){
 	return this->valeurApprochee2;
 }
 
-vector<Individu> Population::getEnsemble(){
+vector<Individu*> Population::getEnsemble(){
 	return this->ensemble;
 }
 
@@ -195,7 +191,7 @@ bool Population::testNombreGeneration(){
 }
 
 bool Population::testPopulationRemplie(){
-	if(this->ensemble.size() < nombreIndividus)
+	if(ensemble.size() < nombreIndividus)
 		return true;
 	return false;
 }
@@ -210,19 +206,19 @@ Population Population::evaluation(){
 				fitnessTmp = this->fitness1;
 			if(iCritere == 1)
 				fitnessTmp = this->fitness2;
-			this->ensemble[iIndiv].Individu::evaluationIndividu(fitnessTmp, iCritere);
+			this->ensemble[iIndiv]->Individu::evaluationIndividu(fitnessTmp, iCritere);
 		}
 		this->triPopulation(iCritere);
 		int cpt = 1;
 		for(int iIndiv = 0; iIndiv < ensemble.size() - 2; iIndiv ++){
-			while (this->ensemble[iIndiv].Individu::getScore(iCritere) == this->ensemble[iIndiv+1].Individu::getScore(iCritere))
-				this->ensemble[iIndiv].Individu::setRang(cpt, iCritere);
+			while (this->ensemble[iIndiv]->Individu::getScore(iCritere) == this->ensemble[iIndiv+1]->Individu::getScore(iCritere))
+				this->ensemble[iIndiv]->Individu::setRang(cpt, iCritere);
 			cpt ++;
 		}
-		if (this->ensemble[ensemble.size()].Individu::getScore(iCritere) == this->ensemble[ensemble.size()-1].Individu::getScore(iCritere))
-				this->ensemble[ensemble.size()].Individu::setRang(cpt, iCritere);
+		if (this->ensemble[ensemble.size()]->Individu::getScore(iCritere) == this->ensemble[ensemble.size()-1]->Individu::getScore(iCritere))
+				this->ensemble[ensemble.size()]->Individu::setRang(cpt, iCritere);
 		else  
-			this->ensemble[ensemble.size()].Individu::setRang(cpt+1, iCritere); 
+			this->ensemble[ensemble.size()]->Individu::setRang(cpt+1, iCritere); 
 	}
 	return *this;
 }
