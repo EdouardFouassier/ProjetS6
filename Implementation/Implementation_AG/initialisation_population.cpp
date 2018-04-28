@@ -15,26 +15,25 @@ int* score = NULL;
 int* rang = NULL;
 
 // Constructeurs //
-Individu::Individu() {					// ça ok
-	int* chromosome = NULL;
-	int* score = NULL;
-	int* rang = NULL;
+Individu::Individu() {					// ça ok Ce constructeur ne fait rien
+	this->chromosome = NULL;
+	this->score = NULL;
+	this->rang = NULL;
 }
-Individu::Individu(int taille) {		// Constructeur qui initialise aléatoirement
+Individu::Individu(int taille) {		// ça ok Ce constructeur crée seulement un chromosome aléatoire
+	this->chromosome = NULL;
+	this->score = NULL;
+	this->rang = NULL;
+	this->tailleIndividu = taille;
+	this->chromosome = (int*)malloc(this->tailleIndividu*sizeof(int));
 	for(int i = 0; i < taille; i++){
 		this->chromosome[i] = rand()%2;
 	}
-	Individu::tailleIndividu = taille;
-	// this->tailleIndividu = taille;
-	// this->chromosome[taille];
-	// for(int i = 0; i < taille; i ++){
-		// this->chromosome[i] = 0;
-	// }
 }
-Individu::Individu(float donnees[3]){	// ça ok
-	// int* chromosome = NULL;
-	// int* score = NULL;
-	// int* rang = NULL;
+Individu::Individu(float donnees[3]){	// ça ok Ce constructeur crée un chromosome aléatoire et initialise à 0 score et rang
+	this->chromosome = NULL;
+	this->score = NULL;
+	this->rang = NULL;
 //// Récup' du tableau donnees : ////
 	this->tailleIndividu = donnees[0];
 	this->probaMutation = donnees[1];
@@ -43,7 +42,6 @@ Individu::Individu(float donnees[3]){	// ça ok
 	this->chromosome = (int*)malloc(this->tailleIndividu*sizeof(int));
 	for(int i = 0; i < this->tailleIndividu; i++){
 		chromosome[i] = rand()%2;
-		cout << chromosome[i] << endl;
 	}
 	//// Initialisation de score et rang ////
 	this->score =(int*) malloc(this->nombreCritere*sizeof(int));
@@ -65,16 +63,16 @@ Individu::~Individu() {
 }
 
 // Getteurs//
-int* Individu::getChromosome(){
+int* Individu::getChromosome(){ 		// ça ok
 	return this->chromosome; 
 }
-int Individu::getScore(int i){
+int Individu::getScore(int i){ 			// ça ok
 	return this->score[i];
 }
-int Individu::getRang(int i){
+int Individu::getRang(int i){ 			// ça ok
 	return this->rang[i];
 }
-int Individu::getTailleIndividu(){
+int Individu::getTailleIndividu(){ 		// ça ok
 	return this->tailleIndividu;
 }
 	
@@ -114,7 +112,7 @@ Individu Individu::codage(int valeur) {
 	return indiv;
 }
 */
-int Individu::decodage(Individu i) {
+int Individu::decodage(Individu i) { 			// ça ok
 	int res = 0;
 	int k = 0;
 	for(int j = i.getTailleIndividu() -1; j >= 0; j--){
@@ -126,18 +124,17 @@ int Individu::decodage(Individu i) {
 	return res;
 }
 //// Pour évaluation, ça ne m'arrange pas d'avoir un decodage(Individu) ///
-int Individu::decodage(int* binaire) {
+int Individu::decodage(int* binaire) { 			// ça ok
 	int res = 0;
 	int k = 0;
-	for(unsigned int j = (sizeof(binaire)/sizeof(int))- 1; j >= 0; j--){
-		res += this->chromosome[j] * pow(2, k);  /// res = chromosome[j] * 2 puissance j
+	for(int j = getTailleIndividu()-1; j >= 0; j--){
+		res += binaire[j] * pow(2, k);  /// res = chromosome[j] * 2 puissance j
 	k++;
 	}
 	return res;
 }
-bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) {
-	int res = calculfitness(fonctionFitness.c_str(), decodage(this->chromosome));	// .c_str : convert string to char*
-	this->score[indiceScore] = res;
+bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) { // ça ok (sauf vérif')
+	this->score[indiceScore] = calculfitness(fonctionFitness.c_str(), decodage(this->chromosome));	// .c_str : convert string to char*
 	return true;	// Pas de vérif' pour le moment
 }
 int Individu::mutation(int gene) {
@@ -147,12 +144,12 @@ int Individu::mutation(int gene) {
 }
 bool Individu::probAlea(float prob) {
 	double alea = rand()/(double)RAND_MAX; 	//génère un nb dans [0,1]
-	
 	if(alea < prob) return true;
 	return false;
 }
 
-double Individu::calculFitness(const char* c, double x) {
+double Individu::calculFitness(const char* c, double x) { // ça ok
+	cout << "c: " << c << "x" << x << endl;
 	double res = calculfitness(c, x);
 	return res;
 }
