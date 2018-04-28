@@ -87,6 +87,7 @@ bool estString(string valeur) {
 
 bool estParsable(string fonction) {
 	
+	//~ if (estString(fonction) == false) { return false; }
 	int size=fonction.size();
 	int i = 0;
 	int ouvrante = 0;
