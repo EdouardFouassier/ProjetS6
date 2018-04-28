@@ -30,15 +30,16 @@ int main(int argc, char *argv[])
     //Test validation//
 
     /////// Test Individu ///////
-    //~ float donnees[3];
-    //~ donnees[0] = 5.0;
-    //~ donnees[1] = 0.01;
-    //~ donnees[2] = 1.0;
-    //~ Individu indiv(donnees);
-    //~ cout << "Taille: " << indiv.getTailleIndividu() << endl;
-    //~ // cout << indiv.getProbaMutation() << endl;
-    //~ cout << "Decodage: " << indiv.decodage(indiv) << endl;
-    //~ indiv.~Individu();
+    /* float donnees[3];
+    donnees[0] = 4.0;
+    donnees[1] = 0.01;
+    donnees[2] = 1.0;
+    Individu indiv(donnees);
+    string fonction = "x*x";
+    int indScore = 0;
+    indiv.evaluationIndividu(fonction, indScore);
+    cout << "Score: " << indiv.getScore(indScore) << endl;
+    indiv.~Individu(); */
 
 
 
