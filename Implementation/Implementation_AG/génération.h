@@ -17,7 +17,7 @@ class Population{
 private:
 	static int nombreIndividus;
 	static int nombreCriteres;
-	vector<Individu> ensemble; 
+	vector<Individu*> ensemble; 
 	static int numeroGeneration;
 	static int* criteres; 		//alors qu'ici ça marche avec rien ¯\_(ツ)_/¯
 	static float valeurApprochee;
@@ -38,7 +38,7 @@ public:
 
 	/*LES GETTEURS*/
 	int getNombreIndividus();
-	vector<Individu> getEnsemble();
+	vector<Individu*> getEnsemble();
 	int getNumeroGeneration();
 	string getFitness1();
 	string getFitness2();
