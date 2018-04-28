@@ -7,16 +7,17 @@
 
 /**** STATIC ****/
 
-int Population::nombreIndividus = 0;
-int Population::nombreCriteres = 0;
-int Population::numeroGeneration = 0;
+float Population::probaCroisement = nullptr;
+int Population::nombreIndividus = nullptr;
+int Population::nombreGenerationMax = nullptr;
+int Population::nombreCriteres = nullptr;
 int* Population::criteres = nullptr;
-float Population::valeurApprochee = 0.0;
-float Population::valeurApprochee2 = 0.0; ///pas dans le cds///
 string Population::fitness1 = "";
 string Population::fitness2 = "";
-int Population::nombreGenerationMax = 0;
-float Population::probaCroisement = 0.0;
+float Population::valeurApprochee = nullptr;
+float Population::valeurApprochee2 = nullptr; ///pas dans le cds///
+
+int Population::numeroGeneration = 0;
 
 /**** CONSTRUCTEURS****/
 
@@ -32,12 +33,13 @@ Population::Population(Population const& P) : ensemble(P.ensemble)
 }
 
 Population::Population(string* const& donnees) :  ensemble(0){
-	
+	/** INITIALISATION DES DONNEES INVARIABLES **/
 	probaCroisement = std::stof(donnees[0],nullptr); // string to float
 	nombreIndividus = std::stoi(donnees[1], nullptr, 10);
 	nombreGenerationMax = std::stoi(donnees[2], nullptr, 10);	
 	nombreCriteres = std::stoi(donnees[3], nullptr, 10);
 
+	/** INITIALISATION DES DONNEES VARIABLES **/
 	if(nombreCriteres != 1 || nombreCriteres != 2)
 		std::cerr<<"error : nombre de criteres non conforme"<<std::endl;
 
@@ -63,6 +65,7 @@ Population::Population(string* const& donnees) :  ensemble(0){
 			valeurApprochee2 = std::stof(donnees[9], nullptr);//initialisation de la valeur approchée 2
 	}
 	numeroGeneration += 1;
+
 	//il faudrait aussi que ce constructeur fasse la premiere pop initialisé aléatoirement
 	/*		à tester quand les constructeurs d'individus seront faits
 	for(int i = 0; i < nombreIndividus; i++){
