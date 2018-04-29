@@ -44,6 +44,7 @@ int* lireScoreIndividu(string nomFichierPopulation, int generation, int indice);
 // Ecriture
 class Interface;
 bool ecrireFichierDonnees(Interface *interface, string nomFichier);
+class Population;
 bool ecrirePopulation(Population P, string nomFichier);
 //~ bool calculerEcrireStats(Population P, string nomFichierPopulation, string nomFichierStats);
 //~ bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichierStats);
