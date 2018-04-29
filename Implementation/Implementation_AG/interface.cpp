@@ -283,9 +283,11 @@ void Interface::connectLancer(){
     //~ cout<<getPostScript()<<endl;
     
     /*** TEST ECRITURE LECTURE ***/
-    //ecrireFichierDonnees(this, "DonneesInitiales.txt");
-    //lireInitialisation("DonneesInitiales.txt");
-    //lireInfoRegen("DonneesInitiales.txt");
+    //~ ecrireFichierDonnees(this, "TestFiles/DonneesInitialesTest.txt");
+    //~ lireInitialisation("TestFiles/DonneesInitialesTest.txt");
+    //~ lireInfoRegen("TestFiles/DonneesInitialesTest.txt");
+    //~ lireScoreIndividu("TestFiles/ScoreIndividuTest.txt", 3, 5);
+    //~ cout << testCoherenceDonnees("TestFiles/DonneesInitialesTest.txt") << endl;
 /*
     cout<< estEntierPositif("2")<<endl;
     cout<< estEntierPositif("2.5")<<endl;
@@ -310,7 +312,8 @@ void Interface::connectLancer(){
 
    
     }
-    else cout<<liensFichier->text().toUtf8().constData()<<endl;
+    else {cout<<liensFichier->text().toUtf8().constData()<<endl;
+		cout << testCoherenceDonnees(liensFichier->text().toUtf8().constData()) << endl;}
 	}
 }
 

@@ -45,7 +45,8 @@ public:
 	float getValeurApprochee();
 	float getValeurApprochee2(); //pas dans le cds
 	int getNombreGenerationMax();
-
+	int getNombreCriteres(); //pas dans le cds :)
+	
 	/*LES SETTEURS*/
 	void setNombreIndividus(int nbIndiv);
 	//Individu [nombreIndividus] setEnsemble(int i, Individu new);
@@ -56,6 +57,7 @@ public:
 	void setValeurApprochee2(float val); //pas dans le cds 
 	void setProbaCroisement(float proba);
 	void setNombreGenerationMax (int nbGen);
+	
 
 	/*LES TESTS*/
 	Population testArret();

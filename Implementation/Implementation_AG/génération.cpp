@@ -117,12 +117,16 @@ vector<Individu*> Population::getEnsemble(){
 int Population::getNombreGenerationMax(){		//fonction qu'on a oubliée dans le cds :(
 	return this->nombreGenerationMax;
 }
-/// PAS DANS LE CDS (mais inutiles pour l'instant donc maybe on est bon quand même)
-/*
+
+/// UTILE DANS ecrirePopulation POUR RECUPERER LE NOMBRE DE CRITERES
+
 int Population::getNombreCriteres(){			//fonction qu'on a oubliée dans le cds :(
 	return this->nombreCriteres;
 }
 
+/// PAS DANS LE CDS (mais inutiles pour l'instant donc maybe on est bon quand même)
+
+/*
 int[] Population::getCriteres(){				//fonction qu'on a oubliée dans le cds :(
 	return this->criteres;
 }

@@ -39,18 +39,18 @@ bool estParsable(string fonction);
 
 string* lireInfoRegen(string nomFichier);
 float* lireInitialisation(string nomFichier);
-//~ int lireScoreIndividu(string nomFichierPopulation, int generation, int indice);
+int* lireScoreIndividu(string nomFichierPopulation, int generation, int indice);
 
 // Ecriture
 class Interface;
 bool ecrireFichierDonnees(Interface *interface, string nomFichier);
-//~ bool ecrirePopulation(Population P, string nomFichier);
+bool ecrirePopulation(Population P, string nomFichier);
 //~ bool calculerEcrireStats(Population P, string nomFichierPopulation, string nomFichierStats);
 //~ bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichierStats);
 //~ bool ecrireLatex(string nomFichierSortie);
 //~ bool ecrirePostscript(string nomFichierSortie);
 //~ bool ecrireXfig(string nomFichierSortie);
-//bool ecrireUnScore(int score, File *F); //lui je sais plus si on l'a laissé dans le cahier des specs
+//~ bool ecrireUnScore(int score, File *F);  //Alors... Elle est dans le cds mais... Askip elle est useless, Wallah c'est un bruit qui court dans la téci
 
 
 #endif
