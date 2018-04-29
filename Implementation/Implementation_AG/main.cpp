@@ -9,12 +9,12 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    //~ QApplication app(argc, argv);
 
-    Interface interface; //crée la fenetre
-    interface.show(); //affiche...
+    //~ Interface interface; //crée la fenetre
+    //~ interface.show(); //affiche...
     
-    return app.exec();
+    //~ return app.exec();
     
     //Test validation//
     
@@ -24,9 +24,9 @@ int main(int argc, char *argv[])
     //~ printf(x ? "true" : "false");
     //~ cout << endl;
     
-    //~ bool x = testCoherenceDonnees("DonneesInitiales.txt");
-    //~ printf(x ? "true" : "false");
-    //~ cout << endl;
+    bool x = testCoherenceDonnees("DonneesInitiales.txt");
+    printf(x ? "true" : "false");
+    cout << endl;
     
     //Test validation//
 

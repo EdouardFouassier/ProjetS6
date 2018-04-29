@@ -34,8 +34,7 @@ bool estString(string valeur);
 bool estParsable(string fonction);
 
 // Lecture
-//~ int* lireStat(FILE *F) {
-//~ }
+int* lireStat(FILE *F);
 
 string* lireInfoRegen(string nomFichier);
 float* lireInitialisation(string nomFichier);

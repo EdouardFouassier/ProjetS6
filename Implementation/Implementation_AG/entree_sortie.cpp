@@ -238,8 +238,20 @@ bool estParsable(string fonction) {
 }
 
 // Lecture
-//~ int* lireStat(FILE *F) {
-//~ }
+int* lireStat(FILE *F) {
+	//lecture
+	int i = 0;
+	int x[5];
+	int taille;
+	
+	//calcul
+	int resultat[3];
+	int min;
+	min = x[i];
+	for (i = 0; i < taille; i++) {
+		if (min < x[i]) { min = x[i]; }
+	}
+}
 
 string* lireInfoRegen(string nomFichier){
 	
