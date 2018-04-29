@@ -251,23 +251,23 @@ string* lireInfoRegen(string nomFichier){
 		getline(fichier,sautligne);										//On saute les deux premieres lignes du fichier
 		getline(fichier,sautligne);
 		fichier >> tableauInfoRegen[0] >> tableauInfoRegen[1]			//On lit les lignes du fichier que l'on stocke dans les cases du tableau, 0 -> Taux de crossover, 1 -> Taille de la population
-				>> tableauInfoRegen[3] >> tableauInfoRegen[2]			//3 -> Nombre de generation max, 2 -> Nombre de criteres 
-				>> tableauInfoRegen[6] >> tableauInfoRegen[8]			//6 -> Fonction fitness1, 8 -> Critere Fonction fitness1
-				>> tableauInfoRegen[4] >> tableauInfoRegen[7]			//4 -> Valeur approchée Fonction fitness1, 7 -> Fonction fitness2
-				>> tableauInfoRegen[9] >> tableauInfoRegen[5];			//9 -> Critere Fonction fitness2, 5 -> Valeur approchée Fonction fitness1
+				>> tableauInfoRegen[2] >> tableauInfoRegen[3]			//2 -> Nombre de generation max, 3 -> Nombre de criteres 
+				>> tableauInfoRegen[6] >> tableauInfoRegen[4]			//6 -> Fonction fitness1, 4 -> Critere Fonction fitness1
+				>> tableauInfoRegen[8] >> tableauInfoRegen[7]			//8 -> Valeur approchée Fonction fitness1, 7 -> Fonction fitness2
+				>> tableauInfoRegen[5] >> tableauInfoRegen[9];			//5 -> Critere Fonction fitness2, 9 -> Valeur approchée Fonction fitness1
 		fichier.close();												//On ferme le fichier
 		
 		//~ printf("\n");		
 		//~ cout << tableauInfoRegen[0] << " Taux de crossover " << endl;
 		//~ cout << tableauInfoRegen[1] << " Taille de la population "<< endl;
-		//~ cout << tableauInfoRegen[2] << " nombre de criteres " << endl;
-		//~ cout << tableauInfoRegen[3] << " Noombre de generation max " << endl;
-		//~ cout << tableauInfoRegen[4] << " Valeur approchée Fct1 " << endl;
-		//~ cout << tableauInfoRegen[5] << " Valeur approchée Fct2 " << endl;
+		//~ cout << tableauInfoRegen[2] << " Nombre de generation max " << endl;
+		//~ cout << tableauInfoRegen[3] << " nombre de criteres " << endl;
+		//~ cout << tableauInfoRegen[4] << " Premier critere " << endl;
+		//~ cout << tableauInfoRegen[5] << " Deuxieme critere " << endl;
 		//~ cout << tableauInfoRegen[6] << " Fct1 " << endl;
 		//~ cout << tableauInfoRegen[7] << " Fct2 " << endl;
-		//~ cout << tableauInfoRegen[8] << " Premier critere " << endl;
-		//~ cout << tableauInfoRegen[9] << " Deuxieme critere " << endl;
+		//~ cout << tableauInfoRegen[8] << " Valeur approchée Fct1 " << endl;
+		//~ cout << tableauInfoRegen[9] << " Valeur approchée Fct2 " << endl;
 		
 		return tableauInfoRegen;										//On retourne le tableau
 	}
