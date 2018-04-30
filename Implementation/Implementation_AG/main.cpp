@@ -20,15 +20,12 @@ int main(int argc, char *argv[])
     
     //~ bool y = estString("e");
     //~ printf(y ? "true" : "false");
-<<<<<<< HEAD
     bool x = estParsable("cos(2)*x/(5+4+x)");
-=======
     //~ bool x = estParsable("2*x/(5+4+x)");
     //~ printf(x ? "true" : "false");
     //~ cout << endl;
     
     bool x = testCoherenceDonnees("DonneesInitiales.txt");
->>>>>>> 50be397c8d05418983203809f51afd56cebb466d
     printf(x ? "true" : "false");
     cout << endl;
     
