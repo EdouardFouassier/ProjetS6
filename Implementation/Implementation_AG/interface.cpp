@@ -171,7 +171,7 @@ Interface::Interface() : QWidget()
     this->autoFillBackground();
 }
 
-//~ Interface::Interface(Interface probabilite) : QWidget() 
+//~ Interface::Interface(Interface inter) : QWidget() 
 //~ {
 		
        // F1->text()=probabilite.getFonctionFitness1();
@@ -354,7 +354,7 @@ void Interface::connectLancer(){
 				cout<< estProbabilite("-221452")<<endl;
 				cout<< estProbabilite("2a")<<endl;
 				cout<< estProbabilite("a2")<<endl;
-*/				ecrireFichierDonnees(this,"DonneesInitiales.txt");
+*/				ecrireFichierDonnees(this,nomFichierSortie+"_Parametre.txt");
 				try{
 					if(nomFichierSortie.length()==0) {
 						throw string("Erreur nom fichier de sortie \n"); 
@@ -366,7 +366,7 @@ void Interface::connectLancer(){
 						throw string("Erreur format de sortie \n");
 					sortiecorrect=false;
 					}
-					if(nomcorrect && sortiecorrect && testCoherenceDonnees("DonneesInitiales.txt")) {
+					if(nomcorrect && sortiecorrect && testCoherenceDonnees(nomFichierSortie+"_Parametre.txt")) {
 					QMessageBox::information(this,"Bravo","Le programme a été demaré avec succès");
 					encours=1;
 					}

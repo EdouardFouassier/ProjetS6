@@ -79,7 +79,7 @@ bool testCoherenceDonnees(string nomFichier) {
 	return true;
     }
     else { //cerr << "Erreur ouverture fichier \n" << endl; return false;
-		throw string("Erreur ouverture fichier \n");
+		throw string("Erreur fichier de paramètre introuvable \n");
 		}
 
 }
