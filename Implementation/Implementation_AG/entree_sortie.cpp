@@ -54,25 +54,109 @@ bool testCoherenceDonnees(string nomFichier) {
     { 
 	while(i != 12) { 
 			//fichier >> donnees;cout<<donnees<<endl;
-		   getline(fichier, donnees); 
-		   cout<<i<<" "<<donnees<<" "<<donnees.length()<<endl;
+		getline(fichier, donnees); 
+		cout<<i<<" "<<donnees<<" "<<donnees.length()<<endl;
 		   //donnees.erase(donnees.length(),1);
-           if (i == 0) { x = estEntierPositif(donnees);if(!x ){throw string("Erreur taille individu \n");return false;}}
-           if (i == 1) { x = estProbabilite(donnees);if(!x){throw string("Erreur taux de mutation \n");return false;}}
-           if (i == 2) { x = estProbabilite(donnees);if(!x){throw string("Erreur taux de crossover \n");return false;}}
-           if (i == 3) { x = estEntierPositif(donnees);if(!x){throw string("Erreur taille population \n");return false;}}
-           if (i == 4) { x = estEntierPositif(donnees);if(!x){throw string("Erreur nombre de génération \n");return false;}}
-           if (i == 5) { x = estEntierPositif(donnees);if(!x || stoi(donnees)!=1 && stoi(donnees)!=2 )x=false; fitness2 = donnees;if(!x){throw string("Erreur nombre de critère \n");return false;}}
-           if (i == 6) { x = estParsable(" "+donnees+" ");if(!x || donnees.length()==0){throw string("Erreur fitness1 \n");return false;}}
-           if (i == 7) { x = estEntierPositif(donnees);if(!x || stoi(donnees)!=1 && stoi(donnees)!=2 && stoi(donnees)!=3) x=false; critere = donnees;if(!x){throw string("Erreur critère fitness1 \n");return false;}}
-           if (i == 8 && critere == "3") { x = estFloatPositif(donnees); if(!x){throw string("Erreur valeur approchée\n fitness1 \n");return false;}}
-           if(fitness2 == "2")
-           {
-				if (i == 9) { x = estParsable(donnees);if(!x || donnees.length()==0){throw string("Erreur fitness2 \n");return false;} }
-				if (i == 10){ x = estEntierPositif(donnees);if(!x || stoi(donnees)!=1 && stoi(donnees)!=2 && stoi(donnees)!=3) x=false; critere = donnees;if(!x){throw string("Erreur critère fitness2 \n");return false;}}
-				if (i == 11 && critere == "3"){ x = estFloatPositif(donnees); if(!x){throw string("Erreur valeur approchée\n fitness2 \n");return false;}}
-		   }
-           i++;
+		if (i == 0) {
+			x = estEntierPositif(donnees);
+			if(!x || stoi(donnees)>32 || stoi(donnees)<1)x=false;
+			if(!x ){
+				throw string("Erreur taille individu \n");
+				return false;
+			}
+		}
+        if (i == 1) {
+			x = estProbabilite(donnees);
+			if(!x || stoi(donnees)>1 || stoi(donnees)<0)x=false;
+			if(!x){
+				throw string("Erreur taux de mutation \n");
+				return false;
+			}
+		}
+        if (i == 2) {
+			x = estProbabilite(donnees);
+			if(!x || stoi(donnees)>1 || stoi(donnees)<0)x=false;
+			if(!x){
+				throw string("Erreur taux de crossover \n");
+				return false;
+			}
+		}
+        if (i == 3) {
+			x = estEntierPositif(donnees);
+			if(!x || stoi(donnees)>100 || stoi(donnees)<1)x=false;
+			if(!x){
+				throw string("Erreur taille population \n");
+				return false;
+			}
+		}
+        if (i == 4) {
+			x = estEntierPositif(donnees);
+			if(!x || stoi(donnees)>100 || stoi(donnees)<1)x=false;
+			if(!x){
+				throw string("Erreur nombre de génération \n");
+				return false;
+			}
+		}
+        if (i == 5) { 
+			x = estEntierPositif(donnees);
+			if(!x || stoi(donnees)!=1 && stoi(donnees)!=2 )x=false;
+			fitness2 = donnees;
+			if(!x){throw string("Erreur nombre de critère \n");
+				return false;
+			}
+		}
+        if (i == 6) { 
+			x = estParsable(" "+donnees+" ");
+			if(!x || donnees.length()==0){
+				throw string("Erreur fitness1 \n");
+				return false;
+			}
+		}
+        if (i == 7) { 
+			x = estEntierPositif(donnees);
+			if(!x || stoi(donnees)!=1 && stoi(donnees)!=2 && stoi(donnees)!=3) x=false;
+			critere = donnees;
+			if(!x){
+				throw string("Erreur critère fitness1 \n");
+				return false;
+			}
+		}
+        if (i == 8 && critere == "3") {
+			x = estFloatPositif(donnees);
+			if(!x || stoi(donnees)>1000 || stoi(donnees)<-1000)x=false;
+			if(!x){
+				throw string("Erreur valeur approchée\n fitness1 \n");
+				return false;
+			}
+		}
+        if(fitness2 == "2")
+        {
+				if (i == 9) {
+					x = estParsable(donnees);
+					if(!x || donnees.length()==0){
+						throw string("Erreur fitness2 \n");
+						return false;
+					}
+				}
+				if (i == 10){
+					x = estEntierPositif(donnees);
+					if(!x || stoi(donnees)!=1 && stoi(donnees)!=2 && stoi(donnees)!=3) x=false;
+					critere = donnees;
+					if(!x){
+						throw string("Erreur critère fitness2 \n");
+						return false;
+					}
+				}
+				if (i == 11 && critere == "3"){
+					x = estFloatPositif(donnees);
+					if(!x || stoi(donnees)>1000 || stoi(donnees)<-1000)x=false;
+					if(!x){
+						throw string("Erreur valeur approchée\n fitness2 \n");
+						return false;
+					}
+				}
+		}
+        i++;
            
 	}
 	fichier.close(); 

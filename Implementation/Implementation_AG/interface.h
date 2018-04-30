@@ -123,7 +123,7 @@ private:
 
 public:
     Interface();
-    //~ Interface(Interface probabilite);
+    //~ Interface(Interface inter);
     bool getEnCours();
 	string getFonctionFitness1();
 	string getFonctionFitness2();
