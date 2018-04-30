@@ -61,16 +61,16 @@ bool testCoherenceDonnees(string nomFichier) {
            if (i == 1) { x = estProbabilite(donnees);if(!x){throw string("Erreur taux de mutation \n");return false;}}
            if (i == 2) { x = estProbabilite(donnees);if(!x){throw string("Erreur taux de crossover \n");return false;}}
            if (i == 3) { x = estEntierPositif(donnees);if(!x){throw string("Erreur taille population \n");return false;}}
-           if (i == 4) { x = estEntierPositif(donnees);if(!x){throw string("Erreur nombre de generation \n");return false;}}
-           if (i == 5) { x = estEntierPositif(donnees);if(!x || stoi(donnees)!=1 && stoi(donnees)!=2 )x=false; fitness2 = donnees;if(!x){throw string("Erreur nombre de critere \n");return false;}}
-           if (i == 6) { x = estParsable(donnees);if(!x || donnees.length()==0){throw string("Erreur fitness1 \n");return false;}}
-           if (i == 7) { x = estEntierPositif(donnees);if(!x || stoi(donnees)!=1 && stoi(donnees)!=2 && stoi(donnees)!=3) x=false; critere = donnees;if(!x){throw string("Erreur critere fitness1 \n");return false;}}
-           if (i == 8 && critere == "3") { x = estFloatPositif(donnees); if(!x){throw string("Erreur valeur approcher\n fitness1 \n");return false;}}
+           if (i == 4) { x = estEntierPositif(donnees);if(!x){throw string("Erreur nombre de génération \n");return false;}}
+           if (i == 5) { x = estEntierPositif(donnees);if(!x || stoi(donnees)!=1 && stoi(donnees)!=2 )x=false; fitness2 = donnees;if(!x){throw string("Erreur nombre de critère \n");return false;}}
+           if (i == 6) { x = estParsable(" "+donnees+" ");if(!x || donnees.length()==0){throw string("Erreur fitness1 \n");return false;}}
+           if (i == 7) { x = estEntierPositif(donnees);if(!x || stoi(donnees)!=1 && stoi(donnees)!=2 && stoi(donnees)!=3) x=false; critere = donnees;if(!x){throw string("Erreur critère fitness1 \n");return false;}}
+           if (i == 8 && critere == "3") { x = estFloatPositif(donnees); if(!x){throw string("Erreur valeur approchée\n fitness1 \n");return false;}}
            if(fitness2 == "2")
            {
 				if (i == 9) { x = estParsable(donnees);if(!x || donnees.length()==0){throw string("Erreur fitness2 \n");return false;} }
-				if (i == 10){ x = estEntierPositif(donnees);if(!x || stoi(donnees)!=1 && stoi(donnees)!=2 && stoi(donnees)!=3) x=false; critere = donnees;if(!x){throw string("Erreur critere fitness2 \n");return false;}}
-				if (i == 11 && critere == "3"){ x = estFloatPositif(donnees); if(!x){throw string("Erreur valeur approcher\n fitness2 \n");return false;}}
+				if (i == 10){ x = estEntierPositif(donnees);if(!x || stoi(donnees)!=1 && stoi(donnees)!=2 && stoi(donnees)!=3) x=false; critere = donnees;if(!x){throw string("Erreur critère fitness2 \n");return false;}}
+				if (i == 11 && critere == "3"){ x = estFloatPositif(donnees); if(!x){throw string("Erreur valeur approchée\n fitness2 \n");return false;}}
 		   }
            i++;
            
@@ -225,10 +225,10 @@ bool estParsable(string fonction) {
 					i++;
 					y++;
 				}
-				if (calculfitness(fonction2, a) == 0) { return false; }
+				if (calculfitness(fonction2, a) == 0) { delete[] fonction2;return false; }
 				
 				}
-				else { if(fonction[i + 1] == '0') { return false;} }
+				else { if(fonction[i + 1] == '0') { delete[] fonction2;return false;} }
 		
 		i = temp;
 		while (y != 0) { fonction2[y] = 0; y--; }
@@ -236,7 +236,7 @@ bool estParsable(string fonction) {
 		}
 		
 		}
-		
+		delete[] fonction2;
 		return true; }
 }
 

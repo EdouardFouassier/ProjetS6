@@ -47,10 +47,10 @@ Interface::Interface() : QWidget()
     checkLaTeX=new QCheckBox("LaTeX");
 
     labNbF=new QLabel("Nombre de fonctions fitness");
-    labNbGen=new QLabel("Nombre de generation max");
+    labNbGen=new QLabel("Nombre de génération max");
     labTailleIndi=new QLabel("Taille des individus");
     labTaillePop=new QLabel("Taille de la population");
-    labTauxMut=new QLabel("Taux de Mutation");
+    labTauxMut=new QLabel("Taux de mutation");
     labTauxCross=new QLabel("Taux de crossover");
     labNomFichier=new QLabel("Nom du fichier de sortie");
     labMinF1=new QLabel("↓");
@@ -59,7 +59,7 @@ Interface::Interface() : QWidget()
     labMaxF2=new QLabel("↑");
     labAppF1=new QLabel("=");
     labAppF2=new QLabel("=");
-    labParcourir=new QLabel("Entrer fichier de parametre:");
+    labParcourir=new QLabel("Entrer fichier de paramètre:");
 
 
 
@@ -171,6 +171,37 @@ Interface::Interface() : QWidget()
     this->autoFillBackground();
 }
 
+//~ Interface::Interface(Interface probabilite) : QWidget() 
+//~ {
+		
+       // F1->text()=probabilite.getFonctionFitness1();
+        //~ fonctionFitness2=F2->text().toUtf8().constData();
+        //~ taillePopulation=taillePop->value();
+        //~ tailleIndividu=tailleIndi->value();
+        //~ nbGenerationMax=nbGen->value();
+        //~ if(maxF1->isChecked()) critereF1=1;
+        //~ else {
+            //~ if(minF1->isChecked()) critereF1=2;
+            //~ else critereF1=3;
+        //~ }
+        //~ if(nbF->currentIndex()==1){
+            //~ if(maxF2->isChecked()) critereF2=1;
+            //~ else {
+                //~ if(minF2->isChecked()) critereF2=2;
+                //~ else critereF2=3;
+            //~ }
+        //~ }
+	//~ else critereF2=0;
+	//~ tauxMutation=tauxMut->value();
+	//~ tauxCrossover=tauxCross->value();
+	//~ valeurApproxF1=valeurF1->value();
+	//~ valeurApproxF2=valeurF2->value();
+	//~ latex=checkLaTeX->isChecked();
+	//~ xFig=checkXFig->isChecked();
+	//~ postScript=checkPostScrit->isChecked();
+	//~ nomFichierSortie=nomFichier->text().toUtf8().constData();
+//~ }
+
 bool Interface::getEnCours(){
     return encours;
 }
@@ -202,18 +233,30 @@ void Interface::connectAide(){
 
 void Interface::connectArreter(){
     if(encours==1){
-        int reponse=QMessageBox::question(this,"Confirmer?" ,"Arreter enregistrera le resultat actuel.\nL'algorithme n'est pas fini.\nEtes vous sure?", QMessageBox::Yes | QMessageBox::No );
+		//~ int reponse=QMessageBox::question(this,"Confirmer?" ,"L'algorithme n'est pas fini.\nEtes vous sure?\nVous pouvez sauvegarder le resultat actuel.", QMessageBox::Yes | QMessageBox::No | QMessageBox::Save);
+        //~ if (reponse == QMessageBox::Yes)
+        //~ {
+            //~ QMessageBox::information(this, "Fermeture", "A bientot");
+            //~ close();
+        //~ }
+        //~ if (reponse == QMessageBox::Save){
+			 //~ QMessageBox::information(this, "Fermeture", "Resultat sauvegarder.\nA bientot");
+            //~ close();
+		//~ }
+        int reponse=QMessageBox::question(this,"Confirmer?" ,"Arreter enregistrera le resultat actuel.\nL'algorithme n'est pas fini.\nEtes vous sûr?", QMessageBox::Yes | QMessageBox::No );
         if (reponse == QMessageBox::Yes)
         {
-            QMessageBox::information(this, "Fermeture", "A bientot");
+            QMessageBox::information(this, "Fermeture", "A bientôt");
+            //~ Interface i(this);
+            //~ i.show();
             close();
         }
     }
     else{
-        int reponse=QMessageBox::question(this,"C'est facheux" ,"L'algorithme n'a pas ete lance.\nEtes vous sure?", QMessageBox::Yes | QMessageBox::No );
+        int reponse=QMessageBox::question(this,"C'est facheux" ,"L'algorithme n'a pas été lancé.\nEtes vous sûr?", QMessageBox::Yes | QMessageBox::No );
         if (reponse == QMessageBox::Yes)
         {
-            QMessageBox::information(this, "Fermeture", "A bientot");
+            QMessageBox::information(this, "Fermeture", "A bientôt");
             close();
         }
     }
@@ -222,128 +265,146 @@ void Interface::connectArreter(){
 
 void Interface::connectQuitter(){
     if(encours==1){
-        int reponse=QMessageBox::question(this,"Confirmer?" ,"Quitter perdra la progression actuel de l'algorithme.\nEtes vous sure?", QMessageBox::Yes | QMessageBox::No );
+        int reponse=QMessageBox::question(this,"Confirmer?" ,"Quitter perdra la progression actuel de l'algorithme.\nEtes vous sûr?", QMessageBox::Yes | QMessageBox::No );
         if (reponse == QMessageBox::Yes)
         {
-            QMessageBox::information(this, "Fermeture", "A bientot");
+            QMessageBox::information(this, "Fermeture", "A bientôt");
             close();
         }
     }
     else{
-        QMessageBox::information(this, "Fermeture", "A bientot");
+        QMessageBox::information(this, "Fermeture", "A bientôt");
         close();
     }
 }
 
 void Interface::connectLancer(){
 	bool nomcorrect,sortiecorrect;
-    if(encours==0){
-        if(liensFichier->text().length()==0){
-        fonctionFitness1=F1->text().toUtf8().constData();
-        fonctionFitness2=F2->text().toUtf8().constData();
-        taillePopulation=taillePop->value();
-        tailleIndividu=tailleIndi->value();
-        nbGenerationMax=nbGen->value();
-        if(maxF1->isChecked()) critereF1=1;
-        else {
-            if(minF1->isChecked()) critereF1=2;
-            else critereF1=3;
-        }
-        if(nbF->currentIndex()==1){
-            if(maxF2->isChecked()) critereF2=1;
-            else {
-                if(minF2->isChecked()) critereF2=2;
-                else critereF2=3;
-            }
-        }
-	else critereF2=0;
-	tauxMutation=tauxMut->value();
-	tauxCrossover=tauxCross->value();
-	valeurApproxF1=valeurF1->value();
-	valeurApproxF2=valeurF2->value();
-	latex=checkLaTeX->isChecked();
-	xFig=checkXFig->isChecked();
-	postScript=checkPostScrit->isChecked();
-	nomFichierSortie=nomFichier->text().toUtf8().constData();
-    
-    //~ cout<<getFonctionFitness1()<<endl;
-    //~ cout<<getFonctionFitness2()<<endl;
-    //~ cout<<getNomFichierSortie()<<endl;
-    //~ cout<<getTaillePopulation()<<endl;
-    //~ cout<<getTailleIndividu()<<endl;
-    //~ cout<<getNbGenerationMax()<<endl;
-    //~ cout<<getCritereF1()<<endl;
-    //~ cout<<getCritereF2()<<endl;
-    //~ cout<<getTauxMutation()<<endl;
-    //~ cout<<getTauxCrossover()<<endl;
-    //~ cout<<getValeurApproxF1()<<endl;
-    //~ cout<<getValeurApproxF2()<<endl;
-    //~ cout<<getLatex()<<endl;
-    //~ cout<<getXFig()<<endl;
-    //~ cout<<getPostScript()<<endl;
-    
-    /*** TEST ECRITURE LECTURE ***/
-    //~ ecrireFichierDonnees(this, "TestFiles/DonneesInitialesTest.txt");
-    //~ lireInitialisation("TestFiles/DonneesInitialesTest.txt");
-    //~ lireInfoRegen("TestFiles/DonneesInitialesTest.txt");
-    //~ lireScoreIndividu("TestFiles/ScoreIndividuTest.txt", 3, 5);
-    //~ cout << testCoherenceDonnees("TestFiles/DonneesInitialesTest.txt") << endl;
-/*
-    cout<< estEntierPositif("2")<<endl;
-    cout<< estEntierPositif("2.5")<<endl;
-    cout<< estEntierPositif("-221452")<<endl;
-    cout<< estEntierPositif("2a")<<endl;
-    cout<< estEntierPositif("a2")<<endl;
-    cout<<endl;
-
-    cout<< estFloatPositif("2")<<endl;
-    cout<< estFloatPositif("2.5")<<endl;
-    cout<< estFloatPositif("-221452")<<endl;
-    cout<< estFloatPositif("2a")<<endl;
-    cout<< estFloatPositif("a2")<<endl;
-    cout<<endl;
-
-    cout<< estProbabilite("0.2")<<endl;
-    cout<< estProbabilite("2.5")<<endl;
-    cout<< estProbabilite("-221452")<<endl;
-    cout<< estProbabilite("2a")<<endl;
-    cout<< estProbabilite("a2")<<endl;
-*/	ecrireFichierDonnees(this,"DonneesInitiales.txt");
-	try{
-		
-		if(nomFichierSortie.length()==0) {throw string("Erreur nom fichier de sortie \n"); nomcorrect=false;}
-		else nomcorrect=true;
-		if(latex || xFig || postScript) sortiecorrect=true;
-		else {throw string("Erreur format de sortie \n"); sortiecorrect=false;}
-		if(nomcorrect && sortiecorrect && testCoherenceDonnees("DonneesInitiales.txt")) {
-			QMessageBox::information(this,"Bravo","Le programme a ete demare avec succes");
-			encours=1;}}
-		catch(string const& e){
-			QMessageBox::information(this,"ERROR",QString::fromStdString(e));
+	if(encours==0){
+		int reponse=QMessageBox::question(this,"Confirmer?" ,"Etes vous sûr de vouloir lancer?", QMessageBox::Yes | QMessageBox::No );
+		if (reponse == QMessageBox::Yes)
+		{
+			if(liensFichier->text().length()==0){
+				fonctionFitness1=F1->text().toUtf8().constData();
+				fonctionFitness2=F2->text().toUtf8().constData();
+				taillePopulation=taillePop->value();
+				tailleIndividu=tailleIndi->value();
+				nbGenerationMax=nbGen->value();
+				if(maxF1->isChecked()) critereF1=1;
+				else {
+					if(minF1->isChecked()) critereF1=2;
+					else critereF1=3;
+				}
+				if(nbF->currentIndex()==1){
+					if(maxF2->isChecked()) critereF2=1;
+					else {
+						if(minF2->isChecked()) critereF2=2;
+						else critereF2=3;
+					}
+				}
+				else critereF2=0;
+				tauxMutation=tauxMut->value();
+				tauxCrossover=tauxCross->value();
+				valeurApproxF1=valeurF1->value();
+				valeurApproxF2=valeurF2->value();
+				latex=checkLaTeX->isChecked();
+				xFig=checkXFig->isChecked();
+				postScript=checkPostScrit->isChecked();
+				nomFichierSortie=nomFichier->text().toUtf8().constData();
 			
-		}
-   
-    }
-    else {
-		latex=checkLaTeX->isChecked();
-		xFig=checkXFig->isChecked();
-		postScript=checkPostScrit->isChecked();
-		nomFichierSortie=nomFichier->text().toUtf8().constData();
+				//~ cout<<getFonctionFitness1()<<endl;
+				//~ cout<<getFonctionFitness2()<<endl;
+				//~ cout<<getNomFichierSortie()<<endl;
+				//~ cout<<getTaillePopulation()<<endl;
+				//~ cout<<getTailleIndividu()<<endl;
+				//~ cout<<getNbGenerationMax()<<endl;
+				//~ cout<<getCritereF1()<<endl;
+				//~ cout<<getCritereF2()<<endl;
+				//~ cout<<getTauxMutation()<<endl;
+				//~ cout<<getTauxCrossover()<<endl;
+				//~ cout<<getValeurApproxF1()<<endl;
+				//~ cout<<getValeurApproxF2()<<endl;
+				//~ cout<<getLatex()<<endl;
+				//~ cout<<getXFig()<<endl;
+				//~ cout<<getPostScript()<<endl;
+				
+				/*** TEST ECRITURE LECTURE ***/
+				//~ ecrireFichierDonnees(this, "TestFiles/DonneesInitialesTest.txt");
+				//~ lireInitialisation("TestFiles/DonneesInitialesTest.txt");
+				//~ lireInfoRegen("TestFiles/DonneesInitialesTest.txt");
+				//~ lireScoreIndividu("TestFiles/ScoreIndividuTest.txt", 3, 5);
+				//~ cout << testCoherenceDonnees("TestFiles/DonneesInitialesTest.txt") << endl;
+/*		
+				cout<< estEntierPositif("2")<<endl;
+				cout<< estEntierPositif("2.5")<<endl;
+				cout<< estEntierPositif("-221452")<<endl;
+				cout<< estEntierPositif("2a")<<endl;
+				cout<< estEntierPositif("a2")<<endl;
+				cout<<endl;
 		
-		try{
-		if(nomFichierSortie.length()==0) {throw string("Erreur nom fichier de sortie \n"); nomcorrect=false;}
-		else nomcorrect=true;
-		if(latex || xFig || postScript) sortiecorrect=true;
-		else {throw string("Erreur format de sortie \n"); sortiecorrect=false;}
-		if(nomcorrect && sortiecorrect && testCoherenceDonnees(liensFichier->text().toUtf8().constData())){
-			QMessageBox::information(this,"Bravo","Le programme a ete demare avec succes");
-			encours=1;}}
-		catch(string const& e){
-			QMessageBox::information(this,"ERROR",QString::fromStdString(e));
+				cout<< estFloatPositif("2")<<endl;
+				cout<< estFloatPositif("2.5")<<endl;
+				cout<< estFloatPositif("-221452")<<endl;
+				cout<< estFloatPositif("2a")<<endl;
+				cout<< estFloatPositif("a2")<<endl;
+				cout<<endl;
+		
+				cout<< estProbabilite("0.2")<<endl;
+				cout<< estProbabilite("2.5")<<endl;
+				cout<< estProbabilite("-221452")<<endl;
+				cout<< estProbabilite("2a")<<endl;
+				cout<< estProbabilite("a2")<<endl;
+*/				ecrireFichierDonnees(this,"DonneesInitiales.txt");
+				try{
+					if(nomFichierSortie.length()==0) {
+						throw string("Erreur nom fichier de sortie \n"); 
+						nomcorrect=false;
+					}
+					else nomcorrect=true;
+					if(latex || xFig || postScript) sortiecorrect=true;
+					else {
+						throw string("Erreur format de sortie \n");
+					sortiecorrect=false;
+					}
+					if(nomcorrect && sortiecorrect && testCoherenceDonnees("DonneesInitiales.txt")) {
+					QMessageBox::information(this,"Bravo","Le programme a été demaré avec succès");
+					encours=1;
+					}
+				}
+				catch(string const& e){
+					QMessageBox::information(this,"ERROR",QString::fromStdString(e));
+				}
+			}
+			else {
+				latex=checkLaTeX->isChecked();
+				xFig=checkXFig->isChecked();
+				postScript=checkPostScrit->isChecked();
+				nomFichierSortie=nomFichier->text().toUtf8().constData();
+				
+				try{
+					if(nomFichierSortie.length()==0) {
+						throw string("Erreur nom fichier de sortie \n"); 
+						nomcorrect=false;
+					}
+					else nomcorrect=true;
+					if(latex || xFig || postScript) sortiecorrect=true;
+					else {
+						throw string("Erreur format de sortie \n"); 
+						sortiecorrect=false;
+					}
+					if(nomcorrect && sortiecorrect && testCoherenceDonnees(liensFichier->text().toUtf8().constData())){
+						QMessageBox::information(this,"Bravo","Le programme a été demaré avec succès");
+						encours=1;
+					}
+				}
+				catch(string const& e){
+					QMessageBox::information(this,"ERROR",QString::fromStdString(e));
+				}
+			}
 		}
 	}
-	}
-	else QMessageBox::information(this,"Attention","Le programme a deja demare");
+	else QMessageBox::information(this,"Attention","Le programme a déjà demaré");
+		
 }
 
 void Interface::chercher(){
