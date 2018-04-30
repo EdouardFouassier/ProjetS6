@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     //~ printf(x ? "true" : "false");
     //~ cout << endl;
     
-    bool x = testCoherenceDonnees("DonneesInitiales.txt");
+    //~ bool x = testCoherenceDonnees("DonneesInitiales.txt");
     printf(x ? "true" : "false");
     cout << endl;
     
