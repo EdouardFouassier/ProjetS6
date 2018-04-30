@@ -9,17 +9,26 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    //QApplication app(argc, argv);
+    //~ QApplication app(argc, argv);
 
-    //Interface interface; //crée la fenetre
-    //interface.show(); //affiche...
+    //~ Interface interface; //crée la fenetre
+    //~ interface.show(); //affiche...
     
+    //~ return app.exec();
     
     //Test validation//
     
     //~ bool y = estString("e");
     //~ printf(y ? "true" : "false");
+<<<<<<< HEAD
     bool x = estParsable("cos(2)*x/(5+4+x)");
+=======
+    //~ bool x = estParsable("2*x/(5+4+x)");
+    //~ printf(x ? "true" : "false");
+    //~ cout << endl;
+    
+    bool x = testCoherenceDonnees("DonneesInitiales.txt");
+>>>>>>> 50be397c8d05418983203809f51afd56cebb466d
     printf(x ? "true" : "false");
     cout << endl;
     
@@ -51,6 +60,5 @@ int main(int argc, char *argv[])
     pop.evaluation();
     std::cout<<"evaluation pop"<<std::endl;*/
 
-    //return app.exec();
-    return 0;
+    //return 0;
 }

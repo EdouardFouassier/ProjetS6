@@ -9,7 +9,78 @@ using namespace std;
 
 // Validation
 //~ bool testCoherenceDonnees(string nomFichier) {
+
+	//~ int i = 0;
+	//~ ifstream fichier(nomFichier, ios::in);
+	//~ string donnees;
+	//~ bool x;
+	//~ int fitness2 = 0;
+	//~ if(fichier)  
+    //~ { 
+	//~ while(i != 12) { 
+			
+		   //~ getline(fichier, donnees); 
+           //~ if (i == 0) { x = estEntierPositif(donnees); }
+           //~ if (i == 1) { x = estProbabilite(donnees); }
+           //~ if (i == 2) { x = estProbabilite(donnees); }
+           //~ if (i == 3) { x = estEntierPositif(donnees); }
+           //~ if (i == 4) { x = estEntierPositif(donnees); }
+           //~ if (i == 5) { x = estEntierPositif(donnees); }
+           //~ if (i == 6) { x = estParsable(donnees); }
+           //~ if (i == 7) { x = estEntierPositif(donnees); }
+           //~ if (i == 8) { if (!donnees.empty()) { x = estEntierPositif(donnees); } }
+           //~ if (i == 9) { if (!donnees.empty()) { x = estParsable(donnees); fitness2 = 1; } }
+           //~ if ((i == 10) && (fitness2 == 1)) { x = estEntierPositif(donnees); }
+           //~ if (i == 11) { if (!donnees.empty()) { x = estEntierPositif(donnees); } }
+           //~ if (x == false) { return false; }
+           //~ i++;
+           
+	//~ }
+	//~ fichier.close(); 
+	//~ return true;
+    //~ }
+    //~ else { cerr << "Erreur ouverture fichier \n" << endl; return false;}
+
 //~ }
+
+
+bool testCoherenceDonnees(string nomFichier) {
+
+	int i = 0;
+	ifstream fichier(nomFichier, ios::in);
+	string donnees, finChaine, critere, fitness2;
+	bool x;
+	if(fichier)  
+    { 
+	while(i != 12) { 
+			fichier >> donnees;
+		   getline(fichier, finChaine); 
+           if (i == 0) { x = estEntierPositif(donnees); }
+           if (i == 1) { x = estProbabilite(donnees); }
+           if (i == 2) { x = estProbabilite(donnees); }
+           if (i == 3) { x = estEntierPositif(donnees); }
+           if (i == 4) { x = estEntierPositif(donnees); }
+           if (i == 5) { x = estEntierPositif(donnees); fitness2 = donnees;}
+           if (i == 6) { x = estParsable(donnees); }
+           if (i == 7) { x = estEntierPositif(donnees); critere = donnees;}
+           if (i == 8 && critere == "3") { x = estFloatPositif(donnees); }
+           if(fitness2 == "2")
+           {
+				if (i == 9) { x = estParsable(donnees); }
+				if (i == 10){ x = estEntierPositif(donnees); critere = donnees;}
+				if (i == 11 && critere == "3"){ x = estFloatPositif(donnees); }
+		   }
+				if (x == false) { return false; }
+           i++;
+           
+	}
+	fichier.close(); 
+	return true;
+    }
+    else { cerr << "Erreur ouverture fichier \n" << endl; return false;}
+
+}
+
 
 bool estEntierPositif(string valeur){
     QString tmp=QString::fromStdString(valeur);
@@ -25,10 +96,9 @@ bool estEntierPositif(string valeur){
 bool estFloatPositif(string valeur){
     QString tmp=QString::fromStdString(valeur);
     bool ok;
-    float val=tmp.toFloat(&ok);
-    if (ok && val>0) { return true; }
+    tmp.toFloat(&ok);
+    if (ok) { return true; }
     else { return false; }
-	
 }
 
 bool estProbabilite(string valeur) {
@@ -54,6 +124,7 @@ bool estString(string valeur) {
 
 bool estParsable(string fonction) {
 	
+	//~ if (estString(fonction) == false) { return false; }
 	int size=fonction.size();
 	int i = 0;
 	int ouvrante = 0;
@@ -167,36 +238,48 @@ bool estParsable(string fonction) {
 }
 
 // Lecture
-//~ int* lireStat(FILE *F) {
-//~ }
+int* lireStat(FILE *F) {
+	//lecture
+	int i = 0;
+	int x[5];
+	int taille;
+	
+	//calcul
+	int resultat[3];
+	int min;
+	min = x[i];
+	for (i = 0; i < taille; i++) {
+		if (min < x[i]) { min = x[i]; }
+	}
+}
 
 string* lireInfoRegen(string nomFichier){
 	
 	ifstream fichier(nomFichier.c_str(), ios::in);						//On ouvre le fichier en lecture
 	if(fichier) {
 		string *tableauInfoRegen;										
-		tableauInfoRegen = new string[10];								//On declare un tableau de string qu'on initialise a NULL
-		string sautligne;
+		tableauInfoRegen = new string[10];								//On declare un tableau de string de dix cases
+		string sautligne;												//On cree une variable string qui nous servira a sauter des lignes
 		getline(fichier,sautligne);										//On saute les deux premieres lignes du fichier
 		getline(fichier,sautligne);
 		fichier >> tableauInfoRegen[0] >> tableauInfoRegen[1]			//On lit les lignes du fichier que l'on stocke dans les cases du tableau, 0 -> Taux de crossover, 1 -> Taille de la population
-				>> tableauInfoRegen[3] >> tableauInfoRegen[2]			//3 -> Nombre de generation max, 2 -> Nombre de criteres 
-				>> tableauInfoRegen[6] >> tableauInfoRegen[8]			//6 -> Fonction fitness1, 8 -> Critere Fonction fitness1
-				>> tableauInfoRegen[4] >> tableauInfoRegen[7]			//4 -> Valeur approchée Fonction fitness1, 7 -> Fonction fitness2
-				>> tableauInfoRegen[9] >> tableauInfoRegen[5];			//9 -> Critere Fonction fitness2, 5 -> Valeur approchée Fonction fitness1
+				>> tableauInfoRegen[2] >> tableauInfoRegen[3]			//2 -> Nombre de generation max, 3 -> Nombre de criteres 
+				>> tableauInfoRegen[6] >> tableauInfoRegen[4]			//6 -> Fonction fitness1, 4 -> Critere Fonction fitness1
+				>> tableauInfoRegen[8] >> tableauInfoRegen[7]			//8 -> Valeur approchée Fonction fitness1, 7 -> Fonction fitness2
+				>> tableauInfoRegen[5] >> tableauInfoRegen[9];			//5 -> Critere Fonction fitness2, 9 -> Valeur approchée Fonction fitness1
 		fichier.close();												//On ferme le fichier
 		
 		//~ printf("\n");		
 		//~ cout << tableauInfoRegen[0] << " Taux de crossover " << endl;
 		//~ cout << tableauInfoRegen[1] << " Taille de la population "<< endl;
-		//~ cout << tableauInfoRegen[2] << " nombre de criteres " << endl;
-		//~ cout << tableauInfoRegen[3] << " Noombre de generation max " << endl;
-		//~ cout << tableauInfoRegen[4] << " Valeur approchée Fct1 " << endl;
-		//~ cout << tableauInfoRegen[5] << " Valeur approchée Fct2 " << endl;
+		//~ cout << tableauInfoRegen[2] << " Nombre de generation max " << endl;
+		//~ cout << tableauInfoRegen[3] << " nombre de criteres " << endl;
+		//~ cout << tableauInfoRegen[4] << " Premier critere " << endl;
+		//~ cout << tableauInfoRegen[5] << " Deuxieme critere " << endl;
 		//~ cout << tableauInfoRegen[6] << " Fct1 " << endl;
 		//~ cout << tableauInfoRegen[7] << " Fct2 " << endl;
-		//~ cout << tableauInfoRegen[8] << " Premier critere " << endl;
-		//~ cout << tableauInfoRegen[9] << " Deuxieme critere " << endl;
+		//~ cout << tableauInfoRegen[8] << " Valeur approchée Fct1 " << endl;
+		//~ cout << tableauInfoRegen[9] << " Valeur approchée Fct2 " << endl;
 		
 		return tableauInfoRegen;										//On retourne le tableau
 	}
@@ -213,11 +296,11 @@ float* lireInitialisation (string nomFichier) {
 
 	if(fichier) {
 		float *tableauInitialisation;		
-		tableauInitialisation = new float[3];							
+		tableauInitialisation = new float[3];							//On cree un tableau de floattant de trois cases
 		
 		fichier >> tableauInitialisation[0] >> tableauInitialisation[1];//On lit les lignes deux premieres lignes du fichier que l'on stocke dans les cases du tableau, 0 -> Taille des individus, 1 -> Taux de mutation
 		string sautligne;
-		getline(fichier,sautligne);										//On saute les trois lignes suivante du fichier	pour aller jusqu'a la valeur du nombre de critere				
+		getline(fichier,sautligne);										//On saute les trois lignes suivante du fichier	pour aller jusqu'a la valeur du nombre de criteres				
 		getline(fichier,sautligne);
 		getline(fichier,sautligne);
 		getline(fichier,sautligne);
@@ -237,8 +320,51 @@ float* lireInitialisation (string nomFichier) {
 	}
 }
 
-//~ int lireScoreIndividu(string nomFichierPopulation, int generation, int indice){
-//~ }
+
+int* lireScoreIndividu(string nomFichierPopulation, int generation, int indice){
+		
+	ifstream fichier(nomFichierPopulation.c_str(), ios::in);			//On ouvre le fichier en lecture
+	
+	if(fichier) {
+		int* scoreIndividu;												
+		scoreIndividu = new int[1];										//On cree un tableau d'entiers de une case
+		string sautligne;												//On cree une variable string qui nous servira a sauter des lignes
+		
+		for(int ligneGeneration = 0; ligneGeneration < generation-1; ligneGeneration++)
+		{	
+			getline(fichier,sautligne);									//La boucle permet de sauter les lignes pour aller jusqu'a la generation qui nous interesse
+			getline(fichier,sautligne);									//On saute deux lignes a chaque fois car la premiere contient le premier score et la deuxieme contient le deuxieme score des individus d'une meme population
+		}
+																		
+		for(int indiceIndividu = 0; indiceIndividu < indice; indiceIndividu++) { fichier >> scoreIndividu[0]; }
+		getline(fichier,sautligne);										
+		fichier >> sautligne;
+		if (sautligne == "PasCritere") { 
+			//~ cout << scoreIndividu[0] << " Score 1 " << endl;
+			return scoreIndividu; 
+		}
+		else {
+			int* scoresIndividu;
+			scoresIndividu = new int[2];
+			scoresIndividu[0] = scoreIndividu[0];
+			delete[] scoreIndividu;
+			if (indice == 0) { scoresIndividu[1] = stoi(sautligne); }
+			else { 
+				for(int indiceIndividu = 1; indiceIndividu < indice; indiceIndividu++) { 
+					fichier >> scoresIndividu[1]; 
+				} 
+			}
+			//~ cout << scoresIndividu[0] << " Score 1 " << endl;
+			//~ cout << scoresIndividu[1] << " Score 2 " << endl;
+			return scoresIndividu;
+		}
+	}
+	else {
+		cerr << "Erreur ouverture fichier" << endl;
+		return NULL;
+	}
+}
+
 
 // Ecriture
 bool ecrireFichierDonnees(Interface *interface, string nomFichier) {
@@ -281,30 +407,44 @@ bool ecrireFichierDonnees(Interface *interface, string nomFichier) {
 	else { return false; }
 }
 
-//~ bool ecrirePopulation(Population P, string nomFichier){
-    //~ ofstream fichier(nomFichier.c_str(), ios::out);
+bool ecrirePopulation(Population P, string nomFichier){ //LES TEST SONT ENCORE A FAIRE
+    ofstream fichier(nomFichier.c_str(), ios::out);
 
-   //~ if(fichier)
-   //~ {
-       //~ for(int i=0;i<P.getNombreIndividus()-1;i++){
-		   //~ fichier << P.getEnsemble()[i].getScore() << " ";
+   if(fichier)
+   {
+       for(int i=0;i<P.getNombreIndividus()-1;i++){
+		   fichier << P.getEnsemble()[i]->getScore(0) << " ";
 		   
-           //~ //for(int j=0;j<P.getEnsemble()[i].getTailleIndividu();j++){
-               //~ //fichier << P.getEnsemble()[i].getChromosome()[j] << " ";
-           //~ //}
-       //~ }
-       //~ fichier << P.getEnsemble()[P.getNombreIndividus()-1].getScore() << endl;
-       //~ fichier.close();
-       //~ return true;
-   //~ }
-   //~ else return false;
+           //for(int j=0;j<P.getEnsemble()[i].getTailleIndividu();j++){
+               //fichier << P.getEnsemble()[i].getChromosome()[j] << " ";
+           //}
+       }
+       fichier << P.getEnsemble()[P.getNombreIndividus()-1]->getScore(0) << endl;
+       
+       if(P.getNombreCriteres() == 2)
+       {
+			for(int i=0;i<P.getNombreIndividus()-1;i++){
+			fichier << P.getEnsemble()[i]->getScore(1) << " ";
+		   
+			//for(int j=0;j<P.getEnsemble()[i].getTailleIndividu();j++){
+				//fichier << P.getEnsemble()[i].getChromosome()[j] << " ";
+			//}
+			}
+       fichier << P.getEnsemble()[P.getNombreIndividus()-1]->getScore(1) << endl;
+       
+	   }
+	   else { fichier << "PasCritere" << endl; }
+       fichier.close();
+       return true;
+   }
+   else return false;
 
-   //~ return true;
-//~ }
+   return true;
+}
 
 //~ bool calculerEcrireStats(Population P, string nomFichierPopulation, string nomFichierStats){
 //~ }
-//~ bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichierStats){
+//~ bool ecrireFichier(string nomFichierSortie, string nomFichierParametre, string nomFichierStats){
 //~ }
 //~ bool ecrireLatex(string nomFichierSortie){
 //~ }
@@ -312,7 +452,7 @@ bool ecrireFichierDonnees(Interface *interface, string nomFichier) {
 //~ }
 //~ bool ecrireXfig(string nomFichierSortie){
 //~ }
-//~ bool ecrireUnScore(int score, File *F); //lui je sais plus si on l'a laissé dans le cahier des specs
+//~ bool ecrireUnScore(int score, File *F); //Alors... Elle est dans le cds mais... Askip elle est useless, Wallah c'est un bruit qui court dans la téci
 
 //~ int main (){
 	//~ float i = 3.2;

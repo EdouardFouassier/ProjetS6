@@ -44,3 +44,5 @@ Voici comment l'odre des données à lire pour le constructeur de Population: //
 9	valeur approchee 2				par defaut : -1.0
 
 Attention pour la fonction fitness, si on met un /, on met des parentheses ! : 2/(4+x)
+
+Si vous souhaitez tester une fonction qui necessite un fichier, les fichier sont dans le dossier TestFiles, du coup n'oublier pas de mettre le chemin (exemple : TestFiles/nomDuFichier)
