@@ -112,9 +112,9 @@ Interface::Interface() : QWidget()
     layoutParcourir->addWidget(parcourir);
 
     layoutOut=new QHBoxLayout();
-    layoutOut->addWidget(checkXFig);
-    layoutOut->addWidget(checkPostScrit);
     layoutOut->addWidget(checkLaTeX);
+    layoutOut->addWidget(checkPostScrit);
+    layoutOut->addWidget(checkXFig);
 
     layoutdroitehaut = new QVBoxLayout();
     layoutdroitehaut->addWidget(labTauxCross);
@@ -124,9 +124,9 @@ Interface::Interface() : QWidget()
 
 
     layoutdroitemilieu = new QVBoxLayout();
+    layoutdroitemilieu->addLayout(layoutOut);
     layoutdroitemilieu->addWidget(labNomFichier);
     layoutdroitemilieu->addWidget(nomFichier);
-    layoutdroitemilieu->addLayout(layoutOut);
 
     layoutdroitebas = new QVBoxLayout();
     layoutdroitebas->addWidget(labParcourir);
@@ -152,11 +152,11 @@ Interface::Interface() : QWidget()
 
 
     mainLayout = new QGridLayout();
-    mainLayout->addLayout(layoutgauche,0,0,3,1);
+    mainLayout->addLayout(layoutgauche,0,0,5,1);
     mainLayout->addLayout(layoutdroitehaut,0,2,1,1);
-    mainLayout->addLayout(layoutdroitemilieu,1,2,1,1);
-    mainLayout->addLayout(layoutdroitebas,2,2,1,1);
-    mainLayout->addLayout(layoutbas,3,0,1,3);
+    mainLayout->addLayout(layoutdroitemilieu,2,2,1,1);
+    mainLayout->addLayout(layoutdroitebas,4,2,1,1);
+    mainLayout->addLayout(layoutbas,5,0,1,3);
 
     QObject::connect(parcourir, SIGNAL(clicked()), this, SLOT(chercher()));
     QObject::connect(nbF, SIGNAL(currentIndexChanged(int)), this, SLOT(enableF2(int)));
@@ -405,12 +405,7 @@ void Interface::connectLancer(){
 						nomcorrect=false;
 					}
 					else nomcorrect=true;
-					if(latex || xFig || postScript) sortiecorrect=true;
-					else {
-						throw string("Erreur format de sortie \n"); 
-						sortiecorrect=false;
-					}
-					if(nomcorrect && sortiecorrect && testCoherenceDonnees(liensFichier->text().toUtf8().constData())){
+					if(nomcorrect && testCoherenceDonnees(liensFichier->text().toUtf8().constData())){
 						QMessageBox::information(this,"Bravo","Le programme a été demaré avec succès");
 						encours=1;
 					}
@@ -421,7 +416,7 @@ void Interface::connectLancer(){
 			}
 		}
 	}
-	else QMessageBox::information(this,"Attention","Le programme a déjà demaré");
+	else QMessageBox::information(this,"Attention","Le programme a déjà demarré");
 		
 }
 

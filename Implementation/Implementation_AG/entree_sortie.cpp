@@ -52,7 +52,7 @@ bool testCoherenceDonnees(string nomFichier) {
 	bool x;
 	if(fichier)  
     { 
-	while(i != 12) { 
+	while(i != 13) { 
 			//fichier >> donnees;cout<<donnees<<endl;
 		getline(fichier, donnees); 
 		cout<<i<<" "<<donnees<<" "<<donnees.length()<<endl;
@@ -155,6 +155,13 @@ bool testCoherenceDonnees(string nomFichier) {
 						return false;
 					}
 				}
+		}
+		if (i == 12) {
+			if(donnees.length()!=3 || (donnees[0]!='0' && donnees[0]!='1') || (donnees[1]!='0' && donnees[1]!='1') 
+				|| (donnees[2]!='0' && donnees[2]!='1')){
+				throw string("Erreur formats de sortie");
+				return false;
+			}
 		}
         i++;
            
