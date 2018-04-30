@@ -46,3 +46,18 @@ Voici comment l'odre des données à lire pour le constructeur de Population: //
 Attention pour la fonction fitness, si on met un /, on met des parentheses ! : 2/(4+x)
 
 Si vous souhaitez tester une fonction qui necessite un fichier, les fichier sont dans le dossier TestFiles, du coup n'oublier pas de mettre le chemin (exemple : TestFiles/nomDuFichier)
+
+Pour calculerEcrireStats, le fichier renvoyer sera de la forme :
+-Si 1 critere :
+moyenneScoreGeneration1 minimumScoreGeneration1 maximumScoreGeneration1
+PasCritere
+moyenneScoreGeneration2 minimumScoreGeneration2 maximumScoreGeneration2
+PasCritere
+...
+
+-Si 2 criteres :
+moyenneScoreGeneration1critere1 minimumScoreGeneration1critere1 maximumScoreGeneration1critere1
+moyenneScoreGeneration1critere2 minimumScoreGeneration1critere2 maximumScoreGeneration1critere2
+moyenneScoreGeneration2critere1 minimumScoreGeneration2critere1 maximumScoreGeneration2critere1
+moyenneScoreGeneration2critere2 minimumScoreGeneration2critere2 maximumScoreGeneration2critere2
+...
