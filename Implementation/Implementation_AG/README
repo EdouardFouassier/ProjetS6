@@ -61,3 +61,12 @@ moyenneScoreGeneration1critere2 minimumScoreGeneration1critere2 maximumScoreGene
 moyenneScoreGeneration2critere1 minimumScoreGeneration2critere1 maximumScoreGeneration2critere1
 moyenneScoreGeneration2critere2 minimumScoreGeneration2critere2 maximumScoreGeneration2critere2
 ...
+
+
+INFORMATION INTERFACE:
+2 option s'offre a vous:
+DANS LES DEUX CAS une nom de fichier de sortie doit etre donné et au moins 1 type de sortie (latex,xfig,postscript).
+1)vous chargez un fichier de parametre, cliquez sur (...) puis selectionnez le fichier (IZI)
+PS: si quelque chose est écrit dans la case de chemin du fichier le programme essayera SYSTEMATIQUEMENT de la charger.
+2)vous pouvez entrer les données dans l'interface. Un fichier nommé nomfichiersortie_parametre.exe .
+
