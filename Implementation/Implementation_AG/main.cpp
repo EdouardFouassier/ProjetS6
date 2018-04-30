@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     
     //~ bool y = estString("e");
     //~ printf(y ? "true" : "false");
-    bool x = estParsable("2*x/(5+4+x)");
+    bool x = estParsable("cos(2)*x/(5+4+x)");
     printf(x ? "true" : "false");
     cout << endl;
     
