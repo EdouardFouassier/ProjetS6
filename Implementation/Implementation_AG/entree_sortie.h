@@ -11,7 +11,6 @@
 #include <stdlib.h>
 #include <iostream>  
 #include <typeinfo>
-#include <fstream>
 #include "interface.h"
 #include "génération.h"
 #include "tinyexpr/tinyexpr.h"
@@ -38,14 +37,14 @@ int* lireStat(FILE *F);
 
 string* lireInfoRegen(string nomFichier);
 float* lireInitialisation(string nomFichier);
-int* lireScoreIndividu(string nomFichierPopulation, int generation, int indice);
+float* lireScoreIndividu(string nomFichierPopulation, int generation, int indice);
 
 // Ecriture
 class Interface;
 bool ecrireFichierDonnees(Interface *interface, string nomFichier);
 class Population;
 bool ecrirePopulation(Population P, string nomFichier);
-//~ bool calculerEcrireStats(Population P, string nomFichierPopulation, string nomFichierStats);
+bool calculerEcrireStats(Population P, string nomFichierPopulation, string nomFichierStats);
 //~ bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichierStats);
 //~ bool ecrireLatex(string nomFichierSortie);
 //~ bool ecrirePostscript(string nomFichierSortie);

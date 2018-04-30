@@ -324,22 +324,22 @@ float* lireInitialisation (string nomFichier) {
 }
 
 
-int* lireScoreIndividu(string nomFichierPopulation, int generation, int indice){
+float* lireScoreIndividu(string nomFichierPopulation, int generation, int indice){
 		
 	ifstream fichier(nomFichierPopulation.c_str(), ios::in);			//On ouvre le fichier en lecture
 	
 	if(fichier) {
-		int* scoreIndividu;												
-		scoreIndividu = new int[1];										//On cree un tableau d'entiers de une case
+		float* scoreIndividu;												
+		scoreIndividu = new float[1];									//On cree un tableau d'entiers de une case
 		string sautligne;												//On cree une variable string qui nous servira a sauter des lignes
 		
-		for(int ligneGeneration = 0; ligneGeneration < generation-1; ligneGeneration++)
+		for(int ligneGeneration = 1; ligneGeneration <= generation; ligneGeneration++)
 		{	
 			getline(fichier,sautligne);									//La boucle permet de sauter les lignes pour aller jusqu'a la generation qui nous interesse
 			getline(fichier,sautligne);									//On saute deux lignes a chaque fois car la premiere contient le premier score et la deuxieme contient le deuxieme score des individus d'une meme population
 		}
 																		
-		for(int indiceIndividu = 0; indiceIndividu < indice; indiceIndividu++) { fichier >> scoreIndividu[0]; }
+		for(int indiceIndividu = 0; indiceIndividu <= indice; indiceIndividu++) { fichier >> scoreIndividu[0]; }
 		getline(fichier,sautligne);										
 		fichier >> sautligne;
 		if (sautligne == "PasCritere") { 
@@ -347,13 +347,13 @@ int* lireScoreIndividu(string nomFichierPopulation, int generation, int indice){
 			return scoreIndividu; 
 		}
 		else {
-			int* scoresIndividu;
-			scoresIndividu = new int[2];
+			float* scoresIndividu;
+			scoresIndividu = new float[2];
 			scoresIndividu[0] = scoreIndividu[0];
 			delete[] scoreIndividu;
 			if (indice == 0) { scoresIndividu[1] = stoi(sautligne); }
 			else { 
-				for(int indiceIndividu = 1; indiceIndividu < indice; indiceIndividu++) { 
+				for(int indiceIndividu = 1; indiceIndividu <= indice; indiceIndividu++) { 
 					fichier >> scoresIndividu[1]; 
 				} 
 			}
@@ -445,8 +445,54 @@ bool ecrirePopulation(Population P, string nomFichier){ //LES TEST SONT ENCORE A
    return true;
 }
 
-//~ bool calculerEcrireStats(Population P, string nomFichierPopulation, string nomFichierStats){
-//~ }
+bool calculerEcrireStats(Population P, string nomFichierPopulation, string nomFichierStats){
+	
+	ofstream fichierStats(nomFichierStats.c_str(), ios::out | ios::trunc);	
+	
+	if(fichierStats) {
+		float *tableauScores = NULL;
+			
+		for(int compteurGeneration = 0; compteurGeneration < P.getNombreGenerationMax(); compteurGeneration++) {
+
+			float moyScoreCritere1 = 0, moyScoreCritere2 = 0, maxScoreCritere1 = 0, minScoreCritere1 = 0, maxScoreCritere2 = 0, minScoreCritere2 = 0;
+			
+			for(int compteurindividu = 0; compteurindividu < P.getNombreIndividus(); compteurindividu++) {
+				tableauScores = lireScoreIndividu(nomFichierPopulation, compteurGeneration, compteurindividu);
+					
+				moyScoreCritere1 = moyScoreCritere1 + tableauScores[0];
+				if(compteurindividu == 0) { maxScoreCritere1 = minScoreCritere1 = tableauScores[0]; }
+				if(maxScoreCritere1 < tableauScores[0]) { maxScoreCritere1 = tableauScores[0]; }
+				if(minScoreCritere1 > tableauScores[0]) { minScoreCritere1 = tableauScores[0]; }
+					
+				if(P.getNombreCriteres() == 2) {
+					moyScoreCritere2 = moyScoreCritere2 + tableauScores[1];
+					if(compteurindividu == 0) { maxScoreCritere2 = minScoreCritere2 = tableauScores[1]; }
+					if(maxScoreCritere2 < tableauScores[1]) { maxScoreCritere2 = tableauScores[1]; }
+					if(minScoreCritere2 > tableauScores[1]) { minScoreCritere2 = tableauScores[1]; }	
+				}
+			}
+			
+			moyScoreCritere1 = (moyScoreCritere1-minScoreCritere1-maxScoreCritere1)/(P.getNombreIndividus()-2);
+			fichierStats << moyScoreCritere1 << " " << minScoreCritere1 << " " << maxScoreCritere1 << endl;
+				
+			if(P.getNombreCriteres() == 2) {
+				moyScoreCritere2 = (moyScoreCritere2-minScoreCritere2-maxScoreCritere2)/(P.getNombreIndividus()-2);
+				fichierStats << moyScoreCritere2 << " " << minScoreCritere2 << " " << maxScoreCritere2 << endl;
+			}
+			else {
+				fichierStats << "PasCritere" << endl;
+			}
+		}
+		delete[] tableauScores;
+		fichierStats.close();
+		return true;
+	}
+	else {
+		cerr << "Erreur ouverture fichier statistiques" <<endl;
+		return false;
+	}
+}
+
 //~ bool ecrireFichier(string nomFichierSortie, string nomFichierParametre, string nomFichierStats){
 //~ }
 //~ bool ecrireLatex(string nomFichierSortie){

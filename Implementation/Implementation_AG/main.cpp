@@ -9,25 +9,26 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    //~ QApplication app(argc, argv);
+    QApplication app(argc, argv);
 
-    //~ Interface interface; //crée la fenetre
-    //~ interface.show(); //affiche...
+    Interface interface; //crée la fenetre
+    interface.show(); //affiche...
     
-    //~ return app.exec();
+    return app.exec();
     
     //Test validation//
     
     //~ bool y = estString("e");
     //~ printf(y ? "true" : "false");
-    bool x = estParsable("cos(2)*x/(5+4+x)");
+    //~ string fct = "2+x/(4+cos(2))";
+    //~ bool x = estParsable(" " + fct + " ");
     //~ bool x = estParsable("2*x/(5+4+x)");
     //~ printf(x ? "true" : "false");
     //~ cout << endl;
     
     //~ bool x = testCoherenceDonnees("DonneesInitiales.txt");
-    printf(x ? "true" : "false");
-    cout << endl;
+    //~ printf(x ? "true" : "false");
+    //~ cout << endl;
     
     //Test validation//
 
