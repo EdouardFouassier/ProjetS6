@@ -494,7 +494,8 @@ bool ecrireFichierDonnees(Interface *interface, string nomFichier) {
 				fichier << interface->getValeurApproxF2() <<  endl;
 		}																	
 		else { fichier << "" <<  endl; }
-
+		fichier << interface->getLatex() << interface->getPostScript() << interface->getXFig() << endl;
+		
 		fichier.close();
 		return true;
 	}
