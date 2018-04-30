@@ -117,7 +117,7 @@ private:
     float valeurApproxF2;
     bool latex;
     bool xFig;
-    bool postScipt;
+    bool postScript;
     bool encours;
 
 

@@ -53,31 +53,34 @@ bool testCoherenceDonnees(string nomFichier) {
 	if(fichier)  
     { 
 	while(i != 12) { 
-			fichier >> donnees;
-		   getline(fichier, finChaine); 
-           if (i == 0) { x = estEntierPositif(donnees); }
-           if (i == 1) { x = estProbabilite(donnees); }
-           if (i == 2) { x = estProbabilite(donnees); }
-           if (i == 3) { x = estEntierPositif(donnees); }
-           if (i == 4) { x = estEntierPositif(donnees); }
-           if (i == 5) { x = estEntierPositif(donnees); fitness2 = donnees;}
-           if (i == 6) { x = estParsable(donnees); }
-           if (i == 7) { x = estEntierPositif(donnees); critere = donnees;}
-           if (i == 8 && critere == "3") { x = estFloatPositif(donnees); }
+			//fichier >> donnees;cout<<donnees<<endl;
+		   getline(fichier, donnees); 
+		   cout<<i<<" "<<donnees<<" "<<donnees.length()<<endl;
+		   //donnees.erase(donnees.length(),1);
+           if (i == 0) { x = estEntierPositif(donnees);if(!x ){throw string("Erreur taille individu \n");return false;}}
+           if (i == 1) { x = estProbabilite(donnees);if(!x){throw string("Erreur taux de mutation \n");return false;}}
+           if (i == 2) { x = estProbabilite(donnees);if(!x){throw string("Erreur taux de crossover \n");return false;}}
+           if (i == 3) { x = estEntierPositif(donnees);if(!x){throw string("Erreur taille population \n");return false;}}
+           if (i == 4) { x = estEntierPositif(donnees);if(!x){throw string("Erreur nombre de generation \n");return false;}}
+           if (i == 5) { x = estEntierPositif(donnees);if(!x || stoi(donnees)!=1 && stoi(donnees)!=2 )x=false; fitness2 = donnees;if(!x){throw string("Erreur nombre de critere \n");return false;}}
+           if (i == 6) { x = estParsable(donnees);if(!x || donnees.length()==0){throw string("Erreur fitness1 \n");return false;}}
+           if (i == 7) { x = estEntierPositif(donnees);if(!x || stoi(donnees)!=1 && stoi(donnees)!=2 && stoi(donnees)!=3) x=false; critere = donnees;if(!x){throw string("Erreur critere fitness1 \n");return false;}}
+           if (i == 8 && critere == "3") { x = estFloatPositif(donnees); if(!x){throw string("Erreur valeur approcher\n fitness1 \n");return false;}}
            if(fitness2 == "2")
            {
-				if (i == 9) { x = estParsable(donnees); }
-				if (i == 10){ x = estEntierPositif(donnees); critere = donnees;}
-				if (i == 11 && critere == "3"){ x = estFloatPositif(donnees); }
+				if (i == 9) { x = estParsable(donnees);if(!x || donnees.length()==0){throw string("Erreur fitness2 \n");return false;} }
+				if (i == 10){ x = estEntierPositif(donnees);if(!x || stoi(donnees)!=1 && stoi(donnees)!=2 && stoi(donnees)!=3) x=false; critere = donnees;if(!x){throw string("Erreur critere fitness2 \n");return false;}}
+				if (i == 11 && critere == "3"){ x = estFloatPositif(donnees); if(!x){throw string("Erreur valeur approcher\n fitness2 \n");return false;}}
 		   }
-				if (x == false) { return false; }
            i++;
            
 	}
 	fichier.close(); 
 	return true;
     }
-    else { cerr << "Erreur ouverture fichier \n" << endl; return false;}
+    else { //cerr << "Erreur ouverture fichier \n" << endl; return false;
+		throw string("Erreur ouverture fichier \n");
+		}
 
 }
 

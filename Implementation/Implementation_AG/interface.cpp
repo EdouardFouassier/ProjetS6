@@ -236,11 +236,11 @@ void Interface::connectQuitter(){
 }
 
 void Interface::connectLancer(){
+	bool nomcorrect,sortiecorrect;
     if(encours==0){
         if(liensFichier->text().length()==0){
         fonctionFitness1=F1->text().toUtf8().constData();
         fonctionFitness2=F2->text().toUtf8().constData();
-        nomFichierSortie=nomFichier->text().toUtf8().constData();
         taillePopulation=taillePop->value();
         tailleIndividu=tailleIndi->value();
         nbGenerationMax=nbGen->value();
@@ -263,8 +263,8 @@ void Interface::connectLancer(){
 	valeurApproxF2=valeurF2->value();
 	latex=checkLaTeX->isChecked();
 	xFig=checkXFig->isChecked();
-	postScipt=checkPostScrit->isChecked();
-	encours=1;
+	postScript=checkPostScrit->isChecked();
+	nomFichierSortie=nomFichier->text().toUtf8().constData();
     
     //~ cout<<getFonctionFitness1()<<endl;
     //~ cout<<getFonctionFitness2()<<endl;
@@ -308,13 +308,42 @@ void Interface::connectLancer(){
     cout<< estProbabilite("-221452")<<endl;
     cout<< estProbabilite("2a")<<endl;
     cout<< estProbabilite("a2")<<endl;
-*/
-
+*/	ecrireFichierDonnees(this,"DonneesInitiales.txt");
+	try{
+		
+		if(nomFichierSortie.length()==0) {throw string("Erreur nom fichier de sortie \n"); nomcorrect=false;}
+		else nomcorrect=true;
+		if(latex || xFig || postScript) sortiecorrect=true;
+		else {throw string("Erreur format de sortie \n"); sortiecorrect=false;}
+		if(nomcorrect && sortiecorrect && testCoherenceDonnees("DonneesInitiales.txt")) {
+			QMessageBox::information(this,"Bravo","Le programme a ete demare avec succes");
+			encours=1;}}
+		catch(string const& e){
+			QMessageBox::information(this,"ERROR",QString::fromStdString(e));
+			
+		}
    
     }
-    else {cout<<liensFichier->text().toUtf8().constData()<<endl;
-		cout << testCoherenceDonnees(liensFichier->text().toUtf8().constData()) << endl;}
+    else {
+		latex=checkLaTeX->isChecked();
+		xFig=checkXFig->isChecked();
+		postScript=checkPostScrit->isChecked();
+		nomFichierSortie=nomFichier->text().toUtf8().constData();
+		
+		try{
+		if(nomFichierSortie.length()==0) {throw string("Erreur nom fichier de sortie \n"); nomcorrect=false;}
+		else nomcorrect=true;
+		if(latex || xFig || postScript) sortiecorrect=true;
+		else {throw string("Erreur format de sortie \n"); sortiecorrect=false;}
+		if(nomcorrect && sortiecorrect && testCoherenceDonnees(liensFichier->text().toUtf8().constData())){
+			QMessageBox::information(this,"Bravo","Le programme a ete demare avec succes");
+			encours=1;}}
+		catch(string const& e){
+			QMessageBox::information(this,"ERROR",QString::fromStdString(e));
+		}
 	}
+	}
+	else QMessageBox::information(this,"Attention","Le programme a deja demare");
 }
 
 void Interface::chercher(){
@@ -398,6 +427,6 @@ bool Interface::getXFig(){
 }
 
 bool Interface::getPostScript(){
-    return postScipt;
+    return postScript;
 }
 
