@@ -33,7 +33,7 @@ bool estString(string valeur);
 bool estParsable(string fonction);
 
 // Lecture
-int* lireStat(FILE *F);
+float* lireStat(FILE *F);	//Dans le cds c'est un int mais comme les scores seront des flottants bah...
 
 string* lireInfoRegen(string nomFichier);
 float* lireInitialisation(string nomFichier);

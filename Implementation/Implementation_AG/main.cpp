@@ -81,8 +81,6 @@ int main(int argc, char *argv[])
     //TEST DES CONSTRUCTEURS / DESTRUCTEUR//
     Population pop1(donnees);
     std::cout<<"numero generation pop1 = "<<pop1.getNumeroGeneration()<<std::endl; //constructeur par donnees ok
-<<<<<<< HEAD
-
 
 
     /* Population pop;
@@ -93,7 +91,7 @@ int main(int argc, char *argv[])
     std::cout<<"evaluation pop"<<std::endl;
     */ 
     //return 0;
-=======
+
     Population pop2(pop1);
     std::cout<<"numero generation pop2 = "<<pop2.getNumeroGeneration()<<std::endl; //constructeur de recopie ok
     Population pop3;
@@ -134,6 +132,5 @@ int main(int argc, char *argv[])
     }
     
 
-    return 0;*/
->>>>>>> 68d941b640befc1e01a07040b1b7695f816e52d6
+    return 0;
 }

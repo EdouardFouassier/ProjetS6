@@ -332,18 +332,38 @@ bool estParsable(string fonction) {
 }
 
 // Lecture
-int* lireStat(FILE *F) {
-	//lecture
-	int i = 0;
-	int x[5];
-	int taille;
+float* lireStat(FILE *F) {
 	
-	//calcul
-	int resultat[3];
-	int min;
-	min = x[i];
-	for (i = 0; i < taille; i++) {
-		if (min < x[i]) { min = x[i]; }
+	if(F) {
+		float *tableauStats;
+		tableauStats = new float[3];
+		char tableauStatsChar[100];
+		string moyScores = "", minScores = "", maxScores = "";
+		
+		fgets (tableauStatsChar , 100 , F);
+		//~ fputs (tableauStatsChar, stdout);
+		int cpt = 0;
+		for (int i = 0; tableauStatsChar[i] != '\n'; i++) {
+			//~ cout << tableauStatsChar[i] << endl;
+			if (tableauStatsChar[i] == ' ') { cpt++;}
+			else {
+				if (cpt == 0) { moyScores += tableauStatsChar[i]; }
+				if (cpt == 1) { minScores += tableauStatsChar[i]; }
+				if (cpt == 2) { maxScores += tableauStatsChar[i]; }
+			}
+		}
+		//~ cout << moyScores << " " << minScores << " " << maxScores << endl;
+		tableauStats[0] = stof(moyScores);
+		tableauStats[1] = stof(minScores);
+		tableauStats[2] = stof(maxScores);
+		//~ cout << tableauStats[0] << endl;
+		//~ cout << tableauStats[1] << endl;
+		//~ cout << tableauStats[2] << endl;
+		return tableauStats;
+	}
+	else {
+		cerr << "Erreur ouverture fichier" << endl;
+		return NULL;
 	}
 }
 
@@ -430,27 +450,25 @@ float* lireScoreIndividu(string nomFichierPopulation, int generation, int indice
 			getline(fichier,sautligne);									//On saute deux lignes a chaque fois car la premiere contient le premier score et la deuxieme contient le deuxieme score des individus d'une meme population
 		}
 																		
-		for(int indiceIndividu = 0; indiceIndividu <= indice; indiceIndividu++) { fichier >> scoreIndividu[0]; }
-		getline(fichier,sautligne);										
-		fichier >> sautligne;
-		if (sautligne == "PasCritere") { 
+		for(int indiceIndividu = 0; indiceIndividu <= indice; indiceIndividu++) { fichier >> scoreIndividu[0]; }	//La boucle permet d'aller jusqu'au score de l'individu donné en indice, comme on ecrit tout les scores lus dans la même variable, seul le dernier est conservé
+		getline(fichier,sautligne);										//Permet de lire le reste de la ligne et donc de passer a la ligne suivante									
+		fichier >> sautligne;											//On lit le premier la premiere chaine de caractère jusqu'au séparateur (soit un espace, soit un retour chariot)
+		if (sautligne == "PasCritere") { 								//Si la premiere chaine est egale a "PasCritere" c'est que les individus ne sont evalué que par rapport a un seul critere 
 			//~ cout << scoreIndividu[0] << " Score 1 " << endl;
-			return scoreIndividu; 
+			return scoreIndividu; 										//On retourne donc le tableau avec le score de l'individu
 		}
-		else {
-			float* scoresIndividu;
-			scoresIndividu = new float[2];
-			scoresIndividu[0] = scoreIndividu[0];
-			delete[] scoreIndividu;
-			if (indice == 0) { scoresIndividu[1] = stoi(sautligne); }
-			else { 
-				for(int indiceIndividu = 1; indiceIndividu <= indice; indiceIndividu++) { 
-					fichier >> scoresIndividu[1]; 
-				} 
+		else {															//Sinon cela signifie que les individus sont evalués par rapport a deux critères, sautligne contient donc un score
+			float* scoresIndividu;										
+			scoresIndividu = new float[2];								//On cree donc un deuxieme tableau de deux cases
+			scoresIndividu[0] = scoreIndividu[0];						//On affecte a la premiere case du nouveau tableau le score stocké dans l'unique case du premier tableau
+			delete[] scoreIndividu;										//On supprime le premier tableau puisqu'on ne s'en sert plus
+			if (indice == 0) { scoresIndividu[1] = stoi(sautligne); }	//Si le score que l'on cheche est celui du premier individu, on affecte a la deuxieme case du tableau la valeur contenue dans "sautligne"
+			else { 														//Sinon on parcourt tout les scores jusqu'a celui de l'individu qui nous interesse
+				for(int indiceIndividu = 1; indiceIndividu <= indice; indiceIndividu++) { fichier >> scoresIndividu[1]; } 
 			}
 			//~ cout << scoresIndividu[0] << " Score 1 " << endl;
 			//~ cout << scoresIndividu[1] << " Score 2 " << endl;
-			return scoresIndividu;
+			return scoresIndividu;										//On retourne le tableau contenant les deux critères 0 -> score avec le premier critère, 1 -> score avec le deuxième critère 
 		}
 	}
 	else {
@@ -494,8 +512,8 @@ bool ecrireFichierDonnees(Interface *interface, string nomFichier) {
 				fichier << interface->getValeurApproxF2() <<  endl;
 		}																	
 		else { fichier << "" <<  endl; }
-		fichier << interface->getLatex() << interface->getPostScript() << interface->getXFig() << endl;
-		
+		fichier << interface->getLatex() << interface->getPostScript() << interface->getXFig() << endl;	//Valeur des booleens pour savoir sous quel(s) format(s) le fichier de sortie doit être ecrit
+																										//1 si on souhaite l'ecrire en Latex, 0 sinon; 1 si on souhaite l'ecrire en PostScript, 0 sinon; 1 si on souhaite l'ecrire en XFig, 0 sinon
 		fichier.close();
 		return true;
 	}
@@ -539,44 +557,44 @@ bool ecrirePopulation(Population P, string nomFichier){ //LES TEST SONT ENCORE A
 
 bool calculerEcrireStats(Population P, string nomFichierPopulation, string nomFichierStats){
 	
-	ofstream fichierStats(nomFichierStats.c_str(), ios::out | ios::trunc);	
+	ofstream fichierStats(nomFichierStats.c_str(), ios::out | ios::trunc);	//On ouvre le fichier en ecriture, son contenu est efface
 	
 	if(fichierStats) {
-		float *tableauScores = NULL;
+		float *tableauScores = NULL;									//On cree un tableau de flottant
 			
-		for(int compteurGeneration = 0; compteurGeneration < P.getNombreGenerationMax(); compteurGeneration++) {
+		for(int compteurGeneration = 0; compteurGeneration < P.getNombreGenerationMax(); compteurGeneration++) {	//La boucle permet de parcourir toutes les generations
 
 			float moyScoreCritere1 = 0, moyScoreCritere2 = 0, maxScoreCritere1 = 0, minScoreCritere1 = 0, maxScoreCritere2 = 0, minScoreCritere2 = 0;
 			
-			for(int compteurindividu = 0; compteurindividu < P.getNombreIndividus(); compteurindividu++) {
-				tableauScores = lireScoreIndividu(nomFichierPopulation, compteurGeneration, compteurindividu);
+			for(int compteurindividu = 0; compteurindividu < P.getNombreIndividus(); compteurindividu++) {	//La boucle permet de parcourir tout les individu d'une generation
+				tableauScores = lireScoreIndividu(nomFichierPopulation, compteurGeneration, compteurindividu);	//On affecte au tableau le tableau renvoyé par la fonction lireScoreIndividu contenant le(s) score(s) d'un individu
 					
-				moyScoreCritere1 = moyScoreCritere1 + tableauScores[0];
-				if(compteurindividu == 0) { maxScoreCritere1 = minScoreCritere1 = tableauScores[0]; }
-				if(maxScoreCritere1 < tableauScores[0]) { maxScoreCritere1 = tableauScores[0]; }
-				if(minScoreCritere1 > tableauScores[0]) { minScoreCritere1 = tableauScores[0]; }
+				moyScoreCritere1 = moyScoreCritere1 + tableauScores[0];	//On addictionne tout les scores issus du critere 1 des individus de la generation 
+				if(compteurindividu == 0) { maxScoreCritere1 = minScoreCritere1 = tableauScores[0]; }	//Si le score est celui du premier individu, on affecte cette valeur a maxScoreCritere1 et minScoreCritere1
+				if(maxScoreCritere1 < tableauScores[0]) { maxScoreCritere1 = tableauScores[0]; }	//Si le score lu est plus grand que le score max, alors maxScoreCritere1 prend la valeur du tableau 
+				if(minScoreCritere1 > tableauScores[0]) { minScoreCritere1 = tableauScores[0]; }	//Si le score lu est plus petit que le score min, alors minScoreCritere1 prend la valeur du tableau
 					
-				if(P.getNombreCriteres() == 2) {
-					moyScoreCritere2 = moyScoreCritere2 + tableauScores[1];
-					if(compteurindividu == 0) { maxScoreCritere2 = minScoreCritere2 = tableauScores[1]; }
-					if(maxScoreCritere2 < tableauScores[1]) { maxScoreCritere2 = tableauScores[1]; }
-					if(minScoreCritere2 > tableauScores[1]) { minScoreCritere2 = tableauScores[1]; }	
+				if(P.getNombreCriteres() == 2) {						//Si les individus dont evalué par rapport a deux critères
+					moyScoreCritere2 = moyScoreCritere2 + tableauScores[1];	//On addictionne tout les scores issus du critere 2 des individus de la generation 
+					if(compteurindividu == 0) { maxScoreCritere2 = minScoreCritere2 = tableauScores[1]; }	//Si le score est celui du premier individu, on affecte cette valeur a maxScoreCritere2 et minScoreCritere2
+					if(maxScoreCritere2 < tableauScores[1]) { maxScoreCritere2 = tableauScores[1]; }	//Si le score lu est plus grand que le score max, alors maxScoreCritere2 prend la valeur du tableau 
+					if(minScoreCritere2 > tableauScores[1]) { minScoreCritere2 = tableauScores[1]; }	//Si le score lu est plus petit que le score min, alors minScoreCritere2 prend la valeur du tableau
 				}
 			}
 			
-			moyScoreCritere1 = (moyScoreCritere1-minScoreCritere1-maxScoreCritere1)/(P.getNombreIndividus()-2);
-			fichierStats << moyScoreCritere1 << " " << minScoreCritere1 << " " << maxScoreCritere1 << endl;
+			moyScoreCritere1 = (moyScoreCritere1-minScoreCritere1-maxScoreCritere1)/(P.getNombreIndividus()-2);	//On affecte a moyScoreCritere1 la moyenne reduites des scores, c'est a dire la moyenne privé des deux valeurs extrêmes (le plus petit score et le plus grand)
+			fichierStats << moyScoreCritere1 << " " << minScoreCritere1 << " " << maxScoreCritere1 << endl;	//On ecrit dans le fichier la moyenne reduite des scores, le score minimum et le score maximum pour le critère 1
 				
-			if(P.getNombreCriteres() == 2) {
-				moyScoreCritere2 = (moyScoreCritere2-minScoreCritere2-maxScoreCritere2)/(P.getNombreIndividus()-2);
-				fichierStats << moyScoreCritere2 << " " << minScoreCritere2 << " " << maxScoreCritere2 << endl;
+			if(P.getNombreCriteres() == 2) {							//Si les individus dont evalué par rapport a deux critères
+				moyScoreCritere2 = (moyScoreCritere2-minScoreCritere2-maxScoreCritere2)/(P.getNombreIndividus()-2);	//On affecte a moyScoreCritere2 la moyenne reduites des scores, c'est a dire la moyenne privé des deux valeurs extrêmes (le plus petit score et le plus grand)
+				fichierStats << moyScoreCritere2 << " " << minScoreCritere2 << " " << maxScoreCritere2 << endl;	//On ecrit dans le fichier la moyenne reduite des scores, le score minimum et le score maximum pour le critère 2
 			}
 			else {
-				fichierStats << "PasCritere" << endl;
+				fichierStats << "PasCritere" << endl;					//Si les individus ne sont evalués qu'avec un seul critère, alors on ecrit "PasCritere" 
 			}
 		}
-		delete[] tableauScores;
-		fichierStats.close();
+		delete[] tableauScores;											//On supprime le tableau
+		fichierStats.close();											//On ferme le fichier
 		return true;
 	}
 	else {
