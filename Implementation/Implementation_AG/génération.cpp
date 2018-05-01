@@ -24,15 +24,25 @@ int Population::numeroGeneration = 0;
 Population::Population() : ensemble(0)
 {
 	numeroGeneration += 1;
+	std::cout<<"CREATION SUCCESS"<<endl;
 }
 
 Population::Population(Population const& P) : ensemble(P.ensemble)
 {
 	numeroGeneration += 1;
+	std::cout<<"CREATION SUCCESS"<<endl;
 	
 }
 
 Population::Population(string* const& donnees) :  ensemble(0){
+
+	/*std::cout<<"Donnees recues par le constructeur :"<<std::endl;
+    std::cout<<"proba croisement = "<<std::stof(donnees[0],nullptr)<< std::endl;
+    std::cout<<"taille population = "<<std::stoi(donnees[1], nullptr, 10)<<"  nombre de Generation Max = " <<std::stoi(donnees[2], nullptr, 10)<<std::endl;
+    std::cout<<"nombre de critères = "<<std::stoi(donnees[3], nullptr, 10)<<" critère 1 = "<<std::stoi(donnees[4], nullptr, 10)<<"  critère 2 = "<<std::stoi(donnees[5], nullptr, 10)<<std::endl;
+    std::cout<<"fitness1 = "<<donnees[6]<<" fitness2 = "<<donnees[7]<<std::endl;
+    std::cout<<"valeurApprochee1 = "<<std::stof(donnees[8], nullptr)<<" valeurApprochee2 = "<<std::stof(donnees[9], nullptr)<<std::endl;*/
+
 	/** INITIALISATION DES DONNEES INVARIABLES **/
 	probaCroisement = std::stof(donnees[0],nullptr); // string to float
 	nombreIndividus = std::stoi(donnees[1], nullptr, 10);
@@ -40,47 +50,55 @@ Population::Population(string* const& donnees) :  ensemble(0){
 	nombreCriteres = std::stoi(donnees[3], nullptr, 10);
 
 	/** INITIALISATION DES DONNEES VARIABLES **/
-	if(nombreCriteres != 1 || nombreCriteres != 2)
-		std::cerr<<"error : nombre de criteres non conforme"<<std::endl;
+	if(nombreCriteres == 1 || nombreCriteres == 2){
+		if(nombreCriteres == 1){ 							 //si on à un seul critere
+			criteres = (int*)malloc(nombreCriteres*sizeof(int)); //initialisation de la taille du tableau de criteres
+			criteres[0] = std::stoi(donnees[4], nullptr, 10);    //initialisation du critere
+			fitness1 = donnees[6];                               //initialisation de la fonction fitness
 
-	else if(nombreCriteres == 1){ 							 //si on à un seul critere
-		criteres = (int*)malloc(nombreCriteres*sizeof(int)); //initialisation de la taille du tableau de criteres
-		criteres[0] = std::stoi(donnees[4], nullptr, 10);    //initialisation du critere
-		fitness1 = donnees[6];                               //initialisation de la fonction fitness
+			if (criteres[0] == 3)								 //si le critere est la recherche d'une valeur approchée
+				valeurApprochee = std::stof(donnees[8], nullptr);//initialisation de la valeur approchée
 
-		if (criteres[0] == 3)								 //si le critere est la recherche d'une valeur approchée
-			valeurApprochee = std::stof(donnees[8], nullptr);//initialisation de la valeur approchée
-
+		}
+		else {
+			criteres = (int*)malloc(nombreCriteres*sizeof(int)); //initialisation de la taille du tableau de criteres
+			criteres[0] = std::stoi(donnees[4], nullptr, 10);    //initialisation du critere 1
+			criteres[1] = std::stoi(donnees[4], nullptr, 10);    //initialisation du critere 2
+			fitness1 = donnees[6];                               //initialisation de la fonction fitness 1
+			fitness2 = donnees[7];                               //initialisation de la fonction fitness 2
+	
+			if (criteres[0] == 3)								 //si le critere 1 est la recherche d'une valeur approchée
+				valeurApprochee = std::stof(donnees[8], nullptr);//initialisation de la valeur approchée 1
+			if (criteres[1] == 3)								 //si le critere  2est la recherche d'une valeur approchée
+				valeurApprochee2 = std::stof(donnees[9], nullptr);//initialisation de la valeur approchée 2
+		}
+		numeroGeneration += 1;
 	}
-	else {
-		criteres = (int*)malloc(nombreCriteres*sizeof(int)); //initialisation de la taille du tableau de criteres
-		criteres[0] = std::stoi(donnees[4], nullptr, 10);    //initialisation du critere 1
-		criteres[1] = std::stoi(donnees[4], nullptr, 10);    //initialisation du critere 2
-		fitness1 = donnees[6];                               //initialisation de la fonction fitness 1
-		fitness2 = donnees[7];                               //initialisation de la fonction fitness 2
-
-		if (criteres[0] == 3)								 //si le critere 1 est la recherche d'une valeur approchée
-			valeurApprochee = std::stof(donnees[8], nullptr);//initialisation de la valeur approchée 1
-		if (criteres[1] == 3)								 //si le critere  2est la recherche d'une valeur approchée
-			valeurApprochee2 = std::stof(donnees[9], nullptr);//initialisation de la valeur approchée 2
-	}
-	numeroGeneration += 1;
+	else std::cerr<<"nombre de critères non conforme"<<std::endl;
 
 	/*POPULATION INITIALE*/
 	for(int i = 0; i < nombreIndividus; i++){
 		Individu *nouv = new Individu();
 		ensemble.push_back(nouv);
 	}
+	std::cout<<"CREATION SUCCESS"<<endl;
 }
+
 
 /**** DESTRUCTEUR ****/
 
 Population::~Population(){
 	std::cout<<"DESTRUCTEUR POPULATION"<<endl;
-	for(int i = 0; i < nombreIndividus;i++)
+	std::cout<<ensemble.size()<<endl;
+	for(int i = 0; i < ensemble.size();i++){
 		delete ensemble[i];
-	delete[] &ensemble; 
-	free(criteres);
+		std::cout<<"individu "<<i<<"détruit"<<std::endl;
+	}
+	//delete[] &ensemble; 
+	//std::cout<<"pointeur sur ensemble détruit"<<std::endl;
+	/*if (criteres != nullptr){
+		free(criteres);
+	}*/
 }
 
 
@@ -169,6 +187,10 @@ void Population::setNombreGenerationMax(int nb){
 	this->nombreGenerationMax = nb;
 }
 
+void Population::setEnsemble(Individu &nouv){
+	this->ensemble.push_back(&nouv);
+}
+
 
 
 /**** TESTS ****/
@@ -231,15 +253,17 @@ Population Population::evaluation(){// entheorie c'est bon, a tester
 
 bool Population::triPopulation(int indiceScore){ //va falloir maroufler parce que le tri a bulle ca pue , a tester
 	bool tab_en_ordre = false;
+	std::cout<<"critère de tri = "<<criteres[indiceScore]<<std::endl;
 	if (criteres[indiceScore] == 1) //MAXIMISATION
 	{
+		std::cerr<<"MAXIMISATION" <<std::endl;
 		int taille = ensemble.size();
     	while(!tab_en_ordre)
 		{	
 			tab_en_ordre = true;
         	for(int i=0 ; i < taille-1 ; i++)
         	{
-            	if(ensemble[i] > ensemble[i+1])
+            	if(ensemble[i]->Individu::getScore(indiceScore) > ensemble[i+1]->Individu::getScore(indiceScore))
             	{
                 	swap(ensemble[i],ensemble[i+1]);
                 	tab_en_ordre = false;
@@ -250,13 +274,14 @@ bool Population::triPopulation(int indiceScore){ //va falloir maroufler parce qu
 	}
 	else if (criteres[indiceScore] == 2) //MINIMISATION
 	{
+		std::cerr<<"MINIMISATION" <<std::endl;
 		int taille = ensemble.size();
     	while(!tab_en_ordre)
 		{	
 			tab_en_ordre = true;
         	for(int i=0 ; i < taille-1 ; i++)
         	{
-            	if(ensemble[i] < ensemble[i+1])
+            	if(ensemble[i]->Individu::getScore(indiceScore) < ensemble[i+1]->Individu::getScore(indiceScore))
             	{
                 	swap(ensemble[i],ensemble[i+1]);
                 	tab_en_ordre = false;
@@ -267,6 +292,7 @@ bool Population::triPopulation(int indiceScore){ //va falloir maroufler parce qu
 	}
 	else if (criteres[indiceScore] == 3) //VALEUR APPROCHEE
 	{
+		std::cerr<<"VALEUR APPROCHEE" <<std::endl;
 		int val;
 		if (indiceScore == 1)
 			val = valeurApprochee;
@@ -280,7 +306,7 @@ bool Population::triPopulation(int indiceScore){ //va falloir maroufler parce qu
 		vector<Individu*> ensembleTmpInf;  //vecteur regroupant les indiv d'un score superieur à la valeur
 
 		/** SEPARATION DU VECTEUR D'INDIVIDU **/
-        for(int i=0 ; i < taille-1 ; i++)
+        for(int i=0 ; i < taille ; i++)
         {
          	if(ensemble[i]->Individu::getScore(indiceScore) > val)
               	ensembleTmpSup.push_back(ensemble[i]);
@@ -288,39 +314,53 @@ bool Population::triPopulation(int indiceScore){ //va falloir maroufler parce qu
            		ensembleTmpInf.push_back(ensemble[i]);
         }
 
-
-        for(int i = 0; i < nombreIndividus;i++)
-			delete ensemble[i];
-		int tailleInf = ensembleTmpInf.size();
-		int tailleSup = ensembleTmpSup.size();
-    	
+        int ensembleSize = ensemble.size();
+        for(int i = 0; i < ensembleSize;i++){
+			ensemble.pop_back();
+		}
     	/** TRI DU VECTEUR INF **/
-        for(int i=0 ; i < tailleInf-1 ; i++)
-        {
-           	if(ensembleTmpInf[i] < ensembleTmpInf[i+1])
-               	swap(ensembleTmpInf[i],ensembleTmpInf[i+1]);
-        }
-
+    	bool tab_en_ordre_tmpinf = false;
+    	int tailleInf = ensembleTmpInf.size();
+    	while(!tab_en_ordre_tmpinf)
+		{	
+			tab_en_ordre_tmpinf = true;
+        	for(int i=0 ; i < tailleInf-1 ; i++)
+        	{
+           		if(ensembleTmpInf[i]->Individu::getScore(indiceScore) > ensembleTmpInf[i+1]->Individu::getScore(indiceScore)){
+               		swap(ensembleTmpInf[i],ensembleTmpInf[i+1]);
+               		tab_en_ordre_tmpinf = false;
+               	}
+        	}
+        	tailleInf--;
+    	}
         /** TRI DU VECTEUR SUP **/
-        for(int i=0 ; i < tailleSup-1 ; i++)
-        {
-           	if(ensembleTmpSup[i] < ensembleTmpSup[i+1])
-               	swap(ensembleTmpSup[i],ensembleTmpSup[i+1]);
-        }
-
+        bool tab_en_ordre_tmpsup = false;
+        int tailleSup = ensembleTmpSup.size();
+    	while(!tab_en_ordre_tmpsup)
+		{	
+			tab_en_ordre_tmpsup = true;
+        	for(int i=0 ; i < tailleSup-1 ; i++)
+        	{
+           		if(ensembleTmpSup[i]->Individu::getScore(indiceScore) > ensembleTmpSup[i+1]->Individu::getScore(indiceScore)){
+               		swap(ensembleTmpSup[i],ensembleTmpSup[i+1]);
+               		tab_en_ordre_tmpsup = false;
+               	}
+        	}
+        	tailleSup--;
+    	}
         /** FUSION DE INF ET SUP DANS ENSEMBLE **/
-        for (int i = 0; i <  tailleInf-1 ; i ++)
+        for (int i = 0; i <  ensembleTmpInf.size() ; i ++){
         	ensemble.push_back(ensembleTmpInf[i]);
-        for (int i = 0; i <  tailleInf-1 ; i ++)
-        	delete ensembleTmpInf[i];
-        delete[] &ensembleTmpInf;
+        }
+        for (int i = 0; i <  ensembleTmpSup.size() ; i ++){
+        	ensemble.push_back(ensembleTmpSup[i]);
+        }
 
         /**SUPPRESSION DES TMP **/
-        for (int i = 0; i <  tailleSup-1 ; i ++)
-        	ensemble.push_back(ensembleTmpSup[i]);
-        for (int i = 0; i <  tailleSup-1 ; i ++)
-        	delete ensembleTmpSup[i];
-        delete[] &ensembleTmpSup;
+        for (int i = 0; i <  ensembleTmpInf.size() ; i ++)
+        	ensembleTmpInf.pop_back();
+        for (int i = 0; i <  ensembleTmpSup.size() ; i ++)
+        	ensembleTmpSup.pop_back();
 
         tab_en_ordre = true;
 	}

@@ -49,7 +49,7 @@ public:
 	
 	/*LES SETTEURS*/
 	void setNombreIndividus(int nbIndiv);
-	//Individu [nombreIndividus] setEnsemble(int i, Individu new);
+	void setEnsemble(Individu &nouv); //modifié par rapport au cds
 	void setNumeroGeneration(int numGen);
 	void setFitness1(string fit1);
 	void setFitness2(string fit2);
