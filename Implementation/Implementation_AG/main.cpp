@@ -81,6 +81,7 @@ int main(int argc, char *argv[])
     //TEST DES CONSTRUCTEURS / DESTRUCTEUR//
     Population pop1(donnees);
     std::cout<<"numero generation pop1 = "<<pop1.getNumeroGeneration()<<std::endl; //constructeur par donnees ok
+<<<<<<< HEAD
 
 
 
@@ -92,4 +93,47 @@ int main(int argc, char *argv[])
     std::cout<<"evaluation pop"<<std::endl;
     */ 
     //return 0;
+=======
+    Population pop2(pop1);
+    std::cout<<"numero generation pop2 = "<<pop2.getNumeroGeneration()<<std::endl; //constructeur de recopie ok
+    Population pop3;
+    std::cout<<"numero generation pop3 = "<<pop3.getNumeroGeneration()<<std::endl; //constructeur par defaut ok
+    //destructeur ok, sauf avec constructeur par defaut
+
+    //TEST DU TRI// maximisation ok || minimisation ok || valeur approchée ok
+    //1:maximisation et 2:valeur approchée
+    float donneesI[3];
+    donneesI[0] = 10.0;
+    donneesI[1] = 0.01;
+    donneesI[2] = 2.0;
+    Individu indiv1(donneesI), indiv2(donneesI), indiv3(donneesI), indiv4(donneesI), indiv5(donneesI), indiv6(donneesI), indiv7(donneesI), indiv8(donneesI), indiv9(donneesI), indiv10(donneesI);
+    indiv1.setScore(5,1); indiv1.setScore(3,2);
+    indiv2.setScore(8,1); indiv2.setScore(6,2);
+    indiv3.setScore(39,1); indiv3.setScore(24,2);
+    indiv4.setScore(24,1); indiv4.setScore(39,2);
+    indiv5.setScore(52,1); indiv5.setScore(42,2);
+    indiv6.setScore(24,1); indiv6.setScore(65,2);
+    indiv7.setScore(44,1); indiv7.setScore(85,2);
+    indiv8.setScore(27,1); indiv8.setScore(55,2);
+    indiv9.setScore(42,1); indiv9.setScore(83,2);
+    indiv10.setScore(68,1); indiv10.setScore(25,2);
+    std::cout<<"creation de 10 individu et initialisation de leurs scores"<<std::endl;
+
+    pop3.setEnsemble(indiv1);pop3.setEnsemble(indiv2);
+    pop3.setEnsemble(indiv3);pop3.setEnsemble(indiv4);
+    pop3.setEnsemble(indiv5);pop3.setEnsemble(indiv6);
+    pop3.setEnsemble(indiv7); pop3.setEnsemble(indiv8);
+    pop3.setEnsemble(indiv9); pop3.setEnsemble(indiv10);
+    std::cout<<"ajout des individus dans pop3.ensemble"<<std::endl;
+
+    pop3.triPopulation(1);
+    vector<Individu*> p_ensemble = pop3.getEnsemble();
+    std::cout<<"resultat :"<<std::endl;
+    for(int i = 0; i < p_ensemble.size(); i++){
+        std::cout<<p_ensemble[i]->getScore(1)<<std::endl;
+    }
+    
+
+    return 0;*/
+>>>>>>> 68d941b640befc1e01a07040b1b7695f816e52d6
 }
