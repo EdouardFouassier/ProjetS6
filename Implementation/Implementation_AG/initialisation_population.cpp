@@ -19,14 +19,18 @@ Individu::Individu() {					// ça ok Ce constructeur ne fait rien
 	this->chromosome = NULL;
 	this->score = NULL;
 	this->rang = NULL;
+	this->chromosome = (int*)malloc((this->tailleIndividu+1)*sizeof(int));
+	for(int i = 0; i < this->tailleIndividu+1; i++){
+		chromosome[i] = 0;
+	}
 }
 Individu::Individu(int taille) {		// ça ok Ce constructeur crée seulement un chromosome aléatoire
 	this->chromosome = NULL;
 	this->score = NULL;
 	this->rang = NULL;
 	this->tailleIndividu = taille;
-	this->chromosome = (int*)malloc(this->tailleIndividu*sizeof(int));
-	for(int i = 0; i < taille; i++){
+	this->chromosome = (int*)malloc((this->tailleIndividu+1)*sizeof(int));
+	for(int i = 0; i < taille+1; i++){
 		this->chromosome[i] = rand()%2;
 	}
 }
@@ -39,8 +43,8 @@ Individu::Individu(float donnees[3]){	// ça ok Ce constructeur crée un chromos
 	this->probaMutation = donnees[1];
 	this->nombreCritere = donnees[2];
 	//// Chromosome random ////
-	this->chromosome = (int*)malloc(this->tailleIndividu*sizeof(int));
-	for(int i = 0; i < this->tailleIndividu; i++){
+	this->chromosome = (int*)malloc((this->tailleIndividu+1)*sizeof(int));
+	for(int i = 0; i < this->tailleIndividu+1; i++){
 		chromosome[i] = rand()%2;
 	}
 	//// Initialisation de score et rang ////
@@ -93,44 +97,55 @@ void Individu::setRang(int rang, int i){
 
 
 // Méthodes //
-/*
-Individu Individu::codage(int valeur) {
-	Individu indiv = Individu();
-	// int inter = 0;
-	int* res;
-	int i = 0;
+Individu Individu::codage(int valeur) {		/// Ca ok avec négatif
+	int inter = valeur;
+	Individu indiv(tailleIndividu);	// Nouvel individu //
+	int* res;			// Résultat qui sera le int* chromosome de indiv //
+	res = (int*)malloc((this->tailleIndividu+1)*sizeof(int));	// réservation du tableau res //
+	int i = 1;
 	int j = 0;
 	while(valeur != 0){
-		res[i] = valeur % 2;
+		res[i] = abs(valeur % 2);
 		valeur /= 2;
 		i++;
 	}
-	for(int k = i; k < 0; k--){
-		indiv->chromosome[j] = res[k];
+	if(i <= tailleIndividu){				/// Compléter le chiffre de 0
+		while(i != tailleIndividu + 1){
+			res[i] = 0;
+			i++;
+		}
+	}
+	if(inter < 0)			// Négatif
+		res[i] = 1;
+	else					// Positif
+		res[i] = 0;
+	for(int k = i; k > 0; k--){
+		indiv.chromosome[j] = res[k];
 		j++;
 	}
 	return indiv;
 }
-*/
-int Individu::decodage(Individu i) { 			// ça ok
+int Individu::decodage(Individu i) { 			// ça ok avec prise en compte du neg
 	int res = 0;
 	int k = 0;
-	for(int j = i.getTailleIndividu() -1; j >= 0; j--){
+	for(int j = i.getTailleIndividu(); j >= 1; j--){
 		res += i.chromosome[j] * pow(2, k);  /// res = chromosome[j] * 2 puissance j
-		cout << "chromosome[i]: " << i.chromosome[j] << " ";
-		cout << "res: " << res << endl;
 		k++;
 	}
+	if(i.chromosome[0] == 1)
+		res *= -1;
 	return res;
 }
 //// Pour évaluation, ça ne m'arrange pas d'avoir un decodage(Individu) ///
-int Individu::decodage(int* binaire) { 			// ça ok
+int Individu::decodage(int* binaire) { 			// ça ok avec prise en compte du neg
 	int res = 0;
 	int k = 0;
-	for(int j = getTailleIndividu()-1; j >= 0; j--){
+	for(int j = getTailleIndividu(); j >= 1; j--){
 		res += binaire[j] * pow(2, k);  /// res = chromosome[j] * 2 puissance j
 	k++;
 	}
+	if(binaire[0] == 1)
+		res *= -1;
 	return res;
 }
 bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) { // ça ok (sauf vérif')
