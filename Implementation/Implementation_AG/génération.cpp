@@ -251,7 +251,7 @@ Population Population::evaluation(){// entheorie c'est bon, a tester
 	return *this;
 }
 
-bool Population::triPopulation(int indiceScore){ //va falloir maroufler parce que le tri a bulle ca pue , a tester
+bool Population::triPopulation(int indiceScore){ //va falloir maroufler parce que le tri a bulle ca pue , 
 	bool tab_en_ordre = false;
 	std::cout<<"critère de tri = "<<criteres[indiceScore]<<std::endl;
 	if (criteres[indiceScore] == 1) //MAXIMISATION
@@ -293,7 +293,8 @@ bool Population::triPopulation(int indiceScore){ //va falloir maroufler parce qu
 	else if (criteres[indiceScore] == 3) //VALEUR APPROCHEE
 	{
 		std::cerr<<"VALEUR APPROCHEE" <<std::endl;
-		int val;
+
+		float val;
 		if (indiceScore == 1)
 			val = valeurApprochee;
 		else if (indiceScore == 2)
@@ -302,67 +303,35 @@ bool Population::triPopulation(int indiceScore){ //va falloir maroufler parce qu
 			std::cerr<<"error triPopulation" <<std::endl;
 
 		int taille = ensemble.size();
-		vector<Individu*> ensembleTmpSup;  //vecteur regroupant les indiv d'un score inferieur à la valeur
-		vector<Individu*> ensembleTmpInf;  //vecteur regroupant les indiv d'un score superieur à la valeur
+		int difference;	
 
-		/** SEPARATION DU VECTEUR D'INDIVIDU **/
         for(int i=0 ; i < taille ; i++)
-        {
-         	if(ensemble[i]->Individu::getScore(indiceScore) > val)
-              	ensembleTmpSup.push_back(ensemble[i]);
-           	else if (ensemble[i]->Individu::getScore(indiceScore) < val)
-           		ensembleTmpInf.push_back(ensemble[i]);
-        }
-
-        int ensembleSize = ensemble.size();
-        for(int i = 0; i < ensembleSize;i++){
-			ensemble.pop_back();
-		}
-    	/** TRI DU VECTEUR INF **/
-    	bool tab_en_ordre_tmpinf = false;
-    	int tailleInf = ensembleTmpInf.size();
-    	while(!tab_en_ordre_tmpinf)
-		{	
-			tab_en_ordre_tmpinf = true;
-        	for(int i=0 ; i < tailleInf-1 ; i++)
-        	{
-           		if(ensembleTmpInf[i]->Individu::getScore(indiceScore) > ensembleTmpInf[i+1]->Individu::getScore(indiceScore)){
-               		swap(ensembleTmpInf[i],ensembleTmpInf[i+1]);
-               		tab_en_ordre_tmpinf = false;
-               	}
+        {	
+        	if(val < ensemble[i]->Individu::getScore(indiceScore) ){
+            	difference = ensemble[i]->Individu::getScore(indiceScore) - val;
+            	std::cout<<"difference ="<<ensemble[i]->Individu::getScore(indiceScore)<<" - "<<val<<std::endl;
         	}
-        	tailleInf--;
-    	}
-        /** TRI DU VECTEUR SUP **/
-        bool tab_en_ordre_tmpsup = false;
-        int tailleSup = ensembleTmpSup.size();
-    	while(!tab_en_ordre_tmpsup)
+            else{ 
+            	difference = val - ensemble[i]->Individu::getScore(indiceScore);
+            	std::cout<<"difference ="<<val<<" - "<<ensemble[i]->Individu::getScore(indiceScore)<<std::endl;
+            }
+            ensemble[i]->Individu::setRang(difference, indiceScore);
+            std::cout<<ensemble[i]->Individu::getRang(indiceScore)<<std::endl;
+        }
+
+        while(!tab_en_ordre)
 		{	
-			tab_en_ordre_tmpsup = true;
-        	for(int i=0 ; i < tailleSup-1 ; i++)
+			tab_en_ordre = true;
+        	for(int i=0 ; i < taille-1 ; i++)
         	{
-           		if(ensembleTmpSup[i]->Individu::getScore(indiceScore) > ensembleTmpSup[i+1]->Individu::getScore(indiceScore)){
-               		swap(ensembleTmpSup[i],ensembleTmpSup[i+1]);
-               		tab_en_ordre_tmpsup = false;
-               	}
+            	if(ensemble[i]->Individu::getRang(indiceScore) > ensemble[i+1]->Individu::getRang(indiceScore))
+            	{
+                	swap(ensemble[i],ensemble[i+1]);
+                	tab_en_ordre = false;
+            	}
         	}
-        	tailleSup--;
+        	taille--;
     	}
-        /** FUSION DE INF ET SUP DANS ENSEMBLE **/
-        for (int i = 0; i <  ensembleTmpInf.size() ; i ++){
-        	ensemble.push_back(ensembleTmpInf[i]);
-        }
-        for (int i = 0; i <  ensembleTmpSup.size() ; i ++){
-        	ensemble.push_back(ensembleTmpSup[i]);
-        }
-
-        /**SUPPRESSION DES TMP **/
-        for (int i = 0; i <  ensembleTmpInf.size() ; i ++)
-        	ensembleTmpInf.pop_back();
-        for (int i = 0; i <  ensembleTmpSup.size() ; i ++)
-        	ensembleTmpSup.pop_back();
-
-        tab_en_ordre = true;
 	}
 	else 
 		std::cerr<<"error triPopulation" <<std::endl;

@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    /*QApplication app(argc, argv);
 
     Interface interface; //crée la fenetre
     interface.show(); //affiche...
@@ -69,11 +69,11 @@ int main(int argc, char *argv[])
     std::cout<<"numero generation pop2 = "<<pop2.getNumeroGeneration()<<std::endl; //constructeur de recopie ok
     Population pop3;
     std::cout<<"numero generation pop3 = "<<pop3.getNumeroGeneration()<<std::endl; //constructeur par defaut ok
-    //destructeur ok, sauf avec constructeur par defaut*/
+    //destructeur ok, sauf avec constructeur par defaut
 
-    //TEST DU TRI// maximisation ok || minimisation ok || valeur approchée ok, mais à revoir car fait comme la maximisation pour l'instant, revoir destruction des tmp
+    //TEST DU TRI// maximisation ok || minimisation ok || valeur approchée ok
     //1:maximisation et 2:valeur approchée
-    /*float donneesI[3];
+    float donneesI[3];
     donneesI[0] = 10.0;
     donneesI[1] = 0.01;
     donneesI[2] = 2.0;
@@ -99,10 +99,11 @@ int main(int argc, char *argv[])
 
     pop3.triPopulation(1);
     vector<Individu*> p_ensemble = pop3.getEnsemble();
+    std::cout<<"resultat :"<<std::endl;
     for(int i = 0; i < p_ensemble.size(); i++){
         std::cout<<p_ensemble[i]->getScore(1)<<std::endl;
-    }*/
+    }
     
 
-    //return 0;
+    return 0;*/
 }
