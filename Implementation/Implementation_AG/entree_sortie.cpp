@@ -291,6 +291,7 @@ bool estParsable(string fonction) {
 
 
     } { // (2/(4+2))
+		//calculfitness(" " + fonction2 + " ", a)
 		double a = 1;
 		int temp = 0;
 		int y = 0;
