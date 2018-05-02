@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
     //TEST DES CONSTRUCTEURS / DESTRUCTEUR//
     Population pop1(donnees);
     std::cout<<"numero generation pop1 = "<<pop1.getNumeroGeneration()<<std::endl; //constructeur par donnees ok
-
+    //pop1.evaluation();
 
     /* Population pop;
     std::cout<<"creation pop"<<std::endl;
@@ -92,15 +92,15 @@ int main(int argc, char *argv[])
     */ 
     //return 0;
 
-    Population pop2(pop1);
-    std::cout<<"numero generation pop2 = "<<pop2.getNumeroGeneration()<<std::endl; //constructeur de recopie ok
-    Population pop3;
-    std::cout<<"numero generation pop3 = "<<pop3.getNumeroGeneration()<<std::endl; //constructeur par defaut ok
+    //Population pop2(pop1);
+    //std::cout<<"numero generation pop2 = "<<pop2.getNumeroGeneration()<<std::endl; //constructeur de recopie ok
+    //Population pop3;
+    //std::cout<<"numero generation pop3 = "<<pop3.getNumeroGeneration()<<std::endl; //constructeur par defaut ok
     //destructeur ok, sauf avec constructeur par defaut
 
     //TEST DU TRI// maximisation ok || minimisation ok || valeur approchée ok
     //1:maximisation et 2:valeur approchée
-    float donneesI[3];
+    /*float donneesI[3];
     donneesI[0] = 10.0;
     donneesI[1] = 0.01;
     donneesI[2] = 2.0;
@@ -124,12 +124,14 @@ int main(int argc, char *argv[])
     pop3.setEnsemble(indiv9); pop3.setEnsemble(indiv10);
     std::cout<<"ajout des individus dans pop3.ensemble"<<std::endl;
 
-    pop3.triPopulation(1);
+    /*pop3.triPopulation(1);*/
+    /*pop3.evaluation();
     vector<Individu*> p_ensemble = pop3.getEnsemble();
-    std::cout<<"resultat :"<<std::endl;
+
+    std::cout<<"resultat evaluation:"<<std::endl;
     for(int i = 0; i < p_ensemble.size(); i++){
-        std::cout<<p_ensemble[i]->getScore(1)<<std::endl;
-    }
+        std::cout<<p_ensemble[i]->getRang(1)<<std::endl;
+    }*/
     
 
     return 0;

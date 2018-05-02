@@ -21,13 +21,13 @@ int Population::numeroGeneration = 0;
 
 /**** CONSTRUCTEURS****/
 
-Population::Population() : ensemble(0)
+Population::Population() : ensemble(0) //test OK
 {
 	numeroGeneration += 1;
 	std::cout<<"CREATION SUCCESS"<<endl;
 }
 
-Population::Population(Population const& P) : ensemble(P.ensemble)
+Population::Population(Population const& P) : ensemble(P.ensemble) //test OK
 {
 	numeroGeneration += 1;
 	std::cout<<"CREATION SUCCESS"<<endl;
@@ -77,11 +77,15 @@ Population::Population(string* const& donnees) :  ensemble(0){
 	else std::cerr<<"nombre de critères non conforme"<<std::endl;
 
 	/*POPULATION INITIALE*/
+	/*float idonnees[3];
+    idonnees[0] = 4.0;
+    idonnees[1] = 0.01;
+    idonnees[2] = 1.0;*/
 	for(int i = 0; i < nombreIndividus; i++){
 		Individu *nouv = new Individu();
 		ensemble.push_back(nouv);
 	}
-	std::cout<<"CREATION SUCCESS"<<endl;
+	std::cout<<"CREATION SUCCESS"<<endl; //test OK
 }
 
 
@@ -90,7 +94,8 @@ Population::Population(string* const& donnees) :  ensemble(0){
 Population::~Population(){
 	std::cout<<"DESTRUCTEUR POPULATION"<<endl;
 	std::cout<<ensemble.size()<<endl;
-	for(int i = 0; i < ensemble.size();i++){
+	int size = ensemble.size();
+	for(int i = 0; i < size; i++){
 		delete ensemble[i];
 		std::cout<<"individu "<<i<<"détruit"<<std::endl;
 	}
@@ -98,7 +103,7 @@ Population::~Population(){
 	//std::cout<<"pointeur sur ensemble détruit"<<std::endl;
 	/*if (criteres != nullptr){
 		free(criteres);
-	}*/
+	}*/ //test à revoir 
 }
 
 
@@ -225,56 +230,57 @@ bool Population::testPopulationRemplie(){
 }
 /**** LES ALGOS ****/
 
-Population Population::evaluation(){// entheorie c'est bon, a tester 
-
+void Population::evaluation(){//test ok, signature modifié / cds
+	std::cout<<"EVALUATION"<<std::endl;
 	string fitnessTmp;
-	for (int iCritere = 0; iCritere < nombreCriteres - 1; iCritere ++){
-		for (int iIndiv = 0; iIndiv < ensemble.size() - 1; iIndiv ++){
-			if(iCritere == 0)
-				fitnessTmp = this->fitness1;
-			if(iCritere == 1)
-				fitnessTmp = this->fitness2;
-			this->ensemble[iIndiv]->Individu::evaluationIndividu(fitnessTmp, iCritere);
+	if (nombreCriteres == -1)
+		std::cerr<<"nombre de critères non conforme"<<std::endl;
+	else {		
+		for (int iCritere = 0; iCritere < nombreCriteres; iCritere ++){
+			std::cout<<"criteres : "<<iCritere<<" / "<<nombreCriteres<<std::endl;
+			for (int iIndiv = 0; iIndiv < ensemble.size() - 1; iIndiv ++){
+				if(iCritere == 0)
+					fitnessTmp = this->fitness1;
+				if(iCritere == 1)
+					fitnessTmp = this->fitness2;
+				ensemble[iIndiv]->Individu::evaluationIndividu(fitnessTmp, iCritere);
+			}
+			this->Population::triPopulation(iCritere);
+			int cpt = 1;
+			int ensembleSize = ensemble.size() - 1;
+			float iScore1, iScore2;
+			for(int iIndiv = 0; iIndiv < ensembleSize; iIndiv ++){
+				iScore1 = ensemble[iIndiv]->Individu::getScore(iCritere);
+				iScore2 = ensemble[iIndiv+1]->Individu::getScore(iCritere); 
+				if(iScore1 == iScore2){
+					ensemble[iIndiv]->Individu::setRang(cpt, iCritere);
+					
+				}
+				else {
+					ensemble[iIndiv]->Individu::setRang(cpt, iCritere);
+					cpt ++;
+				}
+			}
+			iScore1 = ensemble[ensembleSize]->Individu::getScore(iCritere);
+			iScore2 = ensemble[ensembleSize-1]->Individu::getScore(iCritere);
+			cpt = ensemble[ensembleSize-1]->Individu::getRang(iCritere);
+			if (iScore1 == iScore2){
+				ensemble[ensembleSize]->Individu::setRang(cpt, iCritere);
+			}
+			else { 
+				cpt ++;
+				this->ensemble[ensembleSize]->Individu::setRang(cpt, iCritere);
+			}
+			for(int i = 0; i < ensembleSize; i++)
+        		std::cout<<"rang pour critere "<<iCritere<< " : "<<ensemble[i]->getRang(iCritere)<<std::endl;
 		}
-		this->triPopulation(iCritere);
-		int cpt = 1;
-		for(int iIndiv = 0; iIndiv < ensemble.size() - 2; iIndiv ++){
-			while (this->ensemble[iIndiv]->Individu::getScore(iCritere) == this->ensemble[iIndiv+1]->Individu::getScore(iCritere))
-				this->ensemble[iIndiv]->Individu::setRang(cpt, iCritere);
-			cpt ++;
-		}
-		if (this->ensemble[ensemble.size()]->Individu::getScore(iCritere) == this->ensemble[ensemble.size()-1]->Individu::getScore(iCritere))
-				this->ensemble[ensemble.size()]->Individu::setRang(cpt, iCritere);
-		else  
-			this->ensemble[ensemble.size()]->Individu::setRang(cpt+1, iCritere); 
 	}
-	return *this;
 }
 
-bool Population::triPopulation(int indiceScore){ //va falloir maroufler parce que le tri a bulle ca pue , 
+bool Population::triPopulation(int indiceScore){ //va falloir maroufler parce que le tri a bulle ca pue, test OK
 	bool tab_en_ordre = false;
-	std::cout<<"critère de tri = "<<criteres[indiceScore]<<std::endl;
 	if (criteres[indiceScore] == 1) //MAXIMISATION
 	{
-		std::cerr<<"MAXIMISATION" <<std::endl;
-		int taille = ensemble.size();
-    	while(!tab_en_ordre)
-		{	
-			tab_en_ordre = true;
-        	for(int i=0 ; i < taille-1 ; i++)
-        	{
-            	if(ensemble[i]->Individu::getScore(indiceScore) > ensemble[i+1]->Individu::getScore(indiceScore))
-            	{
-                	swap(ensemble[i],ensemble[i+1]);
-                	tab_en_ordre = false;
-            	}
-        	}
-        	taille--;
-    	}
-	}
-	else if (criteres[indiceScore] == 2) //MINIMISATION
-	{
-		std::cerr<<"MINIMISATION" <<std::endl;
 		int taille = ensemble.size();
     	while(!tab_en_ordre)
 		{	
@@ -290,9 +296,27 @@ bool Population::triPopulation(int indiceScore){ //va falloir maroufler parce qu
         	taille--;
     	}
 	}
+	else if (criteres[indiceScore] == 2) //MINIMISATION
+	{
+		
+		int taille = ensemble.size();
+    	while(!tab_en_ordre)
+		{	
+			tab_en_ordre = true;
+        	for(int i=0 ; i < taille-1 ; i++)
+        	{
+            	if(ensemble[i]->Individu::getScore(indiceScore) > ensemble[i+1]->Individu::getScore(indiceScore))
+            	{
+                	swap(ensemble[i],ensemble[i+1]);
+                	tab_en_ordre = false;
+            	}
+        	}
+        	taille--;
+    	}
+	}
 	else if (criteres[indiceScore] == 3) //VALEUR APPROCHEE
 	{
-		std::cerr<<"VALEUR APPROCHEE" <<std::endl;
+		
 
 		float val;
 		if (indiceScore == 1)
@@ -309,11 +333,9 @@ bool Population::triPopulation(int indiceScore){ //va falloir maroufler parce qu
         {	
         	if(val < ensemble[i]->Individu::getScore(indiceScore) ){
             	difference = ensemble[i]->Individu::getScore(indiceScore) - val;
-            	std::cout<<"difference ="<<ensemble[i]->Individu::getScore(indiceScore)<<" - "<<val<<std::endl;
         	}
             else{ 
             	difference = val - ensemble[i]->Individu::getScore(indiceScore);
-            	std::cout<<"difference ="<<val<<" - "<<ensemble[i]->Individu::getScore(indiceScore)<<std::endl;
             }
             ensemble[i]->Individu::setRang(difference, indiceScore);
             std::cout<<ensemble[i]->Individu::getRang(indiceScore)<<std::endl;

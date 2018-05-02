@@ -66,7 +66,7 @@ public:
 	bool testPopulationRemplie();
 
 	/* LES ALGORITHMES DE CREATION DE GENERATION*/
-	Population evaluation();
+	void evaluation();
 	bool triPopulation (int indiceScore);
 	Individu selectionner();
 	Population crossover(Individu Parent1, Individu Parent2);
