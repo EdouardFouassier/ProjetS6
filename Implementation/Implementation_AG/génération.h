@@ -66,7 +66,7 @@ public:
 	bool testPopulationRemplie();
 
 	/* LES ALGORITHMES DE CREATION DE GENERATION*/
-	void evaluation();
+	void evaluation(); //signature modifié / cds (passe de Population à void)
 	bool triPopulation (int indiceScore);
 	Individu selectionner();
 	Population crossover(Individu Parent1, Individu Parent2);

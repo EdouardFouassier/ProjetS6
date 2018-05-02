@@ -34,7 +34,8 @@ Population::Population(Population const& P) : ensemble(P.ensemble) //test OK
 	
 }
 
-Population::Population(string* const& donnees) :  ensemble(0){
+Population::Population(string* const& donnees) :  ensemble(0) //test OK
+{
 
 	/*std::cout<<"Donnees recues par le constructeur :"<<std::endl;
     std::cout<<"proba croisement = "<<std::stof(donnees[0],nullptr)<< std::endl;
@@ -91,7 +92,8 @@ Population::Population(string* const& donnees) :  ensemble(0){
 
 /**** DESTRUCTEUR ****/
 
-Population::~Population(){
+Population::~Population() //a revoir
+{
 	std::cout<<"DESTRUCTEUR POPULATION"<<endl;
 	std::cout<<ensemble.size()<<endl;
 	int size = ensemble.size();
@@ -230,7 +232,8 @@ bool Population::testPopulationRemplie(){
 }
 /**** LES ALGOS ****/
 
-void Population::evaluation(){//test ok, signature modifié / cds
+void Population::evaluation() //test ok, signature modifié / cds (passe de Population à void)
+{
 	std::cout<<"EVALUATION"<<std::endl;
 	string fitnessTmp;
 	if (nombreCriteres == -1)
@@ -277,7 +280,8 @@ void Population::evaluation(){//test ok, signature modifié / cds
 	}
 }
 
-bool Population::triPopulation(int indiceScore){ //va falloir maroufler parce que le tri a bulle ca pue, test OK
+bool Population::triPopulation(int indiceScore) //va falloir maroufler parce que le tri a bulle ca pue, test OK
+{ 
 	bool tab_en_ordre = false;
 	if (criteres[indiceScore] == 1) //MAXIMISATION
 	{
