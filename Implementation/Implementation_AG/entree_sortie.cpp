@@ -1,4 +1,4 @@
-0//////////////////////////////////////////////////
+/////////////////////////////////////////////////
 /// Projet S6 - Sujet 4 - Algorithme Génétique ///
 ///              entree_sortie.cpp             ///
 //////////////////////////////////////////////////
@@ -353,9 +353,10 @@ float* lireStat(FILE *F) {
 				if (cpt == 2) { maxScores1 += tableauStatsChar[i]; }
 			}
 		}
+
 		fgets (tableauStatsChar , 100 , F);
 		//~ fputs (tableauStatsChar, stdout);
-		int cpt = 0;
+		cpt = 0;
 		for (int i = 0; tableauStatsChar[i] != '\n'; i++) {
 			//~ cout << tableauStatsChar[i] << endl;
 			if (tableauStatsChar[i] == ' ') { cpt++;}
@@ -369,13 +370,19 @@ float* lireStat(FILE *F) {
 		tableauStats[0] = stof(moyScores1);
 		tableauStats[1] = stof(minScores1);
 		tableauStats[2] = stof(maxScores1);
-		tableauStats[3] = stof(moyScores2);
-		tableauStats[4] = stof(minScores2);
-		tableauStats[5] = stof(maxScores2);
+		if (moyScores2 == "PasCritere") {
+			return tableauStats;
+		}
+		else {
+			tableauStats[3] = stof(moyScores2);
+			tableauStats[4] = stof(minScores2);
+			tableauStats[5] = stof(maxScores2);
+			return tableauStats;
+		}
 		//~ cout << tableauStats[0] << endl;
 		//~ cout << tableauStats[1] << endl;
 		//~ cout << tableauStats[2] << endl;
-		return tableauStats;
+		
 	}
 	else {
 		cerr << "Erreur ouverture fichier" << endl;
