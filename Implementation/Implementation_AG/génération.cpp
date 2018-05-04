@@ -201,7 +201,8 @@ void Population::setEnsemble(Individu &nouv){
 
 /**** TESTS ****/
 
-Population Population::testArret(){ //pourquoi ça doit renvoyer un population? 
+Population Population::testArret() //pourquoi ça doit renvoyer un population? || a finir
+{  
 	if(this->testConvergence() && this->testNombreGeneration()){
 		//calculerEcrireStats(this*, string nomFichierPopulation, string nomFichierStats)
 		//d'apres cds : on continue l'itération
@@ -214,11 +215,13 @@ Population Population::testArret(){ //pourquoi ça doit renvoyer un population?
 	return *this;
 }
 
-bool Population::testConvergence(){
+bool Population::testConvergence() //a implementer
+{
 	return NULL;
 }
 
-bool Population::testNombreGeneration(){
+bool Population::testNombreGeneration()
+{
 	if (numeroGeneration < nombreGenerationMax)
 		return true;
 	return false;
@@ -387,7 +390,8 @@ void Population::triPopulation(int indiceScore) //test OK, signature modifiée /
 		std::cerr<<"error triPopulation" <<std::endl;
 }
 
-Individu Population::selectionner(){
+Individu Population::selectionner() //à implémenter 
+{
 /*if (ensemble.size() % 2 == 0)
 	limite = ensemble.size() / 2;
 else 
@@ -455,14 +459,16 @@ Population Population::creerGeneration(Population P){
 	return *this;
 }
 
-/*bool Individu::probAlea(float prob) {
+/*bool Individu::probAlea(float prob) //pas dans Population
+{
 	double alea = rand()/(double)RAND_MAX; 	//génere un nb dans [0,1]
 	
 	if(alea < prob) return true;
 	return false;
 }*/
 
-int Population::nombreAlea(int inf, int sup){
+int Population::nombreAlea(int inf, int sup) // test OK ? 
+{
 	//inf++;	//parce qu'on ne veut pas que inf soit inclu
 	return rand()%(sup-inf) + sup;
 }
