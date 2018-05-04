@@ -24,13 +24,13 @@ int Population::numeroGeneration = 0;
 Population::Population() : ensemble(0) //test OK
 {
 	numeroGeneration += 1;
-	std::cout<<"CREATION SUCCESS"<<endl;
+	//std::cout<<"CREATION SUCCESS"<<endl;
 }
 
 Population::Population(Population const& P) : ensemble(P.ensemble) //test OK
 {
 	numeroGeneration += 1;
-	std::cout<<"CREATION SUCCESS"<<endl;
+	//std::cout<<"CREATION SUCCESS"<<endl;
 	
 }
 
@@ -98,15 +98,13 @@ Population::~Population() //a revoir
 	std::cout<<ensemble.size()<<endl;
 	int size = ensemble.size();
 	for(int i = 0; i < size; i++){
-		delete ensemble[i];
-		//ensemble.pop_back();
+		ensemble.pop_back();
 		//std::cout<<"individu "<<i<<"détruit"<<std::endl;
 	}
-	//delete[] &ensemble; 
 	//std::cout<<"pointeur sur ensemble détruit"<<std::endl;
-	/*if (criteres != nullptr){
+	if (criteres != nullptr){
 		free(criteres);
-	}*/ //test à revoir 
+	} //test à revoir 
 }
 
 
@@ -390,7 +388,30 @@ void Population::triPopulation(int indiceScore) //test OK, signature modifiée /
 }
 
 Individu Population::selectionner(){
+/*if (ensemble.size() % 2 == 0)
+	limite = ensemble.size() / 2;
+else 
+	limite = ensemble.size() -1 / 2;
 
+scoreMax = somme des scores
+
+for(j = 0; j < nombreCritères; j ++){
+	for (i = 0; i < ensemble.size(); i ++){
+		calculer valeur en pourcentage en fonction du score max 
+	}
+}
+//pour le multicritère : choisir limite/2 en fonction du premier score, et le limite/2 en fonction du second
+while (nbIndivSelect < limite){
+	if(valeur indiv[1] > alea)
+		selectionner indiv
+	for (i = 1; i < ensemble.size(); i ++){
+		if (valeur indiv[i] > alea && valeur indiv[i-1] < val)
+			selectionner indiv[i]
+	}
+}
+return les individus selectionnés 
+
+*/
 }
 //à tester quand toutes les fonctions seront dispos
 Population Population::crossover(Individu parent1, Individu parent2){
