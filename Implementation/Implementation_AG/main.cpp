@@ -9,12 +9,12 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    /*QApplication app(argc, argv);
+   QApplication app(argc, argv);
 
     Interface interface; //crée la fenetre
     interface.show(); //affiche...
     
-    return app.exec();*/
+    return app.exec();
     
     //Test validation//
     
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
     /////////////////////////////
     
     /**TEST DE DU MODULE GENERATION */
-    string donnees[10];
+    /*string donnees[10];
     //proba croisement
     donnees[0] = "0.1"; 
     //nb Indiv & nb Generation Max
@@ -76,11 +76,11 @@ int main(int argc, char *argv[])
     //fit1 et fit2
     donnees[6] = "2 + x"; donnees[7] = "2/(4 + x)";
     //valApp1 et 2
-    donnees[8] = "-1.0"; donnees[9] = "23.5";
+    donnees[8] = "-1.0"; donnees[9] = "23.5";*/
     
     //TEST DES CONSTRUCTEURS / DESTRUCTEUR//
-    Population pop1(donnees);
-    std::cout<<"numero generation pop1 = "<<pop1.getNumeroGeneration()<<std::endl; //constructeur par donnees ok
+    //Population pop1(donnees);
+    //std::cout<<"numero generation pop1 = "<<pop1.getNumeroGeneration()<<std::endl; //constructeur par donnees ok
     //pop1.evaluation();
 
     /* Population pop;
@@ -124,15 +124,15 @@ int main(int argc, char *argv[])
     pop3.setEnsemble(indiv9); pop3.setEnsemble(indiv10);
     std::cout<<"ajout des individus dans pop3.ensemble"<<std::endl;
 
-    /*pop3.triPopulation(1);*/
-    /*pop3.evaluation();
+    pop3.triPopulation(1);
+    //pop3.evaluation();
     vector<Individu*> p_ensemble = pop3.getEnsemble();
 
     std::cout<<"resultat evaluation:"<<std::endl;
     for(int i = 0; i < p_ensemble.size(); i++){
-        std::cout<<p_ensemble[i]->getRang(1)<<std::endl;
-    }*/
+        std::cout<<p_ensemble[i]->getScore(1)<<std::endl;
+    }
     
 
-    return 0;
+    return 0;*/
 }

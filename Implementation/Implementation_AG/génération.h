@@ -67,7 +67,10 @@ public:
 
 	/* LES ALGORITHMES DE CREATION DE GENERATION*/
 	void evaluation(); //signature modifié / cds (passe de Population à void)
-	bool triPopulation (int indiceScore);
+	void triPopulation (int indiceScore); //signature modifié / cds
+	void maximisation (int indiceScpre); //pas dans cds
+	void minimisation (int indiceScore); //pas dans cds
+	void triValeur (int indiceScore); //pas dans cds
 	Individu selectionner();
 	Population crossover(Individu Parent1, Individu Parent2);
 	Population creerGeneration(Population P);
