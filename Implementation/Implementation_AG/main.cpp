@@ -15,6 +15,21 @@ int main(int argc, char *argv[])
     interface.show(); //affiche...
     
     return app.exec();
+
+
+    //TEST LIRESTATS//
+    //FILE *f;
+    //f = fopen("TestFiles/StatsTest.txt", "r");
+    //float *TestTab;
+    //TestTab = lireStat(f);
+    //cout << lireStat(f)[0] << endl;
+    //for(int i = 0; i<6; i++) { cout << lireStat(f)[i] << " ";}
+    //cout << endl;
+    //TestTab = lireStat(f);
+    //for(int i = 0; i<3; i++) { cout << lireStat(f)[i] << " ";}
+    //cout << endl;
+    //delete[] TestTab;
+    //fclose(f);
     
     //Test validation//
     
@@ -68,15 +83,17 @@ int main(int argc, char *argv[])
     /**TEST DE DU MODULE GENERATION */
     /*string donnees[10];
     //proba croisement
-    donnees[0] = "0.1"; 
+    //donnees[0] = "0.1"; 
     //nb Indiv & nb Generation Max
-    donnees[1] = "5"; donnees[2] = "100";
+    //donnees[1] = "5"; donnees[2] = "100";
     //nb crit, crit1, crit 2
-    donnees[3] = "2"; donnees[4] = "1"; donnees[5] = "3";
+    //donnees[3] = "2"; donnees[4] = "1"; donnees[5] = "3";
     //fit1 et fit2
-    donnees[6] = "2 + x"; donnees[7] = "2/(4 + x)";
+    //donnees[6] = "2 + x"; donnees[7] = "2/(4 + x)";
     //valApp1 et 2
+
     donnees[8] = "-1.0"; donnees[9] = "23.5";*/
+
     
     //TEST DES CONSTRUCTEURS / DESTRUCTEUR//
     //Population pop1(donnees);

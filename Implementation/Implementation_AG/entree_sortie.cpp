@@ -1,4 +1,4 @@
-//////////////////////////////////////////////////
+/////////////////////////////////////////////////
 /// Projet S6 - Sujet 4 - Algorithme Génétique ///
 ///              entree_sortie.cpp             ///
 //////////////////////////////////////////////////
@@ -337,9 +337,9 @@ float* lireStat(FILE *F) {
 	
 	if(F) {
 		float *tableauStats;
-		tableauStats = new float[3];
+		tableauStats = new float[6];
 		char tableauStatsChar[100];
-		string moyScores = "", minScores = "", maxScores = "";
+		string moyScores1 = "", minScores1 = "", maxScores1 = "", moyScores2 = "", minScores2 = "", maxScores2 = "";
 		
 		fgets (tableauStatsChar , 100 , F);
 		//~ fputs (tableauStatsChar, stdout);
@@ -348,19 +348,41 @@ float* lireStat(FILE *F) {
 			//~ cout << tableauStatsChar[i] << endl;
 			if (tableauStatsChar[i] == ' ') { cpt++;}
 			else {
-				if (cpt == 0) { moyScores += tableauStatsChar[i]; }
-				if (cpt == 1) { minScores += tableauStatsChar[i]; }
-				if (cpt == 2) { maxScores += tableauStatsChar[i]; }
+				if (cpt == 0) { moyScores1 += tableauStatsChar[i]; }
+				if (cpt == 1) { minScores1 += tableauStatsChar[i]; }
+				if (cpt == 2) { maxScores1 += tableauStatsChar[i]; }
+			}
+		}
+
+		fgets (tableauStatsChar , 100 , F);
+		//~ fputs (tableauStatsChar, stdout);
+		cpt = 0;
+		for (int i = 0; tableauStatsChar[i] != '\n'; i++) {
+			//~ cout << tableauStatsChar[i] << endl;
+			if (tableauStatsChar[i] == ' ') { cpt++;}
+			else {
+				if (cpt == 0) { moyScores2 += tableauStatsChar[i]; }
+				if (cpt == 1) { minScores2 += tableauStatsChar[i]; }
+				if (cpt == 2) { maxScores2 += tableauStatsChar[i]; }
 			}
 		}
 		//~ cout << moyScores << " " << minScores << " " << maxScores << endl;
-		tableauStats[0] = stof(moyScores);
-		tableauStats[1] = stof(minScores);
-		tableauStats[2] = stof(maxScores);
+		tableauStats[0] = stof(moyScores1);
+		tableauStats[1] = stof(minScores1);
+		tableauStats[2] = stof(maxScores1);
+		if (moyScores2 == "PasCritere") {
+			return tableauStats;
+		}
+		else {
+			tableauStats[3] = stof(moyScores2);
+			tableauStats[4] = stof(minScores2);
+			tableauStats[5] = stof(maxScores2);
+			return tableauStats;
+		}
 		//~ cout << tableauStats[0] << endl;
 		//~ cout << tableauStats[1] << endl;
 		//~ cout << tableauStats[2] << endl;
-		return tableauStats;
+		
 	}
 	else {
 		cerr << "Erreur ouverture fichier" << endl;
