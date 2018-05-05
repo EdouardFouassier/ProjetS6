@@ -58,6 +58,9 @@ Individu::Individu(float donnees[3]){	// ça ok Ce constructeur crée un chromos
 
 // Destructeur //
 Individu::~Individu() {
+	delete[] score;
+	delete[] rang;
+	delete[] chromosome;
 	///// Il n'aime pas /////
 	// for(int i = 0; i < this->tailleIndividu; i++){
 	//	free(this->chromosome); // tente avec une boucle genre (pour i de 0 ç taillechromosome, free this->chromosome[i])
