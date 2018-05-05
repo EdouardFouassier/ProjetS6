@@ -45,7 +45,7 @@ public:
 	float getValeurApprochee();
 	float getValeurApprochee2(); //pas dans le cds
 	int getNombreGenerationMax();
-	int getNombreCriteres(); //pas dans le cds :)
+	int getNombreCriteres(); //pas dans le cds
 	
 	/*LES SETTEURS*/
 	void setNombreIndividus(int nbIndiv);

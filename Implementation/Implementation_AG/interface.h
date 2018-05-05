@@ -32,8 +32,10 @@
 #include <QMenuBar>
 #include <QMenu>
 #include <QFileDialog>
+#include <sys/stat.h>
 
 #include "entree_sortie.h"
+#include "génération.h"
 
 using namespace std;
 
@@ -123,6 +125,8 @@ private:
 
 public:
     Interface();
+    
+    Interface(string nom,string fichier);
     //~ Interface(Interface inter);
     bool getEnCours();
 	string getFonctionFitness1();
@@ -140,6 +144,7 @@ public:
 	bool getLatex();
 	bool getXFig();
 	bool getPostScript();
+	void algoGenetique();
 	
     public slots:
     void enableF2(int s);
@@ -152,6 +157,8 @@ public:
     void connectQuitter();
     void connectArreter();
     void connectAide();
+    
+ 
 
 
 

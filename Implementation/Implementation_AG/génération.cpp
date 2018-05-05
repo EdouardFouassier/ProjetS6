@@ -24,13 +24,13 @@ int Population::numeroGeneration = 0;
 Population::Population() : ensemble(0) //test OK
 {
 	numeroGeneration += 1;
-	std::cout<<"CREATION SUCCESS"<<endl;
+	//std::cout<<"CREATION SUCCESS"<<endl;
 }
 
 Population::Population(Population const& P) : ensemble(P.ensemble) //test OK
 {
 	numeroGeneration += 1;
-	std::cout<<"CREATION SUCCESS"<<endl;
+	//std::cout<<"CREATION SUCCESS"<<endl;
 	
 }
 
@@ -98,15 +98,13 @@ Population::~Population() //a revoir
 	std::cout<<ensemble.size()<<endl;
 	int size = ensemble.size();
 	for(int i = 0; i < size; i++){
-		delete ensemble[i];
-		//ensemble.pop_back();
+		ensemble.pop_back();
 		//std::cout<<"individu "<<i<<"détruit"<<std::endl;
 	}
-	//delete[] &ensemble; 
 	//std::cout<<"pointeur sur ensemble détruit"<<std::endl;
-	/*if (criteres != nullptr){
+	if (criteres != nullptr){
 		free(criteres);
-	}*/ //test à revoir 
+	} //test à revoir 
 }
 
 
@@ -203,7 +201,8 @@ void Population::setEnsemble(Individu &nouv){
 
 /**** TESTS ****/
 
-Population Population::testArret(){ //pourquoi ça doit renvoyer un population? 
+Population Population::testArret() //pourquoi ça doit renvoyer un population? || a finir
+{  
 	if(this->testConvergence() && this->testNombreGeneration()){
 		//calculerEcrireStats(this*, string nomFichierPopulation, string nomFichierStats)
 		//d'apres cds : on continue l'itération
@@ -216,11 +215,13 @@ Population Population::testArret(){ //pourquoi ça doit renvoyer un population?
 	return *this;
 }
 
-bool Population::testConvergence(){
+bool Population::testConvergence() //a implementer
+{
 	return NULL;
 }
 
-bool Population::testNombreGeneration(){
+bool Population::testNombreGeneration()
+{
 	if (numeroGeneration < nombreGenerationMax)
 		return true;
 	return false;
@@ -389,8 +390,72 @@ void Population::triPopulation(int indiceScore) //test OK, signature modifiée /
 		std::cerr<<"error triPopulation" <<std::endl;
 }
 
-Individu Population::selectionner(){
+Individu Population::selectionner() //à implémenter 
+{
+//ce que j'ai ecris
 
+	//~ int limite = 0;
+	//~ int scoreMax = 0;
+	//~ int nbIndivSelect = 0;
+	//~ int pourcentage[ensemble.size()][nombreCritere];
+	//~ if (ensemble.size() % 2 == 0) {
+		//~ limite = ensemble.size() / 2;
+	//~ }
+	//~ else {
+		//~ limite = (ensemble.size() -1) / 2;
+	//~ }
+	
+	//~ for (i = 0; i < ensemble.size(); i++) {
+		//~ scoreMax += Individu.getScore(i);
+	//~ }
+	
+	//~ for(j = 0; j < nombreCriteres; j ++){
+		//~ for (i = 0; i < ensemble.size(); i ++){
+			//~ pourcentage[i][j] = (Individu.getScore(i)*100)/scoreMax;
+		//~ }
+	//~ }
+//~ //pour le multicritère : choisir limite/2 en fonction du premier score, et le limite/2 en fonction du second
+//~ //What ? je vois pas ce que ca fait ca 
+
+	//~ j = 0;
+//~ while (nbIndivSelect < limite){
+	//~ if(pourcentage[1][j] > alea)
+		//~ selectionner indiv
+	//~ for (i = 1; i < ensemble.size(); i ++){
+		//~ if (pourcentage[i][j] > alea && pourcentage[i - 1][j] < val)	//c'est quoi ce val ?
+			//~ selectionner indiv[i]
+	//~ }
+//~ }
+//~ Pour le return je suis pas sur de ce qu'on renvoie. On renvoie un tableau avec les nums des individus selectionné ?
+
+	
+	
+	
+//l'algo	
+/*if (ensemble.size() % 2 == 0)
+	limite = ensemble.size() / 2;
+else 
+	limite = ensemble.size() -1 / 2;
+
+scoreMax = somme des scores
+
+for(j = 0; j < nombreCritères; j ++){
+	for (i = 0; i < ensemble.size(); i ++){
+		calculer valeur en pourcentage en fonction du score max 
+	}
+}
+//pour le multicritère : choisir limite/2 en fonction du premier score, et le limite/2 en fonction du second
+while (nbIndivSelect < limite){
+	if(valeur indiv[1] > alea)
+		selectionner indiv
+	for (i = 1; i < ensemble.size(); i ++){
+		if (valeur indiv[i] > alea && valeur indiv[i-1] < val)
+			selectionner indiv[i]
+	}
+}
+return les individus selectionnés 
+
+*/
 }
 //à tester quand toutes les fonctions seront dispos
 Population Population::crossover(Individu parent1, Individu parent2){
@@ -434,14 +499,16 @@ Population Population::creerGeneration(Population P){
 	return *this;
 }
 
-/*bool Individu::probAlea(float prob) {
+/*bool Individu::probAlea(float prob) //pas dans Population
+{
 	double alea = rand()/(double)RAND_MAX; 	//génere un nb dans [0,1]
 	
 	if(alea < prob) return true;
 	return false;
 }*/
 
-int Population::nombreAlea(int inf, int sup){
+int Population::nombreAlea(int inf, int sup) // test OK ? 
+{
 	//inf++;	//parce qu'on ne veut pas que inf soit inclu
 	return rand()%(sup-inf) + sup;
 }

@@ -9,27 +9,36 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
+<<<<<<< HEAD
  /*  QApplication app(argc, argv);
 
     Interface interface; //crée la fenetre
     interface.show(); //affiche...
+=======
+   QApplication app(argc, argv);
+   Interface *interface;
+	if(argv[1]!=NULL){
+	interface=new Interface(string(argv[2]),string(argv[1]));}
+    else interface=new Interface(); //crée la fenetre
+    interface->show(); //affiche...
+>>>>>>> 0d44188a49fd882efa19b6d92348239994345846
     
     return app.exec();
 */
 
     //TEST LIRESTATS//
-    //FILE *f;
-    //f = fopen("TestFiles/StatsTest.txt", "r");
-    //float *TestTab;
-    //TestTab = lireStat(f);
-    //cout << lireStat(f)[0] << endl;
-    //for(int i = 0; i<6; i++) { cout << lireStat(f)[i] << " ";}
-    //cout << endl;
-    //TestTab = lireStat(f);
-    //for(int i = 0; i<3; i++) { cout << lireStat(f)[i] << " ";}
-    //cout << endl;
-    //delete[] TestTab;
-    //fclose(f);
+    /*FILE *f;
+    f = fopen("TestFiles/StatsTest.txt", "r");
+    float *TestTab;
+    TestTab = lireStat(f);
+    //cout << lireStat(f)[3] << endl;
+    for(int i = 0; i<6; i++) { cout << TestTab[i] << " ";}
+    cout << endl;
+    TestTab = lireStat(f);
+    for(int i = 0; i<3; i++) { cout << TestTab[i] << " ";}
+    cout << endl;
+    delete[] TestTab;
+    fclose(f); */
     
     //Test validation//
     
