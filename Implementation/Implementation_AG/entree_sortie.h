@@ -45,10 +45,10 @@ bool ecrireFichierDonnees(Interface *interface, string nomFichier);
 class Population;
 bool ecrirePopulation(Population P, string nomFichier);
 bool calculerEcrireStats(Population P, string nomFichierPopulation, string nomFichierStats);
-//~ bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichierStats);
-//~ bool ecrireLatex(string nomFichierSortie);
-//~ bool ecrirePostscript(string nomFichierSortie);
-//~ bool ecrireXfig(string nomFichierSortie);
+bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichierStats);
+bool ecrireLatex(string nomFichierSortie);
+bool ecrirePostscript(string nomFichierSortie);
+bool ecrireXfig(string nomFichierSortie);
 //~ bool ecrireUnScore(int score, File *F);  //Alors... Elle est dans le cds mais... Askip elle est useless, Wallah c'est un bruit qui court dans la téci
 
 
