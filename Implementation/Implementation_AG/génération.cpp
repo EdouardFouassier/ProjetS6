@@ -392,6 +392,46 @@ void Population::triPopulation(int indiceScore) //test OK, signature modifiée /
 
 Individu Population::selectionner() //à implémenter 
 {
+//ce que j'ai ecris
+
+	//~ int limite = 0;
+	//~ int scoreMax = 0;
+	//~ int nbIndivSelect = 0;
+	//~ int pourcentage[ensemble.size()][nombreCritere];
+	//~ if (ensemble.size() % 2 == 0) {
+		//~ limite = ensemble.size() / 2;
+	//~ }
+	//~ else {
+		//~ limite = (ensemble.size() -1) / 2;
+	//~ }
+	
+	//~ for (i = 0; i < ensemble.size(); i++) {
+		//~ scoreMax += Individu.getScore(i);
+	//~ }
+	
+	//~ for(j = 0; j < nombreCriteres; j ++){
+		//~ for (i = 0; i < ensemble.size(); i ++){
+			//~ pourcentage[i][j] = (Individu.getScore(i)*100)/scoreMax;
+		//~ }
+	//~ }
+//~ //pour le multicritère : choisir limite/2 en fonction du premier score, et le limite/2 en fonction du second
+//~ //What ? je vois pas ce que ca fait ca 
+
+	//~ j = 0;
+//~ while (nbIndivSelect < limite){
+	//~ if(pourcentage[1][j] > alea)
+		//~ selectionner indiv
+	//~ for (i = 1; i < ensemble.size(); i ++){
+		//~ if (pourcentage[i][j] > alea && pourcentage[i - 1][j] < val)	//c'est quoi ce val ?
+			//~ selectionner indiv[i]
+	//~ }
+//~ }
+//~ Pour le return je suis pas sur de ce qu'on renvoie. On renvoie un tableau avec les nums des individus selectionné ?
+
+	
+	
+	
+//l'algo	
 /*if (ensemble.size() % 2 == 0)
 	limite = ensemble.size() / 2;
 else 
