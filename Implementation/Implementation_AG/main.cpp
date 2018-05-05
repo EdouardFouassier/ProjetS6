@@ -9,13 +9,13 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-   QApplication app(argc, argv);
+ /*  QApplication app(argc, argv);
 
     Interface interface; //crée la fenetre
     interface.show(); //affiche...
     
     return app.exec();
-
+*/
 
     //TEST LIRESTATS//
     //FILE *f;
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
     //Test validation//
 
 /////// Test Individu ///////
-    /*float donnees[3];
+    /* float donnees[3];
     donnees[0] = 4.0;
     donnees[1] = 0.01;
     donnees[2] = 1.0;
@@ -57,8 +57,11 @@ int main(int argc, char *argv[])
     int indScore = 0;
     indiv.evaluationIndividu(fonction, indScore);
     cout << "Score: " << indiv.getScore(indScore) << endl;
-    indiv.~Individu(); */
-    /* Individu indiv(5);
+    cout << "Score: " << indiv.getScore(indScore+1) << endl;
+    indiv.~Individu();
+    */
+    /*
+    Individu indiv(5);
     for(int i = 0; i < 6; i++){
         cout << "Chromosome i " << indiv.getChromosome()[i] << endl;
     }
