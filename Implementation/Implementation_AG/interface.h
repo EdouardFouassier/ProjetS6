@@ -125,6 +125,8 @@ private:
 
 public:
     Interface();
+    
+    Interface(string nom,string fichier);
     //~ Interface(Interface inter);
     bool getEnCours();
 	string getFonctionFitness1();

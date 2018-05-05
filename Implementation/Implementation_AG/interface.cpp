@@ -189,10 +189,16 @@ Interface::Interface() : QWidget()
     this->autoFillBackground();
 }
 
+Interface::Interface(string nom,string fichier) : Interface(){
+	liensFichier->setText(QString::fromStdString(fichier));
+	nomFichier->setText(QString::fromStdString(nom));
+	connectLancer();
+}
+
 void Interface::algoGenetique(){
-	cout<<nomFichierSortie<<"/"<<nomFichierSortie<<"_Parametre.txt"<<endl;
-	Population P(lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametre.txt"));
-	cout<<"check0"<<endl;
+	//cout<<nomFichierSortie<<"/"<<nomFichierSortie<<"_Parametre.txt"<<endl;
+	//*Population P(*/lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametre.txt")/*)*/;
+	//cout<<"check0"<<endl;
 	//ecrirePopulation(P,nomFichierSortie+"/"+nomFichierSortie+"_Population.txt");
 }
 

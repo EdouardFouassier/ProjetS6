@@ -10,11 +10,13 @@ using namespace std;
 int main(int argc, char *argv[])
 {
    QApplication app(argc, argv);
-
-    //Interface interface; //crée la fenetre
-    //interface.show(); //affiche...
+   Interface *interface;
+	if(argv[1]!=NULL){
+	interface=new Interface(string(argv[2]),string(argv[1]));}
+    else interface=new Interface(); //crée la fenetre
+    interface->show(); //affiche...
     
-    //return app.exec();
+    return app.exec();
 
 
     //TEST LIRESTATS//
