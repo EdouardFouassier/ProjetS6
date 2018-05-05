@@ -189,36 +189,11 @@ Interface::Interface() : QWidget()
     this->autoFillBackground();
 }
 
-//~ Interface::Interface(Interface inter) : QWidget() 
-//~ {
-		
-       // F1->text()=probabilite.getFonctionFitness1();
-        //~ fonctionFitness2=F2->text().toUtf8().constData();
-        //~ taillePopulation=taillePop->value();
-        //~ tailleIndividu=tailleIndi->value();
-        //~ nbGenerationMax=nbGen->value();
-        //~ if(maxF1->isChecked()) critereF1=1;
-        //~ else {
-            //~ if(minF1->isChecked()) critereF1=2;
-            //~ else critereF1=3;
-        //~ }
-        //~ if(nbF->currentIndex()==1){
-            //~ if(maxF2->isChecked()) critereF2=1;
-            //~ else {
-                //~ if(minF2->isChecked()) critereF2=2;
-                //~ else critereF2=3;
-            //~ }
-        //~ }
-	//~ else critereF2=0;
-	//~ tauxMutation=tauxMut->value();
-	//~ tauxCrossover=tauxCross->value();
-	//~ valeurApproxF1=valeurF1->value();
-	//~ valeurApproxF2=valeurF2->value();
-	//~ latex=checkLaTeX->isChecked();
-	//~ xFig=checkXFig->isChecked();
-	//~ postScript=checkPostScrit->isChecked();
-	//~ nomFichierSortie=nomFichier->text().toUtf8().constData();
-//~ }
+void Interface::algoGenetique(){
+	Population P(lireInfoRegen(nomFichierSortie+"_Parametre.txt"));
+	cout<<"check0"<<endl;
+	ecrirePopulation(P,nomFichierSortie+"/"+nomFichierSortie+"_Population.txt");
+}
 
 bool Interface::getEnCours(){
     return encours;
@@ -372,31 +347,44 @@ void Interface::connectLancer(){
 				cout<< estProbabilite("-221452")<<endl;
 				cout<< estProbabilite("2a")<<endl;
 				cout<< estProbabilite("a2")<<endl;
-*/				ecrireFichierDonnees(this,nomFichierSortie+"_Parametre.txt");
+*/				
 				try{
 					if(nomFichierSortie.length()==0) {
 						throw string("Erreur nom fichier de sortie \n"); 
 						nomcorrect=false;
 					}
-					else nomcorrect=true;
+					else {
+						if(QFileInfo(QString::fromStdString(nomFichierSortie)).exists())
+						{
+							throw string("Erreur nom fichier déjà pris \n"); 
+							nomcorrect=false;
+						}
+						else{
+							ecrireFichierDonnees(this,nomFichierSortie+"_Parametre.txt");
+							nomcorrect=true;
+						}
+					}
+					
+					
 					if(latex || xFig || postScript) sortiecorrect=true;
 					else {
 						throw string("Erreur format de sortie \n");
-					sortiecorrect=false;
+						sortiecorrect=false;
 					}
 					if(nomcorrect && sortiecorrect && testCoherenceDonnees(nomFichierSortie+"_Parametre.txt")) {
 					QMessageBox::information(this,"Bravo","Le programme a été demaré avec succès");
+					QProcess::startDetached(QString::fromStdString("mkdir "+nomFichierSortie));
+					QProcess::startDetached(QString::fromStdString("mv "+nomFichierSortie+"_Parametre.txt"+" "+nomFichierSortie+"/"));	
 					encours=1;
 					}
+					
 				}
 				catch(string const& e){
+					if(QFileInfo(QString::fromStdString(nomFichierSortie+"_Parametre.txt")).exists())QProcess::startDetached(QString::fromStdString("rm "+nomFichierSortie+"_Parametre.txt"));
 					QMessageBox::information(this,"ERROR",QString::fromStdString(e));
 				}
 			}
 			else {
-				latex=checkLaTeX->isChecked();
-				xFig=checkXFig->isChecked();
-				postScript=checkPostScrit->isChecked();
 				nomFichierSortie=nomFichier->text().toUtf8().constData();
 				
 				try{
@@ -404,9 +392,22 @@ void Interface::connectLancer(){
 						throw string("Erreur nom fichier de sortie \n"); 
 						nomcorrect=false;
 					}
-					else nomcorrect=true;
+					else {
+						if(QFileInfo(QString::fromStdString(nomFichierSortie)).exists())
+						{
+							throw string("Erreur nom fichier déjà pris \n"); 
+							nomcorrect=false;
+						}
+						else{
+							nomcorrect=true;
+						}
+					}
+					
 					if(nomcorrect && testCoherenceDonnees(liensFichier->text().toUtf8().constData())){
-						QMessageBox::information(this,"Bravo","Le programme a été demaré avec succès");
+						QMessageBox::information(this,"Bravo","Le programme est pret a etre lancer.");
+						QProcess::startDetached(QString::fromStdString("mkdir "+nomFichierSortie));
+						QProcess::startDetached(QString::fromStdString("cp "+string(liensFichier->text().toUtf8().constData())+" "+nomFichierSortie+"/"+nomFichierSortie+"_Parametre.txt"));
+						//algoGenetique();
 						encours=1;
 					}
 				}

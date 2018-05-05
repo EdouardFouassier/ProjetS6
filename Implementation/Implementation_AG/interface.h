@@ -32,8 +32,10 @@
 #include <QMenuBar>
 #include <QMenu>
 #include <QFileDialog>
+#include <sys/stat.h>
 
 #include "entree_sortie.h"
+#include "génération.h"
 
 using namespace std;
 
@@ -140,6 +142,7 @@ public:
 	bool getLatex();
 	bool getXFig();
 	bool getPostScript();
+	void algoGenetique();
 	
     public slots:
     void enableF2(int s);
@@ -152,6 +155,8 @@ public:
     void connectQuitter();
     void connectArreter();
     void connectAide();
+    
+ 
 
 
 

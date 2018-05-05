@@ -55,7 +55,7 @@ bool testCoherenceDonnees(string nomFichier) {
 	while(i != 13) { 
 			//fichier >> donnees;cout<<donnees<<endl;
 		getline(fichier, donnees); 
-		cout<<i<<" "<<donnees<<" "<<donnees.length()<<endl;
+		//cout<<i<<" "<<donnees<<" "<<donnees.length()<<endl;
 		   //donnees.erase(donnees.length(),1);
 		if (i == 0) {
 			x = estEntierPositif(donnees);
@@ -544,30 +544,31 @@ bool ecrireFichierDonnees(Interface *interface, string nomFichier) {
 }
 
 bool ecrirePopulation(Population P, string nomFichier){ //LES TEST SONT ENCORE A FAIRE
-    ofstream fichier(nomFichier.c_str(), ios::out);
+    ofstream fichier(nomFichier.c_str(), ios::out | ios::trunc);
 
    if(fichier)
    {
+	   cout<<"check1"<<endl;
        for(int i=0;i<P.getNombreIndividus()-1;i++){
-		   fichier << P.getEnsemble()[i]->getScore(0) << " ";
-		   
+		   //fichier << P.getEnsemble()[i]->getScore(0) << " ";
+		   cout<<"check5"<<endl;
            //for(int j=0;j<P.getEnsemble()[i].getTailleIndividu();j++){
                //fichier << P.getEnsemble()[i].getChromosome()[j] << " ";
            //}
        }
        fichier << P.getEnsemble()[P.getNombreIndividus()-1]->getScore(0) << endl;
-       
+       cout<<"check2"<<endl;
        if(P.getNombreCriteres() == 2)
        {
 			for(int i=0;i<P.getNombreIndividus()-1;i++){
 			fichier << P.getEnsemble()[i]->getScore(1) << " ";
-		   
+		   cout<<"check4"<<endl;
 			//for(int j=0;j<P.getEnsemble()[i].getTailleIndividu();j++){
 				//fichier << P.getEnsemble()[i].getChromosome()[j] << " ";
 			//}
 			}
        fichier << P.getEnsemble()[P.getNombreIndividus()-1]->getScore(1) << endl;
-       
+       cout<<"check3"<<endl;
 	   }
 	   else { fichier << "PasCritere" << endl; }
        fichier.close();
@@ -626,14 +627,30 @@ bool calculerEcrireStats(Population P, string nomFichierPopulation, string nomFi
 	}
 }
 
-//~ bool ecrireFichier(string nomFichierSortie, string nomFichierParametre, string nomFichierStats){
-//~ }
-//~ bool ecrireLatex(string nomFichierSortie){
-//~ }
-//~ bool ecrirePostscript(string nomFichierSortie){
-//~ }
-//~ bool ecrireXfig(string nomFichierSortie){
-//~ }
+bool ecrireFichier(string nomFichierSortie, string nomFichierParametre, string nomFichierStats){
+	ifstream fichierParam(nomFichierParametre.c_str(), ios::in);						//On ouvre le fichier en lecture
+
+	if(fichierParam) {
+		string line;
+		for(int i=0;i<13;i++)
+		{
+			getline(fichierParam,line);
+		}
+		cout<<line[0]<<line[1]<<line[2]<<endl;
+		if(line[0]=='1') ecrireLatex(nomFichierSortie);
+		if(line[1]=='1') ecrirePostscript(nomFichierSortie);
+		if(line[2]=='1') ecrireXfig(nomFichierSortie);
+	}
+}
+bool ecrireLatex(string nomFichierSortie){
+	cout<<"Ouai ouai la on ecrit le LaTeX IZI ! "<<endl;
+}
+bool ecrirePostscript(string nomFichierSortie){
+	cout<<"Ouai ouai la on ecrit le PostScript IZI ! "<<endl;
+}
+bool ecrireXfig(string nomFichierSortie){
+	cout<<"Ouai ouai inchalla ici on va voir si on ecrit le XFig de ses mort parce que walla sa darone elle est pas hallal ."<<endl;
+}
 //~ bool ecrireUnScore(int score, File *F); //Alors... Elle est dans le cds mais... Askip elle est useless, Wallah c'est un bruit qui court dans la téci
 
 //~ int main (){
