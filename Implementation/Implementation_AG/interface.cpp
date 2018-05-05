@@ -197,9 +197,9 @@ Interface::Interface(string nom,string fichier) : Interface(){
 
 void Interface::algoGenetique(){
 	//cout<<nomFichierSortie<<"/"<<nomFichierSortie<<"_Parametre.txt"<<endl;
-	//*Population P(*/lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametre.txt")/*)*/;
+	Population P(lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametre.txt"));
 	//cout<<"check0"<<endl;
-	//ecrirePopulation(P,nomFichierSortie+"/"+nomFichierSortie+"_Population.txt");
+	ecrirePopulation(P,nomFichierSortie+"/"+nomFichierSortie+"_Population.txt");
 }
 
 bool Interface::getEnCours(){

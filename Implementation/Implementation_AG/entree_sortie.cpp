@@ -395,11 +395,10 @@ string* lireInfoRegen(string nomFichier){
 	ifstream fichier(nomFichier.c_str(), ios::in);						//On ouvre le fichier en lecture
 	if(fichier) {
 		string *tableauInfoRegen;										
-		tableauInfoRegen = new string[10];								//On declare un tableau de string de dix cases
+		tableauInfoRegen = new string[11];								//On declare un tableau de string de dix cases
 		string sautligne;												//On cree une variable string qui nous servira a sauter des lignes
 		getline(fichier,sautligne);										//On saute les deux premieres lignes du fichier
 		getline(fichier,sautligne);
-		
 		getline(fichier,sautligne);
 		tableauInfoRegen[0] = sautligne;								//tauxCrossver				
 		getline(fichier,sautligne);
@@ -411,7 +410,7 @@ string* lireInfoRegen(string nomFichier){
 		getline(fichier,sautligne);
 		tableauInfoRegen[6] = sautligne;								//fonctionFitness1;
 		getline(fichier,sautligne);
-		tableauInfoRegen[4] = sautligne;								//critereFonctionFitness1;
+		tableauInfoRegen[4] = sautligne;
 		getline(fichier,sautligne);
 		tableauInfoRegen[8] = sautligne;								//valeurFonctionFitness1;
 		getline(fichier,sautligne);
@@ -419,9 +418,8 @@ string* lireInfoRegen(string nomFichier){
 		getline(fichier,sautligne);
 		tableauInfoRegen[5] = sautligne;								//critereFonctionFitness2;
 		getline(fichier,sautligne);
-		tableauInfoRegen[9] = sautligne;								//valeurFonctionFitness2;
-		tableauInfoRegen[10] = nomFichier;								//Nom du fichier des parametres
-		
+		tableauInfoRegen[9] = sautligne;					//valeurFonctionFitness2;
+		tableauInfoRegen[10] = nomFichier;
 		//~ fichier >> tableauInfoRegen[0] >> tableauInfoRegen[1]			//On lit les lignes du fichier que l'on stocke dans les cases du tableau, 0 -> Taux de crossover, 1 -> Taille de la population
 				//~ >> tableauInfoRegen[2] >> tableauInfoRegen[3]			//2 -> Nombre de generation max, 3 -> Nombre de criteres 
 				//~ >> tableauInfoRegen[6] >> tableauInfoRegen[4]			//6 -> Fonction fitness1, 4 -> Critere Fonction fitness1
@@ -569,13 +567,13 @@ bool ecrireFichierDonnees(Interface *interface, string nomFichier) {
 }
 
 bool ecrirePopulation(Population P, string nomFichier){ //LES TEST SONT ENCORE A FAIRE
-    ofstream fichier(nomFichier.c_str(), ios::out | ios::trunc);
+	ofstream fichier(nomFichier.c_str(), ios::out | ios::trunc);
 
    if(fichier)
    {
 	   cout<<"check1"<<endl;
        for(int i=0;i<P.getNombreIndividus()-1;i++){
-		   //fichier << P.getEnsemble()[i]->getScore(0) << " ";
+		   fichier << P.getEnsemble()[i]->getScore(0) << " ";
 		   cout<<"check5"<<endl;
            //for(int j=0;j<P.getEnsemble()[i].getTailleIndividu();j++){
                //fichier << P.getEnsemble()[i].getChromosome()[j] << " ";
