@@ -11,11 +11,6 @@ int main(int argc, char *argv[])
 {
 
 QApplication app(argc, argv);
-
-    Interface interface; //crée la fenetre
-    interface.show(); //affiche...
-
-   QApplication app(argc, argv);
    Interface *interface;
 	if(argv[1]!=NULL){
 	interface=new Interface(string(argv[2]),string(argv[1]));}
