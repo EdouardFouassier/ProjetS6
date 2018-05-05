@@ -399,11 +399,36 @@ string* lireInfoRegen(string nomFichier){
 		string sautligne;												//On cree une variable string qui nous servira a sauter des lignes
 		getline(fichier,sautligne);										//On saute les deux premieres lignes du fichier
 		getline(fichier,sautligne);
-		fichier >> tableauInfoRegen[0] >> tableauInfoRegen[1]			//On lit les lignes du fichier que l'on stocke dans les cases du tableau, 0 -> Taux de crossover, 1 -> Taille de la population
-				>> tableauInfoRegen[2] >> tableauInfoRegen[3]			//2 -> Nombre de generation max, 3 -> Nombre de criteres 
-				>> tableauInfoRegen[6] >> tableauInfoRegen[4]			//6 -> Fonction fitness1, 4 -> Critere Fonction fitness1
-				>> tableauInfoRegen[8] >> tableauInfoRegen[7]			//8 -> Valeur approchée Fonction fitness1, 7 -> Fonction fitness2
-				>> tableauInfoRegen[5] >> tableauInfoRegen[9];			//5 -> Critere Fonction fitness2, 9 -> Valeur approchée Fonction fitness1
+		
+		getline(fichier,sautligne);
+		tableauInfoRegen[0] = sautligne;								//tauxCrossver				
+		getline(fichier,sautligne);
+		tableauInfoRegen[1] = sautligne;								//taillePopulation;
+		getline(fichier,sautligne);
+		tableauInfoRegen[2] = sautligne;								//nombreGenerationMax;
+		getline(fichier,sautligne);
+		tableauInfoRegen[3] = sautligne;								//nombreCriteres;
+		getline(fichier,sautligne);
+		tableauInfoRegen[6] = sautligne;								//fonctionFitness1;
+		getline(fichier,sautligne);
+		tableauInfoRegen[4] = sautligne;								//critereFonctionFitness1;
+		getline(fichier,sautligne);
+		tableauInfoRegen[8] = sautligne;								//valeurFonctionFitness1;
+		getline(fichier,sautligne);
+		tableauInfoRegen[7] = sautligne;								//fonctionFitness2;
+		getline(fichier,sautligne);
+		tableauInfoRegen[5] = sautligne;								//critereFonctionFitness2;
+		getline(fichier,sautligne);
+		tableauInfoRegen[9] = sautligne;								//valeurFonctionFitness2;
+		tableauInfoRegen[10] = nomFichier;								//Nom du fichier des parametres
+		
+		//~ fichier >> tableauInfoRegen[0] >> tableauInfoRegen[1]			//On lit les lignes du fichier que l'on stocke dans les cases du tableau, 0 -> Taux de crossover, 1 -> Taille de la population
+				//~ >> tableauInfoRegen[2] >> tableauInfoRegen[3]			//2 -> Nombre de generation max, 3 -> Nombre de criteres 
+				//~ >> tableauInfoRegen[6] >> tableauInfoRegen[4]			//6 -> Fonction fitness1, 4 -> Critere Fonction fitness1
+				//~ >> tableauInfoRegen[8] >> tableauInfoRegen[7]			//8 -> Valeur approchée Fonction fitness1, 7 -> Fonction fitness2
+				//~ >> tableauInfoRegen[5] >> tableauInfoRegen[9];			//5 -> Critere Fonction fitness2, 9 -> Valeur approchée Fonction fitness1
+				
+				
 		fichier.close();												//On ferme le fichier
 		
 		//~ printf("\n");		
