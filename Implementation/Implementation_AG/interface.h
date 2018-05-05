@@ -32,7 +32,7 @@
 #include <QMenuBar>
 #include <QMenu>
 #include <QFileDialog>
-#include <sys/stat.h>  
+#include <sys/stat.h>
 
 #include "entree_sortie.h"
 #include "génération.h"
