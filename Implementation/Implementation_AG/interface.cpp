@@ -77,7 +77,7 @@ Interface::Interface() : QWidget()
     labMaxF2=new QLabel("↑");
     labAppF1=new QLabel("=");
     labAppF2=new QLabel("=");
-    labParcourir=new QLabel("Entrer fichier de paramètre:");
+    labParcourir=new QLabel("Entrer le fichier de paramètres :");
 
 
 
@@ -243,7 +243,7 @@ void Interface::connectArreter(){
 			 //~ QMessageBox::information(this, "Fermeture", "Resultat sauvegarder.\nA bientot");
             //~ close();
 		//~ }
-        int reponse=QMessageBox::question(this,"Confirmer?" ,"Arreter enregistrera le resultat actuel.\nL'algorithme n'est pas fini.\nEtes vous sûr?", QMessageBox::Yes | QMessageBox::No );
+        int reponse=QMessageBox::question(this,"Confirmer" ,"Arrêter enregistrera le resultat actuel.\nL'algorithme n'est pas fini.\nEtes-vous sûr?", QMessageBox::Yes | QMessageBox::No );
         if (reponse == QMessageBox::Yes)
         {
             QMessageBox::information(this, "Fermeture", "A bientôt");
@@ -253,7 +253,7 @@ void Interface::connectArreter(){
         }
     }
     else{
-        int reponse=QMessageBox::question(this,"C'est facheux" ,"L'algorithme n'a pas été lancé.\nEtes vous sûr?", QMessageBox::Yes | QMessageBox::No );
+        int reponse=QMessageBox::question(this,"C'est facheux" ,"L'algorithme n'a pas été lancé.\nEtes-vous sûr?", QMessageBox::Yes | QMessageBox::No );
         if (reponse == QMessageBox::Yes)
         {
             QMessageBox::information(this, "Fermeture", "A bientôt");
@@ -265,7 +265,7 @@ void Interface::connectArreter(){
 
 void Interface::connectQuitter(){
     if(encours==1){
-        int reponse=QMessageBox::question(this,"Confirmer?" ,"Quitter perdra la progression actuel de l'algorithme.\nEtes vous sûr?", QMessageBox::Yes | QMessageBox::No );
+        int reponse=QMessageBox::question(this,"Confirmer" ,"Quitter perdra la progression actuel de l'algorithme.\nEtes-vous sûr?", QMessageBox::Yes | QMessageBox::No );
         if (reponse == QMessageBox::Yes)
         {
             QMessageBox::information(this, "Fermeture", "A bientôt");
@@ -281,7 +281,7 @@ void Interface::connectQuitter(){
 void Interface::connectLancer(){
 	bool nomcorrect,sortiecorrect;
 	if(encours==0){
-		int reponse=QMessageBox::question(this,"Confirmer?" ,"Etes vous sûr de vouloir lancer?", QMessageBox::Yes | QMessageBox::No );
+		int reponse=QMessageBox::question(this,"Confirmer" ,"Etes-vous sûr de vouloir lancer ?", QMessageBox::Yes | QMessageBox::No );
 		if (reponse == QMessageBox::Yes)
 		{
 			if(liensFichier->text().length()==0){
@@ -357,13 +357,13 @@ void Interface::connectLancer(){
 */				
 				try{
 					if(nomFichierSortie.length()==0) {
-						throw string("Erreur nom fichier de sortie \n"); 
+						throw string("Erreur de nom fichier de sortie. \n"); 
 						nomcorrect=false;
 					}
 					else {
 						if(QFileInfo(QString::fromStdString(nomFichierSortie)).exists())
 						{
-							throw string("Erreur nom fichier déjà pris \n"); 
+							throw string("Erreur ! Nom fichier déjà pris. \n"); 
 							nomcorrect=false;
 						}
 						else{
@@ -375,11 +375,11 @@ void Interface::connectLancer(){
 					
 					if(latex || xFig || postScript) sortiecorrect=true;
 					else {
-						throw string("Erreur format de sortie \n");
+						throw string("Erreur de format de sortie. \n");
 						sortiecorrect=false;
 					}
 					if(nomcorrect && sortiecorrect && testCoherenceDonnees(nomFichierSortie+"_Parametre.txt")) {
-					QMessageBox::information(this,"Bravo","Le programme a été demaré avec succès");
+					QMessageBox::information(this,"Bravo !","Le programme a demarré avec succès.");
 					QProcess::startDetached(QString::fromStdString("mkdir "+nomFichierSortie));
 					QProcess::startDetached(QString::fromStdString("mv "+nomFichierSortie+"_Parametre.txt"+" "+nomFichierSortie+"/"));
 					QProcess::startDetached(QString::fromStdString("chmod +xwr "+nomFichierSortie+"/"+nomFichierSortie+"_Parametre.txt"));	
@@ -397,13 +397,13 @@ void Interface::connectLancer(){
 				
 				try{
 					if(nomFichierSortie.length()==0) {
-						throw string("Erreur nom fichier de sortie \n"); 
+						throw string("Erreur de nom fichier de sortie \n"); 
 						nomcorrect=false;
 					}
 					else {
 						if(QFileInfo(QString::fromStdString(nomFichierSortie)).exists())
 						{
-							throw string("Erreur nom fichier déjà pris \n"); 
+							throw string("Erreur ! Nom fichier déjà pris \n"); 
 							nomcorrect=false;
 						}
 						else{
@@ -412,7 +412,7 @@ void Interface::connectLancer(){
 					}
 					
 					if(nomcorrect && testCoherenceDonnees(liensFichier->text().toUtf8().constData())){
-						QMessageBox::information(this,"Bravo","Le programme est pret a etre lancer.");
+						QMessageBox::information(this,"Bravo !","Le programme est prêt a être lancé.");
 						QProcess::startDetached(QString::fromStdString("mkdir "+nomFichierSortie));
 						QProcess::startDetached(QString::fromStdString("cp "+string(liensFichier->text().toUtf8().constData())+" "+nomFichierSortie+"/"+nomFichierSortie+"_Parametre.txt"));
 						QProcess::startDetached(QString::fromStdString("chmod +xwr "+nomFichierSortie+"/"+nomFichierSortie+"_Parametre.txt"));
