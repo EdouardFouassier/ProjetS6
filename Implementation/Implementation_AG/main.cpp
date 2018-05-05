@@ -11,25 +11,25 @@ int main(int argc, char *argv[])
 {
    QApplication app(argc, argv);
 
-    Interface interface; //crée la fenetre
-    interface.show(); //affiche...
+    //Interface interface; //crée la fenetre
+    //interface.show(); //affiche...
     
-    return app.exec();
+    //return app.exec();
 
 
     //TEST LIRESTATS//
-    //FILE *f;
-    //f = fopen("TestFiles/StatsTest.txt", "r");
-    //float *TestTab;
-    //TestTab = lireStat(f);
-    //cout << lireStat(f)[0] << endl;
-    //for(int i = 0; i<6; i++) { cout << lireStat(f)[i] << " ";}
-    //cout << endl;
+    /*FILE *f;
+    f = fopen("TestFiles/StatsTest.txt", "r");
+    float *TestTab;
+    TestTab = lireStat(f);
+    cout << lireStat(f)[0] << endl;
+    for(int i = 0; i<6; i++) { cout << lireStat(f)[i] << " ";}
+    cout << endl;
     //TestTab = lireStat(f);
     //for(int i = 0; i<3; i++) { cout << lireStat(f)[i] << " ";}
     //cout << endl;
-    //delete[] TestTab;
-    //fclose(f);
+    delete[] TestTab;
+    fclose(f); */
     
     //Test validation//
     
