@@ -186,7 +186,7 @@ Interface::Interface() : QWidget()
     QPalette p;
     p.setBrush(QPalette::Active,QPalette::Window,QBrush(QColor(255,255,255,255)));
     this->setPalette(p);
-    this->autoFillBackground(); 
+    this->autoFillBackground();
 }
 
 void Interface::algoGenetique(){
