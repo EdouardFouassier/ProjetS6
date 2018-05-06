@@ -234,7 +234,7 @@ bool Population::testPopulationRemplie(){
 }
 /**** LES ALGOS ****/
 
-void Population::evaluation() //test ok, signature modifiée / cds (passe de Population à void), plus le rang est haut, meilleur est l'indiv
+void Population::evaluation() //test ok, signature modifiée / cds (passe de Population à void)
 {
 	//std::cout<<"EVALUATION"<<std::endl;
 	string fitnessTmp;
@@ -251,7 +251,7 @@ void Population::evaluation() //test ok, signature modifiée / cds (passe de Pop
 				ensemble[iIndiv]->Individu::evaluationIndividu(fitnessTmp, iCritere);
 			}
 			this->Population::triPopulation(iCritere);
-			int cpt = nombreIndividus;
+			int cpt = 0;
 			int ensembleSize = ensemble.size() - 1;
 			float iScore1, iScore2;
 			for(int iIndiv = 0; iIndiv < ensembleSize; iIndiv ++){
@@ -263,7 +263,7 @@ void Population::evaluation() //test ok, signature modifiée / cds (passe de Pop
 				}
 				else {
 					ensemble[iIndiv]->Individu::setRang(cpt, iCritere);
-					cpt --;
+					cpt ++;
 				}
 			}
 			iScore1 = ensemble[ensembleSize]->Individu::getScore(iCritere);
@@ -273,7 +273,7 @@ void Population::evaluation() //test ok, signature modifiée / cds (passe de Pop
 				ensemble[ensembleSize]->Individu::setRang(cpt, iCritere);
 			}
 			else { 
-				cpt --;
+				cpt ++;
 				this->ensemble[ensembleSize]->Individu::setRang(cpt, iCritere);
 			}
 			//for(int i = 0; i < ensembleSize; i++)
@@ -391,74 +391,45 @@ void Population::triPopulation(int indiceScore) //test OK, signature modifiée /
 }
 
 Individu Population::selectionner(int iCritere) //à implémenter , modifié / cds
-{
-//ce que j'ai ecris
-
-	//int limite = 0;
-	//int scoreMax = 0;
-	//int nbIndivSelect = 0;
+{	
 	int taillePop = ensemble.size();
-	//int pourcentage[taillePop];
-	int rangMin = 100;
-	/*if (taillePop % 2 == 0) {
-		limite = taillePop / 2;
+	int rang;
+	int cpt = 0;
+	int rangMax = 0;
+
+	for (int i = 0; i < taillePop; i ++){
+		if (ensemble[i]->getRang(iCritere-1) > rangMax)
+			rangMax = ensemble[i]->getRang(iCritere-1);
+	}
+
+	int tauxApparition[rangMax];
+
+	for(int i = 0; i < taillePop - 1; i++){
+		if (ensemble[i]->getRang(iCritere-1) == ensemble[i+1]->getRang(iCritere-1))
+			cpt ++;
+		else 
+			cpt = 0;
+		rang = ensemble[i]->getRang(iCritere-1);
+		tauxApparition[rang] = (cpt + 1)/taillePop;
+	}
+	if (ensemble[taillePop-1]->getRang(iCritere-1) == ensemble[taillePop-2]->getRang(iCritere-1)){
+		rang = ensemble[taillePop-1]->getRang(iCritere-1);
+		tauxApparition[rang] = cpt/taillePop;
 	}
 	else {
-		limite = (ensemble.size() -1) / 2;
+		rang = ensemble[taillePop-1]->getRang(iCritere-1);
+		tauxApparition[rang] = 1/taillePop;
 	}
-	
-	for (i = 0; i < taillePop; i++) {
-		scoreMax += ensemble[i]->getR(iCritere-1);
-	}*/
-	
-	
-	for (int i = 0; i < taillePop; i ++){
-		if (ensemble[i]->getRang(iCritere-1) < rangMin)
-			rangMin = ensemble[i]->getRang(iCritere-1);
-	}
-	
-//pour le multicritère : choisir limite/2 en fonction du premier score, et le limite/2 en fonction du second
-//What ? je vois pas ce que ca fait ca 
 
-	int alea = nombreAlea(rangMin, taillePop);	
-	if(ensemble[0]->getRang(iCritere - 1) > alea)
-		return *ensemble[0];
-	for (int i = 1; i < taillePop; i ++){
-		alea = nombreAlea(rangMin, taillePop);	
-		if (ensemble[i]->getRang(iCritere - 1) > alea && ensemble[i-1]->getRang(iCritere - 1) < alea)	
+	int alea = nombreAlea(1, rangMax);
+	
+	int rang2 = tauxApparition[alea];
+	for(int i = 0; i < taillePop; i++){
+		if (ensemble[i]->getRang(iCritere-1) == rang2 && ensemble[i]->getRang(iCritere-1) != rang2 )
 			return *ensemble[i];
 	}
+
 }
-//~ Pour le return je suis pas sur de ce qu'on renvoie. On renvoie un tableau avec les nums des individus selectionné ?
-
-	
-	
-	
-//l'algo	
-/*if (ensemble.size() % 2 == 0)
-	limite = ensemble.size() / 2;
-else 
-	limite = ensemble.size() -1 / 2;
-
-scoreMax = somme des scores
-
-for(j = 0; j < nombreCritères; j ++){
-	for (i = 0; i < ensemble.size(); i ++){
-		calculer valeur en pourcentage en fonction du score max 
-	}
-}
-//pour le multicritère : choisir limite/2 en fonction du premier score, et le limite/2 en fonction du second
-while (nbIndivSelect < limite){
-	if(valeur indiv[1] > alea)
-		selectionner indiv
-	for (i = 1; i < ensemble.size(); i ++){
-		if (valeur indiv[i] > alea && valeur indiv[i-1] < val)
-			selectionner indiv[i]
-	}
-}
-return les individus selectionnés 
-
-*/
 
 //à tester quand toutes les fonctions seront dispos
 Population Population::crossover(Individu parent1, Individu parent2){
@@ -518,6 +489,76 @@ int Population::nombreAlea(int inf, int sup) // test OK ?
 
 
 
+
+
+/** SELECTION **/
+//ce que j'ai ecris
+
+	//int limite = 0;
+	//int scoreMax = 0;
+	//int nbIndivSelect = 0;
+	//int taillePop = ensemble.size();
+	//int pourcentage[taillePop];
+	//int rangMin = 100;
+	/*if (taillePop % 2 == 0) {
+		limite = taillePop / 2;
+	}
+	else {
+		limite = (ensemble.size() -1) / 2;
+	}
+	
+	for (i = 0; i < taillePop; i++) {
+		scoreMax += ensemble[i]->getR(iCritere-1);
+	}*/
+	
+	
+	/*for (int i = 0; i < taillePop; i ++){
+		if (ensemble[i]->getRang(iCritere-1) < rangMin)
+			rangMin = ensemble[i]->getRang(iCritere-1);
+	}
+	
+//pour le multicritère : choisir limite/2 en fonction du premier score, et le limite/2 en fonction du second
+//What ? je vois pas ce que ca fait ca 
+
+	int alea = nombreAlea(rangMin, taillePop);	
+	if(ensemble[0]->getRang(iCritere - 1) > alea)
+		return *ensemble[0];
+	for (int i = 1; i < taillePop; i ++){
+		alea = nombreAlea(rangMin, taillePop);	
+		if (ensemble[i]->getRang(iCritere - 1) > alea && ensemble[i-1]->getRang(iCritere - 1) < alea)	
+			return *ensemble[i];
+	}
+}*/
+//~ Pour le return je suis pas sur de ce qu'on renvoie. On renvoie un tableau avec les nums des individus selectionné ?
+
+	
+	
+	
+//l'algo	
+/*if (ensemble.size() % 2 == 0)
+	limite = ensemble.size() / 2;
+else 
+	limite = ensemble.size() -1 / 2;
+
+scoreMax = somme des scores
+
+for(j = 0; j < nombreCritères; j ++){
+	for (i = 0; i < ensemble.size(); i ++){
+		calculer valeur en pourcentage en fonction du score max 
+	}
+}
+//pour le multicritère : choisir limite/2 en fonction du premier score, et le limite/2 en fonction du second
+while (nbIndivSelect < limite){
+	if(valeur indiv[1] > alea)
+		selectionner indiv
+	for (i = 1; i < ensemble.size(); i ++){
+		if (valeur indiv[i] > alea && valeur indiv[i-1] < val)
+			selectionner indiv[i]
+	}
+}
+return les individus selectionnés 
+
+*/
 /** quick sort **/
 /*
 void quickSort(int tableau[], int debut, int fin)
