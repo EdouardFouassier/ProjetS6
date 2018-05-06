@@ -83,7 +83,7 @@ Population::Population(string* const& donnees) :  ensemble(0) //test OK
     idonnees[1] = 0.01;
     idonnees[2] = 1.0;*/
 	for(int i = 0; i < nombreIndividus; i++){
-		Individu *nouv = new Individu();
+		Individu *nouv = new Individu(lireInitialisation(donnees[10]));
 		ensemble.push_back(nouv);
 	}
 	//std::cout<<"CREATION SUCCESS"<<endl;
