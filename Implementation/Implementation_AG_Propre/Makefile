@@ -22,14 +22,6 @@ SOURCES       = Sources/interface.cpp \
 		Sources/génération.cpp \
 		Sources/tinyexpr.c \
 		moc_interface.cpp
-
-SOURCESTEST       = Sources/interface.cpp \
-		Sources/test.cpp \
-		Sources/entree_sortie.cpp \
-		Sources/initialisation_population.cpp \
-		Sources/génération.cpp \
-		Sources/tinyexpr.c \
-		moc_interface.cpp
 		
 OBJECTS       = interface.o \
 		main.o \
@@ -39,29 +31,15 @@ OBJECTS       = interface.o \
 		tinyexpr.o \
 		moc_interface.o
 		
-OBJECTSTEST       = interface.o \
-		test.o \
-		entree_sortie.o \
-		initialisation_population.o \
-		génération.o \
-		tinyexpr.o \
-		moc_interface.o
-		
 TARGET        = Implementation_AG
-TARGETTEST    = Test
-
 
 #first: compile
 ####### Build rules
 
 $(TARGET):  $(OBJECTS)  
 	$(CXX) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
-
-$(TARGETTEST):  $(OBJECTSTEST)  
-	$(CXX) $(LFLAGS) -o $(TARGETTEST) $(OBJECTSTEST) $(OBJCOMP) $(LIBS)
-
+	
 compile: Makefile $(TARGET)
-test: Makefile &(TARGETTEST)
 
 ####### Sub-libraries
 
@@ -114,11 +92,7 @@ tinyexpr.o: Sources/tinyexpr.c Headers/tinyexpr.h
 moc_interface.o: moc_interface.cpp 
 			$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_interface.o moc_interface.cpp
 
-test.o:	Sources/test.cpp Headers/interface.h \
-		Headers/entree_sortie.h \
-		Headers/tinyexpr.h \
-		Headers/initialisation_population.h
-		$(CXX) -c $(CXXFLAGS) $(INCPATH) -o test.o Sources/test.cpp				
+		
 
 clean: 
 	rm -f *.o

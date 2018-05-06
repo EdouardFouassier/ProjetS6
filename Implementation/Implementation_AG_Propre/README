@@ -1,12 +1,8 @@
 Pour implementation_AG_Propre :
 Veuillez tous tester le makefile pour savoir si il marche pour tout le monde
-Pour compiler : 
-- le main.cpp il faut utiliser "make compile" et l'execution se fait toujours avec ./Implementation_AG
+Pour compiler il faut utiliser make et l'execution se fait toujours avec ./Implementation_AG
 	autrement vous pouvez egalement utiliser "make run" qui compile, execute et supprime les fichiers .o, moc_XX.o et moc_XX.h
 	Il existe egalement une commande make run2 il faut l'appeler differement : make run2 link=DonneesInitiales.txt, Permet de lancer le programme en chargeant le fichier directement et prend comme nom de programme "lol" (original nan?) ainsi après une simple confirmation le programme sera lancé  et le dossier lol créé (génial !) mais attention a la fermeture du programme le dossier lol sera supprimé
-- le test.cpp il faut utiliser "make Test", l'execution se fait avec ./Test
-	Veuillez faire vos tests dans ce fichier comme ça on pourra le laisser, ça montrera nos incroyables tests a kloul
-
 
 Bonjour !
 Pour installer QT :

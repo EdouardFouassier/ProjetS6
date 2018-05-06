@@ -10,7 +10,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 
-QApplication app(argc, argv);
+	QApplication app(argc, argv);
     Interface *interface;
     srand(time(NULL));
 	if(argv[1]!=NULL){
