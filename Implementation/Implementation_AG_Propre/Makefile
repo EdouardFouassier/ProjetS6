@@ -107,6 +107,11 @@ run: compile clean
 	./Implementation_AG
 	
 run2: compile clean
-	./Implementation_AG $(link) lol
-	rm -r lol
+	./Implementation_AG $(link) $(name)
+ifeq ($(name),)
+ifneq ($(link),)
+	 rm -r lol
+endif
+endif
+
 

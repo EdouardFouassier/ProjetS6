@@ -11,14 +11,15 @@ int main(int argc, char *argv[])
 {
 
 	QApplication app(argc, argv);
-    Interface *interface;
-    srand(time(NULL));
-	if(argv[1]!=NULL){
-	interface=new Interface(string(argv[2]),string(argv[1]));}
-    else interface=new Interface(); //crée la fenetre
+	Interface *interface;
+	if(argc==3) interface=new Interface(string(argv[2]),string(argv[1]));
+	else {
+		if(argc==2) interface=new Interface("lol",string(argv[1]));
+		else interface=new Interface(); //crée la fenetre
+	}
     interface->show(); //affiche...    
-    return app.exec(); 
-
+    return app.exec();
+    
     //TEST TEST CONVERGENCE//
    
     
