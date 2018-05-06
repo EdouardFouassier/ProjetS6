@@ -64,7 +64,7 @@ Population::Population(string* const& donnees) :  ensemble(0) //test OK
 		else {
 			criteres = (int*)malloc(nombreCriteres*sizeof(int)); //initialisation de la taille du tableau de criteres
 			criteres[0] = std::stoi(donnees[4], nullptr, 10);    //initialisation du critere 1
-			criteres[1] = std::stoi(donnees[4], nullptr, 10);    //initialisation du critere 2
+			criteres[1] = std::stoi(donnees[5], nullptr, 10);    //initialisation du critere 2
 			fitness1 = donnees[6];                               //initialisation de la fonction fitness 1
 			fitness2 = donnees[7];                               //initialisation de la fonction fitness 2
 	
@@ -94,19 +94,11 @@ Population::Population(string* const& donnees) :  ensemble(0) //test OK
 
 Population::~Population() //a revoir
 {
-	//std::cout<<"DESTRUCTEUR POPULATION"<<endl;
-	std::cout<<ensemble.size()<<endl;
 	int size = ensemble.size();
 	for(int i = 0; i < size; i++){
 		ensemble.pop_back();
-		//std::cout<<"individu "<<i<<"détruit"<<std::endl;
 	}
-	//std::cout<<"pointeur sur ensemble détruit"<<std::endl;
-	if (criteres != nullptr){
-		free(criteres);
-	} //test à revoir 
 }
-
 
 /**** GETTEURS ****/
 
@@ -234,24 +226,26 @@ bool Population::testPopulationRemplie(){
 }
 /**** LES ALGOS ****/
 
-void Population::evaluation() //test ok, signature modifiée / cds (passe de Population à void)
+Population Population::evaluation() //test ok
 {
-	//std::cout<<"EVALUATION"<<std::endl;
+	std::cout<<"EVALUATION"<<std::endl;
 	string fitnessTmp;
 	if (nombreCriteres == -1)
 		std::cerr<<"nombre de critères non conforme"<<std::endl;
 	else {		
 		for (int iCritere = 0; iCritere < nombreCriteres; iCritere ++){
 			//std::cout<<"criteres : "<<iCritere<<" / "<<nombreCriteres<<std::endl;
-			for (int iIndiv = 0; iIndiv < ensemble.size() - 1; iIndiv ++){
+			for (int iIndiv = 0; iIndiv < ensemble.size(); iIndiv ++){
 				if(iCritere == 0)
 					fitnessTmp = this->fitness1;
 				if(iCritere == 1)
 					fitnessTmp = this->fitness2;
 				ensemble[iIndiv]->Individu::evaluationIndividu(fitnessTmp, iCritere);
 			}
+			std::cout<<"icritere : "<<iCritere<<std::endl;
+			std::cout<<"critere : "<<criteres[iCritere]<<std::endl;
 			this->Population::triPopulation(iCritere);
-			int cpt = 0;
+			int cpt = 1;
 			int ensembleSize = ensemble.size() - 1;
 			float iScore1, iScore2;
 			for(int iIndiv = 0; iIndiv < ensembleSize; iIndiv ++){
@@ -278,13 +272,17 @@ void Population::evaluation() //test ok, signature modifiée / cds (passe de Pop
 			}
 			//for(int i = 0; i < ensembleSize; i++)
         	//	std::cout<<"rang pour critere "<<iCritere<< " : "<<ensemble[i]->getRang(iCritere)<<std::endl;
+        	for (int i = 0; i < ensemble.size(); i ++)
+    			std::cout<<"critere : "<<iCritere<< " "<<ensemble[i]->getScore(iCritere)<<std::endl;
 		}
 	}
+	return *this;
+
 }
 
 void Population::maximisation(int indiceScore) //test OK, pas dans cds (ameliorable)
 {
-	//std::cout<<"MAXIMISATION"<<std::endl;
+	std::cout<<"MAXIMISATION"<<std::endl;
 	int taille = ensemble.size();
 	bool tab_en_ordre = false;
     while(!tab_en_ordre)
@@ -304,7 +302,7 @@ void Population::maximisation(int indiceScore) //test OK, pas dans cds (ameliora
 
 void Population::minimisation (int indiceScore)//test OK, pas dans cds (ameliorable)
 {
-	//std::cout<<"MINISATION"<<std::endl;
+	std::cout<<"MINISATION"<<std::endl;
 	int taille = ensemble.size();
 	bool tab_en_ordre = false;
     while(!tab_en_ordre)
@@ -324,7 +322,7 @@ void Population::minimisation (int indiceScore)//test OK, pas dans cds (ameliora
 
 void Population::triValeur (int indiceScore)//test OK, pas dans cds (ameliorable)
 {
-	//std::cout<<"VALEUR APPROCHEE"<<std::endl;
+	std::cout<<"VALEUR APPROCHEE"<<std::endl;
 	float val;
 	bool tab_en_ordre = false;
 	if (indiceScore == 1)
@@ -388,6 +386,8 @@ void Population::triPopulation(int indiceScore) //test OK, signature modifiée /
 	}
 	else 
 		std::cerr<<"error triPopulation" <<std::endl;
+	//for (int i = 0; i < ensemble.size(); i ++)
+    	//std::cout<<ensemble[i]->getScore(indiceScore)<<std::endl;
 }
 
 Individu Population::selectionner(int iCritere) //à implémenter , modifié / cds

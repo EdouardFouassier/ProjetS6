@@ -199,6 +199,15 @@ void Interface::algoGenetique(){
 	//cout<<nomFichierSortie<<"/"<<nomFichierSortie<<"_Parametre.txt"<<endl;
 	Population P(lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametre.txt"));
 	//cout<<"check0"<<endl;
+    Population P2;
+    P2 = P.evaluation();
+    std::vector<Individu*> v = P2.getEnsemble();
+     for(int i = 0; i < P2.getNombreCriteres(); i ++){
+        std::cout<<"critere : "<< i<<std::endl;
+        for(int j = 0; j < v.size(); j ++ ) 
+            std::cout<<v[j]->getRang(i)<<""<<std::endl;
+    }
+
 	ecrirePopulation(P,nomFichierSortie+"/"+nomFichierSortie+"_Population.txt");
 }
 
