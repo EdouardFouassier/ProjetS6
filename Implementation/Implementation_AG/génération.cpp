@@ -234,7 +234,7 @@ bool Population::testPopulationRemplie(){
 }
 /**** LES ALGOS ****/
 
-void Population::evaluation() //test ok, signature modifiée / cds (passe de Population à void)
+void Population::evaluation() //test ok, signature modifiée / cds (passe de Population à void), plus le rang est haut, meilleur est l'indiv
 {
 	//std::cout<<"EVALUATION"<<std::endl;
 	string fitnessTmp;
@@ -251,7 +251,7 @@ void Population::evaluation() //test ok, signature modifiée / cds (passe de Pop
 				ensemble[iIndiv]->Individu::evaluationIndividu(fitnessTmp, iCritere);
 			}
 			this->Population::triPopulation(iCritere);
-			int cpt = 1;
+			int cpt = nombreIndividus;
 			int ensembleSize = ensemble.size() - 1;
 			float iScore1, iScore2;
 			for(int iIndiv = 0; iIndiv < ensembleSize; iIndiv ++){
@@ -263,7 +263,7 @@ void Population::evaluation() //test ok, signature modifiée / cds (passe de Pop
 				}
 				else {
 					ensemble[iIndiv]->Individu::setRang(cpt, iCritere);
-					cpt ++;
+					cpt --;
 				}
 			}
 			iScore1 = ensemble[ensembleSize]->Individu::getScore(iCritere);
@@ -273,7 +273,7 @@ void Population::evaluation() //test ok, signature modifiée / cds (passe de Pop
 				ensemble[ensembleSize]->Individu::setRang(cpt, iCritere);
 			}
 			else { 
-				cpt ++;
+				cpt --;
 				this->ensemble[ensembleSize]->Individu::setRang(cpt, iCritere);
 			}
 			//for(int i = 0; i < ensembleSize; i++)
@@ -390,42 +390,45 @@ void Population::triPopulation(int indiceScore) //test OK, signature modifiée /
 		std::cerr<<"error triPopulation" <<std::endl;
 }
 
-Individu Population::selectionner() //à implémenter 
+Individu Population::selectionner(int iCritere) //à implémenter , modifié / cds
 {
 //ce que j'ai ecris
 
-	//~ int limite = 0;
-	//~ int scoreMax = 0;
-	//~ int nbIndivSelect = 0;
-	//~ int pourcentage[ensemble.size()][nombreCritere];
-	//~ if (ensemble.size() % 2 == 0) {
-		//~ limite = ensemble.size() / 2;
-	//~ }
-	//~ else {
-		//~ limite = (ensemble.size() -1) / 2;
-	//~ }
+	//int limite = 0;
+	//int scoreMax = 0;
+	//int nbIndivSelect = 0;
+	int taillePop = ensemble.size();
+	//int pourcentage[taillePop];
+	int rangMin = 100;
+	/*if (taillePop % 2 == 0) {
+		limite = taillePop / 2;
+	}
+	else {
+		limite = (ensemble.size() -1) / 2;
+	}
 	
-	//~ for (i = 0; i < ensemble.size(); i++) {
-		//~ scoreMax += Individu.getScore(i);
-	//~ }
+	for (i = 0; i < taillePop; i++) {
+		scoreMax += ensemble[i]->getR(iCritere-1);
+	}*/
 	
-	//~ for(j = 0; j < nombreCriteres; j ++){
-		//~ for (i = 0; i < ensemble.size(); i ++){
-			//~ pourcentage[i][j] = (Individu.getScore(i)*100)/scoreMax;
-		//~ }
-	//~ }
-//~ //pour le multicritère : choisir limite/2 en fonction du premier score, et le limite/2 en fonction du second
-//~ //What ? je vois pas ce que ca fait ca 
+	
+	for (int i = 0; i < taillePop; i ++){
+		if (ensemble[i]->getRang(iCritere-1) < rangMin)
+			rangMin = ensemble[i]->getRang(iCritere-1);
+	}
+	
+//pour le multicritère : choisir limite/2 en fonction du premier score, et le limite/2 en fonction du second
+//What ? je vois pas ce que ca fait ca 
 
-	//~ j = 0;
-//~ while (nbIndivSelect < limite){
-	//~ if(pourcentage[1][j] > alea)
-		//~ selectionner indiv
-	//~ for (i = 1; i < ensemble.size(); i ++){
-		//~ if (pourcentage[i][j] > alea && pourcentage[i - 1][j] < val)	//c'est quoi ce val ?
-			//~ selectionner indiv[i]
-	//~ }
-//~ }
+	int alea = nombreAlea(rangMin, taillePop);	
+	if(ensemble[0]->getRang(iCritere - 1) > alea)
+		return *ensemble[0];
+	for (int i = 1; i < taillePop; i ++){
+		alea = nombreAlea(rangMin, taillePop);	
+		if (ensemble[i]->getRang(iCritere - 1) > alea && ensemble[i-1]->getRang(iCritere - 1) < alea)	
+			return *ensemble[i];
+	}
+}
 //~ Pour le return je suis pas sur de ce qu'on renvoie. On renvoie un tableau avec les nums des individus selectionné ?
 
 	
@@ -456,7 +459,7 @@ while (nbIndivSelect < limite){
 return les individus selectionnés 
 
 */
-}
+
 //à tester quand toutes les fonctions seront dispos
 Population Population::crossover(Individu parent1, Individu parent2){
 	/*
