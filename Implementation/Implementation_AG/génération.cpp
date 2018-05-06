@@ -209,7 +209,27 @@ Population Population::testArret() //pourquoi ça doit renvoyer un population? |
 
 bool Population::testConvergence() //a implementer
 {
-	return NULL;
+	
+	FILE *f;
+    f = fopen("TestFiles/StatsTest.txt", "r");
+    float *TestTab;
+    int i = 0;
+    TestTab = lireStat(f);
+   	int temp = TestTab[0];
+   	TestTab = lireStat(f);
+   	for (i = 0; i < 4; i++) {
+		if((temp <= (TestTab[0] + 0.015*TestTab[0])) && (temp >= (TestTab[0] - 0.015*TestTab[0])))
+		{
+			temp = TestTab[0];
+			TestTab = lireStat(f);
+		}
+		else { return false; }
+	}
+
+
+    delete[] TestTab;
+    fclose(f);
+	return true;
 }
 
 bool Population::testNombreGeneration()
