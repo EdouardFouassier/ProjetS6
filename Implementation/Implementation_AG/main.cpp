@@ -17,8 +17,11 @@ QApplication app(argc, argv);
 	interface=new Interface(string(argv[2]),string(argv[1]));}
     else interface=new Interface(); //crée la fenetre
     interface->show(); //affiche...    
-    return app.exec();
+    return app.exec(); 
 
+    //TEST TEST CONVERGENCE//
+   
+    
 
     //TEST LIRESTATS//
     /*FILE *f;
@@ -40,9 +43,9 @@ QApplication app(argc, argv);
     //~ printf(y ? "true" : "false");
     //~ string fct = "2+x/(4+cos(2))";
     //~ bool x = estParsable(" " + fct + " ");
-    //~ bool x = estParsable("2*x/(5+4+x)");
-    //~ printf(x ? "true" : "false");
-    //~ cout << endl;
+    //bool x = estParsable("2*x/(5+4+x)");
+    //printf(x ? "true" : "false");
+    //cout << endl;
     
     //~ bool x = testCoherenceDonnees("DonneesInitiales.txt");
     //~ printf(x ? "true" : "false");

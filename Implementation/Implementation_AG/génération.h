@@ -66,7 +66,7 @@ public:
 	bool testPopulationRemplie();
 
 	/* LES ALGORITHMES DE CREATION DE GENERATION*/
-	void evaluation(); //signature modifié / cds (passe de Population à void)
+	Population evaluation(); 
 	void triPopulation (int indiceScore); //signature modifié / cds
 	void maximisation (int indiceScpre); //pas dans cds
 	void minimisation (int indiceScore); //pas dans cds
