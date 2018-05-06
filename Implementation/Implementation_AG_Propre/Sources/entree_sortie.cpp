@@ -3,7 +3,7 @@
 ///              entree_sortie.cpp             ///
 //////////////////////////////////////////////////
 
-#include "entree_sortie.h"
+#include "../Headers/entree_sortie.h"
 
 using namespace std;
 

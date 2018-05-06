@@ -1,0 +1,83 @@
+Pour implementation_AG_Propre :
+Veuillez tous tester le makefile pour savoir si il marche pour tout le monde
+Pour compiler : 
+- le main.cpp il faut utiliser "make compile" et l'execution se fait toujours avec ./Implementation_AG
+	autrement vous pouvez egalement utiliser "make run" qui compile, execute et supprime les fichiers .o, moc_XX.o et moc_XX.h
+	Il existe egalement une commande make run2 il faut l'appeler differement : make run2 link=DonneesInitiales.txt, Permet de lancer le programme en chargeant le fichier directement et prend comme nom de programme "lol" (original nan?) ainsi après une simple confirmation le programme sera lancé  et le dossier lol créé (génial !) mais attention a la fermeture du programme le dossier lol sera supprimé
+- le test.cpp il faut utiliser "make Test", l'execution se fait avec ./Test
+	Veuillez faire vos tests dans ce fichier comme ça on pourra le laisser, ça montrera nos incroyables tests a kloul
+
+
+Bonjour !
+Pour installer QT :
+    sudo apt-get update
+    sudo apt-get install qtbase5-dev
+Pour ajouter une classe :
+    ajouter le nom des fichiers supplémentaire au .pro 
+    faire un qmake
+pour compiler : make
+pour lancer : ./Implementation_AG
+Contenu actuel du main à commenter pour faire les tests.
+
+ATTENTION, quand on fait qmake, le makefile de qt se refait en entier.
+Ainsi si vous faites qmake ajouter a la ligne 312 (en dessous de la cible all) ceci : cd tinyexpr && $(MAKE)
+btw la fonction du parser s'appelle : double calculfitness (const char *c, double x) et est dans le dossier tinyexpr
+
+transformer un string en char* (utile pour fitness) : 		char* fonction2 = new char[fonction.length() + 1];
+															strcpy(fonction2,fonction.c_str());
+															
+Voici comment le fichier des données initiales sera : (Il peut être amener a changer) (Les données entre parenthèses sont celles qui peuvent être remplacé par un blanc)
+12					//Taille Individu
+0.1					//Taux Mutation
+0.2					//Taux Crossover
+13					//Taille Population
+11					//Nombre Generation Maximum
+1 || 2				//Nombre de Critères
+Fct Fitness 1		//Fonction Fitness 1
+1 || 2 || 3			//Critère Fonction Fitness 1 : 1 -> Maximisation, 2 -> Minimisation, 3 -> Valeur approchée
+(99)				//Valeur approchee, Blanc si le critere n'a pas ete selectionnee
+(Fct Fitness 2)		//Fonction Fitness 2, Blanc si il n'y en a pas
+(1 || 2 || 3)		//Critere Fonction Fitness 2, Blanc si pas de Fonction Fitness 2
+(99)				//Valeur approchee, Blanc si le critere a pas ete selectionne ou si pas de Fonction Fitness 2
+100					//Valeur des booleens Latex, PostScript et XFig (Dans cet ordre)
+
+Voici comment l'odre des données à lire pour le constructeur de Population: //modifiable au besoin
+0	probabilitée de crossover			par defaut : -1.0		
+1	nombre d'individu (taille de la population)	par defaut : -1	
+2	nombre de génération max	par defaut : -1	
+3	nombre de critères			par defaut : -1	
+4	critère 1					par defaut : nullptr
+5	critère 2					par defaut : nullptr
+6 	fitness 1					par defaut : ""
+7	fitness 2					par defaut : ""
+8	valeur approchee 1			par defaut : -1.0
+9	valeur approchee 2			par defaut : -1.0
+10	nom du fichier des donnees initiales
+
+Attention pour la fonction fitness, si on met un /, on met des parentheses ! : 2/(4+x)
+
+Si vous souhaitez tester une fonction qui necessite un fichier, les fichier sont dans le dossier TestFiles, du coup n'oublier pas de mettre le chemin (exemple : TestFiles/nomDuFichier)
+
+Pour calculerEcrireStats, le fichier renvoyer sera de la forme :
+-Si 1 critere :
+moyenneScoreGeneration1 minimumScoreGeneration1 maximumScoreGeneration1
+PasCritere
+moyenneScoreGeneration2 minimumScoreGeneration2 maximumScoreGeneration2
+PasCritere
+...
+
+-Si 2 criteres :
+moyenneScoreGeneration1critere1 minimumScoreGeneration1critere1 maximumScoreGeneration1critere1
+moyenneScoreGeneration1critere2 minimumScoreGeneration1critere2 maximumScoreGeneration1critere2
+moyenneScoreGeneration2critere1 minimumScoreGeneration2critere1 maximumScoreGeneration2critere1
+moyenneScoreGeneration2critere2 minimumScoreGeneration2critere2 maximumScoreGeneration2critere2
+...
+
+
+INFORMATION INTERFACE:
+2 option s'offre a vous:
+DANS LES DEUX CAS une nom de fichier de sortie doit etre donné et au moins 1 type de sortie (latex,xfig,postscript).
+1)vous chargez un fichier de parametre, cliquez sur (...) puis selectionnez le fichier (IZI)
+PS: si quelque chose est écrit dans la case de chemin du fichier le programme essayera SYSTEMATIQUEMENT de la charger.
+2)vous pouvez entrer les données dans l'interface. Un fichier nommé nomfichiersortie_parametre.exe .
+

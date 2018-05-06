@@ -1,0 +1,40 @@
+***********************************
+***** Symboles et fonctions : *****
+***********************************
+
+	Symboles :
+A écrire		Ce à quoi ça correspond
+2 + 1		-> 2 plus 1
+2 - 1		-> 2 moins 1
+2 * 1		-> 2 fois 1
+2 / 1		-> 2 divisé par 1
+-2			-> moins 2
+2, 1		-> 1
+2^1			-> 2 puissance 1
+2%1			-> 2 modulo 1
+
+
+	Fonctions :
+A écrire		Ce à quoi ça correspond
+abs			->	Valeur absolue
+acos		->	arc cosinus
+asin		->	arc sinus
+atan		->	arc tangente
+atan2		->	arc tangente avec 2 arguments
+ceil		->	valeur entière supérieure
+cos			->	cosinus
+cosh		->	cosinus hyperbolique
+e			->	exponentielle = 2.718281...
+exp			->	exponentielle avec un exposant après
+floor		->	valeur entière inférieure
+ln			->
+log			->
+log10		->	logarithme en base 10
+pi			->	Pi = 3.141591...
+pow			->	puissance, s'écrit pow(10, 2) pour 10^2
+sin			->	sinus
+sinh		->	sinus hyperbolique
+sqrt		->	racine carré
+tan			->	tangente
+tanh		->	tangente hyperbolique
+
