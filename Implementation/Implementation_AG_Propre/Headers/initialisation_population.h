@@ -37,6 +37,8 @@ public:
 	// Destructeur
 	~Individu();
 
+	void theIndividu();
+
 	/*LES GETTEURS*/
 	int* getChromosome();
 	int getScore(int i);

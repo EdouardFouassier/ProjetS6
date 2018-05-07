@@ -82,6 +82,12 @@ int Individu::getRang(int i){ 			// ça ok
 int Individu::getTailleIndividu(){ 		// ça ok
 	return this->tailleIndividu;
 }
+
+void Individu::theIndividu(){
+	for(int i = 0; i < tailleIndividu; i++){
+		cout<<chromosome[i];
+	}
+}
 	
 // Setteurs //
 void Individu::setGene(int gene, int i){

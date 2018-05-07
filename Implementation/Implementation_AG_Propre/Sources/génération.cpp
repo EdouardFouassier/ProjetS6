@@ -410,45 +410,20 @@ void Population::triPopulation(int indiceScore) //test OK, signature modifiée /
     	//std::cout<<ensemble[i]->getScore(indiceScore)<<std::endl;
 }
 
-Individu Population::selectionner(int iCritere) //à implémenter , modifié / cds
-{	
-	int taillePop = ensemble.size();
-	int rang;
-	int cpt = 0;
-	int rangMax = 0;
+Individu Population::selectionner(int iCritere){ //à implémenter , modifié / cds
+		double somme = 0.0;
+		double sommeFitness = 0.0;
+		int j;
 
-	for (int i = 0; i < taillePop; i ++){
-		if (ensemble[i]->getRang(iCritere-1) > rangMax)
-			rangMax = ensemble[i]->getRang(iCritere-1);
-	}
-
-	int tauxApparition[rangMax];
-
-	for(int i = 0; i < taillePop - 1; i++){
-		if (ensemble[i]->getRang(iCritere-1) == ensemble[i+1]->getRang(iCritere-1))
-			cpt ++;
-		else 
-			cpt = 0;
-		rang = ensemble[i]->getRang(iCritere-1);
-		tauxApparition[rang] = (cpt + 1)/taillePop;
-	}
-	if (ensemble[taillePop-1]->getRang(iCritere-1) == ensemble[taillePop-2]->getRang(iCritere-1)){
-		rang = ensemble[taillePop-1]->getRang(iCritere-1);
-		tauxApparition[rang] = cpt/taillePop;
-	}
-	else {
-		rang = ensemble[taillePop-1]->getRang(iCritere-1);
-		tauxApparition[rang] = 1/taillePop;
-	}
-
-	int alea = nombreAlea(1, rangMax);
-	
-	int rang2 = tauxApparition[alea];
-	for(int i = 0; i < taillePop; i++){
-		if (ensemble[i]->getRang(iCritere-1) == rang2 && ensemble[i]->getRang(iCritere-1) != rang2 )
-			return *ensemble[i];
-	}
-
+		for(j = 0; j < this->nombreIndividus; j++)			//on récupère la somme totale des scores
+			sommeFitness = ensemble[j]->Individu::getScore(iCritere);
+		double nbAlea = sommeFitness * (rand()/(double)RAND_MAX);		//on tourne la roulette (rand) et on regarde où elle s'arrête
+		j = 0;
+		while(somme < nbAlea || j < this->nombreIndividus -1){			//on trouve l'individu qui se trouve là on la roulette s'est arrêtée
+			somme += this->ensemble[j]->Individu::getScore(iCritere);
+			j++;
+		}
+		return *this->ensemble[j];
 }
 
 //à tester quand toutes les fonctions seront dispos
@@ -693,3 +668,45 @@ void Population::triPopulation(int indiceScore) //va falloir maroufler parce que
 		std::cerr<<"error triPopulation" <<std::endl;
 }
 */
+
+
+/*ANCIEN SELECTION
+
+int taillePop = ensemble.size();
+	int rang;
+	int cpt = 0;
+	int rangMax = 0;
+
+	for (int i = 0; i < taillePop; i ++){
+		if (ensemble[i]->getRang(iCritere-1) > rangMax)
+			rangMax = ensemble[i]->getRang(iCritere-1);
+	}
+
+	int tauxApparition[rangMax];
+
+	for(int i = 0; i < taillePop - 1; i++){
+		if (ensemble[i]->getRang(iCritere-1) == ensemble[i+1]->getRang(iCritere-1))
+			cpt ++;
+		else 
+			cpt = 0;
+		rang = ensemble[i]->getRang(iCritere-1);
+		tauxApparition[rang] = (cpt + 1)/taillePop;
+	}
+	if (ensemble[taillePop-1]->getRang(iCritere-1) == ensemble[taillePop-2]->getRang(iCritere-1)){
+		rang = ensemble[taillePop-1]->getRang(iCritere-1);
+		tauxApparition[rang] = cpt/taillePop;
+	}
+	else {
+		rang = ensemble[taillePop-1]->getRang(iCritere-1);
+		tauxApparition[rang] = 1/taillePop;
+	}
+
+	int alea = nombreAlea(1, rangMax);
+	
+	int rang2 = tauxApparition[alea];
+	for(int i = 0; i < taillePop; i++){
+		if (ensemble[i]->getRang(iCritere-1) == rang2 && ensemble[i]->getRang(iCritere-1) != rang2 )
+			return *ensemble[i];
+	}
+
+	*/
