@@ -1,3 +1,7 @@
+//////////////////////////////////////////////////
+/// Projet S6 - Sujet 4 - Algorithme Génétique ///
+///                interface.h                 ///
+//////////////////////////////////////////////////
 #ifndef INTERFACE_H
 #define INTERFACE_H
 #include <string>
