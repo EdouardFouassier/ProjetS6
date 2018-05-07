@@ -336,6 +336,7 @@ Population Population::evaluation() //test ok
         	//	std::cout<<"rang pour critere "<<iCritere<< " : "<<ensemble[i]->getRang(iCritere)<<std::endl;
         	//for (int i = 0; i < ensemble.size(); i ++)
     		//	std::cout<<"critere : "<<iCritere<< " "<<ensemble[i]->getScore(iCritere)<<std::endl;
+
 		}
 	}
 	return *this;
@@ -452,72 +453,54 @@ void Population::triPopulation(int indiceScore) //test OK, signature modifiée /
     	//std::cout<<ensemble[i]->getScore(indiceScore)<<std::endl;
 }
 
-Individu Population::selectionner(int iCritere) //à implémenter , modifié / cds
-{	
-	int taillePop = ensemble.size();
-	int rang;
-	int cpt = 0;
-	int rangMax = 0;
+Individu Population::selectionner(int iCritere){ //à implémenter , modifié / cds
+		double somme = 0.0;
+		double sommeFitness = 0.0;
+		int j;
 
-	for (int i = 0; i < taillePop; i ++){
-		if (ensemble[i]->getRang(iCritere-1) > rangMax)
-			rangMax = ensemble[i]->getRang(iCritere-1);
-	}
-
-	int tauxApparition[rangMax];
-
-	for(int i = 0; i < taillePop - 1; i++){
-		if (ensemble[i]->getRang(iCritere-1) == ensemble[i+1]->getRang(iCritere-1))
-			cpt ++;
-		else 
-			cpt = 0;
-		rang = ensemble[i]->getRang(iCritere-1);
-		tauxApparition[rang] = (cpt + 1)/taillePop;
-	}
-	if (ensemble[taillePop-1]->getRang(iCritere-1) == ensemble[taillePop-2]->getRang(iCritere-1)){
-		rang = ensemble[taillePop-1]->getRang(iCritere-1);
-		tauxApparition[rang] = cpt/taillePop;
-	}
-	else {
-		rang = ensemble[taillePop-1]->getRang(iCritere-1);
-		tauxApparition[rang] = 1/taillePop;
-	}
-
-	int alea = nombreAlea(1, rangMax);
-	
-	int rang2 = tauxApparition[alea];
-	for(int i = 0; i < taillePop; i++){
-		if (ensemble[i]->getRang(iCritere-1) == rang2 && ensemble[i]->getRang(iCritere-1) != rang2 )
-			return *ensemble[i];
-	}
-
+		for(j = 0; j < this->nombreIndividus; j++)			//on récupère la somme totale des scores
+			sommeFitness = ensemble[j]->Individu::getScore(iCritere);
+		double nbAlea = sommeFitness * (rand()/(double)RAND_MAX);		//on tourne la roulette (rand) et on regarde où elle s'arrête
+		j = 0;
+		while(somme < nbAlea || j < this->nombreIndividus -1){			//on trouve l'individu qui se trouve là on la roulette s'est arrêtée
+			somme += this->ensemble[j]->Individu::getScore(iCritere);
+			j++;
+		}
+		return *this->ensemble[j];
 }
 
-//à tester quand toutes les fonctions seront dispos
+int Population::nombreAlea(int inf, int sup) // test OK ? 
+{
+	//inf++;	//parce qu'on ne veut pas que inf soit inclu
+	return rand()%(sup-inf) + sup;
+}
+
+
 Population Population::crossover(Individu parent1, Individu parent2){
-	/*
-	Individu enfant1, enfant2;
-	if(probAlea(this->probaCroisement)){
+	
+	Individu *enfant1, *enfant2;
+	if(enfant1->probAlea(this->probaCroisement)){
 		int ptcrois = nombreAlea(1,this->nombreIndividus);
 		
 		for(int i = 0; i < ptcrois ;i++){
-			enfant1->ensemble[i] = mutation(parent1[i]);
-			enfant2->ensemble[i] = mutation(parent2[i]);
+			enfant1->setGene(enfant1->mutation(parent1.getGene(i)), i);
+			enfant2->setGene(enfant2->mutation(parent2.getGene(i)), i);
 		}
-		for(i = ptcrois + 1; i < enfant1->tailleIndividu){
-			enfant1->ensemble[i] = mutation(parent2[i]);
-			enfant2->ensemble[i] = mutation(parent1[i]);
+		for(int i = ptcrois + 1; i < enfant1->getTailleIndividu() ; i++){
+			enfant1->setGene(enfant1->mutation(parent2.getGene(i)), i);
+			enfant2->setGene(enfant2->mutation(parent1.getGene(i)), i);
 		}
 	}
 	else{
-		enfant1 = parent1;
-		enfant2 = parent2;
+		enfant1 = &parent1;
+		enfant2 = &parent2;
 	}
-	if(testPopulationRemplie() ){		//il faudrait quand même vérifier qu'il y a la place pour deux nouveaux individus
+	if(testPopulationRemplie() ){		
 		ensemble.push_back(enfant1);
-		ensemble.push_back(enfant2);
+		if(testPopulationRemplie())
+			ensemble.push_back(enfant2);
 	}
-	*/
+
 	return *this;
 }
 
@@ -543,11 +526,7 @@ Population Population::creerGeneration(Population P){
 	return false;
 }*/
 
-int Population::nombreAlea(int inf, int sup) // test OK ? 
-{
-	//inf++;	//parce qu'on ne veut pas que inf soit inclu
-	return rand()%(sup-inf) + sup;
-}
+
 
 
 
@@ -735,3 +714,45 @@ void Population::triPopulation(int indiceScore) //va falloir maroufler parce que
 		std::cerr<<"error triPopulation" <<std::endl;
 }
 */
+
+
+/*ANCIEN SELECTION
+
+int taillePop = ensemble.size();
+	int rang;
+	int cpt = 0;
+	int rangMax = 0;
+
+	for (int i = 0; i < taillePop; i ++){
+		if (ensemble[i]->getRang(iCritere-1) > rangMax)
+			rangMax = ensemble[i]->getRang(iCritere-1);
+	}
+
+	int tauxApparition[rangMax];
+
+	for(int i = 0; i < taillePop - 1; i++){
+		if (ensemble[i]->getRang(iCritere-1) == ensemble[i+1]->getRang(iCritere-1))
+			cpt ++;
+		else 
+			cpt = 0;
+		rang = ensemble[i]->getRang(iCritere-1);
+		tauxApparition[rang] = (cpt + 1)/taillePop;
+	}
+	if (ensemble[taillePop-1]->getRang(iCritere-1) == ensemble[taillePop-2]->getRang(iCritere-1)){
+		rang = ensemble[taillePop-1]->getRang(iCritere-1);
+		tauxApparition[rang] = cpt/taillePop;
+	}
+	else {
+		rang = ensemble[taillePop-1]->getRang(iCritere-1);
+		tauxApparition[rang] = 1/taillePop;
+	}
+
+	int alea = nombreAlea(1, rangMax);
+	
+	int rang2 = tauxApparition[alea];
+	for(int i = 0; i < taillePop; i++){
+		if (ensemble[i]->getRang(iCritere-1) == rang2 && ensemble[i]->getRang(iCritere-1) != rang2 )
+			return *ensemble[i];
+	}
+
+	*/

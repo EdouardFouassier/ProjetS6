@@ -11,6 +11,7 @@
 #include <cmath>
 #include <iostream>
 #include <stdlib.h>
+#include <ctime>
 #include "tinyexpr/tinyexpr.h"
 using namespace std;
 
@@ -36,11 +37,14 @@ public:
 	// Destructeur
 	~Individu();
 
+	
+
 	/*LES GETTEURS*/
 	int* getChromosome();
 	int getScore(int i);
 	int getRang(int i);
 	int getTailleIndividu();
+	int getGene(int i);
 	
 	// Setteurs
 	void setGene(int gene, int i);
@@ -53,9 +57,9 @@ public:
 	Individu codage(int valeur);
 	int decodage(Individu i);
 	int decodage(int* binaire);
-	bool evaluationIndividu(string fonctionFitness, int indiceScore);
-	int mutation(int gene);
-	bool probAlea(float prob);
+	bool evaluationIndividu(string fonctionFitness, int indiceScore) ;
+	int mutation(int gene) const ;
+	bool probAlea(float prob) const;
 	double calculFitness(const char* c, double x);
 };
 

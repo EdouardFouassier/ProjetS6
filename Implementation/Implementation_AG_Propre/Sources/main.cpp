@@ -3,40 +3,56 @@
 #include <unistd.h>
 #include "../Headers/entree_sortie.h"
 #include "../Headers/génération.h"
+#include <time.h>
 
 using namespace std;
 
 
-int main(int argc, char *argv[])
+int main(/*int argc, char *argv[]*/)
 {
 
-	QApplication app(argc, argv);
-	Interface *interface;
-	if(argc==3) interface=new Interface(string(argv[2]),string(argv[1]));
-	else {
-		if(argc==2) interface=new Interface("lol",string(argv[1]));
-		else interface=new Interface(); //crée la fenetre
-	}
+       srand(time(NULL));
+    /*QApplication app(argc, argv);
+    Interface *interface;
+    if(argc==3) interface=new Interface(string(argv[2]),string(argv[1]));
+    else {
+        if(argc==2) interface=new Interface("lol",string(argv[1]));
+        else interface=new Interface(); //crée la fenetre
+    }
     interface->show(); //affiche...    
-    return app.exec();
+    return app.exec();*/
+
     
     //TEST TEST CONVERGENCE//
    
     
 
     //TEST LIRESTATS//
-    /*FILE *f;
-    f = fopen("TestFiles/StatsTest.txt", "r");
+    FILE *f[10];
+    for(int i=0;i<10;i++) {
+        f[i]=fopen("TestFiles/StatsTest.txt", "r");
+        for(int j=0;j<i;j++){
+            lireStat(f[i]);
+        }
+    }
+    
     float *TestTab;
-    TestTab = lireStat(f);
-    //cout << lireStat(f)[3] << endl;
-    for(int i = 0; i<6; i++) { cout << TestTab[i] << " ";}
-    cout << endl;
-    TestTab = lireStat(f);
-    for(int i = 0; i<3; i++) { cout << TestTab[i] << " ";}
-    cout << endl;
-    delete[] TestTab;
-    fclose(f); */
+    for(int j=0;j<2;j++){
+        for(int k=0;k<10;k++)
+        {
+            TestTab = lireStat(f[k]);
+            for(int i = 0; i<6; i++) { cout << TestTab[i] << " ";}
+            cout << endl;
+            delete[] TestTab;
+        }
+        cout<<endl;
+    }
+    //~ TestTab = lireStat(f);
+    //~ for(int i = 0; i<3; i++) { cout << TestTab[i] << " ";}
+    //~ cout << endl;
+    for(int i=0;i<10;i++) {
+        fclose(f[i]);
+    }
     
     //Test validation//
     
@@ -162,4 +178,33 @@ int main(int argc, char *argv[])
     
 
     return 0;*/
+
+/*
+    ////TEST SELECTION
+       string donnees[10];
+    //proba croisement
+    donnees[0] = "0.1"; 
+    //nb Indiv & nb Generation Max
+    donnees[1] = "5"; donnees[2] = "100";
+    //nb crit, crit1, crit 2
+    donnees[3] = "2"; donnees[4] = "1"; donnees[5] = "3";
+    //fit1 et fit2
+    donnees[6] = "2 + x"; donnees[7] = "2/(4 + x)";
+    //valApp1 et 2
+
+    donnees[8] = "-1.0"; donnees[9] = "23.5";
+
+    
+    //TEST DES CONSTRUCTEURS / DESTRUCTEUR//
+    Population pop1(donnees);
+    pop1.evaluation();
+    Individu ind = pop1.selectionner(1);
+    
+    ind.theIndividu();
+
+    return 0;
+*/
+
+
+
 }

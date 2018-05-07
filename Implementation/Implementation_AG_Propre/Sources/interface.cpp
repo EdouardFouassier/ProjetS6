@@ -1,3 +1,7 @@
+//////////////////////////////////////////////////
+/// Projet S6 - Sujet 4 - Algorithme Génétique ///
+///               interface.cpp                ///
+//////////////////////////////////////////////////
 #include "../Headers/interface.h"
 
 Interface::Interface() : QWidget()
