@@ -292,7 +292,7 @@ Population Population::evaluation() //test ok
 			}
 			//for(int i = 0; i < ensembleSize; i++)
         	//	std::cout<<"rang pour critere "<<iCritere<< " : "<<ensemble[i]->getRang(iCritere)<<std::endl;
-        	for (int i = 0; i < ensemble.size(); i ++)
+        	for (int unsigned i = 0; i < ensemble.size(); i ++)
     			std::cout<<"critere : "<<iCritere<< " "<<ensemble[i]->getScore(iCritere)<<std::endl;
 		}
 	}
@@ -426,29 +426,36 @@ Individu Population::selectionner(int iCritere){ //à implémenter , modifié / 
 		return *this->ensemble[j];
 }
 
-//à tester quand toutes les fonctions seront dispos
+int Population::nombreAlea(int inf, int sup) // test OK ? 
+{
+	//inf++;	//parce qu'on ne veut pas que inf soit inclu
+	return rand()%(sup-inf) + sup;
+}
+
+
 Population Population::crossover(Individu parent1, Individu parent2){
 	
-	Individu enfant1, enfant2;
-	if(probAlea(this->probaCroisement)){
+	Individu *enfant1, *enfant2;
+	if(enfant1->probAlea(this->probaCroisement)){
 		int ptcrois = nombreAlea(1,this->nombreIndividus);
 		
 		for(int i = 0; i < ptcrois ;i++){
-			enfant1->ensemble[i] = mutation(parent1[i]);
-			enfant2->ensemble[i] = mutation(parent2[i]);
+			enfant1->setGene(enfant1->mutation(parent1.getGene(i)), i);
+			enfant2->setGene(enfant2->mutation(parent2.getGene(i)), i);
 		}
-		for(i = ptcrois + 1; i < enfant1->tailleIndividu){
-			enfant1->ensemble[i] = mutation(parent2[i]);
-			enfant2->ensemble[i] = mutation(parent1[i]);
+		for(int i = ptcrois + 1; i < enfant1->getTailleIndividu() ; i++){
+			enfant1->setGene(enfant1->mutation(parent2.getGene(i)), i);
+			enfant2->setGene(enfant2->mutation(parent1.getGene(i)), i);
 		}
 	}
 	else{
-		enfant1 = parent1;
-		enfant2 = parent2;
+		enfant1 = &parent1;
+		enfant2 = &parent2;
 	}
-	if(testPopulationRemplie() ){		//il faudrait quand même vérifier qu'il y a la place pour deux nouveaux individus
+	if(testPopulationRemplie() ){		
 		ensemble.push_back(enfant1);
-		ensemble.push_back(enfant2);
+		if(testPopulationRemplie())
+			ensemble.push_back(enfant2);
 	}
 
 	return *this;
@@ -476,11 +483,7 @@ Population Population::creerGeneration(Population P){
 	return false;
 }*/
 
-int Population::nombreAlea(int inf, int sup) // test OK ? 
-{
-	//inf++;	//parce qu'on ne veut pas que inf soit inclu
-	return rand()%(sup-inf) + sup;
-}
+
 
 
 

@@ -16,9 +16,6 @@ int* rang = NULL;
 
 // Constructeurs //
 Individu::Individu() {					// ça ok Ce constructeur ne fait rien
-	this->chromosome = NULL;
-	this->score = NULL;
-	this->rang = NULL;
 	this->chromosome = (int*)malloc((this->tailleIndividu+1)*sizeof(int));
 	for(int i = 0; i < this->tailleIndividu+1; i++){
 		chromosome[i] = 0;
@@ -81,6 +78,10 @@ int Individu::getRang(int i){ 			// ça ok
 }
 int Individu::getTailleIndividu(){ 		// ça ok
 	return this->tailleIndividu;
+}
+
+int Individu::getGene(int i){
+	return this->chromosome[i];
 }
 
 
@@ -157,12 +158,12 @@ bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) { // 
 	this->score[indiceScore] = calculfitness(fonctionFitness.c_str(), decodage(this->chromosome));	// .c_str : convert string to char*
 	return true;	// Pas de vérif' pour le moment
 }
-int Individu::mutation(int gene) {
+int Individu::mutation(int gene) const {
 	if(probAlea(this->probaMutation))
 		return (gene+1)%2;
 	return gene;
 }
-bool Individu::probAlea(float prob) {
+bool Individu::probAlea(float prob) const {
 	double alea = rand()/(double)RAND_MAX; 	//génère un nb dans [0,1]
 	if(alea < prob) return true;
 	return false;
