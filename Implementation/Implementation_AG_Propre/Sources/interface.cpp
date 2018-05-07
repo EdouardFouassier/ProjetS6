@@ -201,12 +201,14 @@ void Interface::algoGenetique(){
 	//cout<<"check0"<<endl;
     Population P2;
     P2 = P.evaluation();
+    bool test = P.testConvergence();
+    std::cout<<"test convergence = "<<test<<std::endl;
     std::vector<Individu*> v = P2.getEnsemble();
-     for(int i = 0; i < P2.getNombreCriteres(); i ++){
+    /*for(int i = 0; i < P2.getNombreCriteres(); i ++){
         std::cout<<"critere : "<< i<<std::endl;
         for(int j = 0; j < v.size(); j ++ ) 
             std::cout<<v[j]->getRang(i)<<""<<std::endl;
-    }
+    }*/
 
 	ecrirePopulation(P,nomFichierSortie+"/"+nomFichierSortie+"_Population.txt");
 }

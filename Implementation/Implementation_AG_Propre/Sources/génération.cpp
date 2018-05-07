@@ -209,26 +209,68 @@ Population Population::testArret() //pourquoi ça doit renvoyer un population? |
 
 bool Population::testConvergence() //a implementer
 {
-	
-	FILE *f;
-    f = fopen("TestFiles/StatsTest.txt", "r");
-    float *TestTab;
-    int i = 0;
-    TestTab = lireStat(f);
-   	int temp = TestTab[0];
-   	TestTab = lireStat(f);
-   	for (i = 0; i < 4; i++) {
-		if((temp <= (TestTab[0] + 0.015*TestTab[0])) && (temp >= (TestTab[0] - 0.015*TestTab[0])))
-		{
-			temp = TestTab[0];
-			TestTab = lireStat(f);
+	std::cout<<"TEST CONVERGENCE"<<std::endl;
+	numeroGeneration = 5; //a virer après les tests
+	if(numeroGeneration < 5)
+		return false;
+	FILE *f[numeroGeneration];
+    std::cout<<"nombre de criteres : "<<nombreCriteres<<std::endl;
+    std::cout<<"numero generation : "<<numeroGeneration<<std::endl;
+    
+    for(int i = 0; i < numeroGeneration; i ++) {
+		f[i]=fopen("TestFiles/StatsTest.txt", "r");
+		for(int j=0;j<i;j++){
+			lireStat(f[i]);
 		}
-		else { return false; }
 	}
+	
+	float temp[5];
+	float tempCrit1[5];
+	float tempCrit2[5];
+	float *TestTab;
+	for(int k = numeroGeneration-1; k >= numeroGeneration - 5; k --)
+	{
+		TestTab = lireStat(f[k]);
+			if (nombreCriteres == 1){
+				temp[k] = TestTab[0];
+				std::cout <<"Temp["<<k<<"] : "<<temp[k]<<std::endl;
+			}
+			else{ 
+				tempCrit1[k] = TestTab[0];
+				tempCrit2[k] = TestTab[3];
+				std::cout <<"TempCrit1["<<k<<"] : "<<tempCrit1[k]<<std::endl;
+				std::cout <<"TempCrit1["<<k<<"] : "<<tempCrit2[k]<<std::endl;
+			}
+		std::cout << std::endl;
+		delete[] TestTab;
+	}
+	std::cout<<std::endl;
+	
+	for(int i = 4; i > 0; i --){
+		if(nombreCriteres == 1){
+			if((temp[i] <= (temp[i-1] + 0.015*temp[i-1])) && (temp[i] >= (temp[i-1] - 0.015*temp[i-1])))
+				std::cout <<"Temp["<<i<<"] : "<<temp[i]<<std::endl;
+			else {
+				std::cout <<"Temp["<<i<<"] : "<<temp[i]<<std::endl;
+				return false;
+			}
+		}
+		else if(nombreCriteres == 2){
+			if(((tempCrit1[i] <= (tempCrit1[i-1] + 0.015*tempCrit1[i-1])) && (tempCrit1[i] >= (tempCrit1[i-1] - 0.015*tempCrit1[i-1])))&&((tempCrit2[i] <= (tempCrit2[i-1] + 0.015*tempCrit2[i-1])) && (tempCrit2[i] >= (tempCrit2[i-1] - 0.015*tempCrit2[i-1])))){
+				std::cout <<"TempCrit1["<<i<<"] : "<<tempCrit1[i]<<std::endl;
+				std::cout <<"TempCrit2["<<i<<"] : "<<tempCrit2[i]<<std::endl;
+			}
+			else{
+				std::cout <<"TempCrit1["<<i<<"] : "<<tempCrit1[i]<<std::endl;
+				std::cout <<"TempCrit2["<<i<<"] : "<<tempCrit2[i]<<std::endl;
+				return false;
+			}
+		}
+	}
+	
+	for(int i=0; i<numeroGeneration; i++) 
+		fclose(f[i]);
 
-
-    delete[] TestTab;
-    fclose(f);
 	return true;
 }
 
@@ -248,7 +290,7 @@ bool Population::testPopulationRemplie(){
 
 Population Population::evaluation() //test ok
 {
-	std::cout<<"EVALUATION"<<std::endl;
+	//std::cout<<"EVALUATION"<<std::endl;
 	string fitnessTmp;
 	if (nombreCriteres == -1)
 		std::cerr<<"nombre de critères non conforme"<<std::endl;
@@ -262,8 +304,8 @@ Population Population::evaluation() //test ok
 					fitnessTmp = this->fitness2;
 				ensemble[iIndiv]->Individu::evaluationIndividu(fitnessTmp, iCritere);
 			}
-			std::cout<<"icritere : "<<iCritere<<std::endl;
-			std::cout<<"critere : "<<criteres[iCritere]<<std::endl;
+			//std::cout<<"icritere : "<<iCritere<<std::endl;
+			//std::cout<<"critere : "<<criteres[iCritere]<<std::endl;
 			this->Population::triPopulation(iCritere);
 			int cpt = 1;
 			int ensembleSize = ensemble.size() - 1;
@@ -292,8 +334,8 @@ Population Population::evaluation() //test ok
 			}
 			//for(int i = 0; i < ensembleSize; i++)
         	//	std::cout<<"rang pour critere "<<iCritere<< " : "<<ensemble[i]->getRang(iCritere)<<std::endl;
-        	for (int i = 0; i < ensemble.size(); i ++)
-    			std::cout<<"critere : "<<iCritere<< " "<<ensemble[i]->getScore(iCritere)<<std::endl;
+        	//for (int i = 0; i < ensemble.size(); i ++)
+    		//	std::cout<<"critere : "<<iCritere<< " "<<ensemble[i]->getScore(iCritere)<<std::endl;
 		}
 	}
 	return *this;
@@ -302,7 +344,7 @@ Population Population::evaluation() //test ok
 
 void Population::maximisation(int indiceScore) //test OK, pas dans cds (ameliorable)
 {
-	std::cout<<"MAXIMISATION"<<std::endl;
+	//std::cout<<"MAXIMISATION"<<std::endl;
 	int taille = ensemble.size();
 	bool tab_en_ordre = false;
     while(!tab_en_ordre)
@@ -322,7 +364,7 @@ void Population::maximisation(int indiceScore) //test OK, pas dans cds (ameliora
 
 void Population::minimisation (int indiceScore)//test OK, pas dans cds (ameliorable)
 {
-	std::cout<<"MINISATION"<<std::endl;
+	//std::cout<<"MINISATION"<<std::endl;
 	int taille = ensemble.size();
 	bool tab_en_ordre = false;
     while(!tab_en_ordre)
@@ -342,7 +384,7 @@ void Population::minimisation (int indiceScore)//test OK, pas dans cds (ameliora
 
 void Population::triValeur (int indiceScore)//test OK, pas dans cds (ameliorable)
 {
-	std::cout<<"VALEUR APPROCHEE"<<std::endl;
+	//std::cout<<"VALEUR APPROCHEE"<<std::endl;
 	float val;
 	bool tab_en_ordre = false;
 	if (indiceScore == 1)
