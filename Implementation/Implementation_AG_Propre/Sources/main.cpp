@@ -3,13 +3,14 @@
 #include <unistd.h>
 #include "../Headers/entree_sortie.h"
 #include "../Headers/génération.h"
+#include <time.h>
 
 using namespace std;
 
 
 int main(int argc, char *argv[])
 {
-
+       srand(time(NULL));
 	QApplication app(argc, argv);
 	Interface *interface;
 	if(argc==3) interface=new Interface(string(argv[2]),string(argv[1]));
