@@ -450,7 +450,7 @@ Population Population::crossover(Individu parent1, Individu parent2){
 		ensemble.push_back(enfant1);
 		ensemble.push_back(enfant2);
 	}
-	
+
 	return *this;
 }
 
