@@ -618,7 +618,7 @@ double calculfitness (const char *c, double x) {
 	
 	 
     
-    printf("Evaluating :\n\t%s\n", c);
+    //printf("Evaluating :\n\t%s\n", c);
 	double r = 0;
   
     double y;
@@ -631,13 +631,13 @@ double calculfitness (const char *c, double x) {
     if (n) {
       
         y = 4;
-        r = te_eval(n); printf("Result:\n\t%f\n", r);
+        r = te_eval(n); //printf("Result:\n\t%f\n", r);
 		
         te_free(n);
     } else {
   
         printf("\t%*s^\nError near here", err-1, "");
     }
-    printf("d vaut : %f \n", r);
+    //printf("d vaut : %f \n", r);
     return r;
 }

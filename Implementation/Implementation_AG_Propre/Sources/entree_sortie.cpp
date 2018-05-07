@@ -571,27 +571,27 @@ bool ecrirePopulation(Population P, string nomFichier){ //LES TEST SONT ENCORE A
 
    if(fichier)
    {
-	   cout<<"check1"<<endl;
+	   //cout<<"check1"<<endl;
        for(int i=0;i<P.getNombreIndividus()-1;i++){
 		   fichier << P.getEnsemble()[i]->getScore(0) << " ";
-		   cout<<"check5"<<endl;
+		   //cout<<"check5"<<endl;
            //for(int j=0;j<P.getEnsemble()[i].getTailleIndividu();j++){
                //fichier << P.getEnsemble()[i].getChromosome()[j] << " ";
            //}
        }
        fichier << P.getEnsemble()[P.getNombreIndividus()-1]->getScore(0) << endl;
-       cout<<"check2"<<endl;
+       //cout<<"check2"<<endl;
        if(P.getNombreCriteres() == 2)
        {
 			for(int i=0;i<P.getNombreIndividus()-1;i++){
 			fichier << P.getEnsemble()[i]->getScore(1) << " ";
-		   cout<<"check4"<<endl;
+		   //cout<<"check4"<<endl;
 			//for(int j=0;j<P.getEnsemble()[i].getTailleIndividu();j++){
 				//fichier << P.getEnsemble()[i].getChromosome()[j] << " ";
 			//}
 			}
        fichier << P.getEnsemble()[P.getNombreIndividus()-1]->getScore(1) << endl;
-       cout<<"check3"<<endl;
+       //cout<<"check3"<<endl;
 	   }
 	   else { fichier << "PasCritere" << endl; }
        fichier.close();
