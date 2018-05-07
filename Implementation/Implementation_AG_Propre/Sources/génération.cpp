@@ -428,7 +428,7 @@ Individu Population::selectionner(int iCritere){ //à implémenter , modifié / 
 
 //à tester quand toutes les fonctions seront dispos
 Population Population::crossover(Individu parent1, Individu parent2){
-	/*
+	
 	Individu enfant1, enfant2;
 	if(probAlea(this->probaCroisement)){
 		int ptcrois = nombreAlea(1,this->nombreIndividus);
@@ -450,7 +450,7 @@ Population Population::crossover(Individu parent1, Individu parent2){
 		ensemble.push_back(enfant1);
 		ensemble.push_back(enfant2);
 	}
-	*/
+	
 	return *this;
 }
 
