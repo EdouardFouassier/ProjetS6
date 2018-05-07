@@ -207,7 +207,7 @@ Population Population::testArret() //pourquoi ça doit renvoyer un population? |
 	return *this;
 }
 
-bool Population::testConvergence() //a implementer
+bool Population::testConvergence() //Test OK
 {
 	std::cout<<"TEST CONVERGENCE"<<std::endl;
 	numeroGeneration = 5; //a virer après les tests

@@ -8,11 +8,11 @@
 using namespace std;
 
 
-int main(/*int argc, char *argv[]*/)
+int main(int argc, char *argv[])
 {
 
-       srand(time(NULL));
-    /*QApplication app(argc, argv);
+       //srand(time(NULL));
+    QApplication app(argc, argv);
     Interface *interface;
     if(argc==3) interface=new Interface(string(argv[2]),string(argv[1]));
     else {
@@ -20,7 +20,7 @@ int main(/*int argc, char *argv[]*/)
         else interface=new Interface(); //crée la fenetre
     }
     interface->show(); //affiche...    
-    return app.exec();*/
+    return app.exec();
 
     
     //TEST TEST CONVERGENCE//
@@ -28,7 +28,7 @@ int main(/*int argc, char *argv[]*/)
     
 
     //TEST LIRESTATS//
-    FILE *f[10];
+    /*FILE *f[10];
     for(int i=0;i<10;i++) {
         f[i]=fopen("TestFiles/StatsTest.txt", "r");
         for(int j=0;j<i;j++){
