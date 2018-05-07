@@ -10,34 +10,47 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-       srand(time(NULL));
-	QApplication app(argc, argv);
-	Interface *interface;
-	if(argc==3) interface=new Interface(string(argv[2]),string(argv[1]));
-	else {
-		if(argc==2) interface=new Interface("lol",string(argv[1]));
-		else interface=new Interface(); //crée la fenetre
-	}
-    interface->show(); //affiche...    
-    return app.exec();
+       //~ srand(time(NULL));
+	//~ QApplication app(argc, argv);
+	//~ Interface *interface;
+	//~ if(argc==3) interface=new Interface(string(argv[2]),string(argv[1]));
+	//~ else {
+		//~ if(argc==2) interface=new Interface("lol",string(argv[1]));
+		//~ else interface=new Interface(); //crée la fenetre
+	//~ }
+    //~ interface->show(); //affiche...    
+    //~ return app.exec();
     
     //TEST TEST CONVERGENCE//
    
     
 
     //TEST LIRESTATS//
-    /*FILE *f;
-    f = fopen("TestFiles/StatsTest.txt", "r");
-    float *TestTab;
-    TestTab = lireStat(f);
-    //cout << lireStat(f)[3] << endl;
-    for(int i = 0; i<6; i++) { cout << TestTab[i] << " ";}
-    cout << endl;
-    TestTab = lireStat(f);
-    for(int i = 0; i<3; i++) { cout << TestTab[i] << " ";}
-    cout << endl;
-    delete[] TestTab;
-    fclose(f); */
+    FILE *f[10];
+    for(int i=0;i<10;i++) {
+		f[i]=fopen("TestFiles/StatsTest.txt", "r");
+		for(int j=0;j<i;j++){
+			lireStat(f[i]);
+		}
+	}
+	
+	float *TestTab;
+    for(int j=0;j<2;j++){
+		for(int k=0;k<10;k++)
+		{
+			TestTab = lireStat(f[k]);
+			for(int i = 0; i<6; i++) { cout << TestTab[i] << " ";}
+			cout << endl;
+			delete[] TestTab;
+		}
+		cout<<endl;
+	}
+    //~ TestTab = lireStat(f);
+    //~ for(int i = 0; i<3; i++) { cout << TestTab[i] << " ";}
+    //~ cout << endl;
+    for(int i=0;i<10;i++) {
+		fclose(f[i]);
+	}
     
     //Test validation//
     
