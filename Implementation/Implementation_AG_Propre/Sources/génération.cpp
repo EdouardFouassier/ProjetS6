@@ -429,22 +429,22 @@ Individu Population::selectionner(int iCritere){ //à implémenter , modifié / 
 //à tester quand toutes les fonctions seront dispos
 Population Population::crossover(Individu parent1, Individu parent2){
 	
-	Individu enfant1, enfant2;
-	if(probAlea(this->probaCroisement)){
+	Individu *enfant1, *enfant2;
+	if(enfant1->probAlea(this->probaCroisement)){
 		int ptcrois = nombreAlea(1,this->nombreIndividus);
 		
 		for(int i = 0; i < ptcrois ;i++){
-			enfant1->ensemble[i] = mutation(parent1[i]);
-			enfant2->ensemble[i] = mutation(parent2[i]);
+			enfant1->setGene(parent1.mutation(i),i);
+			enfant2->setGene(parent2.mutation(i),i);
 		}
-		for(i = ptcrois + 1; i < enfant1->tailleIndividu){
-			enfant1->ensemble[i] = mutation(parent2[i]);
-			enfant2->ensemble[i] = mutation(parent1[i]);
+		for(int i=ptcrois; i < enfant1->getTailleIndividu();i++){
+			enfant1->setGene(parent2.mutation(i),i);
+			enfant2->setGene(parent1.mutation(i),i);
 		}
 	}
 	else{
-		enfant1 = parent1;
-		enfant2 = parent2;
+		enfant1 = &parent1;
+		enfant2 = &parent2;
 	}
 	if(testPopulationRemplie() ){		//il faudrait quand même vérifier qu'il y a la place pour deux nouveaux individus
 		ensemble.push_back(enfant1);
