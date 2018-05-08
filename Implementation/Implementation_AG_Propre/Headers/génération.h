@@ -71,8 +71,8 @@ public:
 	void maximisation (int indiceScpre); //pas dans cds
 	void minimisation (int indiceScore); //pas dans cds
 	void triValeur (int indiceScore); //pas dans cds
-	Individu selectionner(int iCritere); // modifié / cds : ajout parametre et fonctionnement modifié 
-	Population crossover(Individu Parent1, Individu Parent2);
+	Individu* selectionner(int iCritere); // modifié / cds : ajout parametre et fonctionnement modifié 
+	Population crossover(Individu *Parent1, Individu *Parent2);
 	Population creerGeneration(Population P);
 	int nombreAlea(int inf, int sup);
 

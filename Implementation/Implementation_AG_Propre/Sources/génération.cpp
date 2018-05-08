@@ -388,12 +388,12 @@ void Population::triValeur (int indiceScore)//test OK, pas dans cds (ameliorable
 	//std::cout<<"VALEUR APPROCHEE"<<std::endl;
 	float val;
 	bool tab_en_ordre = false;
-	if (indiceScore == 1)
+	if (indiceScore == 0)
 		val = valeurApprochee;
-	else if (indiceScore == 2)
+	else if (indiceScore == 1)
 		val = valeurApprochee2;
 	else 
-		std::cerr<<"error triPopulation" <<std::endl;
+		std::cerr<<"error triPopulation"<<std::endl;
 
 	int taille = ensemble.size();
 	int difference;	
@@ -448,59 +448,73 @@ void Population::triPopulation(int indiceScore) //test OK, signature modifiée /
 		Population::triValeur(indiceScore);
 	}
 	else 
-		std::cerr<<"error triPopulation" <<std::endl;
+		std::cerr<<"error triPopulation"<<criteres[indiceScore] <<std::endl;
 	//for (int i = 0; i < ensemble.size(); i ++)
     	//std::cout<<ensemble[i]->getScore(indiceScore)<<std::endl;
 }
 
-Individu Population::selectionner(int iCritere){ //à implémenter , modifié / cds
+Individu* Population::selectionner(int iCritere){ //à implémenter , modifié / cds
 		double somme = 0.0;
 		double sommeFitness = 0.0;
 		int j;
-
-		for(j = 0; j < this->nombreIndividus; j++)			//on récupère la somme totale des scores
-			sommeFitness = ensemble[j]->Individu::getScore(iCritere);
-		double nbAlea = sommeFitness * (rand()/(double)RAND_MAX);		//on tourne la roulette (rand) et on regarde où elle s'arrête
+		for(j = 0; j < this->nombreIndividus; j++)	{		//on récupère la somme totale des scores
+			sommeFitness += (double)1/ensemble[j]->Individu::getRang(iCritere);
+			}
+		double nbAlea = (double)(rand()%(int)(sommeFitness*10000))/10000;	//on tourne la roulette (rand) et on regarde où elle s'arrête
 		j = 0;
-		while(somme < nbAlea || j < this->nombreIndividus -1){			//on trouve l'individu qui se trouve là on la roulette s'est arrêtée
-			somme += this->ensemble[j]->Individu::getScore(iCritere);
+		while(somme < nbAlea && j < this->nombreIndividus -1){			//on trouve l'individu qui se trouve là on la roulette s'est arrêtée
+			somme += (double)1/ensemble[j]->Individu::getRang(iCritere);
+			cout<<j<<"/"<<somme<<"/"<<nbAlea<<endl;
 			j++;
 		}
-		return *this->ensemble[j];
+		cout<<"selection : " << j<<endl;
+		return this->ensemble[j];
 }
 
 int Population::nombreAlea(int inf, int sup) // test OK ? oui test ok 
 {
 	//inf++;	//parce qu'on ne veut pas que inf soit inclu
-	return rand()%(sup-inf) + sup;
+	return rand()%(sup-inf) + inf;
 }
 
 
-Population Population::crossover(Individu parent1, Individu parent2){	//compile mais j'ai pas réussi à vérif si ça fait ce que ça doit faire
-	
+Population Population::crossover(Individu *parent1, Individu *parent2){
+	cout<< "p1 ";
+		for(int j=0;j<parent1->getTailleIndividu();j++){ cout<< parent1->getChromosome()[j] << " / ";}
+		cout<<endl;
+	cout<< "p2 ";
+		for(int j=0;j<parent2->getTailleIndividu();j++){ cout<< parent2->getChromosome()[j] << " / ";}
+		cout<<endl;
 	Individu *enfant1, *enfant2;
-	if(enfant1->probAlea(this->probaCroisement)){
-		int ptcrois = nombreAlea(1,this->nombreIndividus-1);
-		
+	if(enfant1->probAlea(probaCroisement)){
+		cout<<"crossover oui"<<endl;
+		int ptcrois = nombreAlea(1,parent1->getTailleIndividu());
+		cout<<nombreIndividus<<endl;
+		enfant1=new Individu(parent1->getTailleIndividu());
+		enfant2=new Individu(parent1->getTailleIndividu());
 		for(int i = 0; i < ptcrois ;i++){
-			enfant1->setGene(enfant1->mutation(parent1.getGene(i)), i);
-			enfant2->setGene(enfant2->mutation(parent2.getGene(i)), i);
+			enfant1->setGene(parent1->mutation(parent1->getGene(i)), i);
+			enfant2->setGene(parent2->mutation(parent2->getGene(i)), i);
 		}
-		for(int i = ptcrois + 1; i < enfant1->getTailleIndividu() - 1 ; i++){
-			enfant1->setGene(enfant1->mutation(parent2.getGene(i)), i);
-			enfant2->setGene(enfant2->mutation(parent1.getGene(i)), i);
+		for(int i = ptcrois ; i < enfant1->getTailleIndividu() ; i++){
+			enfant1->setGene(parent2->mutation(parent2->getGene(i)), i);
+			enfant2->setGene(parent1->mutation(parent1->getGene(i)), i);
 		}
 	}
 	else{
-		enfant1 = &parent1;
-		enfant2 = &parent2;
+		
+		cout<<"crossover non"<<endl;
+		enfant1 = new Individu(*parent1);
+		enfant2 = new Individu(*parent2);
 	}
-	if(testPopulationRemplie() ){		
-		ensemble.push_back(enfant1);
-		if(testPopulationRemplie())
-			ensemble.push_back(enfant2);
-	}
-
+		cout<< "e1 ";
+		for(int j=0;j<enfant1->getTailleIndividu();j++){ cout<< enfant1->getChromosome()[j] << " / ";}
+		cout<<endl;
+		cout<< "e2 ";
+		for(int j=0;j<enfant2->getTailleIndividu();j++){ cout<< enfant2->getChromosome()[j] << " / ";}
+		cout<<endl;
+	if(testPopulationRemplie() ) ensemble.push_back(enfant1);
+	if(testPopulationRemplie() ) ensemble.push_back(enfant2);
 	return *this;
 }
 

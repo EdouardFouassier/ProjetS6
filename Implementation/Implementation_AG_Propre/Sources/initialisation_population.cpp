@@ -53,6 +53,13 @@ Individu::Individu(float donnees[3]){	// ça ok Ce constructeur crée un chromos
 	}
 }
 
+Individu::Individu(Individu &indiv){
+	chromosome=new int[tailleIndividu+1];
+	for(int i=0;i<tailleIndividu+1;i++){
+		this->chromosome[i]=indiv.getChromosome()[i];
+	}
+}
+
 // Destructeur //
 Individu::~Individu() {
 	delete[] score;

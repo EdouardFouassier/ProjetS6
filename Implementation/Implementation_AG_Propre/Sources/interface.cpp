@@ -201,11 +201,11 @@ Interface::Interface(string nom,string fichier) : Interface(){
 
 void Interface::algoGenetique(){
 	//cout<<nomFichierSortie<<"/"<<nomFichierSortie<<"_Parametre.txt"<<endl;
-	Population P(lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametre.txt"));
+	Population *P=new Population(lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametre.txt"));
 	//cout<<"check0"<<endl;
     Population P2;
-    P2 = P.evaluation();
-    bool test = P.testConvergence();
+    P2 = P->evaluation();
+    bool test = P->testConvergence();
     std::cout<<"test convergence = "<<test<<std::endl;
     std::vector<Individu*> v = P2.getEnsemble();
     /*for(int i = 0; i < P2.getNombreCriteres(); i ++){

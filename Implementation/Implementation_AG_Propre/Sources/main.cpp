@@ -11,16 +11,51 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 
-       //srand(time(NULL));
-    QApplication app(argc, argv);
-    Interface *interface;
-    if(argc==3) interface=new Interface(string(argv[2]),string(argv[1]));
-    else {
-        if(argc==2) interface=new Interface("lol",string(argv[1]));
-        else interface=new Interface(); //crée la fenetre
-    }
-    interface->show(); //affiche...    
-    return app.exec();
+		
+       srand(time(NULL));
+	//~ QApplication app(argc, argv);
+    //~ Interface *interface;
+    //~ if(argc==3) interface=new Interface(string(argv[2]),string(argv[1]));
+    //~ else {
+        //~ if(argc==2) interface=new Interface("lol",string(argv[1]));
+        //~ else interface=new Interface(); //crée la fenetre
+    //~ }
+    //~ interface->show(); //affiche...    
+    //~ return app.exec();
+    
+    
+    //~ string *tab=lireInfoRegen("DonneesInitiales.txt");
+	//~ Population *p=new Population(tab);
+	//~ delete[] tab;
+	//~ calculerEcrireStats(p,"TestFiles/testpop","TestFiles/teststats");
+	//~ Population p1;
+	//~ calculerEcrireStats(p,"TestFiles/testpop","TestFiles/teststats");
+	//~ Population p2;
+	
+	//~ //calculerEcrireStats(p,"TestFiles/testpop","TestFiles/teststats");
+	//~ delete p;
+	
+	
+	//TEST CROSSOVER//
+	/*
+	Population p(lireInfoRegen("DonneesInitiales.txt"));
+	p.evaluation();
+	int tailleI=p.getEnsemble()[0]->getTailleIndividu();
+	Population p_new;
+	for(int i=0; i<p.getNombreIndividus();i++) {
+		for(int j=0;j<tailleI;j++){ cout<< p.getEnsemble()[i]->getChromosome()[j] << " / ";}
+		cout<<endl;
+	}
+	cout<<endl;
+	cout<<endl;
+	for(int i=0;i<p.getNombreIndividus();i++){
+		p_new.crossover((p.selectionner(0)),(p.selectionner(0)));
+	}
+	for(int i=0; i<p.getNombreIndividus();i++) {
+		for(int j=0;j<tailleI;j++){ cout<< p_new.getEnsemble()[i]->getChromosome()[j] << " / ";}
+		cout<<endl;
+	}*/
+    
 
     
     //TEST TEST CONVERGENCE//
@@ -28,31 +63,31 @@ int main(int argc, char *argv[])
     
 
     //TEST LIRESTATS//
-    /*FILE *f[10];
+   /* FILE *f[10];
     for(int i=0;i<10;i++) {
-        f[i]=fopen("TestFiles/StatsTest.txt", "r");
-        for(int j=0;j<i;j++){
-            lireStat(f[i]);
-        }
-    }
-    
-    float *TestTab;
+		f[i]=fopen("TestFiles/StatsTest.txt", "r");
+		for(int j=0;j<i;j++){
+			lireStat(f[i]);
+		}
+	}
+	
+	float *TestTab;
     for(int j=0;j<2;j++){
-        for(int k=0;k<10;k++)
-        {
-            TestTab = lireStat(f[k]);
-            for(int i = 0; i<6; i++) { cout << TestTab[i] << " ";}
-            cout << endl;
-            delete[] TestTab;
-        }
-        cout<<endl;
-    }
+		for(int k=0;k<10;k++)
+		{
+			TestTab = lireStat(f[k]);
+			for(int i = 0; i<6; i++) { cout << TestTab[i] << " ";}
+			cout << endl;
+			delete[] TestTab;
+		}
+		cout<<endl;
+	}
     //~ TestTab = lireStat(f);
     //~ for(int i = 0; i<3; i++) { cout << TestTab[i] << " ";}
     //~ cout << endl;
     for(int i=0;i<10;i++) {
-        fclose(f[i]);
-    }
+		fclose(f[i]);
+	}*/
     
     //Test validation//
     
@@ -205,6 +240,7 @@ int main(int argc, char *argv[])
     return 0;
 */
 
+	return 0;
 
 
 }

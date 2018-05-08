@@ -33,7 +33,7 @@ public:
 	Individu();	// Constructeur par défaut
 	Individu(int taille); // Constructeur qui crée un Individu aléatoire
 	Individu(float donnees[3]); //Constructeur qui initialise ls données (qu'on utilise qu'une seule fois) les données sont envoyées par io
-
+	Individu(Individu &indiv);
 	// Destructeur
 	~Individu();
 

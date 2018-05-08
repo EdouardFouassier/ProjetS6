@@ -86,13 +86,14 @@
 #define __SHRT_WIDTH__ 16
 #define __LDBL_MIN__ 3.36210314311209350626267781732175260e-4932L
 #define __DEC32_MAX__ 9.999999E96DF
+#define __cpp_threadsafe_static_init 200806
 #define __FLT64X_DENORM_MIN__ 3.64519953188247460252840593361941982e-4951F64x
 #define __FLT32X_HAS_INFINITY__ 1
 #define __INT32_MAX__ 0x7fffffff
 #define __INT_WIDTH__ 32
 #define __SIZEOF_LONG__ 8
 #define __STDC_IEC_559__ 1
-#define __STDC_ISO_10646__ 201706L
+#define __STDC_ISO_10646__ 201605L
 #define __UINT16_C(c) c
 #define __PTRDIFF_WIDTH__ 64
 #define __DECIMAL_DIG__ 21
