@@ -193,7 +193,7 @@ void Population::setEnsemble(Individu &nouv){
 
 /**** TESTS ****/
 
-Population Population::testArret() //pourquoi ça doit renvoyer un population? || a finir
+Population Population::testArret() //pourquoi ça doit renvoyer un population? || a finir || à modifier en transformant en bool
 {  
 	if(this->testConvergence() && this->testNombreGeneration()){
 		//calculerEcrireStats(this*, string nomFichierPopulation, string nomFichierStats)
@@ -469,24 +469,24 @@ Individu Population::selectionner(int iCritere){ //à implémenter , modifié / 
 		return *this->ensemble[j];
 }
 
-int Population::nombreAlea(int inf, int sup) // test OK ? 
+int Population::nombreAlea(int inf, int sup) // test OK ? oui test ok 
 {
 	//inf++;	//parce qu'on ne veut pas que inf soit inclu
 	return rand()%(sup-inf) + sup;
 }
 
 
-Population Population::crossover(Individu parent1, Individu parent2){
+Population Population::crossover(Individu parent1, Individu parent2){	//compile mais j'ai pas réussi à vérif si ça fait ce que ça doit faire
 	
 	Individu *enfant1, *enfant2;
 	if(enfant1->probAlea(this->probaCroisement)){
-		int ptcrois = nombreAlea(1,this->nombreIndividus);
+		int ptcrois = nombreAlea(1,this->nombreIndividus-1);
 		
 		for(int i = 0; i < ptcrois ;i++){
 			enfant1->setGene(enfant1->mutation(parent1.getGene(i)), i);
 			enfant2->setGene(enfant2->mutation(parent2.getGene(i)), i);
 		}
-		for(int i = ptcrois + 1; i < enfant1->getTailleIndividu() ; i++){
+		for(int i = ptcrois + 1; i < enfant1->getTailleIndividu() - 1 ; i++){
 			enfant1->setGene(enfant1->mutation(parent2.getGene(i)), i);
 			enfant2->setGene(enfant2->mutation(parent1.getGene(i)), i);
 		}
@@ -508,11 +508,10 @@ Population Population::crossover(Individu parent1, Individu parent2){
 Population Population::creerGeneration(Population P){
 	/*
 	Population new;
-	while(new->testPopulationRemplie){
+	while(new->testPopulationRemplie()){
 		new = crossover(P->selectionner(),P->selectionner());		//la population avec deux nouveaux individus
 	}
-	ecrirePopulation(P, "");		//c'est potentiellement testArret qui fait ça
-	P->~Population();
+	ecrirePopulation(P, "");	
 	return new;
 	*/
 	return *this;
@@ -545,7 +544,7 @@ Population Population::creerGeneration(Population P){
 		limite = taillePop / 2;
 	}
 	else {
-		limite = (ensemble.size() -1) / 2;
+		limite = (ensemble.size() -1) / 2;		//si tu fais taillePop/2 vu que c'est int ça le fait tout seul même si c'est impair...
 	}
 	
 	for (i = 0; i < taillePop; i++) {
@@ -570,7 +569,7 @@ Population Population::creerGeneration(Population P){
 			return *ensemble[i];
 	}
 }*/
-//~ Pour le return je suis pas sur de ce qu'on renvoie. On renvoie un tableau avec les nums des individus selectionné ?
+//~ Pour le return je suis pas sur de ce qu'on renvoie. On renvoie un tableau avec les nums des individus selectionné ? 
 
 	
 	

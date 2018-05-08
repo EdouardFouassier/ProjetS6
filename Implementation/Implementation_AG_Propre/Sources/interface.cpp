@@ -215,6 +215,16 @@ void Interface::algoGenetique(){
     }*/
 
 	ecrirePopulation(P,nomFichierSortie+"/"+nomFichierSortie+"_Population.txt");
+/*
+    Population old(lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametre.txt"));
+    Population nouv();
+    old = old.evaluation();
+    while(testArrêt()){
+        nouv = creerGeneration(old);
+        nouv = nouv.evaluation();
+        old = nouv;
+    }
+*/
 }
 
 bool Interface::getEnCours(){
