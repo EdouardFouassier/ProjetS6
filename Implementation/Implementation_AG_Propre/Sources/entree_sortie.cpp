@@ -337,52 +337,44 @@ float* lireStat(FILE *F) {
 	
 	if(F) {
 		float *tableauStats;
-		tableauStats = new float[6];
+		tableauStats = new float[3];
 		char tableauStatsChar[100];
 		string moyScores1 = "", minScores1 = "", maxScores1 = "", moyScores2 = "", minScores2 = "", maxScores2 = "";
-		
 		fgets (tableauStatsChar , 100 , F);
+		if(tableauStatsChar[0]=='G') fgets (tableauStatsChar , 100 , F);
 		//~ fputs (tableauStatsChar, stdout);
 		int cpt = 0;
 		for (int i = 0; tableauStatsChar[i] != '\n'; i++) {
-			//~ cout << tableauStatsChar[i] << endl;
+			//cout << tableauStatsChar[i] ;
 			if (tableauStatsChar[i] == ' ') { cpt++;}
 			else {
-				if (cpt == 0) { moyScores1 += tableauStatsChar[i]; }
-				if (cpt == 1) { minScores1 += tableauStatsChar[i]; }
-				if (cpt == 2) { maxScores1 += tableauStatsChar[i]; }
+				if (cpt == 1) { moyScores1 += tableauStatsChar[i]; }
+				if (cpt == 2) { minScores1 += tableauStatsChar[i]; }
+				if (cpt == 3) { maxScores1 += tableauStatsChar[i]; }
+				if (tableauStatsChar[i]=='P'){
+					tableauStats[0] = stof(moyScores1);
+					tableauStats[1] = stof(minScores1);
+					tableauStats[2] = stof(maxScores1);
+					return tableauStats;
+				}
+				if (cpt == 4) { moyScores2 += tableauStatsChar[i]; }
+				if (cpt == 5) { minScores2 += tableauStatsChar[i]; }
+				if (cpt == 6) { maxScores2 += tableauStatsChar[i]; }
 			}
 		}
-
-		fgets (tableauStatsChar , 100 , F);
-		//~ fputs (tableauStatsChar, stdout);
-		cpt = 0;
-		for (int i = 0; tableauStatsChar[i] != '\n'; i++) {
-			//~ cout << tableauStatsChar[i] << endl;
-			if (tableauStatsChar[i] == ' ') { cpt++;}
-			else {
-				if (cpt == 0) { moyScores2 += tableauStatsChar[i]; }
-				if (cpt == 1) { minScores2 += tableauStatsChar[i]; }
-				if (cpt == 2) { maxScores2 += tableauStatsChar[i]; }
-			}
-		}
-		//~ cout << moyScores << " " << minScores << " " << maxScores << endl;
-		tableauStats[0] = stof(moyScores1);
-		tableauStats[1] = stof(minScores1);
-		tableauStats[2] = stof(maxScores1);
-		if (moyScores2 == "PasCritere") {
-			return tableauStats;
-		}
-		else {
-			tableauStats[3] = stof(moyScores2);
-			tableauStats[4] = stof(minScores2);
-			tableauStats[5] = stof(maxScores2);
-			return tableauStats;
-		}
+		float *tableauStatss=new float[6];
+		tableauStatss[0] = stof(moyScores1);
+		tableauStatss[1] = stof(minScores1);
+		tableauStatss[2] = stof(maxScores1);
+		tableauStatss[3] = stof(moyScores2);
+		tableauStatss[4] = stof(minScores2);
+		tableauStatss[5] = stof(maxScores2);
+		delete[] tableauStats;
+		return tableauStatss;
+		
 		//~ cout << tableauStats[0] << endl;
 		//~ cout << tableauStats[1] << endl;
 		//~ cout << tableauStats[2] << endl;
-		
 	}
 	else {
 		cerr << "Erreur ouverture fichier" << endl;
@@ -608,6 +600,7 @@ bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomF
 	ofstream fichierStats(nomFichierStats.c_str(), ios::out | ios::app);	//On ouvre le fichier en ecriture, son contenu est efface
 	
 	if(fichierStats) {
+		if(P->getNumeroGeneration()==1) fichierStats<< "Generation Moyenne1 Minimum1 maximum1 Moyenne2 Minimum2 maximum2"<<endl;
 		float *val,*min,*max,*moy;
 		//~ cout << P->getNumeroGeneration() << endl;
 		val=lireScoreIndividu(nomFichierPopulation, P->getNumeroGeneration(), 0);
@@ -618,7 +611,7 @@ bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomF
 			moy=new float[2];
 			min[1]=val[1];
 			max[1]=val[1];
-			moy[1]+=val[1];
+			moy[1]=val[1];
 		}
 		else{
 			min=new float[1];
@@ -627,7 +620,7 @@ bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomF
 		}
 		min[0]=val[0];
 		max[0]=val[0];
-		moy[0]+=val[0];
+		moy[0] =val[0];
 		delete[] val;
 		
 		for(int i=1;i<P->getNombreIndividus();i++){
@@ -648,24 +641,26 @@ bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomF
 			delete[] val;
 		}
 		moy[0]=(moy[0]-max[0]-min[0])/(P->getNombreIndividus()-2);
-		fichierStats << moy[0] << " " << min[0] << " " << max[0] << endl;
+		fichierStats <<P->getNumeroGeneration()<<" "<< moy[0] << " " << min[0] << " " << max[0] ;
 		if(P->getNombreCriteres() == 2) {							//Si les individus dont evalué par rapport a deux critères
 				moy[1]=(moy[1]-max[1]-min[1])/(P->getNombreIndividus()-2);
-				fichierStats << moy[1] << " " << min[1] << " " << max[1] << endl;
+				fichierStats <<" "<< moy[1] << " " << min[1] << " " << max[1]<< endl ;
 			}
 		else {
-			fichierStats << "PasCritere" << endl;					//Si les individus ne sont evalués qu'avec un seul critère, alors on ecrit "PasCritere" 
+			fichierStats << " PasCritere"<< endl ;					//Si les individus ne sont evalués qu'avec un seul critère, alors on ecrit "PasCritere" 
 		}
 		delete[] min;
 		delete[] max;
 		delete[] moy;
-		fichierStats.close();											//On ferme le fichier
+		fichierStats.close();
+		//~ cout<<endl;											//On ferme le fichier
 		return true;
 	}
 	else {
 		cerr << "Erreur ouverture fichier statistiques" <<endl;
 		return false;
 	}
+	
 }
 
 bool ecrireFichier(string nomFichierSortie, string nomFichierParametre, string nomFichierStats){

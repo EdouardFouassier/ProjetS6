@@ -54,10 +54,12 @@ Individu::Individu(float donnees[3]){	// ça ok Ce constructeur crée un chromos
 }
 
 Individu::Individu(Individu &indiv){
-	chromosome=new int[tailleIndividu+1];
+	this->chromosome = (int*)malloc((this->tailleIndividu+1)*sizeof(int));
 	for(int i=0;i<tailleIndividu+1;i++){
 		this->chromosome[i]=indiv.getChromosome()[i];
 	}
+	this->score =(int*) malloc(this->nombreCritere*sizeof(int));
+	this->rang =(int*) malloc(this->nombreCritere*sizeof(int));
 }
 
 // Destructeur //

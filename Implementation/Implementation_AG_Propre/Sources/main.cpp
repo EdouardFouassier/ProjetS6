@@ -32,29 +32,43 @@ int main(int argc, char *argv[])
 	//~ calculerEcrireStats(p,"TestFiles/testpop","TestFiles/teststats");
 	//~ Population p2;
 	
-	//~ //calculerEcrireStats(p,"TestFiles/testpop","TestFiles/teststats");
+	//~ calculerEcrireStats(p,"TestFiles/testpop","TestFiles/teststats");
 	//~ delete p;
 	
 	
-	//TEST CROSSOVER//
+	//TEST DU PLAYMOLAND !!!!!!!!!!!!!! (les enfants ont tout cassés)//
 	/*
-	Population p(lireInfoRegen("DonneesInitiales.txt"));
-	p.evaluation();
-	int tailleI=p.getEnsemble()[0]->getTailleIndividu();
-	Population p_new;
-	for(int i=0; i<p.getNombreIndividus();i++) {
-		for(int j=0;j<tailleI;j++){ cout<< p.getEnsemble()[i]->getChromosome()[j] << " / ";}
+	Population *p=new Population(lireInfoRegen("DonneesInitiales.txt")),*p_new=NULL;
+	
+	int tailleI=p->getEnsemble()[0]->getTailleIndividu();
+	for(int i=0; i<p->getNombreIndividus();i++) {
+		for(int j=0;j<tailleI;j++){ cout<< p->getEnsemble()[i]->getChromosome()[j] << " / ";}
 		cout<<endl;
 	}
 	cout<<endl;
 	cout<<endl;
-	for(int i=0;i<p.getNombreIndividus();i++){
-		p_new.crossover((p.selectionner(0)),(p.selectionner(0)));
+	for(int j=0;j<10;j++){
+		cout<<"coucou3"<<endl;
+		p->evaluation();
+		cout<<"coucou5"<<endl;
+		ecrirePopulation(p,"TestFiles/testpop");
+		cout<<"coucou4"<<endl;
+		calculerEcrireStats(p,"TestFiles/testpop","TestFiles/teststats2");
+		p_new=new Population();
+		for(int i=0;i<p->getNombreIndividus();i++){
+			p_new->crossover((p->selectionner(0)),(p->selectionner(0)));
+		}
+		cout<<"coucou1"<<endl;
+		delete p;
+		p=new Population(*p_new);
+		cout<<"coucou2"<<endl;
 	}
-	for(int i=0; i<p.getNombreIndividus();i++) {
-		for(int j=0;j<tailleI;j++){ cout<< p_new.getEnsemble()[i]->getChromosome()[j] << " / ";}
-		cout<<endl;
-	}*/
+	*/
+	
+	//~ for(int i=0; i<p->getNombreIndividus();i++) {
+		//~ for(int j=0;j<tailleI;j++){ cout<< p_new->getEnsemble()[i]->getChromosome()[j] << " / ";}
+		//~ cout<<endl;
+	//~ }
     
 
     
@@ -63,9 +77,9 @@ int main(int argc, char *argv[])
     
 
     //TEST LIRESTATS//
-   /* FILE *f[10];
+  /*  FILE *f[10];
     for(int i=0;i<10;i++) {
-		f[i]=fopen("TestFiles/StatsTest.txt", "r");
+		f[i]=fopen("TestFiles/teststats", "r");
 		for(int j=0;j<i;j++){
 			lireStat(f[i]);
 		}
