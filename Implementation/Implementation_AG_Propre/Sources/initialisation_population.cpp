@@ -17,14 +17,16 @@ int* rang = NULL;
 // Constructeurs //
 Individu::Individu() {					// ça ok Ce constructeur ne fait rien
 	this->chromosome = (int*)malloc((this->tailleIndividu+1)*sizeof(int));
+	this->score =(int*) malloc(this->nombreCritere*sizeof(int));
+	this->rang =(int*) malloc(this->nombreCritere*sizeof(int));
 	for(int i = 0; i < this->tailleIndividu+1; i++){
 		chromosome[i] = 0;
 	}
 }
 Individu::Individu(int taille) {		// ça ok Ce constructeur crée seulement un chromosome aléatoire
 	this->chromosome = NULL;
-	this->score = NULL;
-	this->rang = NULL;
+	this->score =(int*) malloc(this->nombreCritere*sizeof(int));
+	this->rang =(int*) malloc(this->nombreCritere*sizeof(int));
 	this->tailleIndividu = taille;
 	this->chromosome = (int*)malloc((this->tailleIndividu+1)*sizeof(int));
 	for(int i = 0; i < taille+1; i++){
