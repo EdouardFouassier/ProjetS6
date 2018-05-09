@@ -15,7 +15,9 @@ float* score = NULL;
 int* rang = NULL;
 
 // Constructeurs //
-Individu::Individu() {					// ça ok Ce constructeur ne fait rien
+Individu::Individu() {	
+	this->score =(float*) malloc(this->nombreCritere*sizeof(float));
+	this->rang =(int*) malloc(this->nombreCritere*sizeof(int));				// ça ok Ce constructeur ne fait rien
 	this->chromosome = (int*)malloc((this->tailleIndividu+1)*sizeof(int));
 	for(int i = 0; i < this->tailleIndividu+1; i++){
 		chromosome[i] = 0;
@@ -23,8 +25,8 @@ Individu::Individu() {					// ça ok Ce constructeur ne fait rien
 }
 Individu::Individu(int taille) {		// ça ok Ce constructeur crée seulement un chromosome aléatoire
 	this->chromosome = NULL;
-	this->score = NULL;
-	this->rang = NULL;
+	this->score =(float*) malloc(this->nombreCritere*sizeof(float));
+	this->rang =(int*) malloc(this->nombreCritere*sizeof(int));
 	this->tailleIndividu = taille;
 	this->chromosome = (int*)malloc((this->tailleIndividu+1)*sizeof(int));
 	for(int i = 0; i < taille+1; i++){
@@ -171,7 +173,9 @@ int Individu::decodage(int* binaire) { 			// ça ok avec prise en compte du neg
 }
 bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) { // ça ok (sauf vérif')
 	double tmpScore = calculfitness(fonctionFitness.c_str(), decodage(this->chromosome));	// .c_str : convert string to char*
+	cout<< "lol" <<endl;
 	this->score[indiceScore] = tmpScore;
+	cout<< "lol" <<endl;
 	std::cout<<"Score : "<< this->score[indiceScore] << std::endl;
 	return true;	// Pas de vérif' pour le moment
 }

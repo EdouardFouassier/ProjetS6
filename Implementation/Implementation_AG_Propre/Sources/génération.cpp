@@ -96,10 +96,10 @@ Population::~Population() //a revoir
 {
 	cout<<"DESTRUCTEUR POPULATION"<<endl;
 	int size = ensemble.size();
-	for(int i = size; i >= 0; i--){
-		delete ensemble[i];
-		//ensemble.pop_back();
-	}
+	//for(int i = size; i >= 0; i--){
+		//delete ensemble[i];
+		ensemble.pop_back();
+	//}
 }
 
 /**** GETTEURS ****/
@@ -300,7 +300,7 @@ void Population::evaluation() //test ok
 		for (int iCritere = 0; iCritere < nombreCriteres; iCritere ++){
 			std::cout<<"criteres : "<<iCritere+1<<" / "<<nombreCriteres<<std::endl;
 			for (int iIndiv = 0; iIndiv < ensemble.size(); iIndiv ++){
-				cout << "Individu " << iIndiv << endl;
+				cout << "Individu " << iIndiv <<endl;
 				if(iCritere == 0)
 					fitnessTmp = this->fitness1;
 				if(iCritere == 1)
