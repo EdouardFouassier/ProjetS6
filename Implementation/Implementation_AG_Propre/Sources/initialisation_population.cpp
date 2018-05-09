@@ -11,7 +11,7 @@ int Individu::tailleIndividu = 0;
 int Individu::nombreCritere = 0;
 float Individu::probaMutation = 0;
 int* chromosome = NULL;
-int* score = NULL;
+float* score = NULL;
 int* rang = NULL;
 
 // Constructeurs //
@@ -47,10 +47,10 @@ Individu::Individu(float donnees[3]){	// ça ok Ce constructeur crée un chromos
 		chromosome[i] = rand()%2;
 	}
 	//// Initialisation de score et rang ////
-	this->score =(int*) malloc(this->nombreCritere*sizeof(int));
+	this->score =(float*) malloc(this->nombreCritere*sizeof(float));
 	this->rang =(int*) malloc(this->nombreCritere*sizeof(int));
 	for(int i = 0; i < this->nombreCritere; i++){
-		this->score[i] = 0;
+		this->score[i] = 0.0;
 		this->rang[i] = 0;
 	}
 }
@@ -60,7 +60,7 @@ Individu::Individu(Individu &indiv){
 	for(int i=0;i<tailleIndividu+1;i++){
 		this->chromosome[i]=indiv.getChromosome()[i];
 	}
-	this->score =(int*) malloc(this->nombreCritere*sizeof(int));
+	this->score =(float*) malloc(this->nombreCritere*sizeof(float));
 	this->rang =(int*) malloc(this->nombreCritere*sizeof(int));
 }
 
@@ -81,7 +81,7 @@ Individu::~Individu() {
 int* Individu::getChromosome(){ 		// ça ok
 	return this->chromosome; 
 }
-int Individu::getScore(int i){ 			// ça ok
+float Individu::getScore(int i){ 			// ça ok
 	return this->score[i];
 }
 int Individu::getRang(int i){ 			// ça ok
@@ -105,7 +105,7 @@ void Individu::setChromosome(int* chromosome2){
 	this->chromosome = chromosome2;
 	// Non pas comme ça //
 }
-void Individu::setScore(int score, int i){
+void Individu::setScore(float score, int i){
 	this->score[i] = score;
 }
 void Individu::setRang(int rang, int i){
@@ -167,6 +167,7 @@ int Individu::decodage(int* binaire) { 			// ça ok avec prise en compte du neg
 }
 bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) { // ça ok (sauf vérif')
 	this->score[indiceScore] = calculfitness(fonctionFitness.c_str(), decodage(this->chromosome));	// .c_str : convert string to char*
+	std::cout<<"individu évalué, Valeur de l'individu : "<< decodage(this->chromosome) << std::endl;
 	return true;	// Pas de vérif' pour le moment
 }
 int Individu::mutation(int gene) const {

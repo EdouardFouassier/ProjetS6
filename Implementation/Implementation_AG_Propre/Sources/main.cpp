@@ -37,33 +37,41 @@ int main(int argc, char *argv[])
 	
 	
 	//TEST DU PLAYMOLAND !!!!!!!!!!!!!! (les enfants ont tout cassés)//
-	/*
+	
 	Population *p=new Population(lireInfoRegen("DonneesInitiales.txt")),*p_new=NULL;
 	
 	int tailleI=p->getEnsemble()[0]->getTailleIndividu();
 	for(int i=0; i<p->getNombreIndividus();i++) {
-		for(int j=0;j<tailleI;j++){ cout<< p->getEnsemble()[i]->getChromosome()[j] << " / ";}
+        cout<<"Individu "<<i<<" ";
+		for(int j=0;j<tailleI;j++){ cout<<p->getEnsemble()[i]->getChromosome()[j] << " / ";}
 		cout<<endl;
 	}
 	cout<<endl;
 	cout<<endl;
 	for(int j=0;j<10;j++){
-		cout<<"coucou3"<<endl;
+		cout<<endl<<"ITERATION "<<j<<endl;
 		p->evaluation();
-		cout<<"coucou5"<<endl;
+		cout<<"evaluation faite"<<endl;
 		ecrirePopulation(p,"TestFiles/testpop");
-		cout<<"coucou4"<<endl;
+		cout<<"population écrite"<<endl;
 		calculerEcrireStats(p,"TestFiles/testpop","TestFiles/teststats2");
 		p_new=new Population();
 		for(int i=0;i<p->getNombreIndividus();i++){
 			p_new->crossover((p->selectionner(0)),(p->selectionner(0)));
+            std::cout<<"individu "<<i<<" créé"<<std::endl;
 		}
-		cout<<"coucou1"<<endl;
+		cout<<"creation de la nouvelle population"<<endl;
 		delete p;
 		p=new Population(*p_new);
-		cout<<"coucou2"<<endl;
+		cout<<"ancienne population = nouvelle population"<<endl;
+        int tailleI=p->getEnsemble()[0]->getTailleIndividu();
+        for(int i=0; i<p->getNombreIndividus();i++) {
+            cout<<"Individu "<<i<<" ";
+            for(int y=0;y<tailleI;y++){ cout<<p->getEnsemble()[i]->getChromosome()[y] << " / ";}
+            cout<<endl;
+        }
 	}
-	*/
+	
 	
 	//~ for(int i=0; i<p->getNombreIndividus();i++) {
 		//~ for(int j=0;j<tailleI;j++){ cout<< p_new->getEnsemble()[i]->getChromosome()[j] << " / ";}
