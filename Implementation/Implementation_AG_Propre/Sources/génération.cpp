@@ -94,9 +94,11 @@ Population::Population(string* const& donnees) :  ensemble(0) //test OK
 
 Population::~Population() //a revoir
 {
+	cout<<"DESTRUCTEUR POPULATION"<<endl;
 	int size = ensemble.size();
-	for(int i = 0; i < size; i++){
-		ensemble.pop_back();
+	for(int i = size; i >= 0; i--){
+		delete ensemble[i];
+		//ensemble.pop_back();
 	}
 }
 
@@ -288,7 +290,7 @@ bool Population::testPopulationRemplie(){
 }
 /**** LES ALGOS ****/
 
-Population Population::evaluation() //test ok
+void Population::evaluation() //test ok
 {
 	std::cout<<std::endl<<"EVALUATION"<<std::endl;
 	string fitnessTmp;
@@ -298,13 +300,13 @@ Population Population::evaluation() //test ok
 		for (int iCritere = 0; iCritere < nombreCriteres; iCritere ++){
 			std::cout<<"criteres : "<<iCritere+1<<" / "<<nombreCriteres<<std::endl;
 			for (int iIndiv = 0; iIndiv < ensemble.size(); iIndiv ++){
-				cout << "Tour " << iIndiv << endl;
+				cout << "Individu " << iIndiv << endl;
 				if(iCritere == 0)
 					fitnessTmp = this->fitness1;
 				if(iCritere == 1)
 					fitnessTmp = this->fitness2;
-				cout << "avant appel d'eval indiv" << endl;
-				cout << "fonction fitness : " << fitness1 << endl;
+				//cout << "avant appel d'eval indiv" << endl;
+				//cout << "fonction fitness : " << fitness1 << endl;
 				ensemble[iIndiv]->Individu::evaluationIndividu(fitnessTmp, iCritere);
 			}
 			std::cout<<"icritere : "<<iCritere<<std::endl;
@@ -335,14 +337,14 @@ Population Population::evaluation() //test ok
 				cpt ++;
 				ensemble[ensembleSize]->Individu::setRang(cpt, iCritere);
 			}
-			for(int i = 0; i < ensemble.size(); i++)
-        		std::cout<<"rang pour critere "<<iCritere<< " : "<<ensemble[i]->getRang(iCritere)<<std::endl;
+			//for(int i = 0; i < ensemble.size(); i++)
+        	//	std::cout<<"rang pour critere "<<iCritere<< " : "<<ensemble[i]->getRang(iCritere)<<std::endl;
         	//for (int i = 0; i < ensemble.size(); i ++)
     		//	std::cout<<"critere : "<<iCritere<< " "<<ensemble[i]->getScore(iCritere)<<std::endl;
 
 		}
 	}
-	return *this;
+	//return *this;
 
 }
 
@@ -481,7 +483,7 @@ int Population::nombreAlea(int inf, int sup) // test OK ? oui test ok
 }
 
 
-Population Population::crossover(Individu *parent1, Individu *parent2){
+void Population::crossover(Individu *parent1, Individu *parent2){
 	//~ cout<< "p1 ";
 		//~ for(int j=0;j<parent1->getTailleIndividu();j++){ cout<< parent1->getChromosome()[j] << " / ";}
 		//~ cout<<endl;
@@ -518,7 +520,7 @@ Population Population::crossover(Individu *parent1, Individu *parent2){
 		//~ cout<<endl;
 	if(testPopulationRemplie() ) ensemble.push_back(enfant1);
 	if(testPopulationRemplie() ) ensemble.push_back(enfant2);
-	return *this;
+	//return *this;
 }
 
 //à tester quand toutes les fonctions seront dispos

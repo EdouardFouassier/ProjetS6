@@ -54,16 +54,22 @@ Individu::Individu(float donnees[3]){	// ça ok Ce constructeur crée un chromos
 }
 
 Individu::Individu(Individu &indiv){
+
 	this->chromosome = (int*)malloc((this->tailleIndividu+1)*sizeof(int));
 	for(int i=0;i<tailleIndividu+1;i++){
 		this->chromosome[i]=indiv.getChromosome()[i];
 	}
 	this->score =(float*) malloc(this->nombreCritere*sizeof(float));
 	this->rang =(int*) malloc(this->nombreCritere*sizeof(int));
+	for(int i = 0; i < this->nombreCritere; i++){
+		this->score[i] = 0.0;
+		this->rang[i] = 0;
+	}
 }
 
 // Destructeur //
 Individu::~Individu() {
+	cout<<"DESTRUCTEUR INDIVIDU"<<endl;
 	delete[] score;
 	delete[] rang;
 	delete[] chromosome;
@@ -164,8 +170,9 @@ int Individu::decodage(int* binaire) { 			// ça ok avec prise en compte du neg
 	return res;
 }
 bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) { // ça ok (sauf vérif')
-	this->score[indiceScore] = calculfitness(fonctionFitness.c_str(), decodage(this->chromosome));	// .c_str : convert string to char*
-	std::cout<<"individu évalué, Valeur de l'individu : "<< decodage(this->chromosome) << std::endl;
+	double tmpScore = calculfitness(fonctionFitness.c_str(), decodage(this->chromosome));	// .c_str : convert string to char*
+	this->score[indiceScore] = tmpScore;
+	std::cout<<"Score : "<< this->score[indiceScore] << std::endl;
 	return true;	// Pas de vérif' pour le moment
 }
 int Individu::mutation(int gene) const {
