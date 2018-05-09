@@ -165,6 +165,7 @@ int Individu::decodage(int* binaire) { 			// ça ok avec prise en compte du neg
 }
 bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) { // ça ok (sauf vérif')
 	this->score[indiceScore] = calculfitness(fonctionFitness.c_str(), decodage(this->chromosome));	// .c_str : convert string to char*
+	std::cout<<"individu évalué"<<std::endl;
 	return true;	// Pas de vérif' pour le moment
 }
 int Individu::mutation(int gene) const {

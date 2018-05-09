@@ -290,13 +290,13 @@ bool Population::testPopulationRemplie(){
 
 Population Population::evaluation() //test ok
 {
-	//std::cout<<"EVALUATION"<<std::endl;
+	std::cout<<std::endl<<"EVALUATION"<<std::endl;
 	string fitnessTmp;
 	if (nombreCriteres == -1)
 		std::cerr<<"nombre de critères non conforme"<<std::endl;
 	else {		
 		for (int iCritere = 0; iCritere < nombreCriteres; iCritere ++){
-			//std::cout<<"criteres : "<<iCritere<<" / "<<nombreCriteres<<std::endl;
+			std::cout<<"criteres : "<<iCritere+1<<" / "<<nombreCriteres<<std::endl;
 			for (int iIndiv = 0; iIndiv < ensemble.size(); iIndiv ++){
 				if(iCritere == 0)
 					fitnessTmp = this->fitness1;
@@ -304,8 +304,8 @@ Population Population::evaluation() //test ok
 					fitnessTmp = this->fitness2;
 				ensemble[iIndiv]->Individu::evaluationIndividu(fitnessTmp, iCritere);
 			}
-			//std::cout<<"icritere : "<<iCritere<<std::endl;
-			//std::cout<<"critere : "<<criteres[iCritere]<<std::endl;
+			std::cout<<"icritere : "<<iCritere<<std::endl;
+			std::cout<<"critere : "<<criteres[iCritere]<<std::endl;
 			this->Population::triPopulation(iCritere);
 			int cpt = 1;
 			int ensembleSize = ensemble.size() - 1;
@@ -330,10 +330,10 @@ Population Population::evaluation() //test ok
 			}
 			else { 
 				cpt ++;
-				this->ensemble[ensembleSize]->Individu::setRang(cpt, iCritere);
+				ensemble[ensembleSize]->Individu::setRang(cpt, iCritere);
 			}
-			//for(int i = 0; i < ensembleSize; i++)
-        	//	std::cout<<"rang pour critere "<<iCritere<< " : "<<ensemble[i]->getRang(iCritere)<<std::endl;
+			for(int i = 0; i < ensemble.size(); i++)
+        		std::cout<<"rang pour critere "<<iCritere<< " : "<<ensemble[i]->getRang(iCritere)<<std::endl;
         	//for (int i = 0; i < ensemble.size(); i ++)
     		//	std::cout<<"critere : "<<iCritere<< " "<<ensemble[i]->getScore(iCritere)<<std::endl;
 
@@ -345,7 +345,7 @@ Population Population::evaluation() //test ok
 
 void Population::maximisation(int indiceScore) //test OK, pas dans cds (ameliorable)
 {
-	//std::cout<<"MAXIMISATION"<<std::endl;
+	std::cout<<"MAXIMISATION"<<std::endl;
 	int taille = ensemble.size();
 	bool tab_en_ordre = false;
     while(!tab_en_ordre)
@@ -365,7 +365,7 @@ void Population::maximisation(int indiceScore) //test OK, pas dans cds (ameliora
 
 void Population::minimisation (int indiceScore)//test OK, pas dans cds (ameliorable)
 {
-	//std::cout<<"MINISATION"<<std::endl;
+	std::cout<<"MINISATION"<<std::endl;
 	int taille = ensemble.size();
 	bool tab_en_ordre = false;
     while(!tab_en_ordre)
@@ -385,7 +385,7 @@ void Population::minimisation (int indiceScore)//test OK, pas dans cds (ameliora
 
 void Population::triValeur (int indiceScore)//test OK, pas dans cds (ameliorable)
 {
-	//std::cout<<"VALEUR APPROCHEE"<<std::endl;
+	std::cout<<"VALEUR APPROCHEE"<<std::endl;
 	float val;
 	bool tab_en_ordre = false;
 	if (indiceScore == 0)
