@@ -298,10 +298,13 @@ Population Population::evaluation() //test ok
 		for (int iCritere = 0; iCritere < nombreCriteres; iCritere ++){
 			std::cout<<"criteres : "<<iCritere+1<<" / "<<nombreCriteres<<std::endl;
 			for (int iIndiv = 0; iIndiv < ensemble.size(); iIndiv ++){
+				cout << "Tour " << iIndiv << endl;
 				if(iCritere == 0)
 					fitnessTmp = this->fitness1;
 				if(iCritere == 1)
 					fitnessTmp = this->fitness2;
+				cout << "avant appel d'eval indiv" << endl;
+				cout << "fonction fitness : " << fitness1 << endl;
 				ensemble[iIndiv]->Individu::evaluationIndividu(fitnessTmp, iCritere);
 			}
 			std::cout<<"icritere : "<<iCritere<<std::endl;
@@ -313,7 +316,7 @@ Population Population::evaluation() //test ok
 			for(int iIndiv = 0; iIndiv < ensembleSize; iIndiv ++){
 				iScore1 = ensemble[iIndiv]->Individu::getScore(iCritere);
 				iScore2 = ensemble[iIndiv+1]->Individu::getScore(iCritere); 
-				if(iScore1 == iScore2){
+				if(iScore1 == iScore2){	
 					ensemble[iIndiv]->Individu::setRang(cpt, iCritere);
 					
 				}

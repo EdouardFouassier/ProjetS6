@@ -21,7 +21,7 @@ private:
 	static int nombreCritere;
 	static float probaMutation;
 	int* chromosome;
-	int* score;
+	float* score;
 	int* rang;
 	// int[tailleIndividu] chromosome;
 	// int[nombreCritere] score;
@@ -41,7 +41,7 @@ public:
 
 	/*LES GETTEURS*/
 	int* getChromosome();
-	int getScore(int i);
+	float getScore(int i);
 	int getRang(int i);
 	int getTailleIndividu();
 	int getGene(int i);
@@ -50,7 +50,7 @@ public:
 	void setGene(int gene, int i);
 	// void setChromosome(int[tailleIndividu] chromosome);
 	void setChromosome(int* chromosome);
-	void setScore(int score, int i);
+	void setScore(float score, int i);
 	void setRang(int rang, int i);
 
 	// Méthodes
