@@ -2,6 +2,9 @@
 /// Projet S6 - Sujet 4 - Algorithme Génétique ///
 ///              génération.h                  ///
 //////////////////////////////////////////////////
+/// \author Groupe Sujet 4
+/// \file entree_sortie.h
+
 #ifndef __GENERATION_H
 #define __GENERATION_H
 
@@ -11,7 +14,8 @@
 #include <vector>
 using namespace std;
 
-
+/// \class Population
+/// \brief 
 class Population{
 
 private:
@@ -29,9 +33,22 @@ private:
 
 public: 
 	/* LES CONSTRUCTEURS ET DESTRUCTEUR*/
+	
+	/// \fn Population
+	/// \brief Constructeur par défaut de la classe Population
 	Population();
+	
+	/// \fn Population(Population const&)
+	/// \brief Constructeur de copie de la classe Population
+	/// \param Population const& P
 	Population(Population const& P);
+
+	/// \fn Population(string* const&)
+	/// \brief Constructeur utilisant les données récurépérer de l'interface graphique ou du fichier de paramètres
 	Population(string* const& donnees); 		//données est censé être un tableau mais ça compile pas quand j'en fais un tab
+
+	/// \fn ~Population()
+	/// \brief Destructeur de la classe Population
 	~Population();
 
 

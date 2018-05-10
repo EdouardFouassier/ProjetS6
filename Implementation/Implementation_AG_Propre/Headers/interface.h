@@ -2,6 +2,9 @@
 /// Projet S6 - Sujet 4 - Algorithme Génétique ///
 ///                interface.h                 ///
 //////////////////////////////////////////////////
+/// \author Groupe Sujet 4
+/// \file entree_sortie.h
+
 #ifndef INTERFACE_H
 #define INTERFACE_H
 #include <string>
