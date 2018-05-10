@@ -680,8 +680,89 @@ bool ecrireFichier(string nomFichierSortie, string nomFichierParametre, string n
 }
 
 bool ecrireLatex(string nomFichierSortie){
-	cout<<"Ouai ouai la on ecrit le LaTeX IZI ! "<<endl;
+	string nomFichierEnd = nomFichierSortie+"/"+nomFichierSortie+".tex";
+	ofstream fichierLatex(nomFichierEnd.c_str(), ios::out | ios::trunc);
+	
+	if(fichierLatex) {
+		fichierLatex << "\\documentclass[a4paper,11pt]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[T1]{fontenc}\n\\usepackage[french]{babel}\n\\usepackage[right=2.5cm, left=2.5cm, bottom=4cm, top=3cm]{geometry}\n\\usepackage{textcomp}\n\\usepackage{graphicx}\n\\usepackage{mathtools,amssymb,amsthm}\n\\usepackage{lmodern,fixltx2e}\n\\usepackage{multirow}\n\\usepackage{array}\n\\usepackage{longtable}\n\\usepackage{fancybox}\n\\usepackage{pgfplots}\n" << endl;
+		fichierLatex << "\\title{\\huge "<< nomFichierSortie <<"}\n\\date{}" << endl;
+		fichierLatex << "\\begin{document}" << endl;
+		fichierLatex << "	\\maketitle\n" << endl;
+		fichierLatex << "	Voici les résultats données par le programme : \\\\\\\\" << endl;
+		fichierLatex << "	Les données initiales sont :" << endl;
+		fichierLatex << "	\\begin{itemize}" << endl;
+		float* tabInitialisation = lireInitialisation(nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt");
+		fichierLatex << "		\\item Taille des individus : " << tabInitialisation[0] << endl;
+		fichierLatex << "		\\item Taux de mutation : " << tabInitialisation[1] << endl;
+		delete[] tabInitialisation;
+	
+		string* tabInfoRegen = lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt");
+		fichierLatex << "		\\item Taux de crossover : " << tabInfoRegen[0] << endl;
+		fichierLatex << "		\\item Taille de la population : " << tabInfoRegen[1] << endl;
+		fichierLatex << "		\\item Nombre de génération maximum : " << tabInfoRegen[2] << endl;
+		fichierLatex << "		\\item Nombre de critères : " << tabInfoRegen[3] << endl;
+		fichierLatex << "		\\item Fonction Fitness 1 : " << tabInfoRegen[6] << endl;
+		fichierLatex << "		\\item Critère Fonction Fitness 1 : "; if(tabInfoRegen[4] == "1"){fichierLatex << "Maximisation";} else{ if(tabInfoRegen[4] == "2") {fichierLatex << "Minimisation";} else {fichierLatex << "Valeur approchée";}} fichierLatex << endl;
+		if(tabInfoRegen[4] == "3") { fichierLatex << "		\\item Valeur approchée : " << tabInfoRegen[8] << endl; }
+		if(tabInfoRegen[3] == "2") {
+		fichierLatex << "		\\item Fonction Fitness 2 : " << tabInfoRegen[7] << endl;
+		fichierLatex << "		\\item Critère Fonction Fitness 2  : "; if(tabInfoRegen[5] == "1"){fichierLatex << "Maximisation";} else{ if(tabInfoRegen[5] == "2") {fichierLatex << "Minimisation";} else {fichierLatex << "Valeur approchée";}} fichierLatex << endl;
+		if(tabInfoRegen[5] == "3") { fichierLatex << "		\\item Valeur approchée : " << tabInfoRegen[9] << endl; }
+		}
+		fichierLatex << "	\\end{itemize}\n" << endl;
+		
+		fichierLatex << "	\\begin{center}\\begin{tikzpicture}[yscale=1.5,xscale=1.5]" << endl;
+		fichierLatex << "	\\begin{axis}[ no markers, axis lines = left, xlabel = $Generations$, ylabel = {$Moyennes$}, legend pos=outer north east, legend style={font=\\fontsize{8}{9}\\selectfont}, title={\\begin{Bcenter} Evolution des scores par rapport au critère 1 \\end{Bcenter} }]" << endl;
+		fichierLatex << "		\\addplot table [x=Generation,y=Moyenne1]{" << nomFichierSortie+"_Stats.txt" << "};" << endl;
+		fichierLatex << "		\\addplot table [x=Generation,y=Minimum1]{" << nomFichierSortie+"_Stats.txt" << "};" << endl;
+		fichierLatex << "		\\addplot table [x=Generation,y=Maximum1]{" << nomFichierSortie+"_Stats.txt" << "};" << endl;
+		fichierLatex << "		\\legend{Moyenne Critere1,Minimum Critere1, Maximum Critere1}" << endl;
+		fichierLatex << "	\\end{axis}" << endl;
+		fichierLatex << "	\\end{tikzpicture}\\end{center}" << endl;
+			
+		if(tabInfoRegen[3] == "2") {
+			fichierLatex << "	\\begin{center}\\begin{tikzpicture}[yscale=1.5,xscale=1.5]" << endl;
+			fichierLatex << "	\\begin{axis}[ no markers, axis lines = left, xlabel = $Generations$, ylabel = {$Moyennes$}, legend pos=outer north east, legend style={font=\\fontsize{8}{9}\\selectfont}, title={\\begin{Bcenter} Evolution des scores par rapport au critère 2 \\end{Bcenter} }]" << endl;
+			fichierLatex << "		\\addplot table [x=Generation,y=Moyenne2]{" << nomFichierSortie+"_Stats.txt" << "};" << endl;
+			fichierLatex << "		\\addplot table [x=Generation,y=Minimum2]{" << nomFichierSortie+"_Stats.txt" << "};" << endl;
+			fichierLatex << "		\\addplot table [x=Generation,y=Maximum2]{" << nomFichierSortie+"_Stats.txt" << "};" << endl;
+			fichierLatex << "		\\legend{Moyenne Critere2,Minimum Critere2, Maximum Critere2}" << endl;
+			fichierLatex << "	\\end{axis}" << endl;
+			fichierLatex << "	\\end{tikzpicture}\\end{center}" << endl;
+		}	
+	
+		fichierLatex << "	Le meilleur individu est : \\\\\n" << endl;
+	
+		fichierLatex << "	\\begin{center}\\begin{longtable}{|>{\\centering}m{2cm}|>{\\centering}m{2cm}|>{\\centering}m{2cm}"; if(tabInfoRegen[3] == "2") { fichierLatex << "|>{\\centering}m{2cm}|>{\\centering}m{2cm}|>{\\centering}m{2cm}|>{\\centering\\arraybackslash}m{2cm}|}" << endl; } else { fichierLatex << "|>{\\centering\\arraybackslash}m{2cm}|}" << endl; }
+		fichierLatex << "	\\hline Générations & Moyenne Critère 1 & Minimum Critère 1 & Maximum Critère 1"; if(tabInfoRegen[3] == "2") { fichierLatex << " & Moyenne Critère 2 & Minimum Critère 2 & Maximum Critère 2 \\\\" << endl; } else { fichierLatex << " \\\\" << endl;}
+		float *tabStats;
+		string nomFichierStats = nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt";
+		FILE *F;
+		F = fopen(nomFichierStats.c_str(),"r");
+		for(int i = 1; i <= stoi(tabInfoRegen[2]); i++) {
+			tabStats = lireStat(F);
+			fichierLatex << "	\\hline " << i << " & " << tabStats[0] << " & " << tabStats[1] << " & " << tabStats[2]; if(tabInfoRegen[3] == "2") { fichierLatex << " & " << tabStats[3] << " & " << tabStats[4] << " & " << tabStats[5] << "\\\\" << endl; } else { fichierLatex << "\\\\" << endl; }
+			delete[] tabStats;
+		}
+		
+		delete[] tabInfoRegen;
+		fclose(F);
+		
+		fichierLatex << "	\\hline" << endl;
+		fichierLatex << "	\\end{longtable}\\end{center}" << endl;
+		
+		fichierLatex << "\\end{document}" << endl;
+		
+		fichierLatex.close();
+		return true;
+	}
+	
+	else {
+		cerr << "Erreur ouverture fichier latex" << endl;
+		return false;
+	}
 }
+
 bool ecrirePostscript(string nomFichierSortie){
 	cout<<"Ouai ouai la on ecrit le PostScript IZI ! "<<endl;
 }
