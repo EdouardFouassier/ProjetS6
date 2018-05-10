@@ -66,27 +66,76 @@ bool estParsable(string fonction);
 float* lireStat(FILE *F);	//Dans le cds c'est un int mais comme les scores seront des flottants bah...
 
 /// \fn string* lireInfoRegen(string)
-/// \brief Fonction permettant de 
+/// \brief Fonction permettant d'obtenir les informations nécessaire pour créer une nouvelle génération. 
 /// \param string nomFichier 
 /// \return Renvoie un tableau de chaines de caractères permettant de créer une nouvelle génération.
 string* lireInfoRegen(string nomFichier);
 
-/// \fn string* lireInfoRegen(string)
-/// \brief Fonction permettant de 
+/// \fn float* lireInitialisation(string)
+/// \brief Fonction permettant d'obtenir les informations nécessaire pour créer un nouvel individu
 /// \param string nomFichier 
-/// \return Renvoie un tableau de chaines de caractères permettant de créer une nouvelle génération.
+/// \return Renvoie un tableau de float permettant de créer une nouvel individu
 float* lireInitialisation(string nomFichier);
+
+/// \fn float* lireScoreIndividu(string, int, int)
+/// \brief Fonction permettant d'obtenir les scores pour une génération et un critère donnés.
+/// \param string nomFichierPopulation
+/// \param int generation donne le numéro de la génération à lire.
+/// \param int indice donne l'indice du tableau des scores à lire. 
+/// \return Renvoie un tableau de float contenant les scores.
 float* lireScoreIndividu(string nomFichierPopulation, int generation, int indice);
 
 // Ecriture
 class Interface;
+
+/// \fn bool ecrireFichierDonnees(Interface, string)
+/// \brief Fonction permettant d'écire dans un fichier l'ensemble des données que l'utilisateur entre dans l'interface graphique.
+/// \param Interface* interface
+/// \param string nomFichier
+/// \return Renvoie TRUE si pas d'erreur lors de l'écriture, FALSE sinon.
 bool ecrireFichierDonnees(Interface *interface, string nomFichier);
+
 class Population;
+
+/// \fn bool ecirePopulation(Population*, string)
+/// \brief Fonction permettant d'écire dans un fichier l'ensemble d'une population.
+/// \param Population* P pointeur sur une population
+/// \param string nomFichier fichier contenant les populations
+/// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
 bool ecrirePopulation(Population *P, string nomFichier);
+
+/// \fn bool calcuerEcrireStats(Population*, string, string)
+/// \brief Fonction permettant d'écrire les statistiques d'une population passée en paramètre dans un fichier passé en paramètre
+/// \param Population* P pointeur sur une population
+/// \param string nomFichierPopulation
+/// \param string nomFichierStats
+/// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
 bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomFichierStats);
+
+/// \fn bool ecrireFichier(string, string, string)
+/// \brief Fonction permettant d'écrire 
+/// \param string nomFichierSortie
+/// \param string nomFichierParametr
+/// \param string nomFichierStats
+/// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
 bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichierStats);
+
+/// \fn bool ecrireLatex(string)
+/// \brief Fonction permettant d'écrire un fichier de résultats pour l'utilisateur au format LaTeX
+/// \param string nomFichierSortie
+/// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
 bool ecrireLatex(string nomFichierSortie);
+
+/// \fn bool ecrirePostscript(string)
+/// \brief Fonction permettant d'écrire un fichier de résultats pour l'utilisateur au format PostScript
+/// \param string nomFichierSortie
+/// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
 bool ecrirePostscript(string nomFichierSortie);
+
+/// \fn bool ecrireXfig(string)
+/// \brief Fonction permettant d'écrire un fichier de résultats pour l'utilisateur au format Xfig
+/// \param string nomFichierSortie
+/// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
 bool ecrireXfig(string nomFichierSortie);
 //~ bool ecrireUnScore(int score, File *F);  //Alors... Elle est dans le cds mais... Askip elle est useless, Wallah c'est un bruit qui court dans la téci
 
