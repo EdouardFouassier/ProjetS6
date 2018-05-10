@@ -2,6 +2,9 @@
 /// Projet S6 - Sujet 4 - Algorithme Génétique ///
 ///              génération.h                  ///
 //////////////////////////////////////////////////
+/// \author Groupe Sujet 4
+/// \file entree_sortie.h
+
 #ifndef __GENERATION_H
 #define __GENERATION_H
 

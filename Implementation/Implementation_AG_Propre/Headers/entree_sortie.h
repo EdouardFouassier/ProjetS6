@@ -86,23 +86,19 @@ float* lireInitialisation(string nomFichier);
 float* lireScoreIndividu(string nomFichierPopulation, int generation, int indice);
 
 // Ecriture
-class Interface;
-
 /// \fn bool ecrireFichierDonnees(Interface, string)
 /// \brief Fonction permettant d'écire dans un fichier l'ensemble des données que l'utilisateur entre dans l'interface graphique.
 /// \param Interface* interface
 /// \param string nomFichier
 /// \return Renvoie TRUE si pas d'erreur lors de l'écriture, FALSE sinon.
+class Interface;
 bool ecrireFichierDonnees(Interface *interface, string nomFichier);
-
-class Population;
 
 /// \fn bool ecirePopulation(Population*, string)
 /// \brief Fonction permettant d'écire dans un fichier l'ensemble d'une population.
 /// \param Population* P pointeur sur une population
 /// \param string nomFichier fichier contenant les populations
 /// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
-bool ecrirePopulation(Population *P, string nomFichier);
 
 /// \fn bool calcuerEcrireStats(Population*, string, string)
 /// \brief Fonction permettant d'écrire les statistiques d'une population passée en paramètre dans un fichier passé en paramètre
@@ -110,6 +106,9 @@ bool ecrirePopulation(Population *P, string nomFichier);
 /// \param string nomFichierPopulation
 /// \param string nomFichierStats
 /// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
+
+class Population;
+bool ecrirePopulation(Population *P, string nomFichier);
 bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomFichierStats);
 
 /// \fn bool ecrireFichier(string, string, string)

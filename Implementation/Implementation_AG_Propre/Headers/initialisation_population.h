@@ -2,6 +2,8 @@
 /// Projet S6 - Sujet 4 - Algorithme Génétique ///
 ///        initialisation_population.h         ///
 //////////////////////////////////////////////////
+/// \author Groupe Sujet 4
+/// \file entree_sortie.h
 
 #ifndef __INITIALISATION_POPULATION_H
 #define __INITIALISATION_POPULATION_H
