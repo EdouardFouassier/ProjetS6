@@ -217,6 +217,7 @@ void Interface::algoGenetique(){
 		ecrirePopulation(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt");
 		cout<<"population écrite"<<endl;
 		calculerEcrireStats(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt",nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt");
+		cout<<"stat écrite"<<endl;
 		p_new=new Population();
 		for(int i=0;i<p->getNombreIndividus();i++){
 			p_new->crossover((p->selectionner(0)),(p->selectionner(0)));
@@ -425,6 +426,8 @@ void Interface::connectLancer(){
 					QProcess::startDetached(QString::fromStdString("mv "+nomFichierSortie+"_Parametres.txt"+" "+nomFichierSortie+"/"));
 					QProcess::startDetached(QString::fromStdString("chmod +xwr "+nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt"));	
 					encours=1;
+					algoGenetique();
+					encours=0;
 					}
 					
 				}

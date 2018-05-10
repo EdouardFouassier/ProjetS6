@@ -756,7 +756,7 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 		
 	
 		fichierLatex << "	Le meilleur individu est : \\\\\n" << endl;
-		fichierLatex << "	\\begin{center}\\begin{longtable}{|>{\\centering}m{2cm}|>{\\centering\\arraybackslash}m{2cm}|}" << endl;
+		fichierLatex << "	\\begin{center}\\begin{tabular}{|c|c|}" << endl;
 		fichierLatex << "	\\hline Solution & Valeur 1\\\\"<<endl;
 
 		for(int i=0;i<cpt;i++){
@@ -766,7 +766,7 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 			}
 			fichierLatex << " & "<< solutions[i].decodage(solutions[i]) <<"\\\\"<<endl;
 		}
-		fichierLatex << "	\\hline"<<endl<<"\\end{longtable}\\end{center}"<<endl;
+		fichierLatex << "	\\hline"<<endl<<"	\\end{tabular}\\end{center}\n"<<endl;
 		
 		fichierLatex << "	\\begin{center}\\begin{longtable}{|>{\\centering}m{2cm}|>{\\centering}m{2cm}|>{\\centering}m{2cm}"; if(tabInfoRegen[3] == "2") { fichierLatex << "|>{\\centering}m{2cm}|>{\\centering}m{2cm}|>{\\centering}m{2cm}|>{\\centering\\arraybackslash}m{2cm}|}" << endl; } else { fichierLatex << "|>{\\centering\\arraybackslash}m{2cm}|}" << endl; }
 		fichierLatex << "	\\hline Générations & Moyenne Critère 1 & Minimum Critère 1 & Maximum Critère 1"; if(tabInfoRegen[3] == "2") { fichierLatex << " & Moyenne Critère 2 & Minimum Critère 2 & Maximum Critère 2 \\\\" << endl; } else { fichierLatex << " \\\\" << endl;}
