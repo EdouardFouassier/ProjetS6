@@ -66,8 +66,11 @@ int main(int argc, char *argv[])
 		cout<<"ancienne population = nouvelle population"<<endl;
         int tailleI=p->getEnsemble()[0]->getTailleIndividu();
         for(int i=0; i<p->getNombreIndividus();i++) {
-            cout<<"Individu "<<i<<" ";
-            for(int y=0;y<tailleI;y++){ cout<<p->getEnsemble()[i]->getChromosome()[y] << " / ";}
+            cout<<"Individu "<<i<<endl;
+            for(int y=0;y<tailleI;y++){ 
+                cout<<p->getEnsemble()[i]->getChromosome()[y] << " / ";
+
+            }
             cout<<endl;
         }
 	}

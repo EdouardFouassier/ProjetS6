@@ -617,8 +617,8 @@ void te_print(const te_expr *n) {
 double calculfitness (const char *c, double x) {
 	
 	 
-    
-    //printf("Evaluating :\n\t%s\n", c);
+    //printf("calculFitness\n");
+    //printf("x = \n\t%f\n", x);
 	double r = 0;
   
     double y;
@@ -638,6 +638,6 @@ double calculfitness (const char *c, double x) {
   
         printf("\t%*s^\nError near here", err-1, "");
     }
-    //printf("d vaut : %f \n", r);
+    //printf("r vaut : %f \n", r);
     return r;
 }

@@ -15,7 +15,9 @@ float* score = NULL;
 int* rang = NULL;
 
 // Constructeurs //
-Individu::Individu() {					// ça ok Ce constructeur ne fait rien
+Individu::Individu() {	
+	this->score =(float*) malloc(this->nombreCritere*sizeof(float));
+	this->rang =(int*) malloc(this->nombreCritere*sizeof(int));				// ça ok Ce constructeur ne fait rien
 	this->chromosome = (int*)malloc((this->tailleIndividu+1)*sizeof(int));
 	this->score =(int*) malloc(this->nombreCritere*sizeof(int));
 	this->rang =(int*) malloc(this->nombreCritere*sizeof(int));
@@ -25,7 +27,7 @@ Individu::Individu() {					// ça ok Ce constructeur ne fait rien
 }
 Individu::Individu(int taille) {		// ça ok Ce constructeur crée seulement un chromosome aléatoire
 	this->chromosome = NULL;
-	this->score =(int*) malloc(this->nombreCritere*sizeof(int));
+	this->score =(float*) malloc(this->nombreCritere*sizeof(float));
 	this->rang =(int*) malloc(this->nombreCritere*sizeof(int));
 	this->tailleIndividu = taille;
 	this->chromosome = (int*)malloc((this->tailleIndividu+1)*sizeof(int));
@@ -56,16 +58,22 @@ Individu::Individu(float donnees[3]){	// ça ok Ce constructeur crée un chromos
 }
 
 Individu::Individu(Individu &indiv){
+
 	this->chromosome = (int*)malloc((this->tailleIndividu+1)*sizeof(int));
 	for(int i=0;i<tailleIndividu+1;i++){
 		this->chromosome[i]=indiv.getChromosome()[i];
 	}
 	this->score =(float*) malloc(this->nombreCritere*sizeof(float));
 	this->rang =(int*) malloc(this->nombreCritere*sizeof(int));
+	for(int i = 0; i < this->nombreCritere; i++){
+		this->score[i] = 0.0;
+		this->rang[i] = 0;
+	}
 }
 
 // Destructeur //
 Individu::~Individu() {
+	cout<<"DESTRUCTEUR INDIVIDU"<<endl;
 	delete[] score;
 	delete[] rang;
 	delete[] chromosome;
@@ -166,8 +174,11 @@ int Individu::decodage(int* binaire) { 			// ça ok avec prise en compte du neg
 	return res;
 }
 bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) { // ça ok (sauf vérif')
-	this->score[indiceScore] = calculfitness(fonctionFitness.c_str(), decodage(this->chromosome));	// .c_str : convert string to char*
-	std::cout<<"individu évalué, Valeur de l'individu : "<< decodage(this->chromosome) << std::endl;
+	double tmpScore = calculfitness(fonctionFitness.c_str(), decodage(this->chromosome));	// .c_str : convert string to char*
+	cout<< "lol" <<endl;
+	this->score[indiceScore] = tmpScore;
+	cout<< "lol" <<endl;
+	std::cout<<"Score : "<< this->score[indiceScore] << std::endl;
 	return true;	// Pas de vérif' pour le moment
 }
 int Individu::mutation(int gene) const {
