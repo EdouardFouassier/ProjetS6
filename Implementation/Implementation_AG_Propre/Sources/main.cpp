@@ -13,15 +13,15 @@ int main(int argc, char *argv[])
 
 		
        srand(time(NULL));
-	//~ QApplication app(argc, argv);
-    //~ Interface *interface;
-    //~ if(argc==3) interface=new Interface(string(argv[2]),string(argv[1]));
-    //~ else {
-        //~ if(argc==2) interface=new Interface("lol",string(argv[1]));
-        //~ else interface=new Interface(); //crée la fenetre
-    //~ }
-    //~ interface->show(); //affiche...    
-    //~ return app.exec();
+	QApplication app(argc, argv);
+    Interface *interface;
+    if(argc==3) interface=new Interface(string(argv[2]),string(argv[1]));
+    else {
+        if(argc==2) interface=new Interface("lol",string(argv[1]));
+        else interface=new Interface(); //crée la fenetre
+    }
+    interface->show(); //affiche...    
+    return app.exec();
     
     
     //~ string *tab=lireInfoRegen("DonneesInitiales.txt");
@@ -38,43 +38,42 @@ int main(int argc, char *argv[])
 	
 	//TEST DU PLAYMOLAND !!!!!!!!!!!!!! (les enfants ont tout cassés)//
 	
-	Population *p=new Population(lireInfoRegen("DonneesInitiales.txt")),*p_new=NULL;
+	//~ Population *p=new Population(lireInfoRegen("DonneesInitiales.txt")),*p_new=NULL;
 	
-	int tailleI=p->getEnsemble()[0]->getTailleIndividu();
-	for(int i=0; i<p->getNombreIndividus();i++) {
-        cout<<"Individu "<<i<<" ";
-		for(int j=0;j<tailleI;j++){ cout<<p->getEnsemble()[i]->getChromosome()[j] << " / ";}
-		cout<<endl;
-	}
-	cout<<endl;
-	cout<<endl;
-	for(int j=0;j<10;j++){
-		cout<<endl<<"ITERATION "<<j<<endl;
-		p->evaluation();
-		cout<<"evaluation faite"<<endl;
-		ecrirePopulation(p,"TestFiles/testpop");
-		cout<<"population écrite"<<endl;
-		calculerEcrireStats(p,"TestFiles/testpop","TestFiles/teststats2");
-		p_new=new Population();
-		for(int i=0;i<p->getNombreIndividus();i++){
-			p_new->crossover((p->selectionner(0)),(p->selectionner(0)));
-            std::cout<<"individu "<<i<<" créé"<<std::endl;
-		}
-		cout<<"creation de la nouvelle population"<<endl;
-		delete p;
-		p=p_new;
-		cout<<"ancienne population = nouvelle population"<<endl;
-        int tailleI=p->getEnsemble()[0]->getTailleIndividu();
-        for(int i=0; i<p->getNombreIndividus();i++) {
-            cout<<"Individu "<<i<<endl;
-            for(int y=0;y<tailleI;y++){ 
-                cout<<p->getEnsemble()[i]->getChromosome()[y] << " / ";
+	//~ int tailleI=p->getEnsemble()[0]->getTailleIndividu();
+	//~ for(int i=0; i<p->getNombreIndividus();i++) {
+        //~ cout<<"Individu "<<i<<" ";
+		//~ for(int j=0;j<tailleI;j++){ cout<<p->getEnsemble()[i]->getChromosome()[j] << " / ";}
+		//~ cout<<endl;
+	//~ }
+	//~ cout<<endl;
+	//~ cout<<endl;
+	//~ for(int j=0;j<p->getNombreGenerationMax();j++){
+		//~ cout<<endl<<"ITERATION "<<j<<endl;
+		//~ p->evaluation();
+		//~ cout<<"evaluation faite"<<endl;
+		//~ ecrirePopulation(p,"TestFiles/testpop");
+		//~ cout<<"population écrite"<<endl;
+		//~ calculerEcrireStats(p,"TestFiles/testpop","TestFiles/teststats2");
+		//~ p_new=new Population();
+		//~ for(int i=0;i<p->getNombreIndividus();i++){
+			//~ p_new->crossover((p->selectionner(1)),(p->selectionner(0)));
+            //~ std::cout<<"individu "<<i<<" créé"<<std::endl;
+		//~ }
+		//~ cout<<"creation de la nouvelle population"<<endl;
+		//~ delete p;
+		//~ p=p_new;
+		//~ cout<<"ancienne population = nouvelle population"<<endl;
+        //~ int tailleI=p->getEnsemble()[0]->getTailleIndividu();
+        //~ for(int i=0; i<p->getNombreIndividus();i++) {
+            //~ cout<<"Individu "<<i<<endl;
+            //~ for(int y=0;y<tailleI;y++){ 
+                //~ cout<<p->getEnsemble()[i]->getChromosome()[y] << " / ";
 
-            }
-            cout<<endl;
-        }
-	}
-	
+            //~ }
+            //~ cout<<endl;
+        //~ }
+	//~ }
 	
 	//~ for(int i=0; i<p->getNombreIndividus();i++) {
 		//~ for(int j=0;j<tailleI;j++){ cout<< p_new->getEnsemble()[i]->getChromosome()[j] << " / ";}

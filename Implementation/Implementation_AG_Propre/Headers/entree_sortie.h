@@ -123,7 +123,7 @@ bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, string no
 /// \brief Fonction permettant d'écrire un fichier de résultats pour l'utilisateur au format LaTeX
 /// \param string nomFichierSortie
 /// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
-bool ecrireLatex(string nomFichierSortie);
+bool ecrireLatex(string nomFichierSortie,Population *P);
 
 /// \fn bool ecrirePostscript(string)
 /// \brief Fonction permettant d'écrire un fichier de résultats pour l'utilisateur au format PostScript

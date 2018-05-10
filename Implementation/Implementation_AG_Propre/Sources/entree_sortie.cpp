@@ -91,7 +91,7 @@ bool testCoherenceDonnees(string nomFichier) {
 		}
         if (i == 4) {
 			x = estEntierPositif(donnees);
-			if(!x || stoi(donnees)>100 || stoi(donnees)<1)x=false;
+			if(!x || stoi(donnees)>1000 || stoi(donnees)<1)x=false;
 			if(!x){
 				throw string("Erreur nombre de génération \n");
 				return false;
@@ -673,13 +673,13 @@ bool ecrireFichier(string nomFichierSortie, string nomFichierParametre, string n
 			getline(fichierParam,line);
 		}
 		cout<<line[0]<<line[1]<<line[2]<<endl;
-		if(line[0]=='1') ecrireLatex(nomFichierSortie);
+	//	if(line[0]=='1') ecrireLatex(nomFichierSortie);
 		if(line[1]=='1') ecrirePostscript(nomFichierSortie);
 		if(line[2]=='1') ecrireXfig(nomFichierSortie);
 	}
 }
 
-bool ecrireLatex(string nomFichierSortie){
+bool ecrireLatex(string nomFichierSortie,Population *P){
 	string nomFichierEnd = nomFichierSortie+"/"+nomFichierSortie+".tex";
 	ofstream fichierLatex(nomFichierEnd.c_str(), ios::out | ios::trunc);
 	
@@ -694,7 +694,7 @@ bool ecrireLatex(string nomFichierSortie){
 		float* tabInitialisation = lireInitialisation(nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt");
 		fichierLatex << "		\\item Taille des individus : " << tabInitialisation[0] << endl;
 		fichierLatex << "		\\item Taux de mutation : " << tabInitialisation[1] << endl;
-		delete[] tabInitialisation;
+		
 	
 		string* tabInfoRegen = lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt");
 		fichierLatex << "		\\item Taux de crossover : " << tabInfoRegen[0] << endl;
@@ -730,9 +730,44 @@ bool ecrireLatex(string nomFichierSortie){
 			fichierLatex << "	\\end{axis}" << endl;
 			fichierLatex << "	\\end{tikzpicture}\\end{center}" << endl;
 		}	
+		Individu solutions[10]; 
+		int cpt=0;
+		if(P->getNombreCriteres()==1){
+			for(int i=0;i<stoi(tabInfoRegen[1])&&cpt<10;i++){
+				//~ cout<<P->getEnsemble()[i]->getRang(1)<<endl;
+				//~ if(P->getEnsemble()[i]->getRang(0)) {
+					solutions[cpt]=*P->getEnsemble()[i];
+					cpt++;
+				//~ }
+			}
+		}else{
+			for(int i=0;i<stoi(tabInfoRegen[1])&&cpt<10;i++){
+				//~ cout<<P->getEnsemble()[i]->getRang(1)<<endl;
+				if(cpt<5 /*&& P->getEnsemble()[i]->getRang(1)*/ ){
+					solutions[cpt]=*P->getEnsemble()[i];
+					cpt++;
+				}
+				else {
+					solutions[cpt]=*P->getEnsemble()[i];
+					cpt++;
+				}
+			}
+		}
+		
 	
 		fichierLatex << "	Le meilleur individu est : \\\\\n" << endl;
-	
+		fichierLatex << "	\\begin{center}\\begin{longtable}{|>{\\centering}m{2cm}|>{\\centering\\arraybackslash}m{2cm}|}" << endl;
+		fichierLatex << "	\\hline Solution & Valeur 1\\\\"<<endl;
+
+		for(int i=0;i<cpt;i++){
+			fichierLatex << "	\\hline ";
+			for(int j=0;j<tabInitialisation[0];j++){
+				fichierLatex << solutions[i].getChromosome()[j];
+			}
+			fichierLatex << " & "<< solutions[i].decodage(solutions[i]) <<"\\\\"<<endl;
+		}
+		fichierLatex << "	\\hline"<<endl<<"\\end{longtable}\\end{center}"<<endl;
+		
 		fichierLatex << "	\\begin{center}\\begin{longtable}{|>{\\centering}m{2cm}|>{\\centering}m{2cm}|>{\\centering}m{2cm}"; if(tabInfoRegen[3] == "2") { fichierLatex << "|>{\\centering}m{2cm}|>{\\centering}m{2cm}|>{\\centering}m{2cm}|>{\\centering\\arraybackslash}m{2cm}|}" << endl; } else { fichierLatex << "|>{\\centering\\arraybackslash}m{2cm}|}" << endl; }
 		fichierLatex << "	\\hline Générations & Moyenne Critère 1 & Minimum Critère 1 & Maximum Critère 1"; if(tabInfoRegen[3] == "2") { fichierLatex << " & Moyenne Critère 2 & Minimum Critère 2 & Maximum Critère 2 \\\\" << endl; } else { fichierLatex << " \\\\" << endl;}
 		float *tabStats;
@@ -744,7 +779,7 @@ bool ecrireLatex(string nomFichierSortie){
 			fichierLatex << "	\\hline " << i << " & " << tabStats[0] << " & " << tabStats[1] << " & " << tabStats[2]; if(tabInfoRegen[3] == "2") { fichierLatex << " & " << tabStats[3] << " & " << tabStats[4] << " & " << tabStats[5] << "\\\\" << endl; } else { fichierLatex << "\\\\" << endl; }
 			delete[] tabStats;
 		}
-		
+		delete[] tabInitialisation;
 		delete[] tabInfoRegen;
 		fclose(F);
 		

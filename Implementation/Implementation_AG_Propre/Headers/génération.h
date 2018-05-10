@@ -90,7 +90,7 @@ public:
 	void triValeur (int indiceScore); //pas dans cds
 	Individu* selectionner(int iCritere); // modifié / cds : ajout parametre et fonctionnement modifié 
 	void crossover(Individu *Parent1, Individu *Parent2);
-	Population creerGeneration(Population P);
+	Population creerGeneration(Population *P);
 	int nombreAlea(int inf, int sup);
 
 };

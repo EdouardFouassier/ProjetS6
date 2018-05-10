@@ -200,31 +200,47 @@ Interface::Interface(string nom,string fichier) : Interface(){
 }
 
 void Interface::algoGenetique(){
-	//cout<<nomFichierSortie<<"/"<<nomFichierSortie<<"_Parametre.txt"<<endl;
-	Population *P=new Population(lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametre.txt"));
-	//cout<<"check0"<<endl;
-    Population P2;
-    P2 = P->evaluation();
-    bool test = P->testConvergence();
-    std::cout<<"test convergence = "<<test<<std::endl;
-    std::vector<Individu*> v = P2.getEnsemble();
-    /*for(int i = 0; i < P2.getNombreCriteres(); i ++){
-        std::cout<<"critere : "<< i<<std::endl;
-        for(int j = 0; j < v.size(); j ++ ) 
-            std::cout<<v[j]->getRang(i)<<""<<std::endl;
-    }*/
+	Population *p=new Population(lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt")),*p_new=NULL;
+	
+	int tailleI=p->getEnsemble()[0]->getTailleIndividu();
+	for(int i=0; i<p->getNombreIndividus();i++) {
+        cout<<"Individu "<<i<<" ";
+		for(int j=0;j<tailleI;j++){ cout<<p->getEnsemble()[i]->getChromosome()[j] << " / ";}
+		cout<<endl;
+	}
+	cout<<endl;
+	cout<<endl;
+	for(int j=0;j<p->getNombreGenerationMax();j++){
+		cout<<endl<<"ITERATION "<<j<<endl;
+		p->evaluation();
+		cout<<"evaluation faite"<<endl;
+		ecrirePopulation(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt");
+		cout<<"population écrite"<<endl;
+		calculerEcrireStats(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt",nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt");
+		p_new=new Population();
+		for(int i=0;i<p->getNombreIndividus();i++){
+			p_new->crossover((p->selectionner(0)),(p->selectionner(0)));
+            std::cout<<"individu "<<i<<" créé"<<std::endl;
+		}
+		cout<<"creation de la nouvelle population"<<endl;
+		delete p;
+		p=p_new;
+		cout<<"ancienne population = nouvelle population"<<endl;
+        int tailleI=p->getEnsemble()[0]->getTailleIndividu();
+        for(int i=0; i<p->getNombreIndividus();i++) {
+            cout<<"Individu "<<i<<endl;
+            for(int y=0;y<tailleI;y++){ 
+                cout<<p->getEnsemble()[i]->getChromosome()[y] << " / ";
 
-	ecrirePopulation(P,nomFichierSortie+"/"+nomFichierSortie+"_Population.txt");
-/*
-    Population old(lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametre.txt"));
-    Population nouv();
-    old = old.evaluation();
-    while(testArrêt()){
-        nouv = creerGeneration(old);
-        nouv = nouv.evaluation();
-        old = nouv;
-    }
-*/
+            }
+            cout<<endl;
+        }
+	}
+	ecrireLatex(nomFichierSortie,p);
+	cout<< "FIN" <<endl;
+	//QProcess::startDetached(QString::fromStdString("pdflatex "+nomFichierSortie+"/"+nomFichierSortie+".tex"));
+	//QDesktopServices::openUrl(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() +QString::fromStdString( "/"+nomFichierSortie+"/"+nomFichierSortie+".pdf")));
+	
 }
 
 bool Interface::getEnCours(){
@@ -407,13 +423,14 @@ void Interface::connectLancer(){
 					QMessageBox::information(this,"Bravo !","Le programme a demarré avec succès.");
 					QProcess::startDetached(QString::fromStdString("mkdir "+nomFichierSortie));
 					QProcess::startDetached(QString::fromStdString("mv "+nomFichierSortie+"_Parametre.txt"+" "+nomFichierSortie+"/"));
-					QProcess::startDetached(QString::fromStdString("chmod +xwr "+nomFichierSortie+"/"+nomFichierSortie+"_Parametre.txt"));	
+					QProcess::startDetached(QString::fromStdString("chmod +xwr "+nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt"));	
 					encours=1;
 					}
 					
 				}
 				catch(string const& e){
-					if(QFileInfo(QString::fromStdString(nomFichierSortie+"_Parametre.txt")).exists())QProcess::startDetached(QString::fromStdString("rm "+nomFichierSortie+"_Parametre.txt"));
+					if(QFileInfo(QString::fromStdString(nomFichierSortie+"_Parametres.txt")).exists())
+						QProcess::startDetached(QString::fromStdString("rm "+nomFichierSortie+"_Parametres.txt"));
 					QMessageBox::information(this,"ERROR",QString::fromStdString(e));
 				}
 			}
@@ -439,8 +456,8 @@ void Interface::connectLancer(){
 					if(nomcorrect && testCoherenceDonnees(liensFichier->text().toUtf8().constData())){
 						QMessageBox::information(this,"Bravo !","Le programme est prêt a être lancé.");
 						QProcess::startDetached(QString::fromStdString("mkdir "+nomFichierSortie));
-						QProcess::startDetached(QString::fromStdString("cp "+string(liensFichier->text().toUtf8().constData())+" "+nomFichierSortie+"/"+nomFichierSortie+"_Parametre.txt"));
-						QProcess::startDetached(QString::fromStdString("chmod +xwr "+nomFichierSortie+"/"+nomFichierSortie+"_Parametre.txt"));
+						QProcess::startDetached(QString::fromStdString("cp "+string(liensFichier->text().toUtf8().constData())+" "+nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt"));
+						QProcess::startDetached(QString::fromStdString("chmod +xwr "+nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt"));
 						algoGenetique();
 						encours=1;
 					}
