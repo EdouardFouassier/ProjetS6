@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 		}
 		cout<<"creation de la nouvelle population"<<endl;
 		delete p;
-		p=new Population(*p_new);
+		p=p_new;
 		cout<<"ancienne population = nouvelle population"<<endl;
         int tailleI=p->getEnsemble()[0]->getTailleIndividu();
         for(int i=0; i<p->getNombreIndividus();i++) {

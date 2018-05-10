@@ -600,7 +600,7 @@ bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomF
 	ofstream fichierStats(nomFichierStats.c_str(), ios::out | ios::app);	//On ouvre le fichier en ecriture, son contenu est efface
 	
 	if(fichierStats) {
-		if(P->getNumeroGeneration()==1) fichierStats<< "Generation Moyenne1 Minimum1 maximum1 Moyenne2 Minimum2 maximum2"<<endl;
+		if(P->getNumeroGeneration()==1) fichierStats<< "Generation Moyenne1 Minimum1 Maximum1 Moyenne2 Minimum2 Maximum2"<<endl;
 		float *val,*min,*max,*moy;
 		//~ cout << P->getNumeroGeneration() << endl;
 		val=lireScoreIndividu(nomFichierPopulation, P->getNumeroGeneration(), 0);
