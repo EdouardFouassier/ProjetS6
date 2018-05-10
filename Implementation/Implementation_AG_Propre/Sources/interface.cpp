@@ -408,7 +408,7 @@ void Interface::connectLancer(){
 							nomcorrect=false;
 						}
 						else{
-							ecrireFichierDonnees(this,nomFichierSortie+"_Parametre.txt");
+							ecrireFichierDonnees(this,nomFichierSortie+"_Parametres.txt");
 							nomcorrect=true;
 						}
 					}
@@ -419,10 +419,10 @@ void Interface::connectLancer(){
 						throw string("Erreur de format de sortie. \n");
 						sortiecorrect=false;
 					}
-					if(nomcorrect && sortiecorrect && testCoherenceDonnees(nomFichierSortie+"_Parametre.txt")) {
+					if(nomcorrect && sortiecorrect && testCoherenceDonnees(nomFichierSortie+"_Parametres.txt")) {
 					QMessageBox::information(this,"Bravo !","Le programme a demarré avec succès.");
 					QProcess::startDetached(QString::fromStdString("mkdir "+nomFichierSortie));
-					QProcess::startDetached(QString::fromStdString("mv "+nomFichierSortie+"_Parametre.txt"+" "+nomFichierSortie+"/"));
+					QProcess::startDetached(QString::fromStdString("mv "+nomFichierSortie+"_Parametres.txt"+" "+nomFichierSortie+"/"));
 					QProcess::startDetached(QString::fromStdString("chmod +xwr "+nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt"));	
 					encours=1;
 					}
