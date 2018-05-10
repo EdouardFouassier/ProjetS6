@@ -524,7 +524,7 @@ void Population::crossover(Individu *parent1, Individu *parent2){
 }
 
 //à tester quand toutes les fonctions seront dispos
-Population Population::creerGeneration(Population P){
+Population Population::creerGeneration(Population *P){
 	/*
 	Population new;
 	while(new->testPopulationRemplie()){

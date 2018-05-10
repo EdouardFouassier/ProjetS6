@@ -19,6 +19,8 @@ Individu::Individu() {
 	this->score =(float*) malloc(this->nombreCritere*sizeof(float));
 	this->rang =(int*) malloc(this->nombreCritere*sizeof(int));				// ça ok Ce constructeur ne fait rien
 	this->chromosome = (int*)malloc((this->tailleIndividu+1)*sizeof(int));
+	this->score =(int*) malloc(this->nombreCritere*sizeof(int));
+	this->rang =(int*) malloc(this->nombreCritere*sizeof(int));
 	for(int i = 0; i < this->tailleIndividu+1; i++){
 		chromosome[i] = 0;
 	}
