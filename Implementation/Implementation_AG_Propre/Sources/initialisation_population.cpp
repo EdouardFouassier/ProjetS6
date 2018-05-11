@@ -173,10 +173,8 @@ int Individu::decodage(int* binaire) { 			// ça ok avec prise en compte du neg
 }
 bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) { // ça ok (sauf vérif')
 	double tmpScore = calculfitness(fonctionFitness.c_str(), decodage(this->chromosome));	// .c_str : convert string to char*
-	cout<< "lol" <<endl;
 	this->score[indiceScore] = tmpScore;
-	cout<< "lol" <<endl;
-	std::cout<<"Score : "<< this->score[indiceScore] << std::endl;
+	//~ std::cout<<"Score : "<< this->score[indiceScore] << std::endl;
 	return true;	// Pas de vérif' pour le moment
 }
 int Individu::mutation(int gene) const {

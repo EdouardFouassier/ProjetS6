@@ -83,7 +83,7 @@ bool testCoherenceDonnees(string nomFichier) {
 		}
         if (i == 3) {
 			x = estEntierPositif(donnees);
-			if(!x || stoi(donnees)>100 || stoi(donnees)<1)x=false;
+			if(!x || stoi(donnees)>100 || stoi(donnees)<2)x=false;
 			if(!x){
 				throw string("Erreur taille population \n");
 				return false;
@@ -663,20 +663,23 @@ bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomF
 	
 }
 
-bool ecrireFichier(string nomFichierSortie, string nomFichierParametre, string nomFichierStats){
-	ifstream fichierParam(nomFichierParametre.c_str(), ios::in);						//On ouvre le fichier en lecture
+bool ecrireFichier(string nomFichierSortie, string nomFichierParametre, string nomFichierStats, Population *P){
+ ifstream fichierParam(nomFichierParametre.c_str(), ios::in);      //On ouvre le fichier en lecture
 
-	if(fichierParam) {
-		string line;
-		for(int i=0;i<13;i++)
-		{
-			getline(fichierParam,line);
-		}
-		cout<<line[0]<<line[1]<<line[2]<<endl;
-	//	if(line[0]=='1') ecrireLatex(nomFichierSortie);
-		if(line[1]=='1') ecrirePostscript(nomFichierSortie);
-		if(line[2]=='1') ecrireXfig(nomFichierSortie);
-	}
+ if(fichierParam) {
+  string line;
+  for(int i=0;i<13;i++)
+  {
+   getline(fichierParam,line);
+  }
+  cout<<line[0]<<line[1]<<line[2]<<endl;
+  if(line[0]=='1') { ecrireLatex(nomFichierSortie,P); }
+  if(line[1]=='1') { if(line[0]=='1') { ecrirePostscript(nomFichierSortie); }
+       else { ecrireLatex(nomFichierSortie,P); ecrirePostscript(nomFichierSortie); 
+        string nomFichierEnd = "rm "+nomFichierSortie+"/"+nomFichierSortie+".tex"; system(nomFichierEnd.c_str()); }
+       }
+  if(line[2]=='1') { ecrireXfig(nomFichierSortie); }
+ }
 }
 
 bool ecrireLatex(string nomFichierSortie,Population *P){
@@ -734,22 +737,26 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 		int cpt=0;
 		if(P->getNombreCriteres()==1){
 			for(int i=0;i<stoi(tabInfoRegen[1])&&cpt<10;i++){
-				//~ cout<<P->getEnsemble()[i]->getRang(1)<<endl;
-				//~ if(P->getEnsemble()[i]->getRang(0)) {
-					solutions[cpt]=*P->getEnsemble()[i];
-					cpt++;
-				//~ }
-			}
-		}else{
-			for(int i=0;i<stoi(tabInfoRegen[1])&&cpt<10;i++){
-				//~ cout<<P->getEnsemble()[i]->getRang(1)<<endl;
-				if(cpt<5 /*&& P->getEnsemble()[i]->getRang(1)*/ ){
+				//cout<<P->getEnsemble()[i]->getRang(0)<<endl;
+				if(P->getEnsemble()[i]->getRang(0)) {
 					solutions[cpt]=*P->getEnsemble()[i];
 					cpt++;
 				}
+			}
+		}else{
+			for(int i=0;i<stoi(tabInfoRegen[1])&&cpt<10;i++){
+				//cout<<P->getEnsemble()[i]->getRang(0)<<endl;
+				if(cpt<5){
+					if(P->getEnsemble()[i]->getRang(0)==1){
+						solutions[cpt]=*P->getEnsemble()[i];
+						cpt++;
+					}
+				}
 				else {
-					solutions[cpt]=*P->getEnsemble()[i];
-					cpt++;
+					if(P->getEnsemble()[i]->getRang(1)==1){
+						solutions[cpt]=*P->getEnsemble()[i];
+						cpt++;
+					}
 				}
 			}
 		}
@@ -798,9 +805,24 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 	}
 }
 
-bool ecrirePostscript(string nomFichierSortie){
-	cout<<"Ouai ouai la on ecrit le PostScript IZI ! "<<endl;
+bool ecrirePostscript(string nomFichierSortie) {
+ 
+ string latexToDvi = "latex "+nomFichierSortie+"/"+nomFichierSortie+".tex";
+ 
+ if(system(latexToDvi.c_str())) {
+  string dviToPostscrit = "dvips "+nomFichierSortie+"/"+nomFichierSortie+".dvi"+" -o "+nomFichierSortie+"/"+nomFichierSortie+".ps";
+  if(system(dviToPostscrit.c_str())) { return true; }
+  else {
+   cerr << "Erreur dviToPostscrit" << endl;
+   return false;
+  }
+ }
+ else {
+  cerr << "Erreur latexToDvi" << endl;
+  return false;
+ } 
 }
+
 bool ecrireXfig(string nomFichierSortie){
 	cout<<"Ouai ouai inchalla ici on va voir si on ecrit le XFig de ses mort parce que walla sa darone elle est pas hallal ."<<endl;
 }

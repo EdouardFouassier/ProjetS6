@@ -30,22 +30,27 @@ Interface::Interface() : QWidget()
     aide->setFont(QFont("Comic Sans MS", 10));
 
     nbGen=new QSpinBox;
-    nbGen->setMaximum(100);
+    nbGen->setMaximum(1000);
     nbGen->setMinimum(1);
+    nbGen->setValue(50);
     tailleIndi=new QSpinBox;
     tailleIndi->setMaximum(32);
     tailleIndi->setMinimum(1);
+    tailleIndi->setValue(12);
     taillePop=new QSpinBox;
     taillePop->setMaximum(100);
-    taillePop->setMinimum(1);
+    taillePop->setMinimum(2);
+    taillePop->setValue(20);
     tauxMut=new QDoubleSpinBox;
     tauxMut->setMaximum(1);
     tauxMut->setMinimum(0);
     tauxMut->setDecimals(3);
+    tauxMut->setValue(0.2);
     tauxCross=new QDoubleSpinBox;
     tauxCross->setMaximum(1);
     tauxCross->setMinimum(0);
     tauxCross->setDecimals(3);
+    tauxCross->setValue(0.8);
     valeurF1=new QDoubleSpinBox;
     valeurF1->setMaximum(1000);
     valeurF1->setMinimum(-1000);
@@ -204,48 +209,76 @@ Interface::Interface(string nom,string fichier) : Interface(){
 }
 
 void * Interface::algoGenetique(void * arg){
-	cout<<"lolentree"<<endl;
-	Population *p=new Population(lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt")),*p_new=NULL;
+	//~ cout<<"lolentree"<<endl;
+	Population *p=new Population(lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt")),*p_new=nullptr;
 	
 	int tailleI=p->getEnsemble()[0]->getTailleIndividu();
-	for(int i=0; i<p->getNombreIndividus();i++) {
-        cout<<"Individu "<<i<<" ";
-		for(int j=0;j<tailleI;j++){ cout<<p->getEnsemble()[i]->getChromosome()[j] << " / ";}
-		cout<<endl;
-	}
-	cout<<endl;
-	cout<<endl;
-	for(int j=0;j<p->getNombreGenerationMax()/*p->testArret()*/ && encours==1;j++){            //tant que testArret
+	//~ for(int i=0; i<p->getNombreIndividus();i++) {
+        //~ cout<<"Individu "<<i<<" ";
+		//~ for(int j=0;j<tailleI;j++){ cout<<p->getEnsemble()[i]->getChromosome()[j] << " / ";}
+		//~ cout<<endl;
+	//~ }
+	//~ cout<<endl;
+	//~ cout<<endl;
+	
+	cout<<p->getNumeroGeneration()<<endl;
+	cout<<endl<<"ITERATION "<<0<<endl;
+	cout<<p->getNumeroGeneration()<<endl;
+	p->evaluation();
+	cout<<p->getNumeroGeneration()<<endl;
+	cout<<"evaluation faite"<<endl;
+	ecrirePopulation(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt");
+	cout<<"population écrite"<<endl;
+	cout<<p->getNumeroGeneration()<<endl;
+	calculerEcrireStats(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt",nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt");
+	ecrirePopulation(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt");
+	cout<<"stat écrite"<<endl;
+	for(int j=1;/*j<p->getNombreGenerationMax()*/p->testArret(nomFichierSortie) && encours==1;j++){            //tant que testArret
+		
+
+		cout<<"avant new pop"<<p->getNumeroGeneration()<<endl;
+		p_new=new Population();
+		cout<<"apres new pop"<<p->getNumeroGeneration()<<endl;
+		p_new=p_new->creerGeneration(p);
+		cout<<"apres creer"<<p->getNumeroGeneration()<<endl;
+		//~ for(int i=0;i<p->getNombreIndividus() ;i++){           //créerGénération
+			//~ p_new->crossover((p->selectionner(0)),(p->selectionner(0)));
+            //~ std::cout<<"individu "<<i<<" créé"<<std::endl;
+		//~ }
+		//~ cout<<"creation de la nouvelle population"<<endl;
+		delete p;
+		cout<<"avant swap"<<p->getNumeroGeneration()<<endl;
+		p=p_new;
+		cout<<"apres swap"<<p->getNumeroGeneration()<<endl;
+		cout<<"ancienne population = nouvelle population"<<endl;
+		cout<<p->getNumeroGeneration()<<endl;
 		cout<<endl<<"ITERATION "<<j<<endl;
+		cout<<p->getNumeroGeneration()<<endl;
 		p->evaluation();
+		cout<<p->getNumeroGeneration()<<endl;
 		cout<<"evaluation faite"<<endl;
 		ecrirePopulation(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt");
 		cout<<"population écrite"<<endl;
+		cout<<p->getNumeroGeneration()<<endl;
 		calculerEcrireStats(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt",nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt");
+		ecrirePopulation(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt");
 		cout<<"stat écrite"<<endl;
-		p_new=new Population();
-		for(int i=0;i<p->getNombreIndividus() ;i++){           //créerGénération
-			p_new->crossover((p->selectionner(0)),(p->selectionner(0)));
-            std::cout<<"individu "<<i<<" créé"<<std::endl;
-		}
-		cout<<"creation de la nouvelle population"<<endl;
-		delete p;
-		p=p_new;
-		cout<<"ancienne population = nouvelle population"<<endl;
-        int tailleI=p->getEnsemble()[0]->getTailleIndividu();
-        for(int i=0; i<p->getNombreIndividus();i++) {
-            cout<<"Individu "<<i<<endl;
-            for(int y=0;y<tailleI;y++){ 
-                cout<<p->getEnsemble()[i]->getChromosome()[y] << " / ";
+        //~ for(int i=0; i<p->getNombreIndividus();i++) {
+            //~ cout<<"Individu "<<i<<endl;
+            //~ for(int y=0;y<tailleI;y++){ 
+                //~ cout<<p->getEnsemble()[i]->getChromosome()[y] << " / ";
 
-            }
-            cout<<endl;
-        }
+            //~ }
+            //~ cout<<endl;
+        //~ }
 	}
-
+	//~ string param=nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt";
+	//~ ecrireFichier(nomFichierSortie,param,"",p);
 	ecrireLatex(nomFichierSortie,p);
 	cout<< "FIN" <<endl;
 	encours=0;
+	p->setNumeroGeneration(0);
+	delete p;
 	return NULL;
 	//QProcess::startDetached(QString::fromStdString("pdflatex "+nomFichierSortie+"/"+nomFichierSortie+".tex"));
 	//QDesktopServices::openUrl(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() +QString::fromStdString( "/"+nomFichierSortie+"/"+nomFichierSortie+".pdf")));

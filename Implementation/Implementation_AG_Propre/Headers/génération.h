@@ -206,7 +206,7 @@ public:
 	/// \fn Population creerGeneration(Population *P)
 	/// \brief Méthode permettant de créer une nouvelle population
 	/// \param Population* P
-	Population creerGeneration(Population *P);
+	Population* creerGeneration(Population *P);
 	
 	/// \fn int nombreAlea(int, int)
 	/// \brief Méthode permettant d'obtenir un nombre pseudo-aléatoire. Notament utilisé dans la méthode du crossover(Individu, Individu).

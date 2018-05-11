@@ -197,7 +197,7 @@ void Population::setEnsemble(Individu &nouv){
 
 bool Population::testArret(string nomFichierSortie) //pourquoi ça doit renvoyer un population? || a finir || à modifier en transformant en bool
 {  
-	if(this->testConvergence(nomFichierSortie) && this->testNombreGeneration()){
+	if(!this->testConvergence(nomFichierSortie) && this->testNombreGeneration()){
 		//calculerEcrireStats(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt",nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt");
 		return true;
 	}
@@ -213,25 +213,26 @@ bool Population::testConvergence(string nomFichierSortie) //Test OK
 	//~ numeroGeneration = 5; //a virer après les tests
 	if(numeroGeneration < 5)
 		return false;
-	FILE *f[numeroGeneration];
+	float *TestTab;
+	FILE *f;
     std::cout<<"nombre de criteres : "<<nombreCriteres<<std::endl;
     std::cout<<"numero generation : "<<numeroGeneration<<std::endl;
     
     string StatFile = nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt";
-    for(int i = 0; i < numeroGeneration; i ++) {
-		f[i]=fopen(StatFile.c_str(), "r");
-		for(int j=0;j<i;j++){
-			lireStat(f[i]);
-		}
+    f=fopen(StatFile.c_str(), "r");
+    for(int i = 0; i < numeroGeneration-5; i ++) {
+			TestTab=lireStat(f);
+			delete[] TestTab;
+		
 	}
 	
 	float temp[5];
 	float tempCrit1[5];
 	float tempCrit2[5];
-	float *TestTab;
-	for(int k = numeroGeneration-1; k >= numeroGeneration - 5; k --)
+	
+	for(int k = 0; k < 5; k ++)
 	{
-		TestTab = lireStat(f[k]);
+		TestTab = lireStat(f);
 			if (nombreCriteres == 1){
 				temp[k] = TestTab[0];
 				std::cout <<"Temp["<<k<<"] : "<<temp[k]<<std::endl;
@@ -239,8 +240,8 @@ bool Population::testConvergence(string nomFichierSortie) //Test OK
 			else{ 
 				tempCrit1[k] = TestTab[0];
 				tempCrit2[k] = TestTab[3];
-				std::cout <<"TempCrit1["<<k<<"] : "<<tempCrit1[k]<<std::endl;
-				std::cout <<"TempCrit1["<<k<<"] : "<<tempCrit2[k]<<std::endl;
+				std::cout <<"TempCrit1["<<k<<"] : "<<k<<std::endl;
+				std::cout <<"TempCrit1["<<k<<"] : "<<k<<std::endl;
 			}
 		std::cout << std::endl;
 		delete[] TestTab;
@@ -269,11 +270,80 @@ bool Population::testConvergence(string nomFichierSortie) //Test OK
 		}
 	}
 	
-	for(int i=0; i<numeroGeneration; i++) 
-		fclose(f[i]);
+	
+	fclose(f);
 
 	return true;
 }
+
+//~ bool Population::testConvergence(string nomFichierSortie) //Test OK
+//~ {
+	//~ std::cout<<"TEST CONVERGENCE"<<std::endl;
+	//numeroGeneration = 5; //a virer après les tests
+	//~ if(numeroGeneration < 5)
+		//~ return false;
+	//~ FILE *f[numeroGeneration];
+    //~ std::cout<<"nombre de criteres : "<<nombreCriteres<<std::endl;
+    //~ std::cout<<"numero generation : "<<numeroGeneration<<std::endl;
+    
+    //~ string StatFile = nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt";
+    //~ for(int i = 0; i < numeroGeneration; i ++) {
+		//~ f[i]=fopen(StatFile.c_str(), "r");
+		//~ for(int j=0;j<i;j++){
+			//~ lireStat(f[i]);
+		//~ }
+	//~ }
+	
+	//~ float temp[5];
+	//~ float tempCrit1[5];
+	//~ float tempCrit2[5];
+	//~ float *TestTab;
+	//~ for(int k = numeroGeneration-1; k >= numeroGeneration - 5; k --)
+	//~ {
+		//~ TestTab = lireStat(f[k]);
+			//~ if (nombreCriteres == 1){
+				//~ temp[numeroGeneration-k-1] = TestTab[0];
+				//~ std::cout <<"Temp["<<numeroGeneration-k-1<<"] : "<<temp[numeroGeneration-k-1]<<std::endl;
+			//~ }
+			//~ else{ 
+				//~ tempCrit1[numeroGeneration-k-1] = TestTab[0];
+				//~ tempCrit2[numeroGeneration-k-1] = TestTab[3];
+				//~ std::cout <<"TempCrit1["<<numeroGeneration-k-1<<"] : "<<tempCrit1[numeroGeneration-k-1]<<std::endl;
+				//~ std::cout <<"TempCrit1["<<numeroGeneration-k-1<<"] : "<<tempCrit2[numeroGeneration-k-1]<<std::endl;
+			//~ }
+			//~ cout<<"lol"<<endl;
+		//~ std::cout << std::endl;
+		//~ delete[] TestTab;
+	//~ }
+	//~ std::cout<<std::endl;
+	
+	//~ for(int i = 4; i > 0; i --){
+		//~ if(nombreCriteres == 1){
+			//~ if((temp[i] <= (temp[i-1] + 0.015*temp[i-1])) && (temp[i] >= (temp[i-1] - 0.015*temp[i-1])))
+				//~ std::cout <<"Temp["<<i<<"] : "<<temp[i]<<std::endl;
+			//~ else {
+				//~ std::cout <<"Temp["<<i<<"] : "<<temp[i]<<std::endl;
+				//~ return false;
+			//~ }
+		//~ }
+		//~ else if(nombreCriteres == 2){
+			//~ if(((tempCrit1[i] <= (tempCrit1[i-1] + 0.015*tempCrit1[i-1])) && (tempCrit1[i] >= (tempCrit1[i-1] - 0.015*tempCrit1[i-1])))&&((tempCrit2[i] <= (tempCrit2[i-1] + 0.015*tempCrit2[i-1])) && (tempCrit2[i] >= (tempCrit2[i-1] - 0.015*tempCrit2[i-1])))){
+				//~ std::cout <<"TempCrit1["<<i<<"] : "<<tempCrit1[i]<<std::endl;
+				//~ std::cout <<"TempCrit2["<<i<<"] : "<<tempCrit2[i]<<std::endl;
+			//~ }
+			//~ else{
+				//~ std::cout <<"TempCrit1["<<i<<"] : "<<tempCrit1[i]<<std::endl;
+				//~ std::cout <<"TempCrit2["<<i<<"] : "<<tempCrit2[i]<<std::endl;
+				//~ return false;
+			//~ }
+		//~ }
+	//~ }
+	
+	//~ for(int i=0; i<numeroGeneration; i++) 
+		//~ fclose(f[i]);
+
+	//~ return true;
+//~ }
 
 bool Population::testNombreGeneration()
 {
@@ -297,9 +367,9 @@ void Population::evaluation() //test ok
 		std::cerr<<"nombre de critères non conforme"<<std::endl;
 	else {		
 		for (int iCritere = 0; iCritere < nombreCriteres; iCritere ++){
-			std::cout<<"criteres : "<<iCritere+1<<" / "<<nombreCriteres<<std::endl;
+			//~ std::cout<<"criteres : "<<iCritere+1<<" / "<<nombreCriteres<<std::endl;
 			for (int iIndiv = 0; iIndiv < ensemble.size(); iIndiv ++){
-				cout << "Individu " << iIndiv <<endl;
+				//~ cout << "Individu " << iIndiv <<endl;
 				if(iCritere == 0)
 					fitnessTmp = this->fitness1;
 				if(iCritere == 1)
@@ -308,8 +378,8 @@ void Population::evaluation() //test ok
 				//cout << "fonction fitness : " << fitness1 << endl;
 				ensemble[iIndiv]->Individu::evaluationIndividu(fitnessTmp, iCritere);
 			}
-			std::cout<<"icritere : "<<iCritere<<std::endl;
-			std::cout<<"critere : "<<criteres[iCritere]<<std::endl;
+			//~ std::cout<<"icritere : "<<iCritere<<std::endl;
+			//~ std::cout<<"critere : "<<criteres[iCritere]<<std::endl;
 			this->Population::triPopulation(iCritere);
 			int cpt = 1;
 			int ensembleSize = ensemble.size() - 1;
@@ -522,13 +592,19 @@ void Population::crossover(Individu *parent1, Individu *parent2){
 	//return *this;
 }
 
-Population Population::creerGeneration(Population *P){
-	while(testPopulationRemplie()){
-		this->crossover(P->selectionner(0),P->selectionner(0));		//la population avec deux nouveaux individus
+Population* Population::creerGeneration(Population *P){
+	cout<<"dans creer"<<numeroGeneration<<endl;
+	for(int i=0;testPopulationRemplie();i++){
+		if(P->getNombreCriteres()==1)
+			this->crossover(P->selectionner(0),P->selectionner(0));		//la population avec deux nouveaux individus
+		else {
+			if(i<P->getNombreIndividus()/2) this->crossover(P->selectionner(0),P->selectionner(0));
+			else this->crossover(P->selectionner(1),P->selectionner(1));
+		}
 	}
-	ecrirePopulation(P, "");	
 	
-	return *this;
+	cout<<"fin creer"<<numeroGeneration<<endl;
+	return this;
 }
 
 /*bool Individu::probAlea(float prob) //pas dans Population

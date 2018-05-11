@@ -117,7 +117,7 @@ bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomF
 /// \param string nomFichierParametr
 /// \param string nomFichierStats
 /// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
-bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichierStats);
+bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichierStats,Population *P);
 
 /// \fn bool ecrireLatex(string)
 /// \brief Fonction permettant d'écrire un fichier de résultats pour l'utilisateur au format LaTeX
