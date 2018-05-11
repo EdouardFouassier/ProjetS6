@@ -810,7 +810,7 @@ bool ecrirePostscript(string nomFichierSortie) {
  string latexToDvi = "latex "+nomFichierSortie+"/"+nomFichierSortie+".tex";
  
  if(system(latexToDvi.c_str())) {
-  string dviToPostscrit = "dvips "+nomFichierSortie+"/"+nomFichierSortie+".dvi"+" -o "+nomFichierSortie+"/"+nomFichierSortie+".ps";
+  string dviToPostscrit = "dvips "+nomFichierSortie+".dvi"+" -o "+nomFichierSortie+".ps";
   if(system(dviToPostscrit.c_str())) { return true; }
   else {
    cerr << "Erreur dviToPostscrit" << endl;
