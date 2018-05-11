@@ -523,8 +523,17 @@ void Population::crossover(Individu *parent1, Individu *parent2){
 }
 
 Population Population::creerGeneration(Population *P){
-	while(testPopulationRemplie()){
-		this->crossover(P->selectionner(0),P->selectionner(0));		//la population avec deux nouveaux individus
+	if(nombreCriteres == 1){
+		while(testPopulationRemplie()){
+			this->crossover(P->selectionner(0),P->selectionner(0));		//la population avec deux nouveaux individus
+		}
+	}
+	else{
+		for(int i = 0; i < nombreIndividus/2;i++)
+			this->crossover(P->selectionner(1),P->selectionner(1));
+		while(testPopulationRemplie())
+			this->crossover(P->selectionner(0),P->selectionner(0));		//la population avec deux nouveaux individus
+		
 	}
 	ecrirePopulation(P, "");	
 	
