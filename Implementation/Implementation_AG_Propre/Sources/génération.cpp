@@ -592,6 +592,7 @@ void Population::crossover(Individu *parent1, Individu *parent2){
 	//return *this;
 }
 
+
 Population* Population::creerGeneration(Population *P){
 	cout<<"dans creer"<<numeroGeneration<<endl;
 	for(int i=0;testPopulationRemplie();i++){
