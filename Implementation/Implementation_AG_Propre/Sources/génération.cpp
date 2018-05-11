@@ -195,18 +195,16 @@ void Population::setEnsemble(Individu &nouv){
 
 /**** TESTS ****/
 
-Population Population::testArret() //pourquoi ça doit renvoyer un population? || a finir || à modifier en transformant en bool
+bool Population::testArret() //pourquoi ça doit renvoyer un population? || a finir || à modifier en transformant en bool
 {  
 	if(this->testConvergence() && this->testNombreGeneration()){
-		//calculerEcrireStats(this*, string nomFichierPopulation, string nomFichierStats)
-		//d'apres cds : on continue l'itération
-							//on envoie la population au module io
+		//calculerEcrireStats(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt",nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt");
+		return true;
 	}
 	else {
-		//on envoie juste la pop à l'io
+		return false;
 	}
 
-	return *this;
 }
 
 bool Population::testConvergence() //Test OK
@@ -523,16 +521,12 @@ void Population::crossover(Individu *parent1, Individu *parent2){
 	//return *this;
 }
 
-//à tester quand toutes les fonctions seront dispos
 Population Population::creerGeneration(Population *P){
-	/*
-	Population new;
-	while(new->testPopulationRemplie()){
-		new = crossover(P->selectionner(),P->selectionner());		//la population avec deux nouveaux individus
+	while(testPopulationRemplie()){
+		this->crossover(P->selectionner(0),P->selectionner(0));		//la population avec deux nouveaux individus
 	}
 	ecrirePopulation(P, "");	
-	return new;
-	*/
+	
 	return *this;
 }
 

@@ -77,7 +77,7 @@ public:
 	
 
 	/*LES TESTS*/
-	Population testArret();
+	bool testArret();
 	bool testNombreGeneration();
 	bool testConvergence();
 	bool testPopulationRemplie();
