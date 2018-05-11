@@ -210,7 +210,7 @@ void Interface::algoGenetique(){
 	}
 	cout<<endl;
 	cout<<endl;
-	for(int j=0;j<p->getNombreGenerationMax();j++){
+	for(int j=0;j<p->getNombreGenerationMax();j++){            //tant que testArret
 		cout<<endl<<"ITERATION "<<j<<endl;
 		p->evaluation();
 		cout<<"evaluation faite"<<endl;
@@ -219,7 +219,7 @@ void Interface::algoGenetique(){
 		calculerEcrireStats(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt",nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt");
 		cout<<"stat écrite"<<endl;
 		p_new=new Population();
-		for(int i=0;i<p->getNombreIndividus();i++){
+		for(int i=0;i<p->getNombreIndividus();i++){           //créerGénération
 			p_new->crossover((p->selectionner(0)),(p->selectionner(0)));
             std::cout<<"individu "<<i<<" créé"<<std::endl;
 		}
