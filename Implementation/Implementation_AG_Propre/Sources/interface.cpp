@@ -66,6 +66,7 @@ Interface::Interface() : QWidget()
     appF1=new QRadioButton;
     appF2=new QRadioButton;
     F1=new QLineEdit;
+    F1->setText("2+x");
     F2=new QLineEdit;
     liensFichier=new QLineEdit;
     nomFichier=new QLineEdit;

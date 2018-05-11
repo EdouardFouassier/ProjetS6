@@ -102,6 +102,8 @@ clean:
 install:  
 		sudo apt-get update
 		sudo apt-get install qtbase5-dev
+		sudo apt-get install texlive-latex-extra
+		sudo apt-get install texlive-lang-french
 
 run: compile clean
 	./Implementation_AG
