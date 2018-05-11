@@ -146,19 +146,15 @@ public:
 	void setNombreGenerationMax (int nbGen);
 	
 
-	/*LES TESTS*/
-<<<<<<< HEAD
-	/// \fn Population testArret(void)
+	/*LES TESTS*/	
+	/// \fn void testArret(void)
 	/// \brief Méthode qui appel testNombreGeneration() et testConvergence().
-	/// \return Renvoie une population en cours.
-	Population testArret();
-	
+	/// \return Renvoie TRUE si l'algorithme peut continuer, FALSE sinon.
+	bool testArret();
+
 	/// \fn bool testNombreGeneration(void)
 	/// \brief Méthode permettant de tester le nombre de génération
 	/// \return Renvoie TRUE si le nombre de génération est inférieur au nombre de générations à atteindre, FALSE sinon.
-=======
-	bool testArret();
->>>>>>> 2128bf5be2275589c4ead316206978a9f6cdbf10
 	bool testNombreGeneration();
 	
 	/// \fn bool testConvergence(void)

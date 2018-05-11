@@ -50,7 +50,7 @@ void \hyperlink{class_population_a175f3a21b85681e318063e9eb63550a8}{set\+Proba\+
 \begin{DoxyCompactList}\small\item\em Setteur de l\textquotesingle{}attribut proba\+Croisement. \end{DoxyCompactList}\item 
 void \hyperlink{class_population_a85da2cfbfb4cde5c3ed879958385904c}{set\+Nombre\+Generation\+Max} (int nb\+Gen)
 \begin{DoxyCompactList}\small\item\em Setteur de l\textquotesingle{}attribut nombre\+Generation\+Max. \end{DoxyCompactList}\item 
-\hyperlink{class_population}{Population} \hyperlink{class_population_afe14ed3d2919840291b623029eaaf8d3}{test\+Arret} ()
+bool \hyperlink{class_population_a3ec157b1b22558f3b6aa49279d6fcd5a}{test\+Arret} ()
 \begin{DoxyCompactList}\small\item\em Méthode qui appel \hyperlink{class_population_a9192297f35ab0c6c6078ae087b3e4aee}{test\+Nombre\+Generation()} et \hyperlink{class_population_ae3511322c007fc85a8dd9bda0693b9cf}{test\+Convergence()}. \end{DoxyCompactList}\item 
 bool \hyperlink{class_population_a9192297f35ab0c6c6078ae087b3e4aee}{test\+Nombre\+Generation} ()
 \begin{DoxyCompactList}\small\item\em Méthode permettant de tester le nombre de génération. \end{DoxyCompactList}\item 
@@ -72,7 +72,7 @@ void \hyperlink{class_population_a4b167d07f145a1f1ea69b2bb4cfd2cfb}{tri\+Valeur}
 \hyperlink{class_individu}{Individu} $\ast$ \hyperlink{class_population_a30fcbcf36eb009493208310fecdf3729}{selectionner} (int i\+Critere)
 \begin{DoxyCompactList}\small\item\em Méthode permettant de sélectionner des individus avec une certaine probabilité donnée par l\textquotesingle{}utilisateur. Les individus ayant un meilleurrang auront plus de chance d\textquotesingle{}être sélectionnés. \end{DoxyCompactList}\item 
 void \hyperlink{class_population_a728129af67cfe97c0fa16d0728101a28}{crossover} (\hyperlink{class_individu}{Individu} $\ast$Parent1, \hyperlink{class_individu}{Individu} $\ast$Parent2)
-\begin{DoxyCompactList}\small\item\em Méthode permettant de générer deux nouveaux individu à partir de deux indiviuds. Les nouveaux individus sont directement ajoutés au vecteur ensemble. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Méthode permettant de générer deux nouveaux individus à partir de deux indiviuds de la génération en cours. Les nouveaux individus sont directement ajoutés au vecteur ensemble. \end{DoxyCompactList}\item 
 \hyperlink{class_population}{Population} \hyperlink{class_population_af3c4abb60e3dcd0eb183014a9d21419c}{creer\+Generation} (\hyperlink{class_population}{Population} $\ast$P)
 \begin{DoxyCompactList}\small\item\em Méthode permettant de créer une nouvelle population. \end{DoxyCompactList}\item 
 int \hyperlink{class_population_a0bacc7dadc8ab903261ff053344a9e36}{nombre\+Alea} (int inf, int sup)
@@ -121,7 +121,7 @@ Méthode permettant de créer une nouvelle population.
 
 
 
-Méthode permettant de générer deux nouveaux individu à partir de deux indiviuds. Les nouveaux individus sont directement ajoutés au vecteur ensemble. 
+Méthode permettant de générer deux nouveaux individus à partir de deux indiviuds de la génération en cours. Les nouveaux individus sont directement ajoutés au vecteur ensemble. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -444,18 +444,18 @@ Setteur de l\textquotesingle{}attribut valeur\+Approchee2.
 {\em La} & seconde valeur approchée. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_population_afe14ed3d2919840291b623029eaaf8d3}\label{class_population_afe14ed3d2919840291b623029eaaf8d3}} 
+\mbox{\Hypertarget{class_population_a3ec157b1b22558f3b6aa49279d6fcd5a}\label{class_population_a3ec157b1b22558f3b6aa49279d6fcd5a}} 
 \index{Population@{Population}!test\+Arret@{test\+Arret}}
 \index{test\+Arret@{test\+Arret}!Population@{Population}}
 \subsubsection{\texorpdfstring{test\+Arret()}{testArret()}}
-{\footnotesize\ttfamily \hyperlink{class_population}{Population} Population\+::test\+Arret (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Population\+::test\+Arret (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
 Méthode qui appel \hyperlink{class_population_a9192297f35ab0c6c6078ae087b3e4aee}{test\+Nombre\+Generation()} et \hyperlink{class_population_ae3511322c007fc85a8dd9bda0693b9cf}{test\+Convergence()}. 
 
 \begin{DoxyReturn}{Returns}
-Renvoie une population en cours. 
+Renvoie T\+R\+UE si l\textquotesingle{}algorithme peut continuer, F\+A\+L\+SE sinon. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_population_ae3511322c007fc85a8dd9bda0693b9cf}\label{class_population_ae3511322c007fc85a8dd9bda0693b9cf}} 
 \index{Population@{Population}!test\+Convergence@{test\+Convergence}}
