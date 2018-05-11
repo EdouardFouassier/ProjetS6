@@ -3,7 +3,7 @@
 ///                interface.h                 ///
 //////////////////////////////////////////////////
 /// \author Groupe Sujet 4
-/// \file entree_sortie.h
+/// \file interface.h
 
 #ifndef INTERFACE_H
 #define INTERFACE_H

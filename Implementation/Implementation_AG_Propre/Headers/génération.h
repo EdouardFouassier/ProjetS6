@@ -3,7 +3,7 @@
 ///              génération.h                  ///
 //////////////////////////////////////////////////
 /// \author Groupe Sujet 4
-/// \file entree_sortie.h
+/// \file génération.h
 
 #ifndef __GENERATION_H
 #define __GENERATION_H

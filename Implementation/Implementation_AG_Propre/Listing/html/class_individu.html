@@ -87,67 +87,631 @@ $(document).ready(function(){initNavTree('class_individu.html','');});
 <div class="title">Individu Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe permettant de créer et d'utiliser des Individus.  
+ <a href="class_individu.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="initialisation__population_8h_source.html">initialisation_population.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aeb49b6d2654ce47c70847d27a2608b47"><td class="memItemLeft" align="right" valign="top"><a id="aeb49b6d2654ce47c70847d27a2608b47"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Individu</b> (int taille)</td></tr>
+<tr class="memitem:ac35091404cfbf11946694806aefa9e7e"><td class="memItemLeft" align="right" valign="top"><a id="ac35091404cfbf11946694806aefa9e7e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#ac35091404cfbf11946694806aefa9e7e">Individu</a> ()</td></tr>
+<tr class="memdesc:ac35091404cfbf11946694806aefa9e7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur par défaut de la classe <a class="el" href="class_individu.html" title="Classe permettant de créer et d&#39;utiliser des Individus. ">Individu</a>. <br /></td></tr>
+<tr class="separator:ac35091404cfbf11946694806aefa9e7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb49b6d2654ce47c70847d27a2608b47"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#aeb49b6d2654ce47c70847d27a2608b47">Individu</a> (int taille)</td></tr>
+<tr class="memdesc:aeb49b6d2654ce47c70847d27a2608b47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur qui créer un individu aléatoirement.  <a href="#aeb49b6d2654ce47c70847d27a2608b47">More...</a><br /></td></tr>
 <tr class="separator:aeb49b6d2654ce47c70847d27a2608b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04a849ab0b64d2bcb16cb8ce14c41f62"><td class="memItemLeft" align="right" valign="top"><a id="a04a849ab0b64d2bcb16cb8ce14c41f62"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Individu</b> (float donnees[3])</td></tr>
+<tr class="memitem:a04a849ab0b64d2bcb16cb8ce14c41f62"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#a04a849ab0b64d2bcb16cb8ce14c41f62">Individu</a> (float donnees[3])</td></tr>
+<tr class="memdesc:a04a849ab0b64d2bcb16cb8ce14c41f62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur qui créer un individu avec les données fournient par l'utilisateur.  <a href="#a04a849ab0b64d2bcb16cb8ce14c41f62">More...</a><br /></td></tr>
 <tr class="separator:a04a849ab0b64d2bcb16cb8ce14c41f62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19231c25e7cc1439625cae19c88d6f7e"><td class="memItemLeft" align="right" valign="top"><a id="a19231c25e7cc1439625cae19c88d6f7e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Individu</b> (<a class="el" href="class_individu.html">Individu</a> &amp;indiv)</td></tr>
-<tr class="separator:a19231c25e7cc1439625cae19c88d6f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21eb80ae0dd199cb4b723664157ab2e2"><td class="memItemLeft" align="right" valign="top"><a id="a21eb80ae0dd199cb4b723664157ab2e2"></a>
-int *&#160;</td><td class="memItemRight" valign="bottom"><b>getChromosome</b> ()</td></tr>
-<tr class="separator:a21eb80ae0dd199cb4b723664157ab2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1da47ceca45e43d0815edb13d0ee09ee"><td class="memItemLeft" align="right" valign="top"><a id="a1da47ceca45e43d0815edb13d0ee09ee"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getScore</b> (int i)</td></tr>
+<tr class="memitem:a5347a6d253e44e3447731e4adec648dc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#a5347a6d253e44e3447731e4adec648dc">Individu</a> (<a class="el" href="class_individu.html">Individu</a> &amp;individu)</td></tr>
+<tr class="memdesc:a5347a6d253e44e3447731e4adec648dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de copie d'individu.  <a href="#a5347a6d253e44e3447731e4adec648dc">More...</a><br /></td></tr>
+<tr class="separator:a5347a6d253e44e3447731e4adec648dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84dcf2842927993d6c9ab833dfb6997a"><td class="memItemLeft" align="right" valign="top"><a id="a84dcf2842927993d6c9ab833dfb6997a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#a84dcf2842927993d6c9ab833dfb6997a">~Individu</a> ()</td></tr>
+<tr class="memdesc:a84dcf2842927993d6c9ab833dfb6997a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur de la classe <a class="el" href="class_individu.html" title="Classe permettant de créer et d&#39;utiliser des Individus. ">Individu</a>. <br /></td></tr>
+<tr class="separator:a84dcf2842927993d6c9ab833dfb6997a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2822cc97c85faa9546bd1a68e5d4c417"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#a2822cc97c85faa9546bd1a68e5d4c417">getChromosome</a> ()</td></tr>
+<tr class="memdesc:a2822cc97c85faa9546bd1a68e5d4c417"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir le tableau chromosome.  <a href="#a2822cc97c85faa9546bd1a68e5d4c417">More...</a><br /></td></tr>
+<tr class="separator:a2822cc97c85faa9546bd1a68e5d4c417"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1da47ceca45e43d0815edb13d0ee09ee"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#a1da47ceca45e43d0815edb13d0ee09ee">getScore</a> (int i)</td></tr>
+<tr class="memdesc:a1da47ceca45e43d0815edb13d0ee09ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir un score à l'indice i..  <a href="#a1da47ceca45e43d0815edb13d0ee09ee">More...</a><br /></td></tr>
 <tr class="separator:a1da47ceca45e43d0815edb13d0ee09ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68cbd354d58bff595f2032e813cf3af8"><td class="memItemLeft" align="right" valign="top"><a id="a68cbd354d58bff595f2032e813cf3af8"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getRang</b> (int i)</td></tr>
+<tr class="memitem:a68cbd354d58bff595f2032e813cf3af8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#a68cbd354d58bff595f2032e813cf3af8">getRang</a> (int i)</td></tr>
+<tr class="memdesc:a68cbd354d58bff595f2032e813cf3af8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir un rang à l'indice i..  <a href="#a68cbd354d58bff595f2032e813cf3af8">More...</a><br /></td></tr>
 <tr class="separator:a68cbd354d58bff595f2032e813cf3af8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab05eebba0ec6d0e728384da2c06407c3"><td class="memItemLeft" align="right" valign="top"><a id="ab05eebba0ec6d0e728384da2c06407c3"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getTailleIndividu</b> ()</td></tr>
+<tr class="memitem:ab05eebba0ec6d0e728384da2c06407c3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#ab05eebba0ec6d0e728384da2c06407c3">getTailleIndividu</a> ()</td></tr>
+<tr class="memdesc:ab05eebba0ec6d0e728384da2c06407c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir la taille de l'individu.  <a href="#ab05eebba0ec6d0e728384da2c06407c3">More...</a><br /></td></tr>
 <tr class="separator:ab05eebba0ec6d0e728384da2c06407c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad55048b09101f7d296c8e79c62daddac"><td class="memItemLeft" align="right" valign="top"><a id="ad55048b09101f7d296c8e79c62daddac"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getGene</b> (int i)</td></tr>
+<tr class="memitem:ad55048b09101f7d296c8e79c62daddac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#ad55048b09101f7d296c8e79c62daddac">getGene</a> (int i)</td></tr>
+<tr class="memdesc:ad55048b09101f7d296c8e79c62daddac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir un gene, c'est-à-dire l'indice i du tableau chromosome.  <a href="#ad55048b09101f7d296c8e79c62daddac">More...</a><br /></td></tr>
 <tr class="separator:ad55048b09101f7d296c8e79c62daddac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b3dab8bc62e405506e9b7a7325ad410"><td class="memItemLeft" align="right" valign="top"><a id="a3b3dab8bc62e405506e9b7a7325ad410"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setGene</b> (int gene, int i)</td></tr>
+<tr class="memitem:a3b3dab8bc62e405506e9b7a7325ad410"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#a3b3dab8bc62e405506e9b7a7325ad410">setGene</a> (int gene, int i)</td></tr>
+<tr class="memdesc:a3b3dab8bc62e405506e9b7a7325ad410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setteur permettant de modifier le tableau chromosome à l'indice i.  <a href="#a3b3dab8bc62e405506e9b7a7325ad410">More...</a><br /></td></tr>
 <tr class="separator:a3b3dab8bc62e405506e9b7a7325ad410"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d678fe842fa537c79b56775bdd3d64b"><td class="memItemLeft" align="right" valign="top"><a id="a2d678fe842fa537c79b56775bdd3d64b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setChromosome</b> (int *chromosome)</td></tr>
+<tr class="memitem:a2d678fe842fa537c79b56775bdd3d64b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#a2d678fe842fa537c79b56775bdd3d64b">setChromosome</a> (int *chromosome)</td></tr>
+<tr class="memdesc:a2d678fe842fa537c79b56775bdd3d64b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setteur permettant de modifier le tableau chromosome.  <a href="#a2d678fe842fa537c79b56775bdd3d64b">More...</a><br /></td></tr>
 <tr class="separator:a2d678fe842fa537c79b56775bdd3d64b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8904ed048934023929957f6585bc1f7f"><td class="memItemLeft" align="right" valign="top"><a id="a8904ed048934023929957f6585bc1f7f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setScore</b> (float score, int i)</td></tr>
+<tr class="memitem:a8904ed048934023929957f6585bc1f7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#a8904ed048934023929957f6585bc1f7f">setScore</a> (float score, int i)</td></tr>
+<tr class="memdesc:a8904ed048934023929957f6585bc1f7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setteur permettant de modifier le tableau des scores à l'indice i.  <a href="#a8904ed048934023929957f6585bc1f7f">More...</a><br /></td></tr>
 <tr class="separator:a8904ed048934023929957f6585bc1f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae77745a63cacfdd4504f23ed75e7fca0"><td class="memItemLeft" align="right" valign="top"><a id="ae77745a63cacfdd4504f23ed75e7fca0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setRang</b> (int rang, int i)</td></tr>
+<tr class="memitem:ae77745a63cacfdd4504f23ed75e7fca0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#ae77745a63cacfdd4504f23ed75e7fca0">setRang</a> (int rang, int i)</td></tr>
+<tr class="memdesc:ae77745a63cacfdd4504f23ed75e7fca0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setteur permettant de modifier le tableau des rangs à l'indice i.  <a href="#ae77745a63cacfdd4504f23ed75e7fca0">More...</a><br /></td></tr>
 <tr class="separator:ae77745a63cacfdd4504f23ed75e7fca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e531bc1f39a0f9684b8c9d75fb0fcd1"><td class="memItemLeft" align="right" valign="top"><a id="a4e531bc1f39a0f9684b8c9d75fb0fcd1"></a>
-<a class="el" href="class_individu.html">Individu</a>&#160;</td><td class="memItemRight" valign="bottom"><b>codage</b> (int valeur)</td></tr>
+<tr class="memitem:a4e531bc1f39a0f9684b8c9d75fb0fcd1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_individu.html">Individu</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#a4e531bc1f39a0f9684b8c9d75fb0fcd1">codage</a> (int valeur)</td></tr>
+<tr class="memdesc:a4e531bc1f39a0f9684b8c9d75fb0fcd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de transformer un entier en base 10 passé en arguement en binaire. Ce chiffre binaire est stocké dans le tableau chromosme de l'individu.  <a href="#a4e531bc1f39a0f9684b8c9d75fb0fcd1">More...</a><br /></td></tr>
 <tr class="separator:a4e531bc1f39a0f9684b8c9d75fb0fcd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55c07f1851d61efae66419f76db56650"><td class="memItemLeft" align="right" valign="top"><a id="a55c07f1851d61efae66419f76db56650"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>decodage</b> (<a class="el" href="class_individu.html">Individu</a> i)</td></tr>
+<tr class="memitem:a55c07f1851d61efae66419f76db56650"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#a55c07f1851d61efae66419f76db56650">decodage</a> (<a class="el" href="class_individu.html">Individu</a> i)</td></tr>
+<tr class="memdesc:a55c07f1851d61efae66419f76db56650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de changer le tableau de chromosome (en binaire) de l'<a class="el" href="class_individu.html" title="Classe permettant de créer et d&#39;utiliser des Individus. ">Individu</a> i en une valeur entière en base 10.  <a href="#a55c07f1851d61efae66419f76db56650">More...</a><br /></td></tr>
 <tr class="separator:a55c07f1851d61efae66419f76db56650"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1312d4f3e30f04bbfdac807ec68b7b6"><td class="memItemLeft" align="right" valign="top"><a id="ae1312d4f3e30f04bbfdac807ec68b7b6"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>decodage</b> (int *binaire)</td></tr>
+<tr class="memitem:ae1312d4f3e30f04bbfdac807ec68b7b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#ae1312d4f3e30f04bbfdac807ec68b7b6">decodage</a> (int *binaire)</td></tr>
+<tr class="memdesc:ae1312d4f3e30f04bbfdac807ec68b7b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de changer un tableau binaire en une valeur entière en base 10.  <a href="#ae1312d4f3e30f04bbfdac807ec68b7b6">More...</a><br /></td></tr>
 <tr class="separator:ae1312d4f3e30f04bbfdac807ec68b7b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85811f58ed4c57e4ae584117d553cc7c"><td class="memItemLeft" align="right" valign="top"><a id="a85811f58ed4c57e4ae584117d553cc7c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>evaluationIndividu</b> (string fonctionFitness, int indiceScore)</td></tr>
+<tr class="memitem:a85811f58ed4c57e4ae584117d553cc7c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#a85811f58ed4c57e4ae584117d553cc7c">evaluationIndividu</a> (string fonctionFitness, int indiceScore)</td></tr>
+<tr class="memdesc:a85811f58ed4c57e4ae584117d553cc7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode appelant la méthode calculFitness pour attribuer un score à l'<a class="el" href="class_individu.html" title="Classe permettant de créer et d&#39;utiliser des Individus. ">Individu</a> en cours.  <a href="#a85811f58ed4c57e4ae584117d553cc7c">More...</a><br /></td></tr>
 <tr class="separator:a85811f58ed4c57e4ae584117d553cc7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaff224cb5b2c74d327d71c89e7494c84"><td class="memItemLeft" align="right" valign="top"><a id="aaff224cb5b2c74d327d71c89e7494c84"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>mutation</b> (int gene) const</td></tr>
+<tr class="memitem:aaff224cb5b2c74d327d71c89e7494c84"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#aaff224cb5b2c74d327d71c89e7494c84">mutation</a> (int gene) const</td></tr>
+<tr class="memdesc:aaff224cb5b2c74d327d71c89e7494c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de muter un gène selon une probabilité. Si probAlea(float) renvoie TRUE alors gene passé en argument est modifié, sinon non.  <a href="#aaff224cb5b2c74d327d71c89e7494c84">More...</a><br /></td></tr>
 <tr class="separator:aaff224cb5b2c74d327d71c89e7494c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa370ed54c9e5cecffc479b5874e9226b"><td class="memItemLeft" align="right" valign="top"><a id="aa370ed54c9e5cecffc479b5874e9226b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>probAlea</b> (float prob) const</td></tr>
+<tr class="memitem:aa370ed54c9e5cecffc479b5874e9226b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#aa370ed54c9e5cecffc479b5874e9226b">probAlea</a> (float prob) const</td></tr>
+<tr class="memdesc:aa370ed54c9e5cecffc479b5874e9226b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant générer un nombre entre 0 et 1 pseudo aléatoirement.  <a href="#aa370ed54c9e5cecffc479b5874e9226b">More...</a><br /></td></tr>
 <tr class="separator:aa370ed54c9e5cecffc479b5874e9226b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad050d9721d6f34ff662c1a70af1594a6"><td class="memItemLeft" align="right" valign="top"><a id="ad050d9721d6f34ff662c1a70af1594a6"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>calculFitness</b> (const char *c, double x)</td></tr>
-<tr class="separator:ad050d9721d6f34ff662c1a70af1594a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64f2fa488b556be95d6dda1005417eb6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_individu.html#a64f2fa488b556be95d6dda1005417eb6">calculFitness</a> (const char *c, double x)</td></tr>
+<tr class="memdesc:a64f2fa488b556be95d6dda1005417eb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode appelant la méthode calculfitness (dans <a class="el" href="tinyexpr_8h_source.html">tinyexpr.h</a>).  <a href="#a64f2fa488b556be95d6dda1005417eb6">More...</a><br /></td></tr>
+<tr class="separator:a64f2fa488b556be95d6dda1005417eb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe permettant de créer et d'utiliser des Individus. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aeb49b6d2654ce47c70847d27a2608b47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb49b6d2654ce47c70847d27a2608b47">&#9670;&nbsp;</a></span>Individu() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Individu::Individu </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>taille</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructeur qui créer un individu aléatoirement. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>taille donne la taille de l'individu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a04a849ab0b64d2bcb16cb8ce14c41f62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04a849ab0b64d2bcb16cb8ce14c41f62">&#9670;&nbsp;</a></span>Individu() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Individu::Individu </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>donnees</em>[3]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructeur qui créer un individu avec les données fournient par l'utilisateur. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">float</td><td>donnees[3] tableau contenant les trois données récupérées. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5347a6d253e44e3447731e4adec648dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5347a6d253e44e3447731e4adec648dc">&#9670;&nbsp;</a></span>Individu() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Individu::Individu </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_individu.html">Individu</a> &amp;&#160;</td>
+          <td class="paramname"><em>individu</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructeur de copie d'individu. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_individu.html" title="Classe permettant de créer et d&#39;utiliser des Individus. ">Individu</a></td><td>&amp;individu est l'individu à copier </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a64f2fa488b556be95d6dda1005417eb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64f2fa488b556be95d6dda1005417eb6">&#9670;&nbsp;</a></span>calculFitness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Individu::calculFitness </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode appelant la méthode calculfitness (dans <a class="el" href="tinyexpr_8h_source.html">tinyexpr.h</a>). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">const</td><td>char* c est la fonction d'évaluation (fonction fitness). </td></tr>
+    <tr><td class="paramname">double</td><td>x est la variable. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Revoie le résultat de l'évaluation. </dd></dl>
+
+</div>
+</div>
+<a id="a4e531bc1f39a0f9684b8c9d75fb0fcd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e531bc1f39a0f9684b8c9d75fb0fcd1">&#9670;&nbsp;</a></span>codage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_individu.html">Individu</a> Individu::codage </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>valeur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode permettant de transformer un entier en base 10 passé en arguement en binaire. Ce chiffre binaire est stocké dans le tableau chromosme de l'individu. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>valeur en base 10 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>L'<a class="el" href="class_individu.html" title="Classe permettant de créer et d&#39;utiliser des Individus. ">Individu</a> avec le tableau chromosome modifié. </dd></dl>
+
+</div>
+</div>
+<a id="a55c07f1851d61efae66419f76db56650"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55c07f1851d61efae66419f76db56650">&#9670;&nbsp;</a></span>decodage() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Individu::decodage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_individu.html">Individu</a>&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode permettant de changer le tableau de chromosome (en binaire) de l'<a class="el" href="class_individu.html" title="Classe permettant de créer et d&#39;utiliser des Individus. ">Individu</a> i en une valeur entière en base 10. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_individu.html" title="Classe permettant de créer et d&#39;utiliser des Individus. ">Individu</a></td><td>i avec le tableau de chromosome à décoder </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>La valeur du chromosome de l'<a class="el" href="class_individu.html" title="Classe permettant de créer et d&#39;utiliser des Individus. ">Individu</a> i. </dd></dl>
+
+</div>
+</div>
+<a id="ae1312d4f3e30f04bbfdac807ec68b7b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1312d4f3e30f04bbfdac807ec68b7b6">&#9670;&nbsp;</a></span>decodage() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Individu::decodage </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>binaire</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode permettant de changer un tableau binaire en une valeur entière en base 10. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int*</td><td>binaire tableau de 0 et de 1. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Renvoie la valeur en base 10. </dd></dl>
+
+</div>
+</div>
+<a id="a85811f58ed4c57e4ae584117d553cc7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85811f58ed4c57e4ae584117d553cc7c">&#9670;&nbsp;</a></span>evaluationIndividu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Individu::evaluationIndividu </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>fonctionFitness</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>indiceScore</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode appelant la méthode calculFitness pour attribuer un score à l'<a class="el" href="class_individu.html" title="Classe permettant de créer et d&#39;utiliser des Individus. ">Individu</a> en cours. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>fonctionFitness </td></tr>
+    <tr><td class="paramname">int</td><td>indiceScore est l'indice du tableau des score où sera ranger le résultat de l'évaluaion de l'<a class="el" href="class_individu.html" title="Classe permettant de créer et d&#39;utiliser des Individus. ">Individu</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Revoie TRUE s'il n'y a pas eu de problème lors de l'évaluation, FALSE sinon. </dd></dl>
+
+</div>
+</div>
+<a id="a2822cc97c85faa9546bd1a68e5d4c417"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2822cc97c85faa9546bd1a68e5d4c417">&#9670;&nbsp;</a></span>getChromosome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int * Individu::getChromosome </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir le tableau chromosome. </p>
+<dl class="section return"><dt>Returns</dt><dd>Le chromosome de l'individu </dd></dl>
+
+</div>
+</div>
+<a id="ad55048b09101f7d296c8e79c62daddac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad55048b09101f7d296c8e79c62daddac">&#9670;&nbsp;</a></span>getGene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Individu::getGene </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir un gene, c'est-à-dire l'indice i du tableau chromosome. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>i est l'indice du tableau chromosome. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Revoie un gene. </dd></dl>
+
+</div>
+</div>
+<a id="a68cbd354d58bff595f2032e813cf3af8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68cbd354d58bff595f2032e813cf3af8">&#9670;&nbsp;</a></span>getRang()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Individu::getRang </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir un rang à l'indice i.. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>i est l'indice du tableau des rangs. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Revoie le rang à l'indice i. </dd></dl>
+
+</div>
+</div>
+<a id="a1da47ceca45e43d0815edb13d0ee09ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1da47ceca45e43d0815edb13d0ee09ee">&#9670;&nbsp;</a></span>getScore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Individu::getScore </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir un score à l'indice i.. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>i est l'indice du tableau des scores. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Revoie le score à l'indice i. </dd></dl>
+
+</div>
+</div>
+<a id="ab05eebba0ec6d0e728384da2c06407c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab05eebba0ec6d0e728384da2c06407c3">&#9670;&nbsp;</a></span>getTailleIndividu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Individu::getTailleIndividu </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir la taille de l'individu. </p>
+<dl class="section return"><dt>Returns</dt><dd>Revoie la taille de l'individu. </dd></dl>
+
+</div>
+</div>
+<a id="aaff224cb5b2c74d327d71c89e7494c84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaff224cb5b2c74d327d71c89e7494c84">&#9670;&nbsp;</a></span>mutation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Individu::mutation </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>gene</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode permettant de muter un gène selon une probabilité. Si probAlea(float) renvoie TRUE alors gene passé en argument est modifié, sinon non. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>gene est le gène à muter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Revoie le gène muté ou non. </dd></dl>
+
+</div>
+</div>
+<a id="aa370ed54c9e5cecffc479b5874e9226b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa370ed54c9e5cecffc479b5874e9226b">&#9670;&nbsp;</a></span>probAlea()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Individu::probAlea </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>prob</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode permettant générer un nombre entre 0 et 1 pseudo aléatoirement. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">float</td><td>prob la probabilité de renvoyer TRUE </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Revoie TRUE si le nombre généré est inférieur à prob, FALSE sinon. </dd></dl>
+
+</div>
+</div>
+<a id="a2d678fe842fa537c79b56775bdd3d64b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d678fe842fa537c79b56775bdd3d64b">&#9670;&nbsp;</a></span>setChromosome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Individu::setChromosome </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>chromosome</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setteur permettant de modifier le tableau chromosome. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int*</td><td>chromosome est le tableau chromosome. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3b3dab8bc62e405506e9b7a7325ad410"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b3dab8bc62e405506e9b7a7325ad410">&#9670;&nbsp;</a></span>setGene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Individu::setGene </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>gene</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setteur permettant de modifier le tableau chromosome à l'indice i. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>gene est le gene à insérer dans le tableau chromosome. </td></tr>
+    <tr><td class="paramname">int</td><td>i est l'indice du tableau chromosome. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae77745a63cacfdd4504f23ed75e7fca0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae77745a63cacfdd4504f23ed75e7fca0">&#9670;&nbsp;</a></span>setRang()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Individu::setRang </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rang</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setteur permettant de modifier le tableau des rangs à l'indice i. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">float</td><td>rang est le rang à insérer dans le tableau des rangs. </td></tr>
+    <tr><td class="paramname">int</td><td>i est l'indice du tableau des scores. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8904ed048934023929957f6585bc1f7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8904ed048934023929957f6585bc1f7f">&#9670;&nbsp;</a></span>setScore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Individu::setScore </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>score</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setteur permettant de modifier le tableau des scores à l'indice i. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">float</td><td>score est le score à insérer dans le tableau des scores. </td></tr>
+    <tr><td class="paramname">int</td><td>i est l'indice du tableau des scores. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="initialisation__population_8h_source.html">initialisation_population.h</a></li>
 </ul>
