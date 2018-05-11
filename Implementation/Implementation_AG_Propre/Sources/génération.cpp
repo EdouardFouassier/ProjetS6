@@ -195,9 +195,9 @@ void Population::setEnsemble(Individu &nouv){
 
 /**** TESTS ****/
 
-bool Population::testArret() //pourquoi ça doit renvoyer un population? || a finir || à modifier en transformant en bool
+bool Population::testArret(string nomFichierSortie) //pourquoi ça doit renvoyer un population? || a finir || à modifier en transformant en bool
 {  
-	if(this->testConvergence() && this->testNombreGeneration()){
+	if(this->testConvergence(nomFichierSortie) && this->testNombreGeneration()){
 		//calculerEcrireStats(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt",nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt");
 		return true;
 	}
@@ -207,7 +207,7 @@ bool Population::testArret() //pourquoi ça doit renvoyer un population? || a fi
 
 }
 
-bool Population::testConvergence() //Test OK
+bool Population::testConvergence(string nomFichierSortie) //Test OK
 {
 	std::cout<<"TEST CONVERGENCE"<<std::endl;
 	//~ numeroGeneration = 5; //a virer après les tests
@@ -217,8 +217,9 @@ bool Population::testConvergence() //Test OK
     std::cout<<"nombre de criteres : "<<nombreCriteres<<std::endl;
     std::cout<<"numero generation : "<<numeroGeneration<<std::endl;
     
+    string StatFile = nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt";
     for(int i = 0; i < numeroGeneration; i ++) {
-		f[i]=fopen("TestFiles/StatsTest.txt", "r");
+		f[i]=fopen(StatFile.c_str(), "r");
 		for(int j=0;j<i;j++){
 			lireStat(f[i]);
 		}

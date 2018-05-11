@@ -150,7 +150,7 @@ public:
 	/// \fn void testArret(void)
 	/// \brief Méthode qui appel testNombreGeneration() et testConvergence().
 	/// \return Renvoie TRUE si l'algorithme peut continuer, FALSE sinon.
-	bool testArret();
+	bool testArret(string nomFichierSortie);
 
 	/// \fn bool testNombreGeneration(void)
 	/// \brief Méthode permettant de tester le nombre de génération
@@ -160,7 +160,7 @@ public:
 	/// \fn bool testConvergence(void)
 	/// \brief Méthode permettant de tester si les score de plusieurs génération à la suite sont semblables (scores à +/- 1,5% identique).
 	/// \return Renvoie TRUE si les générations convegent, FALSE sinon.
-	bool testConvergence();
+	bool testConvergence(string nomFichierSortie);
 	
 	/// \fn bool testPopulationRemplie(void)
 	/// \brief Méthode permettant si une population est pleine.
