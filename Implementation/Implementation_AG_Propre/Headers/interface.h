@@ -7,6 +7,7 @@
 
 #ifndef INTERFACE_H
 #define INTERFACE_H
+#include <unistd.h>
 #include <string>
 #include <iostream>
 #include <QProgressBar>
@@ -114,7 +115,7 @@ private:
 
     string fonctionFitness1;
     string fonctionFitness2;
-    string nomFichierSortie;
+   static string nomFichierSortie;
     int taillePopulation;
     int tailleIndividu;
     int nbGenerationMax;
@@ -127,7 +128,7 @@ private:
     bool latex;
     bool xFig;
     bool postScript;
-    bool encours;
+    static bool encours;
 
 
 public:
@@ -151,9 +152,10 @@ public:
 	bool getLatex();
 	bool getXFig();
 	bool getPostScript();
-	void algoGenetique();
+	static void * algoGenetique(void * arg);
 	
     public slots:
+    
     void enableF2(int s);
     void chercher();
     void cacherAppF1();

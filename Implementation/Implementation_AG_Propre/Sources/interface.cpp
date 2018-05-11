@@ -4,6 +4,10 @@
 //////////////////////////////////////////////////
 #include "../Headers/interface.h"
 
+
+string Interface::nomFichierSortie = "";
+bool Interface::encours=0;
+
 Interface::Interface() : QWidget()
 {
     encours=false;
@@ -199,7 +203,8 @@ Interface::Interface(string nom,string fichier) : Interface(){
 	connectLancer();
 }
 
-void Interface::algoGenetique(){
+void * Interface::algoGenetique(void * arg){
+	cout<<"lolentree"<<endl;
 	Population *p=new Population(lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt")),*p_new=NULL;
 	
 	int tailleI=p->getEnsemble()[0]->getTailleIndividu();
@@ -210,7 +215,7 @@ void Interface::algoGenetique(){
 	}
 	cout<<endl;
 	cout<<endl;
-	for(int j=0;j<p->getNombreGenerationMax();j++){            //tant que testArret
+	for(int j=0;j<p->getNombreGenerationMax()/*p->testArret()*/ && encours==1;j++){            //tant que testArret
 		cout<<endl<<"ITERATION "<<j<<endl;
 		p->evaluation();
 		cout<<"evaluation faite"<<endl;
@@ -219,7 +224,7 @@ void Interface::algoGenetique(){
 		calculerEcrireStats(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt",nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt");
 		cout<<"stat écrite"<<endl;
 		p_new=new Population();
-		for(int i=0;i<p->getNombreIndividus();i++){           //créerGénération
+		for(int i=0;i<p->getNombreIndividus() ;i++){           //créerGénération
 			p_new->crossover((p->selectionner(0)),(p->selectionner(0)));
             std::cout<<"individu "<<i<<" créé"<<std::endl;
 		}
@@ -237,8 +242,11 @@ void Interface::algoGenetique(){
             cout<<endl;
         }
 	}
+
 	ecrireLatex(nomFichierSortie,p);
 	cout<< "FIN" <<endl;
+	encours=0;
+	return NULL;
 	//QProcess::startDetached(QString::fromStdString("pdflatex "+nomFichierSortie+"/"+nomFichierSortie+".tex"));
 	//QDesktopServices::openUrl(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() +QString::fromStdString( "/"+nomFichierSortie+"/"+nomFichierSortie+".pdf")));
 	
@@ -274,7 +282,7 @@ void Interface::connectAide(){
 }
 
 void Interface::connectArreter(){
-    if(encours==1){
+    if(encours!= 0){
 		//~ int reponse=QMessageBox::question(this,"Confirmer?" ,"L'algorithme n'est pas fini.\nEtes vous sure?\nVous pouvez sauvegarder le resultat actuel.", QMessageBox::Yes | QMessageBox::No | QMessageBox::Save);
         //~ if (reponse == QMessageBox::Yes)
         //~ {
@@ -288,10 +296,11 @@ void Interface::connectArreter(){
         int reponse=QMessageBox::question(this,"Confirmer" ,"Arrêter enregistrera le resultat actuel.\nL'algorithme n'est pas fini.\nEtes-vous sûr?", QMessageBox::Yes | QMessageBox::No );
         if (reponse == QMessageBox::Yes)
         {
-            QMessageBox::information(this, "Fermeture", "A bientôt");
+            //QMessageBox::information(this, "Fermeture", "A bientôt");
             //~ Interface i(this);
             //~ i.show();
-            close();
+            //~ close();
+            encours=0;
         }
     }
     else{
@@ -306,7 +315,7 @@ void Interface::connectArreter(){
 }
 
 void Interface::connectQuitter(){
-    if(encours==1){
+    if(encours!=0){
         int reponse=QMessageBox::question(this,"Confirmer" ,"Quitter perdra la progression actuel de l'algorithme.\nEtes-vous sûr?", QMessageBox::Yes | QMessageBox::No );
         if (reponse == QMessageBox::Yes)
         {
@@ -422,12 +431,13 @@ void Interface::connectLancer(){
 					}
 					if(nomcorrect && sortiecorrect && testCoherenceDonnees(nomFichierSortie+"_Parametres.txt")) {
 					QMessageBox::information(this,"Bravo !","Le programme a demarré avec succès.");
-					QProcess::startDetached(QString::fromStdString("mkdir "+nomFichierSortie));
-					QProcess::startDetached(QString::fromStdString("mv "+nomFichierSortie+"_Parametres.txt"+" "+nomFichierSortie+"/"));
-					QProcess::startDetached(QString::fromStdString("chmod +xwr "+nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt"));	
+					QProcess creaDir,Move,CHMOD;
+					creaDir.startDetached(QString::fromStdString("mkdir "+nomFichierSortie));
+					Move.startDetached(QString::fromStdString("mv "+nomFichierSortie+"_Parametres.txt"+" "+nomFichierSortie+"/"));
+					CHMOD.startDetached(QString::fromStdString("chmod +xwr "+nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt"));	
 					encours=1;
-					algoGenetique();
-					encours=0;
+					pthread_t  tid;
+					pthread_create(&tid,NULL,&algoGenetique,nullptr);
 					}
 					
 				}
@@ -458,11 +468,13 @@ void Interface::connectLancer(){
 					
 					if(nomcorrect && testCoherenceDonnees(liensFichier->text().toUtf8().constData())){
 						QMessageBox::information(this,"Bravo !","Le programme est prêt a être lancé.");
-						QProcess::startDetached(QString::fromStdString("mkdir "+nomFichierSortie));
-						QProcess::startDetached(QString::fromStdString("cp "+string(liensFichier->text().toUtf8().constData())+" "+nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt"));
-						QProcess::startDetached(QString::fromStdString("chmod +xwr "+nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt"));
-						algoGenetique();
+						QProcess creadDir,cp,CHMOD;
+						creadDir.startDetached(QString::fromStdString("mkdir "+nomFichierSortie));
+						cp.startDetached(QString::fromStdString("cp "+string(liensFichier->text().toUtf8().constData())+" "+nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt"));
+						CHMOD.startDetached(QString::fromStdString("chmod +xwr "+nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt"));
 						encours=1;
+						pthread_t  tid;
+						pthread_create(&tid,NULL,&algoGenetique,nullptr);
 					}
 				}
 				catch(string const& e){

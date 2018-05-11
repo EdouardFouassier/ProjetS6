@@ -96,10 +96,10 @@ Population::~Population() //a revoir
 {
 	cout<<"DESTRUCTEUR POPULATION"<<endl;
 	int size = ensemble.size();
-	//for(int i = size; i >= 0; i--){
+	for(int i = size; i >= 0; i--){
 		//delete ensemble[i];
 		ensemble.pop_back();
-	//}
+	}
 }
 
 /**** GETTEURS ****/
@@ -210,7 +210,7 @@ bool Population::testArret() //pourquoi ça doit renvoyer un population? || a fi
 bool Population::testConvergence() //Test OK
 {
 	std::cout<<"TEST CONVERGENCE"<<std::endl;
-	numeroGeneration = 5; //a virer après les tests
+	//~ numeroGeneration = 5; //a virer après les tests
 	if(numeroGeneration < 5)
 		return false;
 	FILE *f[numeroGeneration];
