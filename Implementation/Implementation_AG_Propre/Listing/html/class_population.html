@@ -5,10 +5,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Algorithme Génétique (Sujet 4): Population Class Reference</title>
+<title>My Project: Population Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +28,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Algorithme Génétique (Sujet 4)
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -42,6 +49,21 @@ $(function() {
 });
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_population.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -56,7 +78,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -68,115 +89,894 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afb8bfdf1315ba757c6e616e3dcb7c0bb"><td class="memItemLeft" align="right" valign="top"><a id="afb8bfdf1315ba757c6e616e3dcb7c0bb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Population</b> (<a class="el" href="class_population.html">Population</a> const &amp;P)</td></tr>
+<tr class="memitem:a54eb24ca89470eebe0c27bcb03a0ceae"><td class="memItemLeft" align="right" valign="top"><a id="a54eb24ca89470eebe0c27bcb03a0ceae"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a54eb24ca89470eebe0c27bcb03a0ceae">Population</a> ()</td></tr>
+<tr class="memdesc:a54eb24ca89470eebe0c27bcb03a0ceae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur par défaut de la classe <a class="el" href="class_population.html">Population</a>. <br /></td></tr>
+<tr class="separator:a54eb24ca89470eebe0c27bcb03a0ceae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb8bfdf1315ba757c6e616e3dcb7c0bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#afb8bfdf1315ba757c6e616e3dcb7c0bb">Population</a> (<a class="el" href="class_population.html">Population</a> const &amp;P)</td></tr>
+<tr class="memdesc:afb8bfdf1315ba757c6e616e3dcb7c0bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de copie de la classe <a class="el" href="class_population.html">Population</a>.  <a href="#afb8bfdf1315ba757c6e616e3dcb7c0bb">More...</a><br /></td></tr>
 <tr class="separator:afb8bfdf1315ba757c6e616e3dcb7c0bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab59130d62b27514555a07cea55896561"><td class="memItemLeft" align="right" valign="top"><a id="ab59130d62b27514555a07cea55896561"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Population</b> (string *const &amp;donnees)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#ab59130d62b27514555a07cea55896561">Population</a> (string *const &amp;donnees)</td></tr>
+<tr class="memdesc:ab59130d62b27514555a07cea55896561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur utilisant les données récurépérer de l'interface graphique ou du fichier de paramètres. <br /></td></tr>
 <tr class="separator:ab59130d62b27514555a07cea55896561"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6af7c30607b65d2b7f8d4750443bc0b"><td class="memItemLeft" align="right" valign="top"><a id="ad6af7c30607b65d2b7f8d4750443bc0b"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNombreIndividus</b> ()</td></tr>
+<tr class="memitem:a4c8cedd0f038e41746fb6084639f5616"><td class="memItemLeft" align="right" valign="top"><a id="a4c8cedd0f038e41746fb6084639f5616"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a4c8cedd0f038e41746fb6084639f5616">~Population</a> ()</td></tr>
+<tr class="memdesc:a4c8cedd0f038e41746fb6084639f5616"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur de la classe <a class="el" href="class_population.html">Population</a>. <br /></td></tr>
+<tr class="separator:a4c8cedd0f038e41746fb6084639f5616"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6af7c30607b65d2b7f8d4750443bc0b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#ad6af7c30607b65d2b7f8d4750443bc0b">getNombreIndividus</a> ()</td></tr>
+<tr class="memdesc:ad6af7c30607b65d2b7f8d4750443bc0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir le nombre d'individu dans la génération en cours.  <a href="#ad6af7c30607b65d2b7f8d4750443bc0b">More...</a><br /></td></tr>
 <tr class="separator:ad6af7c30607b65d2b7f8d4750443bc0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50f2ca4404612cd2c6e4b1e90e34959b"><td class="memItemLeft" align="right" valign="top"><a id="a50f2ca4404612cd2c6e4b1e90e34959b"></a>
-vector&lt; <a class="el" href="class_individu.html">Individu</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getEnsemble</b> ()</td></tr>
-<tr class="separator:a50f2ca4404612cd2c6e4b1e90e34959b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab43617fa07bb45f18b426f3677243799"><td class="memItemLeft" align="right" valign="top"><a id="ab43617fa07bb45f18b426f3677243799"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumeroGeneration</b> ()</td></tr>
+<tr class="memitem:a2616c1ee49a009f91f36ff6a2798784b"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_individu.html">Individu</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a2616c1ee49a009f91f36ff6a2798784b">getEnsemble</a> ()</td></tr>
+<tr class="memdesc:a2616c1ee49a009f91f36ff6a2798784b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir l'ensemble des individus de la génération en cours.  <a href="#a2616c1ee49a009f91f36ff6a2798784b">More...</a><br /></td></tr>
+<tr class="separator:a2616c1ee49a009f91f36ff6a2798784b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab43617fa07bb45f18b426f3677243799"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#ab43617fa07bb45f18b426f3677243799">getNumeroGeneration</a> ()</td></tr>
+<tr class="memdesc:ab43617fa07bb45f18b426f3677243799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir le numéro de la génération en cours.  <a href="#ab43617fa07bb45f18b426f3677243799">More...</a><br /></td></tr>
 <tr class="separator:ab43617fa07bb45f18b426f3677243799"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0fc085745b5611153c46e02e08fb367"><td class="memItemLeft" align="right" valign="top"><a id="ae0fc085745b5611153c46e02e08fb367"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>getFitness1</b> ()</td></tr>
+<tr class="memitem:ae0fc085745b5611153c46e02e08fb367"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#ae0fc085745b5611153c46e02e08fb367">getFitness1</a> ()</td></tr>
+<tr class="memdesc:ae0fc085745b5611153c46e02e08fb367"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir la première fonction fitnesss (fonction d'évaluation).  <a href="#ae0fc085745b5611153c46e02e08fb367">More...</a><br /></td></tr>
 <tr class="separator:ae0fc085745b5611153c46e02e08fb367"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a790aa479d01d5164ab47e107f7002287"><td class="memItemLeft" align="right" valign="top"><a id="a790aa479d01d5164ab47e107f7002287"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>getFitness2</b> ()</td></tr>
+<tr class="memitem:a790aa479d01d5164ab47e107f7002287"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a790aa479d01d5164ab47e107f7002287">getFitness2</a> ()</td></tr>
+<tr class="memdesc:a790aa479d01d5164ab47e107f7002287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir la seconde fonction fitnesss (fonction d'évaluation).  <a href="#a790aa479d01d5164ab47e107f7002287">More...</a><br /></td></tr>
 <tr class="separator:a790aa479d01d5164ab47e107f7002287"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a835c9a996c627d5e7672f880ef390499"><td class="memItemLeft" align="right" valign="top"><a id="a835c9a996c627d5e7672f880ef390499"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getValeurApprochee</b> ()</td></tr>
+<tr class="memitem:a835c9a996c627d5e7672f880ef390499"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a835c9a996c627d5e7672f880ef390499">getValeurApprochee</a> ()</td></tr>
+<tr class="memdesc:a835c9a996c627d5e7672f880ef390499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir la première valeur approchée.  <a href="#a835c9a996c627d5e7672f880ef390499">More...</a><br /></td></tr>
 <tr class="separator:a835c9a996c627d5e7672f880ef390499"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09cd27021be2dede623dd010f6a8ddd6"><td class="memItemLeft" align="right" valign="top"><a id="a09cd27021be2dede623dd010f6a8ddd6"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getValeurApprochee2</b> ()</td></tr>
-<tr class="separator:a09cd27021be2dede623dd010f6a8ddd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa07616afcf9ba7435e6648925a9dd73a"><td class="memItemLeft" align="right" valign="top"><a id="aa07616afcf9ba7435e6648925a9dd73a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNombreGenerationMax</b> ()</td></tr>
+<tr class="memitem:a00d211e7d650c681f78dcde25751afa2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a00d211e7d650c681f78dcde25751afa2">getValeurApprochee2</a> ()</td></tr>
+<tr class="memdesc:a00d211e7d650c681f78dcde25751afa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir la seconde valeur approchee.  <a href="#a00d211e7d650c681f78dcde25751afa2">More...</a><br /></td></tr>
+<tr class="separator:a00d211e7d650c681f78dcde25751afa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa07616afcf9ba7435e6648925a9dd73a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#aa07616afcf9ba7435e6648925a9dd73a">getNombreGenerationMax</a> ()</td></tr>
+<tr class="memdesc:aa07616afcf9ba7435e6648925a9dd73a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir le nombre maximum de génération à atteindre.  <a href="#aa07616afcf9ba7435e6648925a9dd73a">More...</a><br /></td></tr>
 <tr class="separator:aa07616afcf9ba7435e6648925a9dd73a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa55e37f348f9de0e3b2fe9a0de7d2bb3"><td class="memItemLeft" align="right" valign="top"><a id="aa55e37f348f9de0e3b2fe9a0de7d2bb3"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNombreCriteres</b> ()</td></tr>
+<tr class="memitem:aa55e37f348f9de0e3b2fe9a0de7d2bb3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#aa55e37f348f9de0e3b2fe9a0de7d2bb3">getNombreCriteres</a> ()</td></tr>
+<tr class="memdesc:aa55e37f348f9de0e3b2fe9a0de7d2bb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir le nombre critère.  <a href="#aa55e37f348f9de0e3b2fe9a0de7d2bb3">More...</a><br /></td></tr>
 <tr class="separator:aa55e37f348f9de0e3b2fe9a0de7d2bb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6f1644f7297b6b9521409b332f51f0d"><td class="memItemLeft" align="right" valign="top"><a id="ac6f1644f7297b6b9521409b332f51f0d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setNombreIndividus</b> (int nbIndiv)</td></tr>
+<tr class="memitem:ac6f1644f7297b6b9521409b332f51f0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#ac6f1644f7297b6b9521409b332f51f0d">setNombreIndividus</a> (int nbIndiv)</td></tr>
+<tr class="memdesc:ac6f1644f7297b6b9521409b332f51f0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setteur de l'attribut nombreIndividu.  <a href="#ac6f1644f7297b6b9521409b332f51f0d">More...</a><br /></td></tr>
 <tr class="separator:ac6f1644f7297b6b9521409b332f51f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c15a197054721dfbcdbb4a7882b3e95"><td class="memItemLeft" align="right" valign="top"><a id="a1c15a197054721dfbcdbb4a7882b3e95"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setEnsemble</b> (<a class="el" href="class_individu.html">Individu</a> &amp;nouv)</td></tr>
+<tr class="memitem:a1c15a197054721dfbcdbb4a7882b3e95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a1c15a197054721dfbcdbb4a7882b3e95">setEnsemble</a> (<a class="el" href="class_individu.html">Individu</a> &amp;nouv)</td></tr>
+<tr class="memdesc:a1c15a197054721dfbcdbb4a7882b3e95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setteur permettant d'ajouter un individu au vecteur conntenant l'ensemble des individu de la génération en cours.  <a href="#a1c15a197054721dfbcdbb4a7882b3e95">More...</a><br /></td></tr>
 <tr class="separator:a1c15a197054721dfbcdbb4a7882b3e95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a556851b48bc213bc9a5624295710276d"><td class="memItemLeft" align="right" valign="top"><a id="a556851b48bc213bc9a5624295710276d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setNumeroGeneration</b> (int numGen)</td></tr>
+<tr class="memitem:a556851b48bc213bc9a5624295710276d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a556851b48bc213bc9a5624295710276d">setNumeroGeneration</a> (int numGen)</td></tr>
+<tr class="memdesc:a556851b48bc213bc9a5624295710276d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setteur de l'attribut numeroGeneration.  <a href="#a556851b48bc213bc9a5624295710276d">More...</a><br /></td></tr>
 <tr class="separator:a556851b48bc213bc9a5624295710276d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7573ba5ab354228ffcb76c7dd43b5205"><td class="memItemLeft" align="right" valign="top"><a id="a7573ba5ab354228ffcb76c7dd43b5205"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setFitness1</b> (string fit1)</td></tr>
+<tr class="memitem:a7573ba5ab354228ffcb76c7dd43b5205"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a7573ba5ab354228ffcb76c7dd43b5205">setFitness1</a> (string fit1)</td></tr>
+<tr class="memdesc:a7573ba5ab354228ffcb76c7dd43b5205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setteur de l'attribut fitness1 (fonction permettant l'évaluation).  <a href="#a7573ba5ab354228ffcb76c7dd43b5205">More...</a><br /></td></tr>
 <tr class="separator:a7573ba5ab354228ffcb76c7dd43b5205"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5940422c47c86ea6eb606224016d32d"><td class="memItemLeft" align="right" valign="top"><a id="af5940422c47c86ea6eb606224016d32d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setFitness2</b> (string fit2)</td></tr>
+<tr class="memitem:af5940422c47c86ea6eb606224016d32d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#af5940422c47c86ea6eb606224016d32d">setFitness2</a> (string fit2)</td></tr>
+<tr class="memdesc:af5940422c47c86ea6eb606224016d32d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setteur de l'attribut fitness2 (fonction permettant l'évaluation).  <a href="#af5940422c47c86ea6eb606224016d32d">More...</a><br /></td></tr>
 <tr class="separator:af5940422c47c86ea6eb606224016d32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3e0a26ca7b57924bcbb7a57d86056e4"><td class="memItemLeft" align="right" valign="top"><a id="ad3e0a26ca7b57924bcbb7a57d86056e4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setValeurApprochee</b> (float val)</td></tr>
+<tr class="memitem:ad3e0a26ca7b57924bcbb7a57d86056e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#ad3e0a26ca7b57924bcbb7a57d86056e4">setValeurApprochee</a> (float val)</td></tr>
+<tr class="memdesc:ad3e0a26ca7b57924bcbb7a57d86056e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setteur de l'attribut valeurApprochee.  <a href="#ad3e0a26ca7b57924bcbb7a57d86056e4">More...</a><br /></td></tr>
 <tr class="separator:ad3e0a26ca7b57924bcbb7a57d86056e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5645305dfca65e640ed76da9f851137"><td class="memItemLeft" align="right" valign="top"><a id="aa5645305dfca65e640ed76da9f851137"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setValeurApprochee2</b> (float val)</td></tr>
+<tr class="memitem:aa5645305dfca65e640ed76da9f851137"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#aa5645305dfca65e640ed76da9f851137">setValeurApprochee2</a> (float val)</td></tr>
+<tr class="memdesc:aa5645305dfca65e640ed76da9f851137"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setteur de l'attribut valeurApprochee2.  <a href="#aa5645305dfca65e640ed76da9f851137">More...</a><br /></td></tr>
 <tr class="separator:aa5645305dfca65e640ed76da9f851137"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a175f3a21b85681e318063e9eb63550a8"><td class="memItemLeft" align="right" valign="top"><a id="a175f3a21b85681e318063e9eb63550a8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setProbaCroisement</b> (float proba)</td></tr>
+<tr class="memitem:a175f3a21b85681e318063e9eb63550a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a175f3a21b85681e318063e9eb63550a8">setProbaCroisement</a> (float proba)</td></tr>
+<tr class="memdesc:a175f3a21b85681e318063e9eb63550a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setteur de l'attribut probaCroisement.  <a href="#a175f3a21b85681e318063e9eb63550a8">More...</a><br /></td></tr>
 <tr class="separator:a175f3a21b85681e318063e9eb63550a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85da2cfbfb4cde5c3ed879958385904c"><td class="memItemLeft" align="right" valign="top"><a id="a85da2cfbfb4cde5c3ed879958385904c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setNombreGenerationMax</b> (int nbGen)</td></tr>
+<tr class="memitem:a85da2cfbfb4cde5c3ed879958385904c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a85da2cfbfb4cde5c3ed879958385904c">setNombreGenerationMax</a> (int nbGen)</td></tr>
+<tr class="memdesc:a85da2cfbfb4cde5c3ed879958385904c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setteur de l'attribut nombreGenerationMax.  <a href="#a85da2cfbfb4cde5c3ed879958385904c">More...</a><br /></td></tr>
 <tr class="separator:a85da2cfbfb4cde5c3ed879958385904c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe14ed3d2919840291b623029eaaf8d3"><td class="memItemLeft" align="right" valign="top"><a id="afe14ed3d2919840291b623029eaaf8d3"></a>
-<a class="el" href="class_population.html">Population</a>&#160;</td><td class="memItemRight" valign="bottom"><b>testArret</b> ()</td></tr>
+<tr class="memitem:afe14ed3d2919840291b623029eaaf8d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_population.html">Population</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#afe14ed3d2919840291b623029eaaf8d3">testArret</a> ()</td></tr>
+<tr class="memdesc:afe14ed3d2919840291b623029eaaf8d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode qui appel <a class="el" href="class_population.html#a9192297f35ab0c6c6078ae087b3e4aee" title="Méthode permettant de tester le nombre de génération. ">testNombreGeneration()</a> et <a class="el" href="class_population.html#ae3511322c007fc85a8dd9bda0693b9cf" title="Méthode permettant de tester si les score de plusieurs génération à la suite sont semblables (scores ...">testConvergence()</a>.  <a href="#afe14ed3d2919840291b623029eaaf8d3">More...</a><br /></td></tr>
 <tr class="separator:afe14ed3d2919840291b623029eaaf8d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9192297f35ab0c6c6078ae087b3e4aee"><td class="memItemLeft" align="right" valign="top"><a id="a9192297f35ab0c6c6078ae087b3e4aee"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>testNombreGeneration</b> ()</td></tr>
+<tr class="memitem:a9192297f35ab0c6c6078ae087b3e4aee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a9192297f35ab0c6c6078ae087b3e4aee">testNombreGeneration</a> ()</td></tr>
+<tr class="memdesc:a9192297f35ab0c6c6078ae087b3e4aee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de tester le nombre de génération.  <a href="#a9192297f35ab0c6c6078ae087b3e4aee">More...</a><br /></td></tr>
 <tr class="separator:a9192297f35ab0c6c6078ae087b3e4aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3511322c007fc85a8dd9bda0693b9cf"><td class="memItemLeft" align="right" valign="top"><a id="ae3511322c007fc85a8dd9bda0693b9cf"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>testConvergence</b> ()</td></tr>
+<tr class="memitem:ae3511322c007fc85a8dd9bda0693b9cf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#ae3511322c007fc85a8dd9bda0693b9cf">testConvergence</a> ()</td></tr>
+<tr class="memdesc:ae3511322c007fc85a8dd9bda0693b9cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de tester si les score de plusieurs génération à la suite sont semblables (scores à +/- 1,5% identique).  <a href="#ae3511322c007fc85a8dd9bda0693b9cf">More...</a><br /></td></tr>
 <tr class="separator:ae3511322c007fc85a8dd9bda0693b9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70cec52ba5d29e0f4a1a67a4ae52b276"><td class="memItemLeft" align="right" valign="top"><a id="a70cec52ba5d29e0f4a1a67a4ae52b276"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>testPopulationRemplie</b> ()</td></tr>
+<tr class="memitem:a70cec52ba5d29e0f4a1a67a4ae52b276"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a70cec52ba5d29e0f4a1a67a4ae52b276">testPopulationRemplie</a> ()</td></tr>
+<tr class="memdesc:a70cec52ba5d29e0f4a1a67a4ae52b276"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant si une population est pleine.  <a href="#a70cec52ba5d29e0f4a1a67a4ae52b276">More...</a><br /></td></tr>
 <tr class="separator:a70cec52ba5d29e0f4a1a67a4ae52b276"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a023ecf9c1f66140c8b42b4e2bc9755a9"><td class="memItemLeft" align="right" valign="top"><a id="a023ecf9c1f66140c8b42b4e2bc9755a9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>evaluation</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a023ecf9c1f66140c8b42b4e2bc9755a9">evaluation</a> ()</td></tr>
+<tr class="memdesc:a023ecf9c1f66140c8b42b4e2bc9755a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de faire l'évaluation des différents individus de la population. <br /></td></tr>
 <tr class="separator:a023ecf9c1f66140c8b42b4e2bc9755a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15c4b45d033b6af3765f5e86ce43f232"><td class="memItemLeft" align="right" valign="top"><a id="a15c4b45d033b6af3765f5e86ce43f232"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>triPopulation</b> (int indiceScore)</td></tr>
+<tr class="memitem:a15c4b45d033b6af3765f5e86ce43f232"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a15c4b45d033b6af3765f5e86ce43f232">triPopulation</a> (int indiceScore)</td></tr>
+<tr class="memdesc:a15c4b45d033b6af3765f5e86ce43f232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode appelant <a class="el" href="class_population.html#ae240b80ad4eae0f1b2ec5ec1edcd88c3" title="Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les ind...">maximisation(int)</a>, <a class="el" href="class_population.html#a6f27e76b6b15668b343c43c56027515d" title="Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les ind...">minimisation(int)</a> ou <a class="el" href="class_population.html#a4b167d07f145a1f1ea69b2bb4cfd2cfb" title="Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les ind...">triValeur(int)</a> selon le critère.  <a href="#a15c4b45d033b6af3765f5e86ce43f232">More...</a><br /></td></tr>
 <tr class="separator:a15c4b45d033b6af3765f5e86ce43f232"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae240b80ad4eae0f1b2ec5ec1edcd88c3"><td class="memItemLeft" align="right" valign="top"><a id="ae240b80ad4eae0f1b2ec5ec1edcd88c3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>maximisation</b> (int indiceScpre)</td></tr>
+<tr class="memitem:ae240b80ad4eae0f1b2ec5ec1edcd88c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#ae240b80ad4eae0f1b2ec5ec1edcd88c3">maximisation</a> (int indiceScpre)</td></tr>
+<tr class="memdesc:ae240b80ad4eae0f1b2ec5ec1edcd88c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les individus soient rangés de celui ayant le plus gros score à celui ayant le plus faible.  <a href="#ae240b80ad4eae0f1b2ec5ec1edcd88c3">More...</a><br /></td></tr>
 <tr class="separator:ae240b80ad4eae0f1b2ec5ec1edcd88c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f27e76b6b15668b343c43c56027515d"><td class="memItemLeft" align="right" valign="top"><a id="a6f27e76b6b15668b343c43c56027515d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>minimisation</b> (int indiceScore)</td></tr>
+<tr class="memitem:a6f27e76b6b15668b343c43c56027515d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a6f27e76b6b15668b343c43c56027515d">minimisation</a> (int indiceScore)</td></tr>
+<tr class="memdesc:a6f27e76b6b15668b343c43c56027515d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les individus soient rangés de celui ayant le plus faible score à celui ayant le plus grand.  <a href="#a6f27e76b6b15668b343c43c56027515d">More...</a><br /></td></tr>
 <tr class="separator:a6f27e76b6b15668b343c43c56027515d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b167d07f145a1f1ea69b2bb4cfd2cfb"><td class="memItemLeft" align="right" valign="top"><a id="a4b167d07f145a1f1ea69b2bb4cfd2cfb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>triValeur</b> (int indiceScore)</td></tr>
+<tr class="memitem:a4b167d07f145a1f1ea69b2bb4cfd2cfb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a4b167d07f145a1f1ea69b2bb4cfd2cfb">triValeur</a> (int indiceScore)</td></tr>
+<tr class="memdesc:a4b167d07f145a1f1ea69b2bb4cfd2cfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les individus soient ranger l'individu ayant la plus petite différence avec la valeur à approcher à l'individu ayant la plus grande différence.  <a href="#a4b167d07f145a1f1ea69b2bb4cfd2cfb">More...</a><br /></td></tr>
 <tr class="separator:a4b167d07f145a1f1ea69b2bb4cfd2cfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d2410b15ebc9235d480241ed19ded2e"><td class="memItemLeft" align="right" valign="top"><a id="a8d2410b15ebc9235d480241ed19ded2e"></a>
-<a class="el" href="class_individu.html">Individu</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>selectionner</b> (int iCritere)</td></tr>
-<tr class="separator:a8d2410b15ebc9235d480241ed19ded2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a728129af67cfe97c0fa16d0728101a28"><td class="memItemLeft" align="right" valign="top"><a id="a728129af67cfe97c0fa16d0728101a28"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>crossover</b> (<a class="el" href="class_individu.html">Individu</a> *Parent1, <a class="el" href="class_individu.html">Individu</a> *Parent2)</td></tr>
+<tr class="memitem:a30fcbcf36eb009493208310fecdf3729"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_individu.html">Individu</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a30fcbcf36eb009493208310fecdf3729">selectionner</a> (int iCritere)</td></tr>
+<tr class="memdesc:a30fcbcf36eb009493208310fecdf3729"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de sélectionner des individus avec une certaine probabilité donnée par l'utilisateur. Les individus ayant un meilleurrang auront plus de chance d'être sélectionnés.  <a href="#a30fcbcf36eb009493208310fecdf3729">More...</a><br /></td></tr>
+<tr class="separator:a30fcbcf36eb009493208310fecdf3729"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a728129af67cfe97c0fa16d0728101a28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a728129af67cfe97c0fa16d0728101a28">crossover</a> (<a class="el" href="class_individu.html">Individu</a> *Parent1, <a class="el" href="class_individu.html">Individu</a> *Parent2)</td></tr>
+<tr class="memdesc:a728129af67cfe97c0fa16d0728101a28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de générer deux nouveaux individu à partir de deux indiviuds. Les nouveaux individus sont directement ajoutés au vecteur ensemble.  <a href="#a728129af67cfe97c0fa16d0728101a28">More...</a><br /></td></tr>
 <tr class="separator:a728129af67cfe97c0fa16d0728101a28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad435f717d1f0f792b3a8d6a01f6d0a8"><td class="memItemLeft" align="right" valign="top"><a id="aad435f717d1f0f792b3a8d6a01f6d0a8"></a>
-<a class="el" href="class_population.html">Population</a>&#160;</td><td class="memItemRight" valign="bottom"><b>creerGeneration</b> (<a class="el" href="class_population.html">Population</a> P)</td></tr>
-<tr class="separator:aad435f717d1f0f792b3a8d6a01f6d0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bacc7dadc8ab903261ff053344a9e36"><td class="memItemLeft" align="right" valign="top"><a id="a0bacc7dadc8ab903261ff053344a9e36"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>nombreAlea</b> (int inf, int sup)</td></tr>
+<tr class="memitem:af3c4abb60e3dcd0eb183014a9d21419c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_population.html">Population</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#af3c4abb60e3dcd0eb183014a9d21419c">creerGeneration</a> (<a class="el" href="class_population.html">Population</a> *P)</td></tr>
+<tr class="memdesc:af3c4abb60e3dcd0eb183014a9d21419c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de créer une nouvelle population.  <a href="#af3c4abb60e3dcd0eb183014a9d21419c">More...</a><br /></td></tr>
+<tr class="separator:af3c4abb60e3dcd0eb183014a9d21419c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bacc7dadc8ab903261ff053344a9e36"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_population.html#a0bacc7dadc8ab903261ff053344a9e36">nombreAlea</a> (int inf, int sup)</td></tr>
+<tr class="memdesc:a0bacc7dadc8ab903261ff053344a9e36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant d'obtenir un nombre pseudo-aléatoire. Notament utilisé dans la méthode du crossover(Individu, Individu).  <a href="#a0bacc7dadc8ab903261ff053344a9e36">More...</a><br /></td></tr>
 <tr class="separator:a0bacc7dadc8ab903261ff053344a9e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="afb8bfdf1315ba757c6e616e3dcb7c0bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb8bfdf1315ba757c6e616e3dcb7c0bb">&#9670;&nbsp;</a></span>Population()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Population::Population </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_population.html">Population</a> const &amp;&#160;</td>
+          <td class="paramname"><em>P</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructeur de copie de la classe <a class="el" href="class_population.html">Population</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_population.html">Population</a></td><td>const&amp; P </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af3c4abb60e3dcd0eb183014a9d21419c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3c4abb60e3dcd0eb183014a9d21419c">&#9670;&nbsp;</a></span>creerGeneration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_population.html">Population</a> Population::creerGeneration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_population.html">Population</a> *&#160;</td>
+          <td class="paramname"><em>P</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode permettant de créer une nouvelle population. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Population*</td><td>P </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a728129af67cfe97c0fa16d0728101a28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a728129af67cfe97c0fa16d0728101a28">&#9670;&nbsp;</a></span>crossover()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Population::crossover </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_individu.html">Individu</a> *&#160;</td>
+          <td class="paramname"><em>Parent1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_individu.html">Individu</a> *&#160;</td>
+          <td class="paramname"><em>Parent2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode permettant de générer deux nouveaux individu à partir de deux indiviuds. Les nouveaux individus sont directement ajoutés au vecteur ensemble. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Individu*</td><td>Parent1 pointeur sur un premier individu. </td></tr>
+    <tr><td class="paramname">Individu*</td><td>Parent2 pointeur sur un second individu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2616c1ee49a009f91f36ff6a2798784b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2616c1ee49a009f91f36ff6a2798784b">&#9670;&nbsp;</a></span>getEnsemble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; <a class="el" href="class_individu.html">Individu</a> * &gt; Population::getEnsemble </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir l'ensemble des individus de la génération en cours. </p>
+<dl class="section return"><dt>Returns</dt><dd>Le vecteur contenant tous les individus de la génération. </dd></dl>
+
+</div>
+</div>
+<a id="ae0fc085745b5611153c46e02e08fb367"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0fc085745b5611153c46e02e08fb367">&#9670;&nbsp;</a></span>getFitness1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Population::getFitness1 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir la première fonction fitnesss (fonction d'évaluation). </p>
+<dl class="section return"><dt>Returns</dt><dd>La première fontion fitness. </dd></dl>
+
+</div>
+</div>
+<a id="a790aa479d01d5164ab47e107f7002287"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a790aa479d01d5164ab47e107f7002287">&#9670;&nbsp;</a></span>getFitness2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Population::getFitness2 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir la seconde fonction fitnesss (fonction d'évaluation). </p>
+<dl class="section return"><dt>Returns</dt><dd>La seconde fontion fitness. </dd></dl>
+
+</div>
+</div>
+<a id="aa55e37f348f9de0e3b2fe9a0de7d2bb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa55e37f348f9de0e3b2fe9a0de7d2bb3">&#9670;&nbsp;</a></span>getNombreCriteres()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Population::getNombreCriteres </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir le nombre critère. </p>
+<dl class="section return"><dt>Returns</dt><dd>La nombre de critère. </dd></dl>
+
+</div>
+</div>
+<a id="aa07616afcf9ba7435e6648925a9dd73a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa07616afcf9ba7435e6648925a9dd73a">&#9670;&nbsp;</a></span>getNombreGenerationMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Population::getNombreGenerationMax </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir le nombre maximum de génération à atteindre. </p>
+<dl class="section return"><dt>Returns</dt><dd>La nombre génération maximum. </dd></dl>
+
+</div>
+</div>
+<a id="ad6af7c30607b65d2b7f8d4750443bc0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6af7c30607b65d2b7f8d4750443bc0b">&#9670;&nbsp;</a></span>getNombreIndividus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Population::getNombreIndividus </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir le nombre d'individu dans la génération en cours. </p>
+<dl class="section return"><dt>Returns</dt><dd>Le nombre d'individus de la population </dd></dl>
+
+</div>
+</div>
+<a id="ab43617fa07bb45f18b426f3677243799"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab43617fa07bb45f18b426f3677243799">&#9670;&nbsp;</a></span>getNumeroGeneration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Population::getNumeroGeneration </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir le numéro de la génération en cours. </p>
+<dl class="section return"><dt>Returns</dt><dd>Le numéro de la population. </dd></dl>
+
+</div>
+</div>
+<a id="a835c9a996c627d5e7672f880ef390499"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a835c9a996c627d5e7672f880ef390499">&#9670;&nbsp;</a></span>getValeurApprochee()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Population::getValeurApprochee </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir la première valeur approchée. </p>
+<dl class="section return"><dt>Returns</dt><dd>La première valeur approchée. </dd></dl>
+
+</div>
+</div>
+<a id="a00d211e7d650c681f78dcde25751afa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00d211e7d650c681f78dcde25751afa2">&#9670;&nbsp;</a></span>getValeurApprochee2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Population::getValeurApprochee2 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir la seconde valeur approchee. </p>
+<dl class="section return"><dt>Returns</dt><dd>La seconde valeur approchée. </dd></dl>
+
+</div>
+</div>
+<a id="ae240b80ad4eae0f1b2ec5ec1edcd88c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae240b80ad4eae0f1b2ec5ec1edcd88c3">&#9670;&nbsp;</a></span>maximisation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Population::maximisation </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>indiceScpre</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les individus soient rangés de celui ayant le plus gros score à celui ayant le plus faible. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>indiceScore est l'indice du tableau des scores </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6f27e76b6b15668b343c43c56027515d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f27e76b6b15668b343c43c56027515d">&#9670;&nbsp;</a></span>minimisation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Population::minimisation </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>indiceScore</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les individus soient rangés de celui ayant le plus faible score à celui ayant le plus grand. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>indiceScore est l'indice du tableau des scores </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0bacc7dadc8ab903261ff053344a9e36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bacc7dadc8ab903261ff053344a9e36">&#9670;&nbsp;</a></span>nombreAlea()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Population::nombreAlea </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>inf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sup</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode permettant d'obtenir un nombre pseudo-aléatoire. Notament utilisé dans la méthode du crossover(Individu, Individu). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>inf est la borne inférieure </td></tr>
+    <tr><td class="paramname">int</td><td>sup est la borne supérieure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a30fcbcf36eb009493208310fecdf3729"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30fcbcf36eb009493208310fecdf3729">&#9670;&nbsp;</a></span>selectionner()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_individu.html">Individu</a> * Population::selectionner </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iCritere</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode permettant de sélectionner des individus avec une certaine probabilité donnée par l'utilisateur. Les individus ayant un meilleurrang auront plus de chance d'être sélectionnés. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>iCritere est l'indice utilisé pour le tableau des rangs. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1c15a197054721dfbcdbb4a7882b3e95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c15a197054721dfbcdbb4a7882b3e95">&#9670;&nbsp;</a></span>setEnsemble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Population::setEnsemble </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_individu.html">Individu</a> &amp;&#160;</td>
+          <td class="paramname"><em>nouv</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setteur permettant d'ajouter un individu au vecteur conntenant l'ensemble des individu de la génération en cours. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Nouvel</td><td><a class="el" href="class_individu.html">Individu</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7573ba5ab354228ffcb76c7dd43b5205"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7573ba5ab354228ffcb76c7dd43b5205">&#9670;&nbsp;</a></span>setFitness1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Population::setFitness1 </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>fit1</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setteur de l'attribut fitness1 (fonction permettant l'évaluation). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">La</td><td>première fonction fitness. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af5940422c47c86ea6eb606224016d32d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5940422c47c86ea6eb606224016d32d">&#9670;&nbsp;</a></span>setFitness2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Population::setFitness2 </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>fit2</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setteur de l'attribut fitness2 (fonction permettant l'évaluation). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">La</td><td>seconde fonction fitness. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a85da2cfbfb4cde5c3ed879958385904c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85da2cfbfb4cde5c3ed879958385904c">&#9670;&nbsp;</a></span>setNombreGenerationMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Population::setNombreGenerationMax </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nbGen</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setteur de l'attribut nombreGenerationMax. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Le</td><td>nombre de génération à atteindre. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac6f1644f7297b6b9521409b332f51f0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6f1644f7297b6b9521409b332f51f0d">&#9670;&nbsp;</a></span>setNombreIndividus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Population::setNombreIndividus </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nbIndiv</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setteur de l'attribut nombreIndividu. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Le</td><td>nombre d'individus. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a556851b48bc213bc9a5624295710276d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a556851b48bc213bc9a5624295710276d">&#9670;&nbsp;</a></span>setNumeroGeneration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Population::setNumeroGeneration </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numGen</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setteur de l'attribut numeroGeneration. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Le</td><td>numéro de la génération. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a175f3a21b85681e318063e9eb63550a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a175f3a21b85681e318063e9eb63550a8">&#9670;&nbsp;</a></span>setProbaCroisement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Population::setProbaCroisement </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>proba</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setteur de l'attribut probaCroisement. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Une</td><td>probabilité. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad3e0a26ca7b57924bcbb7a57d86056e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3e0a26ca7b57924bcbb7a57d86056e4">&#9670;&nbsp;</a></span>setValeurApprochee()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Population::setValeurApprochee </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setteur de l'attribut valeurApprochee. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">La</td><td>première valeur approchée. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa5645305dfca65e640ed76da9f851137"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5645305dfca65e640ed76da9f851137">&#9670;&nbsp;</a></span>setValeurApprochee2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Population::setValeurApprochee2 </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setteur de l'attribut valeurApprochee2. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">La</td><td>seconde valeur approchée. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afe14ed3d2919840291b623029eaaf8d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe14ed3d2919840291b623029eaaf8d3">&#9670;&nbsp;</a></span>testArret()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_population.html">Population</a> Population::testArret </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode qui appel <a class="el" href="class_population.html#a9192297f35ab0c6c6078ae087b3e4aee" title="Méthode permettant de tester le nombre de génération. ">testNombreGeneration()</a> et <a class="el" href="class_population.html#ae3511322c007fc85a8dd9bda0693b9cf" title="Méthode permettant de tester si les score de plusieurs génération à la suite sont semblables (scores ...">testConvergence()</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Renvoie une population en cours. </dd></dl>
+
+</div>
+</div>
+<a id="ae3511322c007fc85a8dd9bda0693b9cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3511322c007fc85a8dd9bda0693b9cf">&#9670;&nbsp;</a></span>testConvergence()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Population::testConvergence </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode permettant de tester si les score de plusieurs génération à la suite sont semblables (scores à +/- 1,5% identique). </p>
+<dl class="section return"><dt>Returns</dt><dd>Renvoie TRUE si les générations convegent, FALSE sinon. </dd></dl>
+
+</div>
+</div>
+<a id="a9192297f35ab0c6c6078ae087b3e4aee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9192297f35ab0c6c6078ae087b3e4aee">&#9670;&nbsp;</a></span>testNombreGeneration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Population::testNombreGeneration </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode permettant de tester le nombre de génération. </p>
+<dl class="section return"><dt>Returns</dt><dd>Renvoie TRUE si le nombre de génération est inférieur au nombre de générations à atteindre, FALSE sinon. </dd></dl>
+
+</div>
+</div>
+<a id="a70cec52ba5d29e0f4a1a67a4ae52b276"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70cec52ba5d29e0f4a1a67a4ae52b276">&#9670;&nbsp;</a></span>testPopulationRemplie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Population::testPopulationRemplie </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode permettant si une population est pleine. </p>
+<dl class="section return"><dt>Returns</dt><dd>Renvoie TRUE si la population en cours n'est pas remplie, FALSE sinon. </dd></dl>
+
+</div>
+</div>
+<a id="a15c4b45d033b6af3765f5e86ce43f232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15c4b45d033b6af3765f5e86ce43f232">&#9670;&nbsp;</a></span>triPopulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Population::triPopulation </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>indiceScore</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode appelant <a class="el" href="class_population.html#ae240b80ad4eae0f1b2ec5ec1edcd88c3" title="Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les ind...">maximisation(int)</a>, <a class="el" href="class_population.html#a6f27e76b6b15668b343c43c56027515d" title="Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les ind...">minimisation(int)</a> ou <a class="el" href="class_population.html#a4b167d07f145a1f1ea69b2bb4cfd2cfb" title="Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les ind...">triValeur(int)</a> selon le critère. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>indiceScore est l'indice du tableau des scores </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4b167d07f145a1f1ea69b2bb4cfd2cfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b167d07f145a1f1ea69b2bb4cfd2cfb">&#9670;&nbsp;</a></span>triValeur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Population::triValeur </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>indiceScore</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les individus soient ranger l'individu ayant la plus petite différence avec la valeur à approcher à l'individu ayant la plus grande différence. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>indiceScore est l'indice du tableau des scores </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="g_xC3_xA9n_xC3_xA9ration_8h_source.html">génération.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_population.html">Population</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
 </body>
 </html>

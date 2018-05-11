@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['population',['Population',['../class_population.html',1,'']]]
+  ['individu',['Individu',['../class_individu.html',1,'']]],
+  ['interface',['Interface',['../class_interface.html',1,'']]]
 ];

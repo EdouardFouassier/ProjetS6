@@ -3,105 +3,529 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_population_afb8bfdf1315ba757c6e616e3dcb7c0bb}\label{class_population_afb8bfdf1315ba757c6e616e3dcb7c0bb}} 
-{\bfseries Population} (\hyperlink{class_population}{Population} const \&P)
-\item 
+\mbox{\Hypertarget{class_population_a54eb24ca89470eebe0c27bcb03a0ceae}\label{class_population_a54eb24ca89470eebe0c27bcb03a0ceae}} 
+\hyperlink{class_population_a54eb24ca89470eebe0c27bcb03a0ceae}{Population} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par défaut de la classe \hyperlink{class_population}{Population}. \end{DoxyCompactList}\item 
+\hyperlink{class_population_afb8bfdf1315ba757c6e616e3dcb7c0bb}{Population} (\hyperlink{class_population}{Population} const \&P)
+\begin{DoxyCompactList}\small\item\em Constructeur de copie de la classe \hyperlink{class_population}{Population}. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_population_ab59130d62b27514555a07cea55896561}\label{class_population_ab59130d62b27514555a07cea55896561}} 
-{\bfseries Population} (string $\ast$const \&donnees)
-\item 
-\mbox{\Hypertarget{class_population_ad6af7c30607b65d2b7f8d4750443bc0b}\label{class_population_ad6af7c30607b65d2b7f8d4750443bc0b}} 
-int {\bfseries get\+Nombre\+Individus} ()
-\item 
-\mbox{\Hypertarget{class_population_a50f2ca4404612cd2c6e4b1e90e34959b}\label{class_population_a50f2ca4404612cd2c6e4b1e90e34959b}} 
-vector$<$ \hyperlink{class_individu}{Individu} $\ast$ $>$ {\bfseries get\+Ensemble} ()
-\item 
-\mbox{\Hypertarget{class_population_ab43617fa07bb45f18b426f3677243799}\label{class_population_ab43617fa07bb45f18b426f3677243799}} 
-int {\bfseries get\+Numero\+Generation} ()
-\item 
-\mbox{\Hypertarget{class_population_ae0fc085745b5611153c46e02e08fb367}\label{class_population_ae0fc085745b5611153c46e02e08fb367}} 
-string {\bfseries get\+Fitness1} ()
-\item 
-\mbox{\Hypertarget{class_population_a790aa479d01d5164ab47e107f7002287}\label{class_population_a790aa479d01d5164ab47e107f7002287}} 
-string {\bfseries get\+Fitness2} ()
-\item 
-\mbox{\Hypertarget{class_population_a835c9a996c627d5e7672f880ef390499}\label{class_population_a835c9a996c627d5e7672f880ef390499}} 
-float {\bfseries get\+Valeur\+Approchee} ()
-\item 
-\mbox{\Hypertarget{class_population_a09cd27021be2dede623dd010f6a8ddd6}\label{class_population_a09cd27021be2dede623dd010f6a8ddd6}} 
-float {\bfseries get\+Valeur\+Approchee2} ()
-\item 
-\mbox{\Hypertarget{class_population_aa07616afcf9ba7435e6648925a9dd73a}\label{class_population_aa07616afcf9ba7435e6648925a9dd73a}} 
-int {\bfseries get\+Nombre\+Generation\+Max} ()
-\item 
-\mbox{\Hypertarget{class_population_aa55e37f348f9de0e3b2fe9a0de7d2bb3}\label{class_population_aa55e37f348f9de0e3b2fe9a0de7d2bb3}} 
-int {\bfseries get\+Nombre\+Criteres} ()
-\item 
-\mbox{\Hypertarget{class_population_ac6f1644f7297b6b9521409b332f51f0d}\label{class_population_ac6f1644f7297b6b9521409b332f51f0d}} 
-void {\bfseries set\+Nombre\+Individus} (int nb\+Indiv)
-\item 
-\mbox{\Hypertarget{class_population_a1c15a197054721dfbcdbb4a7882b3e95}\label{class_population_a1c15a197054721dfbcdbb4a7882b3e95}} 
-void {\bfseries set\+Ensemble} (\hyperlink{class_individu}{Individu} \&nouv)
-\item 
-\mbox{\Hypertarget{class_population_a556851b48bc213bc9a5624295710276d}\label{class_population_a556851b48bc213bc9a5624295710276d}} 
-void {\bfseries set\+Numero\+Generation} (int num\+Gen)
-\item 
-\mbox{\Hypertarget{class_population_a7573ba5ab354228ffcb76c7dd43b5205}\label{class_population_a7573ba5ab354228ffcb76c7dd43b5205}} 
-void {\bfseries set\+Fitness1} (string fit1)
-\item 
-\mbox{\Hypertarget{class_population_af5940422c47c86ea6eb606224016d32d}\label{class_population_af5940422c47c86ea6eb606224016d32d}} 
-void {\bfseries set\+Fitness2} (string fit2)
-\item 
-\mbox{\Hypertarget{class_population_ad3e0a26ca7b57924bcbb7a57d86056e4}\label{class_population_ad3e0a26ca7b57924bcbb7a57d86056e4}} 
-void {\bfseries set\+Valeur\+Approchee} (float val)
-\item 
-\mbox{\Hypertarget{class_population_aa5645305dfca65e640ed76da9f851137}\label{class_population_aa5645305dfca65e640ed76da9f851137}} 
-void {\bfseries set\+Valeur\+Approchee2} (float val)
-\item 
-\mbox{\Hypertarget{class_population_a175f3a21b85681e318063e9eb63550a8}\label{class_population_a175f3a21b85681e318063e9eb63550a8}} 
-void {\bfseries set\+Proba\+Croisement} (float proba)
-\item 
-\mbox{\Hypertarget{class_population_a85da2cfbfb4cde5c3ed879958385904c}\label{class_population_a85da2cfbfb4cde5c3ed879958385904c}} 
-void {\bfseries set\+Nombre\+Generation\+Max} (int nb\+Gen)
-\item 
-\mbox{\Hypertarget{class_population_afe14ed3d2919840291b623029eaaf8d3}\label{class_population_afe14ed3d2919840291b623029eaaf8d3}} 
-\hyperlink{class_population}{Population} {\bfseries test\+Arret} ()
-\item 
-\mbox{\Hypertarget{class_population_a9192297f35ab0c6c6078ae087b3e4aee}\label{class_population_a9192297f35ab0c6c6078ae087b3e4aee}} 
-bool {\bfseries test\+Nombre\+Generation} ()
-\item 
-\mbox{\Hypertarget{class_population_ae3511322c007fc85a8dd9bda0693b9cf}\label{class_population_ae3511322c007fc85a8dd9bda0693b9cf}} 
-bool {\bfseries test\+Convergence} ()
-\item 
-\mbox{\Hypertarget{class_population_a70cec52ba5d29e0f4a1a67a4ae52b276}\label{class_population_a70cec52ba5d29e0f4a1a67a4ae52b276}} 
-bool {\bfseries test\+Population\+Remplie} ()
-\item 
+\hyperlink{class_population_ab59130d62b27514555a07cea55896561}{Population} (string $\ast$const \&donnees)
+\begin{DoxyCompactList}\small\item\em Constructeur utilisant les données récurépérer de l\textquotesingle{}interface graphique ou du fichier de paramètres. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_population_a4c8cedd0f038e41746fb6084639f5616}\label{class_population_a4c8cedd0f038e41746fb6084639f5616}} 
+\hyperlink{class_population_a4c8cedd0f038e41746fb6084639f5616}{$\sim$\+Population} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \hyperlink{class_population}{Population}. \end{DoxyCompactList}\item 
+int \hyperlink{class_population_ad6af7c30607b65d2b7f8d4750443bc0b}{get\+Nombre\+Individus} ()
+\begin{DoxyCompactList}\small\item\em Getteur permettant d\textquotesingle{}obtenir le nombre d\textquotesingle{}individu dans la génération en cours. \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{class_individu}{Individu} $\ast$ $>$ \hyperlink{class_population_a2616c1ee49a009f91f36ff6a2798784b}{get\+Ensemble} ()
+\begin{DoxyCompactList}\small\item\em Getteur permettant d\textquotesingle{}obtenir l\textquotesingle{}ensemble des individus de la génération en cours. \end{DoxyCompactList}\item 
+int \hyperlink{class_population_ab43617fa07bb45f18b426f3677243799}{get\+Numero\+Generation} ()
+\begin{DoxyCompactList}\small\item\em Getteur permettant d\textquotesingle{}obtenir le numéro de la génération en cours. \end{DoxyCompactList}\item 
+string \hyperlink{class_population_ae0fc085745b5611153c46e02e08fb367}{get\+Fitness1} ()
+\begin{DoxyCompactList}\small\item\em Getteur permettant d\textquotesingle{}obtenir la première fonction fitnesss (fonction d\textquotesingle{}évaluation). \end{DoxyCompactList}\item 
+string \hyperlink{class_population_a790aa479d01d5164ab47e107f7002287}{get\+Fitness2} ()
+\begin{DoxyCompactList}\small\item\em Getteur permettant d\textquotesingle{}obtenir la seconde fonction fitnesss (fonction d\textquotesingle{}évaluation). \end{DoxyCompactList}\item 
+float \hyperlink{class_population_a835c9a996c627d5e7672f880ef390499}{get\+Valeur\+Approchee} ()
+\begin{DoxyCompactList}\small\item\em Getteur permettant d\textquotesingle{}obtenir la première valeur approchée. \end{DoxyCompactList}\item 
+float \hyperlink{class_population_a00d211e7d650c681f78dcde25751afa2}{get\+Valeur\+Approchee2} ()
+\begin{DoxyCompactList}\small\item\em Getteur permettant d\textquotesingle{}obtenir la seconde valeur approchee. \end{DoxyCompactList}\item 
+int \hyperlink{class_population_aa07616afcf9ba7435e6648925a9dd73a}{get\+Nombre\+Generation\+Max} ()
+\begin{DoxyCompactList}\small\item\em Getteur permettant d\textquotesingle{}obtenir le nombre maximum de génération à atteindre. \end{DoxyCompactList}\item 
+int \hyperlink{class_population_aa55e37f348f9de0e3b2fe9a0de7d2bb3}{get\+Nombre\+Criteres} ()
+\begin{DoxyCompactList}\small\item\em Getteur permettant d\textquotesingle{}obtenir le nombre critère. \end{DoxyCompactList}\item 
+void \hyperlink{class_population_ac6f1644f7297b6b9521409b332f51f0d}{set\+Nombre\+Individus} (int nb\+Indiv)
+\begin{DoxyCompactList}\small\item\em Setteur de l\textquotesingle{}attribut nombre\+Individu. \end{DoxyCompactList}\item 
+void \hyperlink{class_population_a1c15a197054721dfbcdbb4a7882b3e95}{set\+Ensemble} (\hyperlink{class_individu}{Individu} \&nouv)
+\begin{DoxyCompactList}\small\item\em Setteur permettant d\textquotesingle{}ajouter un individu au vecteur conntenant l\textquotesingle{}ensemble des individu de la génération en cours. \end{DoxyCompactList}\item 
+void \hyperlink{class_population_a556851b48bc213bc9a5624295710276d}{set\+Numero\+Generation} (int num\+Gen)
+\begin{DoxyCompactList}\small\item\em Setteur de l\textquotesingle{}attribut numero\+Generation. \end{DoxyCompactList}\item 
+void \hyperlink{class_population_a7573ba5ab354228ffcb76c7dd43b5205}{set\+Fitness1} (string fit1)
+\begin{DoxyCompactList}\small\item\em Setteur de l\textquotesingle{}attribut fitness1 (fonction permettant l\textquotesingle{}évaluation). \end{DoxyCompactList}\item 
+void \hyperlink{class_population_af5940422c47c86ea6eb606224016d32d}{set\+Fitness2} (string fit2)
+\begin{DoxyCompactList}\small\item\em Setteur de l\textquotesingle{}attribut fitness2 (fonction permettant l\textquotesingle{}évaluation). \end{DoxyCompactList}\item 
+void \hyperlink{class_population_ad3e0a26ca7b57924bcbb7a57d86056e4}{set\+Valeur\+Approchee} (float val)
+\begin{DoxyCompactList}\small\item\em Setteur de l\textquotesingle{}attribut valeur\+Approchee. \end{DoxyCompactList}\item 
+void \hyperlink{class_population_aa5645305dfca65e640ed76da9f851137}{set\+Valeur\+Approchee2} (float val)
+\begin{DoxyCompactList}\small\item\em Setteur de l\textquotesingle{}attribut valeur\+Approchee2. \end{DoxyCompactList}\item 
+void \hyperlink{class_population_a175f3a21b85681e318063e9eb63550a8}{set\+Proba\+Croisement} (float proba)
+\begin{DoxyCompactList}\small\item\em Setteur de l\textquotesingle{}attribut proba\+Croisement. \end{DoxyCompactList}\item 
+void \hyperlink{class_population_a85da2cfbfb4cde5c3ed879958385904c}{set\+Nombre\+Generation\+Max} (int nb\+Gen)
+\begin{DoxyCompactList}\small\item\em Setteur de l\textquotesingle{}attribut nombre\+Generation\+Max. \end{DoxyCompactList}\item 
+\hyperlink{class_population}{Population} \hyperlink{class_population_afe14ed3d2919840291b623029eaaf8d3}{test\+Arret} ()
+\begin{DoxyCompactList}\small\item\em Méthode qui appel \hyperlink{class_population_a9192297f35ab0c6c6078ae087b3e4aee}{test\+Nombre\+Generation()} et \hyperlink{class_population_ae3511322c007fc85a8dd9bda0693b9cf}{test\+Convergence()}. \end{DoxyCompactList}\item 
+bool \hyperlink{class_population_a9192297f35ab0c6c6078ae087b3e4aee}{test\+Nombre\+Generation} ()
+\begin{DoxyCompactList}\small\item\em Méthode permettant de tester le nombre de génération. \end{DoxyCompactList}\item 
+bool \hyperlink{class_population_ae3511322c007fc85a8dd9bda0693b9cf}{test\+Convergence} ()
+\begin{DoxyCompactList}\small\item\em Méthode permettant de tester si les score de plusieurs génération à la suite sont semblables (scores à +/-\/ 1,5\% identique). \end{DoxyCompactList}\item 
+bool \hyperlink{class_population_a70cec52ba5d29e0f4a1a67a4ae52b276}{test\+Population\+Remplie} ()
+\begin{DoxyCompactList}\small\item\em Méthode permettant si une population est pleine. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_population_a023ecf9c1f66140c8b42b4e2bc9755a9}\label{class_population_a023ecf9c1f66140c8b42b4e2bc9755a9}} 
-void {\bfseries evaluation} ()
-\item 
-\mbox{\Hypertarget{class_population_a15c4b45d033b6af3765f5e86ce43f232}\label{class_population_a15c4b45d033b6af3765f5e86ce43f232}} 
-void {\bfseries tri\+Population} (int indice\+Score)
-\item 
-\mbox{\Hypertarget{class_population_ae240b80ad4eae0f1b2ec5ec1edcd88c3}\label{class_population_ae240b80ad4eae0f1b2ec5ec1edcd88c3}} 
-void {\bfseries maximisation} (int indice\+Scpre)
-\item 
-\mbox{\Hypertarget{class_population_a6f27e76b6b15668b343c43c56027515d}\label{class_population_a6f27e76b6b15668b343c43c56027515d}} 
-void {\bfseries minimisation} (int indice\+Score)
-\item 
-\mbox{\Hypertarget{class_population_a4b167d07f145a1f1ea69b2bb4cfd2cfb}\label{class_population_a4b167d07f145a1f1ea69b2bb4cfd2cfb}} 
-void {\bfseries tri\+Valeur} (int indice\+Score)
-\item 
-\mbox{\Hypertarget{class_population_a8d2410b15ebc9235d480241ed19ded2e}\label{class_population_a8d2410b15ebc9235d480241ed19ded2e}} 
-\hyperlink{class_individu}{Individu} $\ast$ {\bfseries selectionner} (int i\+Critere)
-\item 
+void \hyperlink{class_population_a023ecf9c1f66140c8b42b4e2bc9755a9}{evaluation} ()
+\begin{DoxyCompactList}\small\item\em Méthode permettant de faire l\textquotesingle{}évaluation des différents individus de la population. \end{DoxyCompactList}\item 
+void \hyperlink{class_population_a15c4b45d033b6af3765f5e86ce43f232}{tri\+Population} (int indice\+Score)
+\begin{DoxyCompactList}\small\item\em Méthode appelant \hyperlink{class_population_ae240b80ad4eae0f1b2ec5ec1edcd88c3}{maximisation(int)}, \hyperlink{class_population_a6f27e76b6b15668b343c43c56027515d}{minimisation(int)} ou \hyperlink{class_population_a4b167d07f145a1f1ea69b2bb4cfd2cfb}{tri\+Valeur(int)} selon le critère. \end{DoxyCompactList}\item 
+void \hyperlink{class_population_ae240b80ad4eae0f1b2ec5ec1edcd88c3}{maximisation} (int indice\+Scpre)
+\begin{DoxyCompactList}\small\item\em Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les individus soient rangés de celui ayant le plus gros score à celui ayant le plus faible. \end{DoxyCompactList}\item 
+void \hyperlink{class_population_a6f27e76b6b15668b343c43c56027515d}{minimisation} (int indice\+Score)
+\begin{DoxyCompactList}\small\item\em Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les individus soient rangés de celui ayant le plus faible score à celui ayant le plus grand. \end{DoxyCompactList}\item 
+void \hyperlink{class_population_a4b167d07f145a1f1ea69b2bb4cfd2cfb}{tri\+Valeur} (int indice\+Score)
+\begin{DoxyCompactList}\small\item\em Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les individus soient ranger l\textquotesingle{}individu ayant la plus petite différence avec la valeur à approcher à l\textquotesingle{}individu ayant la plus grande différence. \end{DoxyCompactList}\item 
+\hyperlink{class_individu}{Individu} $\ast$ \hyperlink{class_population_a30fcbcf36eb009493208310fecdf3729}{selectionner} (int i\+Critere)
+\begin{DoxyCompactList}\small\item\em Méthode permettant de sélectionner des individus avec une certaine probabilité donnée par l\textquotesingle{}utilisateur. Les individus ayant un meilleurrang auront plus de chance d\textquotesingle{}être sélectionnés. \end{DoxyCompactList}\item 
+void \hyperlink{class_population_a728129af67cfe97c0fa16d0728101a28}{crossover} (\hyperlink{class_individu}{Individu} $\ast$Parent1, \hyperlink{class_individu}{Individu} $\ast$Parent2)
+\begin{DoxyCompactList}\small\item\em Méthode permettant de générer deux nouveaux individu à partir de deux indiviuds. Les nouveaux individus sont directement ajoutés au vecteur ensemble. \end{DoxyCompactList}\item 
+\hyperlink{class_population}{Population} \hyperlink{class_population_af3c4abb60e3dcd0eb183014a9d21419c}{creer\+Generation} (\hyperlink{class_population}{Population} $\ast$P)
+\begin{DoxyCompactList}\small\item\em Méthode permettant de créer une nouvelle population. \end{DoxyCompactList}\item 
+int \hyperlink{class_population_a0bacc7dadc8ab903261ff053344a9e36}{nombre\+Alea} (int inf, int sup)
+\begin{DoxyCompactList}\small\item\em Méthode permettant d\textquotesingle{}obtenir un nombre pseudo-\/aléatoire. Notament utilisé dans la méthode du crossover(\+Individu, Individu). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_population_afb8bfdf1315ba757c6e616e3dcb7c0bb}\label{class_population_afb8bfdf1315ba757c6e616e3dcb7c0bb}} 
+\index{Population@{Population}!Population@{Population}}
+\index{Population@{Population}!Population@{Population}}
+\subsubsection{\texorpdfstring{Population()}{Population()}}
+{\footnotesize\ttfamily Population\+::\+Population (\begin{DoxyParamCaption}\item[{\hyperlink{class_population}{Population} const \&}]{P }\end{DoxyParamCaption})}
+
+
+
+Constructeur de copie de la classe \hyperlink{class_population}{Population}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{class_population}{Population}} & const\& P \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_population_af3c4abb60e3dcd0eb183014a9d21419c}\label{class_population_af3c4abb60e3dcd0eb183014a9d21419c}} 
+\index{Population@{Population}!creer\+Generation@{creer\+Generation}}
+\index{creer\+Generation@{creer\+Generation}!Population@{Population}}
+\subsubsection{\texorpdfstring{creer\+Generation()}{creerGeneration()}}
+{\footnotesize\ttfamily \hyperlink{class_population}{Population} Population\+::creer\+Generation (\begin{DoxyParamCaption}\item[{\hyperlink{class_population}{Population} $\ast$}]{P }\end{DoxyParamCaption})}
+
+
+
+Méthode permettant de créer une nouvelle population. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Population$\ast$} & P \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_population_a728129af67cfe97c0fa16d0728101a28}\label{class_population_a728129af67cfe97c0fa16d0728101a28}} 
-void {\bfseries crossover} (\hyperlink{class_individu}{Individu} $\ast$Parent1, \hyperlink{class_individu}{Individu} $\ast$Parent2)
-\item 
-\mbox{\Hypertarget{class_population_aad435f717d1f0f792b3a8d6a01f6d0a8}\label{class_population_aad435f717d1f0f792b3a8d6a01f6d0a8}} 
-\hyperlink{class_population}{Population} {\bfseries creer\+Generation} (\hyperlink{class_population}{Population} P)
-\item 
+\index{Population@{Population}!crossover@{crossover}}
+\index{crossover@{crossover}!Population@{Population}}
+\subsubsection{\texorpdfstring{crossover()}{crossover()}}
+{\footnotesize\ttfamily void Population\+::crossover (\begin{DoxyParamCaption}\item[{\hyperlink{class_individu}{Individu} $\ast$}]{Parent1,  }\item[{\hyperlink{class_individu}{Individu} $\ast$}]{Parent2 }\end{DoxyParamCaption})}
+
+
+
+Méthode permettant de générer deux nouveaux individu à partir de deux indiviuds. Les nouveaux individus sont directement ajoutés au vecteur ensemble. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Individu$\ast$} & Parent1 pointeur sur un premier individu. \\
+\hline
+{\em Individu$\ast$} & Parent2 pointeur sur un second individu. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_population_a2616c1ee49a009f91f36ff6a2798784b}\label{class_population_a2616c1ee49a009f91f36ff6a2798784b}} 
+\index{Population@{Population}!get\+Ensemble@{get\+Ensemble}}
+\index{get\+Ensemble@{get\+Ensemble}!Population@{Population}}
+\subsubsection{\texorpdfstring{get\+Ensemble()}{getEnsemble()}}
+{\footnotesize\ttfamily vector$<$ \hyperlink{class_individu}{Individu} $\ast$ $>$ Population\+::get\+Ensemble (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Getteur permettant d\textquotesingle{}obtenir l\textquotesingle{}ensemble des individus de la génération en cours. 
+
+\begin{DoxyReturn}{Returns}
+Le vecteur contenant tous les individus de la génération. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_population_ae0fc085745b5611153c46e02e08fb367}\label{class_population_ae0fc085745b5611153c46e02e08fb367}} 
+\index{Population@{Population}!get\+Fitness1@{get\+Fitness1}}
+\index{get\+Fitness1@{get\+Fitness1}!Population@{Population}}
+\subsubsection{\texorpdfstring{get\+Fitness1()}{getFitness1()}}
+{\footnotesize\ttfamily string Population\+::get\+Fitness1 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Getteur permettant d\textquotesingle{}obtenir la première fonction fitnesss (fonction d\textquotesingle{}évaluation). 
+
+\begin{DoxyReturn}{Returns}
+La première fontion fitness. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_population_a790aa479d01d5164ab47e107f7002287}\label{class_population_a790aa479d01d5164ab47e107f7002287}} 
+\index{Population@{Population}!get\+Fitness2@{get\+Fitness2}}
+\index{get\+Fitness2@{get\+Fitness2}!Population@{Population}}
+\subsubsection{\texorpdfstring{get\+Fitness2()}{getFitness2()}}
+{\footnotesize\ttfamily string Population\+::get\+Fitness2 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Getteur permettant d\textquotesingle{}obtenir la seconde fonction fitnesss (fonction d\textquotesingle{}évaluation). 
+
+\begin{DoxyReturn}{Returns}
+La seconde fontion fitness. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_population_aa55e37f348f9de0e3b2fe9a0de7d2bb3}\label{class_population_aa55e37f348f9de0e3b2fe9a0de7d2bb3}} 
+\index{Population@{Population}!get\+Nombre\+Criteres@{get\+Nombre\+Criteres}}
+\index{get\+Nombre\+Criteres@{get\+Nombre\+Criteres}!Population@{Population}}
+\subsubsection{\texorpdfstring{get\+Nombre\+Criteres()}{getNombreCriteres()}}
+{\footnotesize\ttfamily int Population\+::get\+Nombre\+Criteres (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Getteur permettant d\textquotesingle{}obtenir le nombre critère. 
+
+\begin{DoxyReturn}{Returns}
+La nombre de critère. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_population_aa07616afcf9ba7435e6648925a9dd73a}\label{class_population_aa07616afcf9ba7435e6648925a9dd73a}} 
+\index{Population@{Population}!get\+Nombre\+Generation\+Max@{get\+Nombre\+Generation\+Max}}
+\index{get\+Nombre\+Generation\+Max@{get\+Nombre\+Generation\+Max}!Population@{Population}}
+\subsubsection{\texorpdfstring{get\+Nombre\+Generation\+Max()}{getNombreGenerationMax()}}
+{\footnotesize\ttfamily int Population\+::get\+Nombre\+Generation\+Max (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Getteur permettant d\textquotesingle{}obtenir le nombre maximum de génération à atteindre. 
+
+\begin{DoxyReturn}{Returns}
+La nombre génération maximum. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_population_ad6af7c30607b65d2b7f8d4750443bc0b}\label{class_population_ad6af7c30607b65d2b7f8d4750443bc0b}} 
+\index{Population@{Population}!get\+Nombre\+Individus@{get\+Nombre\+Individus}}
+\index{get\+Nombre\+Individus@{get\+Nombre\+Individus}!Population@{Population}}
+\subsubsection{\texorpdfstring{get\+Nombre\+Individus()}{getNombreIndividus()}}
+{\footnotesize\ttfamily int Population\+::get\+Nombre\+Individus (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Getteur permettant d\textquotesingle{}obtenir le nombre d\textquotesingle{}individu dans la génération en cours. 
+
+\begin{DoxyReturn}{Returns}
+Le nombre d\textquotesingle{}individus de la population 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_population_ab43617fa07bb45f18b426f3677243799}\label{class_population_ab43617fa07bb45f18b426f3677243799}} 
+\index{Population@{Population}!get\+Numero\+Generation@{get\+Numero\+Generation}}
+\index{get\+Numero\+Generation@{get\+Numero\+Generation}!Population@{Population}}
+\subsubsection{\texorpdfstring{get\+Numero\+Generation()}{getNumeroGeneration()}}
+{\footnotesize\ttfamily int Population\+::get\+Numero\+Generation (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Getteur permettant d\textquotesingle{}obtenir le numéro de la génération en cours. 
+
+\begin{DoxyReturn}{Returns}
+Le numéro de la population. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_population_a835c9a996c627d5e7672f880ef390499}\label{class_population_a835c9a996c627d5e7672f880ef390499}} 
+\index{Population@{Population}!get\+Valeur\+Approchee@{get\+Valeur\+Approchee}}
+\index{get\+Valeur\+Approchee@{get\+Valeur\+Approchee}!Population@{Population}}
+\subsubsection{\texorpdfstring{get\+Valeur\+Approchee()}{getValeurApprochee()}}
+{\footnotesize\ttfamily float Population\+::get\+Valeur\+Approchee (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Getteur permettant d\textquotesingle{}obtenir la première valeur approchée. 
+
+\begin{DoxyReturn}{Returns}
+La première valeur approchée. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_population_a00d211e7d650c681f78dcde25751afa2}\label{class_population_a00d211e7d650c681f78dcde25751afa2}} 
+\index{Population@{Population}!get\+Valeur\+Approchee2@{get\+Valeur\+Approchee2}}
+\index{get\+Valeur\+Approchee2@{get\+Valeur\+Approchee2}!Population@{Population}}
+\subsubsection{\texorpdfstring{get\+Valeur\+Approchee2()}{getValeurApprochee2()}}
+{\footnotesize\ttfamily string Population\+::get\+Valeur\+Approchee2 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Getteur permettant d\textquotesingle{}obtenir la seconde valeur approchee. 
+
+\begin{DoxyReturn}{Returns}
+La seconde valeur approchée. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_population_ae240b80ad4eae0f1b2ec5ec1edcd88c3}\label{class_population_ae240b80ad4eae0f1b2ec5ec1edcd88c3}} 
+\index{Population@{Population}!maximisation@{maximisation}}
+\index{maximisation@{maximisation}!Population@{Population}}
+\subsubsection{\texorpdfstring{maximisation()}{maximisation()}}
+{\footnotesize\ttfamily void Population\+::maximisation (\begin{DoxyParamCaption}\item[{int}]{indice\+Scpre }\end{DoxyParamCaption})}
+
+
+
+Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les individus soient rangés de celui ayant le plus gros score à celui ayant le plus faible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & indice\+Score est l\textquotesingle{}indice du tableau des scores \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_population_a6f27e76b6b15668b343c43c56027515d}\label{class_population_a6f27e76b6b15668b343c43c56027515d}} 
+\index{Population@{Population}!minimisation@{minimisation}}
+\index{minimisation@{minimisation}!Population@{Population}}
+\subsubsection{\texorpdfstring{minimisation()}{minimisation()}}
+{\footnotesize\ttfamily void Population\+::minimisation (\begin{DoxyParamCaption}\item[{int}]{indice\+Score }\end{DoxyParamCaption})}
+
+
+
+Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les individus soient rangés de celui ayant le plus faible score à celui ayant le plus grand. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & indice\+Score est l\textquotesingle{}indice du tableau des scores \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_population_a0bacc7dadc8ab903261ff053344a9e36}\label{class_population_a0bacc7dadc8ab903261ff053344a9e36}} 
-int {\bfseries nombre\+Alea} (int inf, int sup)
-\end{DoxyCompactItemize}
+\index{Population@{Population}!nombre\+Alea@{nombre\+Alea}}
+\index{nombre\+Alea@{nombre\+Alea}!Population@{Population}}
+\subsubsection{\texorpdfstring{nombre\+Alea()}{nombreAlea()}}
+{\footnotesize\ttfamily int Population\+::nombre\+Alea (\begin{DoxyParamCaption}\item[{int}]{inf,  }\item[{int}]{sup }\end{DoxyParamCaption})}
+
+
+
+Méthode permettant d\textquotesingle{}obtenir un nombre pseudo-\/aléatoire. Notament utilisé dans la méthode du crossover(\+Individu, Individu). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & inf est la borne inférieure \\
+\hline
+{\em int} & sup est la borne supérieure \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_population_a30fcbcf36eb009493208310fecdf3729}\label{class_population_a30fcbcf36eb009493208310fecdf3729}} 
+\index{Population@{Population}!selectionner@{selectionner}}
+\index{selectionner@{selectionner}!Population@{Population}}
+\subsubsection{\texorpdfstring{selectionner()}{selectionner()}}
+{\footnotesize\ttfamily \hyperlink{class_individu}{Individu} $\ast$ Population\+::selectionner (\begin{DoxyParamCaption}\item[{int}]{i\+Critere }\end{DoxyParamCaption})}
+
+
+
+Méthode permettant de sélectionner des individus avec une certaine probabilité donnée par l\textquotesingle{}utilisateur. Les individus ayant un meilleurrang auront plus de chance d\textquotesingle{}être sélectionnés. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & i\+Critere est l\textquotesingle{}indice utilisé pour le tableau des rangs. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_population_a1c15a197054721dfbcdbb4a7882b3e95}\label{class_population_a1c15a197054721dfbcdbb4a7882b3e95}} 
+\index{Population@{Population}!set\+Ensemble@{set\+Ensemble}}
+\index{set\+Ensemble@{set\+Ensemble}!Population@{Population}}
+\subsubsection{\texorpdfstring{set\+Ensemble()}{setEnsemble()}}
+{\footnotesize\ttfamily void Population\+::set\+Ensemble (\begin{DoxyParamCaption}\item[{\hyperlink{class_individu}{Individu} \&}]{nouv }\end{DoxyParamCaption})}
+
+
+
+Setteur permettant d\textquotesingle{}ajouter un individu au vecteur conntenant l\textquotesingle{}ensemble des individu de la génération en cours. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nouvel} & \hyperlink{class_individu}{Individu}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_population_a7573ba5ab354228ffcb76c7dd43b5205}\label{class_population_a7573ba5ab354228ffcb76c7dd43b5205}} 
+\index{Population@{Population}!set\+Fitness1@{set\+Fitness1}}
+\index{set\+Fitness1@{set\+Fitness1}!Population@{Population}}
+\subsubsection{\texorpdfstring{set\+Fitness1()}{setFitness1()}}
+{\footnotesize\ttfamily void Population\+::set\+Fitness1 (\begin{DoxyParamCaption}\item[{string}]{fit1 }\end{DoxyParamCaption})}
+
+
+
+Setteur de l\textquotesingle{}attribut fitness1 (fonction permettant l\textquotesingle{}évaluation). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em La} & première fonction fitness. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_population_af5940422c47c86ea6eb606224016d32d}\label{class_population_af5940422c47c86ea6eb606224016d32d}} 
+\index{Population@{Population}!set\+Fitness2@{set\+Fitness2}}
+\index{set\+Fitness2@{set\+Fitness2}!Population@{Population}}
+\subsubsection{\texorpdfstring{set\+Fitness2()}{setFitness2()}}
+{\footnotesize\ttfamily void Population\+::set\+Fitness2 (\begin{DoxyParamCaption}\item[{string}]{fit2 }\end{DoxyParamCaption})}
+
+
+
+Setteur de l\textquotesingle{}attribut fitness2 (fonction permettant l\textquotesingle{}évaluation). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em La} & seconde fonction fitness. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_population_a85da2cfbfb4cde5c3ed879958385904c}\label{class_population_a85da2cfbfb4cde5c3ed879958385904c}} 
+\index{Population@{Population}!set\+Nombre\+Generation\+Max@{set\+Nombre\+Generation\+Max}}
+\index{set\+Nombre\+Generation\+Max@{set\+Nombre\+Generation\+Max}!Population@{Population}}
+\subsubsection{\texorpdfstring{set\+Nombre\+Generation\+Max()}{setNombreGenerationMax()}}
+{\footnotesize\ttfamily void Population\+::set\+Nombre\+Generation\+Max (\begin{DoxyParamCaption}\item[{int}]{nb\+Gen }\end{DoxyParamCaption})}
+
+
+
+Setteur de l\textquotesingle{}attribut nombre\+Generation\+Max. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Le} & nombre de génération à atteindre. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_population_ac6f1644f7297b6b9521409b332f51f0d}\label{class_population_ac6f1644f7297b6b9521409b332f51f0d}} 
+\index{Population@{Population}!set\+Nombre\+Individus@{set\+Nombre\+Individus}}
+\index{set\+Nombre\+Individus@{set\+Nombre\+Individus}!Population@{Population}}
+\subsubsection{\texorpdfstring{set\+Nombre\+Individus()}{setNombreIndividus()}}
+{\footnotesize\ttfamily void Population\+::set\+Nombre\+Individus (\begin{DoxyParamCaption}\item[{int}]{nb\+Indiv }\end{DoxyParamCaption})}
+
+
+
+Setteur de l\textquotesingle{}attribut nombre\+Individu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Le} & nombre d\textquotesingle{}individus. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_population_a556851b48bc213bc9a5624295710276d}\label{class_population_a556851b48bc213bc9a5624295710276d}} 
+\index{Population@{Population}!set\+Numero\+Generation@{set\+Numero\+Generation}}
+\index{set\+Numero\+Generation@{set\+Numero\+Generation}!Population@{Population}}
+\subsubsection{\texorpdfstring{set\+Numero\+Generation()}{setNumeroGeneration()}}
+{\footnotesize\ttfamily void Population\+::set\+Numero\+Generation (\begin{DoxyParamCaption}\item[{int}]{num\+Gen }\end{DoxyParamCaption})}
+
+
+
+Setteur de l\textquotesingle{}attribut numero\+Generation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Le} & numéro de la génération. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_population_a175f3a21b85681e318063e9eb63550a8}\label{class_population_a175f3a21b85681e318063e9eb63550a8}} 
+\index{Population@{Population}!set\+Proba\+Croisement@{set\+Proba\+Croisement}}
+\index{set\+Proba\+Croisement@{set\+Proba\+Croisement}!Population@{Population}}
+\subsubsection{\texorpdfstring{set\+Proba\+Croisement()}{setProbaCroisement()}}
+{\footnotesize\ttfamily void Population\+::set\+Proba\+Croisement (\begin{DoxyParamCaption}\item[{float}]{proba }\end{DoxyParamCaption})}
+
+
+
+Setteur de l\textquotesingle{}attribut proba\+Croisement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Une} & probabilité. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_population_ad3e0a26ca7b57924bcbb7a57d86056e4}\label{class_population_ad3e0a26ca7b57924bcbb7a57d86056e4}} 
+\index{Population@{Population}!set\+Valeur\+Approchee@{set\+Valeur\+Approchee}}
+\index{set\+Valeur\+Approchee@{set\+Valeur\+Approchee}!Population@{Population}}
+\subsubsection{\texorpdfstring{set\+Valeur\+Approchee()}{setValeurApprochee()}}
+{\footnotesize\ttfamily void Population\+::set\+Valeur\+Approchee (\begin{DoxyParamCaption}\item[{float}]{val }\end{DoxyParamCaption})}
+
+
+
+Setteur de l\textquotesingle{}attribut valeur\+Approchee. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em La} & première valeur approchée. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_population_aa5645305dfca65e640ed76da9f851137}\label{class_population_aa5645305dfca65e640ed76da9f851137}} 
+\index{Population@{Population}!set\+Valeur\+Approchee2@{set\+Valeur\+Approchee2}}
+\index{set\+Valeur\+Approchee2@{set\+Valeur\+Approchee2}!Population@{Population}}
+\subsubsection{\texorpdfstring{set\+Valeur\+Approchee2()}{setValeurApprochee2()}}
+{\footnotesize\ttfamily void Population\+::set\+Valeur\+Approchee2 (\begin{DoxyParamCaption}\item[{float}]{val }\end{DoxyParamCaption})}
+
+
+
+Setteur de l\textquotesingle{}attribut valeur\+Approchee2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em La} & seconde valeur approchée. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_population_afe14ed3d2919840291b623029eaaf8d3}\label{class_population_afe14ed3d2919840291b623029eaaf8d3}} 
+\index{Population@{Population}!test\+Arret@{test\+Arret}}
+\index{test\+Arret@{test\+Arret}!Population@{Population}}
+\subsubsection{\texorpdfstring{test\+Arret()}{testArret()}}
+{\footnotesize\ttfamily \hyperlink{class_population}{Population} Population\+::test\+Arret (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Méthode qui appel \hyperlink{class_population_a9192297f35ab0c6c6078ae087b3e4aee}{test\+Nombre\+Generation()} et \hyperlink{class_population_ae3511322c007fc85a8dd9bda0693b9cf}{test\+Convergence()}. 
+
+\begin{DoxyReturn}{Returns}
+Renvoie une population en cours. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_population_ae3511322c007fc85a8dd9bda0693b9cf}\label{class_population_ae3511322c007fc85a8dd9bda0693b9cf}} 
+\index{Population@{Population}!test\+Convergence@{test\+Convergence}}
+\index{test\+Convergence@{test\+Convergence}!Population@{Population}}
+\subsubsection{\texorpdfstring{test\+Convergence()}{testConvergence()}}
+{\footnotesize\ttfamily bool Population\+::test\+Convergence (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Méthode permettant de tester si les score de plusieurs génération à la suite sont semblables (scores à +/-\/ 1,5\% identique). 
+
+\begin{DoxyReturn}{Returns}
+Renvoie T\+R\+UE si les générations convegent, F\+A\+L\+SE sinon. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_population_a9192297f35ab0c6c6078ae087b3e4aee}\label{class_population_a9192297f35ab0c6c6078ae087b3e4aee}} 
+\index{Population@{Population}!test\+Nombre\+Generation@{test\+Nombre\+Generation}}
+\index{test\+Nombre\+Generation@{test\+Nombre\+Generation}!Population@{Population}}
+\subsubsection{\texorpdfstring{test\+Nombre\+Generation()}{testNombreGeneration()}}
+{\footnotesize\ttfamily bool Population\+::test\+Nombre\+Generation (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Méthode permettant de tester le nombre de génération. 
+
+\begin{DoxyReturn}{Returns}
+Renvoie T\+R\+UE si le nombre de génération est inférieur au nombre de générations à atteindre, F\+A\+L\+SE sinon. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_population_a70cec52ba5d29e0f4a1a67a4ae52b276}\label{class_population_a70cec52ba5d29e0f4a1a67a4ae52b276}} 
+\index{Population@{Population}!test\+Population\+Remplie@{test\+Population\+Remplie}}
+\index{test\+Population\+Remplie@{test\+Population\+Remplie}!Population@{Population}}
+\subsubsection{\texorpdfstring{test\+Population\+Remplie()}{testPopulationRemplie()}}
+{\footnotesize\ttfamily bool Population\+::test\+Population\+Remplie (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Méthode permettant si une population est pleine. 
+
+\begin{DoxyReturn}{Returns}
+Renvoie T\+R\+UE si la population en cours n\textquotesingle{}est pas remplie, F\+A\+L\+SE sinon. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_population_a15c4b45d033b6af3765f5e86ce43f232}\label{class_population_a15c4b45d033b6af3765f5e86ce43f232}} 
+\index{Population@{Population}!tri\+Population@{tri\+Population}}
+\index{tri\+Population@{tri\+Population}!Population@{Population}}
+\subsubsection{\texorpdfstring{tri\+Population()}{triPopulation()}}
+{\footnotesize\ttfamily void Population\+::tri\+Population (\begin{DoxyParamCaption}\item[{int}]{indice\+Score }\end{DoxyParamCaption})}
+
+
+
+Méthode appelant \hyperlink{class_population_ae240b80ad4eae0f1b2ec5ec1edcd88c3}{maximisation(int)}, \hyperlink{class_population_a6f27e76b6b15668b343c43c56027515d}{minimisation(int)} ou \hyperlink{class_population_a4b167d07f145a1f1ea69b2bb4cfd2cfb}{tri\+Valeur(int)} selon le critère. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & indice\+Score est l\textquotesingle{}indice du tableau des scores \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_population_a4b167d07f145a1f1ea69b2bb4cfd2cfb}\label{class_population_a4b167d07f145a1f1ea69b2bb4cfd2cfb}} 
+\index{Population@{Population}!tri\+Valeur@{tri\+Valeur}}
+\index{tri\+Valeur@{tri\+Valeur}!Population@{Population}}
+\subsubsection{\texorpdfstring{tri\+Valeur()}{triValeur()}}
+{\footnotesize\ttfamily void Population\+::tri\+Valeur (\begin{DoxyParamCaption}\item[{int}]{indice\+Score }\end{DoxyParamCaption})}
+
+
+
+Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les individus soient ranger l\textquotesingle{}individu ayant la plus petite différence avec la valeur à approcher à l\textquotesingle{}individu ayant la plus grande différence. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & indice\+Score est l\textquotesingle{}indice du tableau des scores \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
