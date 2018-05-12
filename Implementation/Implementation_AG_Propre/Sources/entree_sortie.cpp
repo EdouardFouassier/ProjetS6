@@ -83,7 +83,7 @@ bool testCoherenceDonnees(string nomFichier) {
 		}
         if (i == 3) {
 			x = estEntierPositif(donnees);
-			if(!x || stoi(donnees)>100 || stoi(donnees)<2)x=false;
+			if(!x || stoi(donnees)>100 || stoi(donnees)<1)x=false;
 			if(!x){
 				throw string("Erreur taille population \n");
 				return false;
@@ -664,22 +664,22 @@ bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomF
 }
 
 bool ecrireFichier(string nomFichierSortie, string nomFichierParametre, string nomFichierStats, Population *P){
- ifstream fichierParam(nomFichierParametre.c_str(), ios::in);      //On ouvre le fichier en lecture
+	ifstream fichierParam(nomFichierParametre.c_str(), ios::in);						//On ouvre le fichier en lecture
 
- if(fichierParam) {
-  string line;
-  for(int i=0;i<13;i++)
-  {
-   getline(fichierParam,line);
-  }
-  cout<<line[0]<<line[1]<<line[2]<<endl;
-  if(line[0]=='1') { ecrireLatex(nomFichierSortie,P); }
-  if(line[1]=='1') { if(line[0]=='1') { ecrirePostscript(nomFichierSortie); }
-       else { ecrireLatex(nomFichierSortie,P); ecrirePostscript(nomFichierSortie); 
-        string nomFichierEnd = "rm "+nomFichierSortie+"/"+nomFichierSortie+".tex"; system(nomFichierEnd.c_str()); }
-       }
-  if(line[2]=='1') { ecrireXfig(nomFichierSortie); }
- }
+	if(fichierParam) {
+		string line;
+		for(int i=0;i<13;i++)
+		{
+			getline(fichierParam,line);
+		}
+		cout<<line[0]<<line[1]<<line[2]<<endl;
+		if(line[0]=='1') { ecrireLatex(nomFichierSortie,P); }
+		if(line[1]=='1') { if(line[0]=='1') { ecrirePostscript(nomFichierSortie); }
+							else { ecrireLatex(nomFichierSortie,P); ecrirePostscript(nomFichierSortie); 
+								string nomFichierEnd = "rm "+nomFichierSortie+"/"+nomFichierSortie+".tex"; system(nomFichierEnd.c_str()); }
+						 }
+		if(line[2]=='1') { ecrireXfig(nomFichierSortie); }
+	}
 }
 
 bool ecrireLatex(string nomFichierSortie,Population *P){
@@ -688,11 +688,11 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 	
 	if(fichierLatex) {
 		fichierLatex << "\\documentclass[a4paper,11pt]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[T1]{fontenc}\n\\usepackage[french]{babel}\n\\usepackage[right=2.5cm, left=2.5cm, bottom=4cm, top=3cm]{geometry}\n\\usepackage{textcomp}\n\\usepackage{graphicx}\n\\usepackage{mathtools,amssymb,amsthm}\n\\usepackage{lmodern,fixltx2e}\n\\usepackage{multirow}\n\\usepackage{array}\n\\usepackage{longtable}\n\\usepackage{fancybox}\n\\usepackage{pgfplots}\n" << endl;
-		fichierLatex << "\\title{\\huge "<< nomFichierSortie <<"}\n\\date{}" << endl;
+		fichierLatex << "\\title{\\huge "<< nomFichierSortie <<"}\n\\date{}\n\\author{}" << endl;
 		fichierLatex << "\\begin{document}" << endl;
 		fichierLatex << "	\\maketitle\n" << endl;
 		fichierLatex << "	Voici les résultats données par le programme : \\\\\\\\" << endl;
-		fichierLatex << "	Les données initiales sont :" << endl;
+		fichierLatex << "	Les données initiales sont :\\\\" << endl;
 		fichierLatex << "	\\begin{itemize}" << endl;
 		float* tabInitialisation = lireInitialisation(nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt");
 		fichierLatex << "		\\item Taille des individus : " << tabInitialisation[0] << endl;
@@ -737,26 +737,22 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 		int cpt=0;
 		if(P->getNombreCriteres()==1){
 			for(int i=0;i<stoi(tabInfoRegen[1])&&cpt<10;i++){
-				//cout<<P->getEnsemble()[i]->getRang(0)<<endl;
-				if(P->getEnsemble()[i]->getRang(0)) {
+				//~ cout<<P->getEnsemble()[i]->getRang(1)<<endl;
+				//~ if(P->getEnsemble()[i]->getRang(0)) {
 					solutions[cpt]=*P->getEnsemble()[i];
 					cpt++;
-				}
+				//~ }
 			}
 		}else{
 			for(int i=0;i<stoi(tabInfoRegen[1])&&cpt<10;i++){
-				//cout<<P->getEnsemble()[i]->getRang(0)<<endl;
-				if(cpt<5){
-					if(P->getEnsemble()[i]->getRang(0)==1){
-						solutions[cpt]=*P->getEnsemble()[i];
-						cpt++;
-					}
+				//~ cout<<P->getEnsemble()[i]->getRang(1)<<endl;
+				if(cpt<5 /*&& P->getEnsemble()[i]->getRang(1)*/ ){
+					solutions[cpt]=*P->getEnsemble()[i];
+					cpt++;
 				}
 				else {
-					if(P->getEnsemble()[i]->getRang(1)==1){
-						solutions[cpt]=*P->getEnsemble()[i];
-						cpt++;
-					}
+					solutions[cpt]=*P->getEnsemble()[i];
+					cpt++;
 				}
 			}
 		}
@@ -806,25 +802,67 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 }
 
 bool ecrirePostscript(string nomFichierSortie) {
- 
- string latexToDvi = "latex "+nomFichierSortie+"/"+nomFichierSortie+".tex";
- 
- if(system(latexToDvi.c_str())) {
-  string dviToPostscrit = "dvips "+nomFichierSortie+".dvi"+" -o "+nomFichierSortie+".ps";
-  if(system(dviToPostscrit.c_str())) { return true; }
-  else {
-   cerr << "Erreur dviToPostscrit" << endl;
-   return false;
-  }
- }
- else {
-  cerr << "Erreur latexToDvi" << endl;
-  return false;
- } 
+	
+	string latexToDvi = "cd "+ nomFichierSortie + " && latex "+nomFichierSortie+".tex";
+	//~ cout << system(latexToDvi.c_str()) <<endl;
+	if(system(latexToDvi.c_str()) == 0) {
+		string dviToPostscrit = "cd "+ nomFichierSortie +" && dvips "+nomFichierSortie+".dvi -o "+nomFichierSortie+".ps";
+		if(system(dviToPostscrit.c_str()) == 0) { 
+			string rmDvi = "cd "+ nomFichierSortie +" && rm "+nomFichierSortie+".dvi && rm "+nomFichierSortie+".aux && rm "+nomFichierSortie+".log";
+			if(system(rmDvi.c_str()) == 0) { return true; }
+			else {
+				cerr << "Erreur suppression .log, .aux .dvi" << endl;
+				return false;
+			}
+		}
+		else {
+			cerr << "Erreur dviToPostscrit" << endl;
+			return false;
+		}
+	}
+	else {
+		cerr << "Erreur latexToDvi" << endl;
+		return false;
+	}	
 }
 
 bool ecrireXfig(string nomFichierSortie){
-	cout<<"Ouai ouai inchalla ici on va voir si on ecrit le XFig de ses mort parce que walla sa darone elle est pas hallal ."<<endl;
+	string fichierGnuplot = nomFichierSortie+"/"+nomFichierSortie+".gnuplot";
+	ofstream fichierGnu(fichierGnuplot.c_str(), ios::out | ios::trunc);
+	
+	if(fichierGnu) {
+		fichierGnu << "set term fig color big\n\nset multiplot\nset origin 0.0 , 0.5\nset size 0.5, 0.5\nset key right\nset title \"Critere 1\""<< endl;
+		fichierGnu << "plot \""<< nomFichierSortie+"_Stats.txt" << "\" using 1:2 with lines title \"Moyenne Critere 1\", \"" << nomFichierSortie+"_Stats.txt" << "\" using 1:3  with lines title \"Minimum Critere 1\", \"" << nomFichierSortie+"_Stats.txt" << "\" using 1:4  with lines title \"Maximum Critere 1\"" << endl;
+		string* tabInfoRegen = lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt");
+		if(tabInfoRegen[3] == "2") {
+			fichierGnu << "set origin 0.0 , 0.0\nset size 0.5 , 0.5\nset title \"Critere 2\""<< endl;
+			fichierGnu << "plot \""<< nomFichierSortie+"_Stats.txt" << "\" using 1:5 with lines title \"Moyenne Critere 2\", \"" << nomFichierSortie+"_Stats.txt" << "\" using 1:6  with lines title \"Minimum Critere 2\", \"" << nomFichierSortie+"_Stats.txt" << "\" using 1:7  with lines title \"Maximum Critere 2\"" << endl;
+		}
+		delete[] tabInfoRegen;
+		fichierGnu << "unset multiplot"<< endl;
+		fichierGnu.close();
+		
+		string GnuCmd = "cd "+ nomFichierSortie + " && gnuplot "+nomFichierSortie+".gnuplot >> "+nomFichierSortie+".fig";
+		if(system(GnuCmd.c_str()) == 0) { 
+			string rmGnuplot = "cd "+ nomFichierSortie +" && rm "+nomFichierSortie+".gnuplot";
+			if(system(rmGnuplot.c_str()) == 0) {
+				return true;
+			}
+			else {
+				cerr << "Erreur rmGnuplot" << endl;
+				return false;
+			} 
+		}
+		else {
+			cerr << "Erreur GnuCmd" << endl;
+			return false;
+		}
+		
+	}
+	else {
+		cerr << "Erreur ouverture fichierGnu" << endl;
+		return false;
+	}
 }
 //~ bool ecrireUnScore(int score, File *F); //Alors... Elle est dans le cds mais... Askip elle est useless, Wallah c'est un bruit qui court dans la téci
 
