@@ -4,7 +4,6 @@ var class_interface =
     [ "Interface", "class_interface.html#a46c787075e2d259802c969d3b9013ed7", null ],
     [ "afficherAppF1", "class_interface.html#a5f0bd803004e90b825dd4b22ccf66890", null ],
     [ "afficherAppF2", "class_interface.html#ad52e9863e8e9f3e496780f67d18f07a7", null ],
-    [ "algoGenetique", "class_interface.html#ab18110b58c994e7bc4971deb8578d367", null ],
     [ "cacherAppF1", "class_interface.html#a80a1e37847e43306b94bf53496669e3b", null ],
     [ "cacherAppF2", "class_interface.html#ae35b4de3ed5d1433ca4950891fd48fab", null ],
     [ "chercher", "class_interface.html#a3b03a85d7a8dce0bffef8d793c0f2195", null ],

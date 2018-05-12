@@ -47,6 +47,9 @@
 
 using namespace std;
 
+
+/// \class Interface
+/// \brief Classe permettant de créer et d'interagir avec l'interface graphique du logiciel.
 class Interface : public QWidget
 {
     Q_OBJECT
@@ -132,39 +135,143 @@ private:
 
 
 public:
+	/// \fn Inteface()
+	/// \brief Constructeur par défaut de la classe Inteface.
     Interface();
     
-    Interface(string nom,string fichier);
+    /// \fn Interface(string, string)
+	/// \brief Constructeur de la classe Inteface.
+	/// \param string nom
+	/// \param string fichier
+    Interface(string nom, string fichier);
     //~ Interface(Interface inter);
+    
+    /// \fn bool getEnCours()
+	/// \brief Getteur de l'attribut encours.
+	/// \return L'attribut encours.
     bool getEnCours();
+    
+	/// \fn string getFonctionFitness1()
+	/// \brief Getteur permettant d'obtenir la première fonction fitness donnée dans l'interface.
+	/// \return L'attribut fonctionFitness1.
 	string getFonctionFitness1();
+	
+	/// \fn string getFonctionFitness2()
+	/// \brief Getteur permettant d'obtenir la seconde fonction fitness donnée dans l'interface.
+	/// \return L'attribut fonctionFitness2.
 	string getFonctionFitness2();
+	
+	/// \fn string getNomFichierSortie()
+	/// \brief Getteur permettant d'obtenir le nom de fichier de résultats donné dans l'interface.
+	/// \return L'attribut nomFichierSortie.
 	string getNomFichierSortie();
+	
+	/// \fn int getTaillePopulation()
+	/// \brief Getteur permettant d'obtenir la taille pour une population donnée dans l'interface.
+	/// \return L'attribut taillePopulation.
 	int getTaillePopulation();
+	
+	/// \fn int getTailleIndividu()
+	/// \brief Getteur permettant d'obtenir la taille pour un individu donnée dans l'interface.
+	/// \return L'attribut tailleIndividu.
 	int getTailleIndividu();
+	
+	/// \fn int getNbGenerationMax()
+	/// \brief Getteur permettant d'obtenir le nombre maximum de génération à atteindre donné dans l'interface.
+	/// \return L'attribut nbGenerationMax.
 	int getNbGenerationMax();
+	
+	/// \fn int getCritereF1()
+	/// \brief Getteur permettant d'obtenir le type de critère (maximisation, minimisation ou valeur approchée) pour la première fonction fitness donné dans l'interface.
+	/// \return L'attribut critereF1.
 	int getCritereF1();
+	
+	/// \fn int getCritereF2()
+	/// \brief Getteur permettant d'obtenir le type de critère (maximisation, minimisation ou valeur approchée) pour la seconde fonction fitness donné dans l'interface.
+	/// \return L'attribut critereF2.
 	int getCritereF2();
+	
+	/// \fn float getTauxMutation()
+	/// \brief Getteur permettant d'obtenir le taux de mutation donné dans l'interface.
+	/// \return L'attribut tauxMutation.
 	float getTauxMutation();
+	
+	/// \fn float getTauxCrossover()
+	/// \brief Getteur permettant d'obtenir le taux de crossover donné dans l'interface.
+	/// \return L'attribut tauxMutation.
 	float getTauxCrossover();
+	
+	/// \fn float getValeurApproxF1()
+	/// \brief Getteur permettant d'obtenir la valeur à approchée pour la première fonction fitness donnée dans l'interface.
+	/// \return L'attribut valeurApproxF1.
 	float getValeurApproxF1();
+	
+	/// \fn float getValeurApproxF2()
+	/// \brief Getteur permettant d'obtenir la valeur à approchée pour la seconde fonction fitness donnée dans l'interface.
+	/// \return L'attribut valeurApproxF2.
 	float getValeurApproxF2();
+	
+	/// \fn bool getLatex()
+	/// \brief Getteur permettant de savoir si un fichier de sortie en LaTeX est demandé ou non.
+	/// \return L'attribut latex.
 	bool getLatex();
+	
+	/// \fn bool getXFig()
+	/// \brief Getteur permettant de savoir si un fichier de sortie au format xFig est demandé ou non.
+	/// \return L'attribut xFig.
 	bool getXFig();
+	
+	/// \fn bool getPostScript()
+	/// \brief Getteur permettant de savoir si un fichier de sortie au format PostScript est demandé ou non.
+	/// \return L'attribut postScript.
 	bool getPostScript();
+	
+	/// \fn static void * algoGenetique(void *)
+	/// \brief Méthode appelant l'ensemble des méthodes pour le déroulement du programme.
+	/// \return NULL
 	static void * algoGenetique(void * arg);
 	
     public slots:
     
+    /// \fn void enableF2(int)
+	/// \brief Méthode permettant d'afficher le champ pour entrer la seconde fonction fitness uniquement si l'utilisateur demande d'en entrer 2.
+	/// \param int s
     void enableF2(int s);
+    
+	/// \fn void chercher()
+	/// \brief Méthode permettant d'ouvrir une fenêtre pour sélectionner un fichier.
     void chercher();
-    void cacherAppF1();
-    void cacherAppF2();
+    
+	/// \fn void cacherAppF1()
+	/// \brief Méthode permettant de ne pas afficher le champ pour entrer une valeur approchée pour la première fonction fitness.
+	void cacherAppF1();
+	
+	/// \fn void cacherAppF2()
+	/// \brief Méthode permettant de ne pas afficher le champ pour entrer une valeur approchée pour la seconde fonction fitness.
+	void cacherAppF2();
+	
+	/// \fn void aficherAppF1()
+	/// \brief Méthode permettant d'afficher le champ pour entrer une valeur approchée pour la première fonction fitness.
     void afficherAppF1();
+    
+    /// \fn void afficherAppF2()
+	/// \brief Méthode permettant d'afficher le champ pour entrer une valeur approchée pour la seconde fonction fitness.
     void afficherAppF2();
+    
+	/// \fn void connectLancer()
+	/// \brief Méthode permettant de lancer le programme
     void connectLancer();
+    
+	/// \fn void connectQuitter()
+	/// \brief Méthode permettant de quitter le programme (sans sauvegarde).
     void connectQuitter();
+    
+    /// \fn void connectArreter()
+	/// \brief Méthode permettant de arreter le programme (avec sauvegarde).
     void connectArreter();
+    
+    /// \fn void connectAide()
+	/// \brief Méthode permettant d'ouvrir le manuel d'utilisation.
     void connectAide();
     
  

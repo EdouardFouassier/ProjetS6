@@ -83,104 +83,545 @@ $(document).ready(function(){initNavTree('class_interface.html','');});
   <div class="summary">
 <a href="#pub-slots">Public Slots</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_interface-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Interface Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>Classe permettant de créer et d'interagir avec l'interface graphique du logiciel.  
+ <a href="class_interface.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="interface_8h_source.html">interface.h</a>&gt;</code></p>
+
 <p>Inherits QWidget.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
-<tr class="memitem:ae3fb6f273993f8207b2418b68936d873"><td class="memItemLeft" align="right" valign="top"><a id="ae3fb6f273993f8207b2418b68936d873"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>enableF2</b> (int s)</td></tr>
+<tr class="memitem:ae3fb6f273993f8207b2418b68936d873"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#ae3fb6f273993f8207b2418b68936d873">enableF2</a> (int s)</td></tr>
+<tr class="memdesc:ae3fb6f273993f8207b2418b68936d873"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant d'afficher le champ pour entrer la seconde fonction fitness uniquement si l'utilisateur demande d'en entrer 2.  <a href="#ae3fb6f273993f8207b2418b68936d873">More...</a><br /></td></tr>
 <tr class="separator:ae3fb6f273993f8207b2418b68936d873"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b03a85d7a8dce0bffef8d793c0f2195"><td class="memItemLeft" align="right" valign="top"><a id="a3b03a85d7a8dce0bffef8d793c0f2195"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>chercher</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#a3b03a85d7a8dce0bffef8d793c0f2195">chercher</a> ()</td></tr>
+<tr class="memdesc:a3b03a85d7a8dce0bffef8d793c0f2195"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant d'ouvrir une fenêtre pour sélectionner un fichier. <br /></td></tr>
 <tr class="separator:a3b03a85d7a8dce0bffef8d793c0f2195"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80a1e37847e43306b94bf53496669e3b"><td class="memItemLeft" align="right" valign="top"><a id="a80a1e37847e43306b94bf53496669e3b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>cacherAppF1</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#a80a1e37847e43306b94bf53496669e3b">cacherAppF1</a> ()</td></tr>
+<tr class="memdesc:a80a1e37847e43306b94bf53496669e3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de ne pas afficher le champ pour entrer une valeur approchée pour la première fonction fitness. <br /></td></tr>
 <tr class="separator:a80a1e37847e43306b94bf53496669e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae35b4de3ed5d1433ca4950891fd48fab"><td class="memItemLeft" align="right" valign="top"><a id="ae35b4de3ed5d1433ca4950891fd48fab"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>cacherAppF2</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#ae35b4de3ed5d1433ca4950891fd48fab">cacherAppF2</a> ()</td></tr>
+<tr class="memdesc:ae35b4de3ed5d1433ca4950891fd48fab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de ne pas afficher le champ pour entrer une valeur approchée pour la seconde fonction fitness. <br /></td></tr>
 <tr class="separator:ae35b4de3ed5d1433ca4950891fd48fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f0bd803004e90b825dd4b22ccf66890"><td class="memItemLeft" align="right" valign="top"><a id="a5f0bd803004e90b825dd4b22ccf66890"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherAppF1</b> ()</td></tr>
 <tr class="separator:a5f0bd803004e90b825dd4b22ccf66890"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad52e9863e8e9f3e496780f67d18f07a7"><td class="memItemLeft" align="right" valign="top"><a id="ad52e9863e8e9f3e496780f67d18f07a7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherAppF2</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#ad52e9863e8e9f3e496780f67d18f07a7">afficherAppF2</a> ()</td></tr>
+<tr class="memdesc:ad52e9863e8e9f3e496780f67d18f07a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant d'afficher le champ pour entrer une valeur approchée pour la seconde fonction fitness. <br /></td></tr>
 <tr class="separator:ad52e9863e8e9f3e496780f67d18f07a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e2f245c0c3c924503a70bd9325e746d"><td class="memItemLeft" align="right" valign="top"><a id="a0e2f245c0c3c924503a70bd9325e746d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>connectLancer</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#a0e2f245c0c3c924503a70bd9325e746d">connectLancer</a> ()</td></tr>
+<tr class="memdesc:a0e2f245c0c3c924503a70bd9325e746d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de lancer le programme. <br /></td></tr>
 <tr class="separator:a0e2f245c0c3c924503a70bd9325e746d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a303469419b33103af1a14589ad02f2ef"><td class="memItemLeft" align="right" valign="top"><a id="a303469419b33103af1a14589ad02f2ef"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>connectQuitter</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#a303469419b33103af1a14589ad02f2ef">connectQuitter</a> ()</td></tr>
+<tr class="memdesc:a303469419b33103af1a14589ad02f2ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de quitter le programme (sans sauvegarde). <br /></td></tr>
 <tr class="separator:a303469419b33103af1a14589ad02f2ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adeffb11a443b9996cdf5fd20fdab2aa7"><td class="memItemLeft" align="right" valign="top"><a id="adeffb11a443b9996cdf5fd20fdab2aa7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>connectArreter</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#adeffb11a443b9996cdf5fd20fdab2aa7">connectArreter</a> ()</td></tr>
+<tr class="memdesc:adeffb11a443b9996cdf5fd20fdab2aa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de arreter le programme (avec sauvegarde). <br /></td></tr>
 <tr class="separator:adeffb11a443b9996cdf5fd20fdab2aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9633135a56d6c960b17702c9021dfc6c"><td class="memItemLeft" align="right" valign="top"><a id="a9633135a56d6c960b17702c9021dfc6c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>connectAide</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#a9633135a56d6c960b17702c9021dfc6c">connectAide</a> ()</td></tr>
+<tr class="memdesc:a9633135a56d6c960b17702c9021dfc6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant d'ouvrir le manuel d'utilisation. <br /></td></tr>
 <tr class="separator:a9633135a56d6c960b17702c9021dfc6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a46c787075e2d259802c969d3b9013ed7"><td class="memItemLeft" align="right" valign="top"><a id="a46c787075e2d259802c969d3b9013ed7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Interface</b> (string nom, string fichier)</td></tr>
+<tr class="memitem:a46c787075e2d259802c969d3b9013ed7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#a46c787075e2d259802c969d3b9013ed7">Interface</a> (string nom, string fichier)</td></tr>
+<tr class="memdesc:a46c787075e2d259802c969d3b9013ed7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de la classe Inteface.  <a href="#a46c787075e2d259802c969d3b9013ed7">More...</a><br /></td></tr>
 <tr class="separator:a46c787075e2d259802c969d3b9013ed7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3977dada600c42be3b8e0d3471e29d4"><td class="memItemLeft" align="right" valign="top"><a id="ad3977dada600c42be3b8e0d3471e29d4"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getEnCours</b> ()</td></tr>
+<tr class="memitem:ad3977dada600c42be3b8e0d3471e29d4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#ad3977dada600c42be3b8e0d3471e29d4">getEnCours</a> ()</td></tr>
+<tr class="memdesc:ad3977dada600c42be3b8e0d3471e29d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur de l'attribut encours.  <a href="#ad3977dada600c42be3b8e0d3471e29d4">More...</a><br /></td></tr>
 <tr class="separator:ad3977dada600c42be3b8e0d3471e29d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4646dc20dc1a4405483019aba42aec2"><td class="memItemLeft" align="right" valign="top"><a id="aa4646dc20dc1a4405483019aba42aec2"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>getFonctionFitness1</b> ()</td></tr>
+<tr class="memitem:aa4646dc20dc1a4405483019aba42aec2"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#aa4646dc20dc1a4405483019aba42aec2">getFonctionFitness1</a> ()</td></tr>
+<tr class="memdesc:aa4646dc20dc1a4405483019aba42aec2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir la première fonction fitness donnée dans l'interface.  <a href="#aa4646dc20dc1a4405483019aba42aec2">More...</a><br /></td></tr>
 <tr class="separator:aa4646dc20dc1a4405483019aba42aec2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15a03e2a28e7149f8393c03e88443764"><td class="memItemLeft" align="right" valign="top"><a id="a15a03e2a28e7149f8393c03e88443764"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>getFonctionFitness2</b> ()</td></tr>
+<tr class="memitem:a15a03e2a28e7149f8393c03e88443764"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#a15a03e2a28e7149f8393c03e88443764">getFonctionFitness2</a> ()</td></tr>
+<tr class="memdesc:a15a03e2a28e7149f8393c03e88443764"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir la seconde fonction fitness donnée dans l'interface.  <a href="#a15a03e2a28e7149f8393c03e88443764">More...</a><br /></td></tr>
 <tr class="separator:a15a03e2a28e7149f8393c03e88443764"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e023045d94fabb2ee950fad65feafc5"><td class="memItemLeft" align="right" valign="top"><a id="a2e023045d94fabb2ee950fad65feafc5"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>getNomFichierSortie</b> ()</td></tr>
+<tr class="memitem:a2e023045d94fabb2ee950fad65feafc5"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#a2e023045d94fabb2ee950fad65feafc5">getNomFichierSortie</a> ()</td></tr>
+<tr class="memdesc:a2e023045d94fabb2ee950fad65feafc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir le nom de fichier de résultats donné dans l'interface.  <a href="#a2e023045d94fabb2ee950fad65feafc5">More...</a><br /></td></tr>
 <tr class="separator:a2e023045d94fabb2ee950fad65feafc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e373414a358bf46b21d3d3f4c10ed57"><td class="memItemLeft" align="right" valign="top"><a id="a6e373414a358bf46b21d3d3f4c10ed57"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getTaillePopulation</b> ()</td></tr>
+<tr class="memitem:a6e373414a358bf46b21d3d3f4c10ed57"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#a6e373414a358bf46b21d3d3f4c10ed57">getTaillePopulation</a> ()</td></tr>
+<tr class="memdesc:a6e373414a358bf46b21d3d3f4c10ed57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir la taille pour une population donnée dans l'interface.  <a href="#a6e373414a358bf46b21d3d3f4c10ed57">More...</a><br /></td></tr>
 <tr class="separator:a6e373414a358bf46b21d3d3f4c10ed57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a483cd79ced3669461f96739afecebad0"><td class="memItemLeft" align="right" valign="top"><a id="a483cd79ced3669461f96739afecebad0"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getTailleIndividu</b> ()</td></tr>
+<tr class="memitem:a483cd79ced3669461f96739afecebad0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#a483cd79ced3669461f96739afecebad0">getTailleIndividu</a> ()</td></tr>
+<tr class="memdesc:a483cd79ced3669461f96739afecebad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir la taille pour un individu donnée dans l'interface.  <a href="#a483cd79ced3669461f96739afecebad0">More...</a><br /></td></tr>
 <tr class="separator:a483cd79ced3669461f96739afecebad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8bcb596fca8a32b843aaff0c1fdc149"><td class="memItemLeft" align="right" valign="top"><a id="ad8bcb596fca8a32b843aaff0c1fdc149"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNbGenerationMax</b> ()</td></tr>
+<tr class="memitem:ad8bcb596fca8a32b843aaff0c1fdc149"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#ad8bcb596fca8a32b843aaff0c1fdc149">getNbGenerationMax</a> ()</td></tr>
+<tr class="memdesc:ad8bcb596fca8a32b843aaff0c1fdc149"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir le nombre maximum de génération à atteindre donné dans l'interface.  <a href="#ad8bcb596fca8a32b843aaff0c1fdc149">More...</a><br /></td></tr>
 <tr class="separator:ad8bcb596fca8a32b843aaff0c1fdc149"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78a4744acdf653668872c67d837edab2"><td class="memItemLeft" align="right" valign="top"><a id="a78a4744acdf653668872c67d837edab2"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getCritereF1</b> ()</td></tr>
+<tr class="memitem:a78a4744acdf653668872c67d837edab2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#a78a4744acdf653668872c67d837edab2">getCritereF1</a> ()</td></tr>
+<tr class="memdesc:a78a4744acdf653668872c67d837edab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir le type de critère (maximisation, minimisation ou valeur approchée) pour la première fonction fitness donné dans l'interface.  <a href="#a78a4744acdf653668872c67d837edab2">More...</a><br /></td></tr>
 <tr class="separator:a78a4744acdf653668872c67d837edab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a145689cdf027cfa6ceda126bac0b5d1c"><td class="memItemLeft" align="right" valign="top"><a id="a145689cdf027cfa6ceda126bac0b5d1c"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getCritereF2</b> ()</td></tr>
+<tr class="memitem:a145689cdf027cfa6ceda126bac0b5d1c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#a145689cdf027cfa6ceda126bac0b5d1c">getCritereF2</a> ()</td></tr>
+<tr class="memdesc:a145689cdf027cfa6ceda126bac0b5d1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir le type de critère (maximisation, minimisation ou valeur approchée) pour la seconde fonction fitness donné dans l'interface.  <a href="#a145689cdf027cfa6ceda126bac0b5d1c">More...</a><br /></td></tr>
 <tr class="separator:a145689cdf027cfa6ceda126bac0b5d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad265a27382bfa3b40fdae40f5344bf64"><td class="memItemLeft" align="right" valign="top"><a id="ad265a27382bfa3b40fdae40f5344bf64"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getTauxMutation</b> ()</td></tr>
+<tr class="memitem:ad265a27382bfa3b40fdae40f5344bf64"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#ad265a27382bfa3b40fdae40f5344bf64">getTauxMutation</a> ()</td></tr>
+<tr class="memdesc:ad265a27382bfa3b40fdae40f5344bf64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir le taux de mutation donné dans l'interface.  <a href="#ad265a27382bfa3b40fdae40f5344bf64">More...</a><br /></td></tr>
 <tr class="separator:ad265a27382bfa3b40fdae40f5344bf64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a319f2bc45a2cfb2fe56a2e8795d8ef36"><td class="memItemLeft" align="right" valign="top"><a id="a319f2bc45a2cfb2fe56a2e8795d8ef36"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getTauxCrossover</b> ()</td></tr>
+<tr class="memitem:a319f2bc45a2cfb2fe56a2e8795d8ef36"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#a319f2bc45a2cfb2fe56a2e8795d8ef36">getTauxCrossover</a> ()</td></tr>
+<tr class="memdesc:a319f2bc45a2cfb2fe56a2e8795d8ef36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir le taux de crossover donné dans l'interface.  <a href="#a319f2bc45a2cfb2fe56a2e8795d8ef36">More...</a><br /></td></tr>
 <tr class="separator:a319f2bc45a2cfb2fe56a2e8795d8ef36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a543c5de2681de9830c8de70e6bc14ce1"><td class="memItemLeft" align="right" valign="top"><a id="a543c5de2681de9830c8de70e6bc14ce1"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getValeurApproxF1</b> ()</td></tr>
+<tr class="memitem:a543c5de2681de9830c8de70e6bc14ce1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#a543c5de2681de9830c8de70e6bc14ce1">getValeurApproxF1</a> ()</td></tr>
+<tr class="memdesc:a543c5de2681de9830c8de70e6bc14ce1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir la valeur à approchée pour la première fonction fitness donnée dans l'interface.  <a href="#a543c5de2681de9830c8de70e6bc14ce1">More...</a><br /></td></tr>
 <tr class="separator:a543c5de2681de9830c8de70e6bc14ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad41dc37c48ade6282b087e94757e5303"><td class="memItemLeft" align="right" valign="top"><a id="ad41dc37c48ade6282b087e94757e5303"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getValeurApproxF2</b> ()</td></tr>
+<tr class="memitem:ad41dc37c48ade6282b087e94757e5303"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#ad41dc37c48ade6282b087e94757e5303">getValeurApproxF2</a> ()</td></tr>
+<tr class="memdesc:ad41dc37c48ade6282b087e94757e5303"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant d'obtenir la valeur à approchée pour la seconde fonction fitness donnée dans l'interface.  <a href="#ad41dc37c48ade6282b087e94757e5303">More...</a><br /></td></tr>
 <tr class="separator:ad41dc37c48ade6282b087e94757e5303"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9579d9b5ac11a8aa104df9a87f7918d8"><td class="memItemLeft" align="right" valign="top"><a id="a9579d9b5ac11a8aa104df9a87f7918d8"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getLatex</b> ()</td></tr>
+<tr class="memitem:a9579d9b5ac11a8aa104df9a87f7918d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#a9579d9b5ac11a8aa104df9a87f7918d8">getLatex</a> ()</td></tr>
+<tr class="memdesc:a9579d9b5ac11a8aa104df9a87f7918d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant de savoir si un fichier de sortie en LaTeX est demandé ou non.  <a href="#a9579d9b5ac11a8aa104df9a87f7918d8">More...</a><br /></td></tr>
 <tr class="separator:a9579d9b5ac11a8aa104df9a87f7918d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27f30fe9598a6cc8629bd2e8d162cce3"><td class="memItemLeft" align="right" valign="top"><a id="a27f30fe9598a6cc8629bd2e8d162cce3"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getXFig</b> ()</td></tr>
+<tr class="memitem:a27f30fe9598a6cc8629bd2e8d162cce3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#a27f30fe9598a6cc8629bd2e8d162cce3">getXFig</a> ()</td></tr>
+<tr class="memdesc:a27f30fe9598a6cc8629bd2e8d162cce3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant de savoir si un fichier de sortie au format xFig est demandé ou non.  <a href="#a27f30fe9598a6cc8629bd2e8d162cce3">More...</a><br /></td></tr>
 <tr class="separator:a27f30fe9598a6cc8629bd2e8d162cce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3b45c8bd81682e29ba7e8fee7424ae0"><td class="memItemLeft" align="right" valign="top"><a id="aa3b45c8bd81682e29ba7e8fee7424ae0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getPostScript</b> ()</td></tr>
+<tr class="memitem:aa3b45c8bd81682e29ba7e8fee7424ae0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#aa3b45c8bd81682e29ba7e8fee7424ae0">getPostScript</a> ()</td></tr>
+<tr class="memdesc:aa3b45c8bd81682e29ba7e8fee7424ae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getteur permettant de savoir si un fichier de sortie au format PostScript est demandé ou non.  <a href="#aa3b45c8bd81682e29ba7e8fee7424ae0">More...</a><br /></td></tr>
 <tr class="separator:aa3b45c8bd81682e29ba7e8fee7424ae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab18110b58c994e7bc4971deb8578d367"><td class="memItemLeft" align="right" valign="top"><a id="ab18110b58c994e7bc4971deb8578d367"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>algoGenetique</b> ()</td></tr>
-<tr class="separator:ab18110b58c994e7bc4971deb8578d367"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a2ab3e1dc7998b59648e995ae28a6c1bb"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_interface.html#a2ab3e1dc7998b59648e995ae28a6c1bb">algoGenetique</a> (void *arg)</td></tr>
+<tr class="memdesc:a2ab3e1dc7998b59648e995ae28a6c1bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode appelant l'ensemble des méthodes pour le déroulement du programme.  <a href="#a2ab3e1dc7998b59648e995ae28a6c1bb">More...</a><br /></td></tr>
+<tr class="separator:a2ab3e1dc7998b59648e995ae28a6c1bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe permettant de créer et d'interagir avec l'interface graphique du logiciel. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a46c787075e2d259802c969d3b9013ed7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46c787075e2d259802c969d3b9013ed7">&#9670;&nbsp;</a></span>Interface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Interface::Interface </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>nom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>fichier</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructeur de la classe Inteface. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>nom </td></tr>
+    <tr><td class="paramname">string</td><td>fichier </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2ab3e1dc7998b59648e995ae28a6c1bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ab3e1dc7998b59648e995ae28a6c1bb">&#9670;&nbsp;</a></span>algoGenetique()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void * Interface::algoGenetique </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode appelant l'ensemble des méthodes pour le déroulement du programme. </p>
+<dl class="section return"><dt>Returns</dt><dd>NULL </dd></dl>
+
+</div>
+</div>
+<a id="ae3fb6f273993f8207b2418b68936d873"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3fb6f273993f8207b2418b68936d873">&#9670;&nbsp;</a></span>enableF2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Interface::enableF2 </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode permettant d'afficher le champ pour entrer la seconde fonction fitness uniquement si l'utilisateur demande d'en entrer 2. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>s </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a78a4744acdf653668872c67d837edab2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78a4744acdf653668872c67d837edab2">&#9670;&nbsp;</a></span>getCritereF1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Interface::getCritereF1 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir le type de critère (maximisation, minimisation ou valeur approchée) pour la première fonction fitness donné dans l'interface. </p>
+<dl class="section return"><dt>Returns</dt><dd>L'attribut critereF1. </dd></dl>
+
+</div>
+</div>
+<a id="a145689cdf027cfa6ceda126bac0b5d1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a145689cdf027cfa6ceda126bac0b5d1c">&#9670;&nbsp;</a></span>getCritereF2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Interface::getCritereF2 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir le type de critère (maximisation, minimisation ou valeur approchée) pour la seconde fonction fitness donné dans l'interface. </p>
+<dl class="section return"><dt>Returns</dt><dd>L'attribut critereF2. </dd></dl>
+
+</div>
+</div>
+<a id="ad3977dada600c42be3b8e0d3471e29d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3977dada600c42be3b8e0d3471e29d4">&#9670;&nbsp;</a></span>getEnCours()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Interface::getEnCours </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur de l'attribut encours. </p>
+<dl class="section return"><dt>Returns</dt><dd>L'attribut encours. </dd></dl>
+
+</div>
+</div>
+<a id="aa4646dc20dc1a4405483019aba42aec2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4646dc20dc1a4405483019aba42aec2">&#9670;&nbsp;</a></span>getFonctionFitness1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Interface::getFonctionFitness1 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir la première fonction fitness donnée dans l'interface. </p>
+<dl class="section return"><dt>Returns</dt><dd>L'attribut fonctionFitness1. </dd></dl>
+
+</div>
+</div>
+<a id="a15a03e2a28e7149f8393c03e88443764"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15a03e2a28e7149f8393c03e88443764">&#9670;&nbsp;</a></span>getFonctionFitness2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Interface::getFonctionFitness2 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir la seconde fonction fitness donnée dans l'interface. </p>
+<dl class="section return"><dt>Returns</dt><dd>L'attribut fonctionFitness2. </dd></dl>
+
+</div>
+</div>
+<a id="a9579d9b5ac11a8aa104df9a87f7918d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9579d9b5ac11a8aa104df9a87f7918d8">&#9670;&nbsp;</a></span>getLatex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Interface::getLatex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant de savoir si un fichier de sortie en LaTeX est demandé ou non. </p>
+<dl class="section return"><dt>Returns</dt><dd>L'attribut latex. </dd></dl>
+
+</div>
+</div>
+<a id="ad8bcb596fca8a32b843aaff0c1fdc149"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8bcb596fca8a32b843aaff0c1fdc149">&#9670;&nbsp;</a></span>getNbGenerationMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Interface::getNbGenerationMax </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir le nombre maximum de génération à atteindre donné dans l'interface. </p>
+<dl class="section return"><dt>Returns</dt><dd>L'attribut nbGenerationMax. </dd></dl>
+
+</div>
+</div>
+<a id="a2e023045d94fabb2ee950fad65feafc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e023045d94fabb2ee950fad65feafc5">&#9670;&nbsp;</a></span>getNomFichierSortie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Interface::getNomFichierSortie </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir le nom de fichier de résultats donné dans l'interface. </p>
+<dl class="section return"><dt>Returns</dt><dd>L'attribut nomFichierSortie. </dd></dl>
+
+</div>
+</div>
+<a id="aa3b45c8bd81682e29ba7e8fee7424ae0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3b45c8bd81682e29ba7e8fee7424ae0">&#9670;&nbsp;</a></span>getPostScript()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Interface::getPostScript </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant de savoir si un fichier de sortie au format PostScript est demandé ou non. </p>
+<dl class="section return"><dt>Returns</dt><dd>L'attribut postScript. </dd></dl>
+
+</div>
+</div>
+<a id="a483cd79ced3669461f96739afecebad0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a483cd79ced3669461f96739afecebad0">&#9670;&nbsp;</a></span>getTailleIndividu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Interface::getTailleIndividu </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir la taille pour un individu donnée dans l'interface. </p>
+<dl class="section return"><dt>Returns</dt><dd>L'attribut tailleIndividu. </dd></dl>
+
+</div>
+</div>
+<a id="a6e373414a358bf46b21d3d3f4c10ed57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e373414a358bf46b21d3d3f4c10ed57">&#9670;&nbsp;</a></span>getTaillePopulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Interface::getTaillePopulation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir la taille pour une population donnée dans l'interface. </p>
+<dl class="section return"><dt>Returns</dt><dd>L'attribut taillePopulation. </dd></dl>
+
+</div>
+</div>
+<a id="a319f2bc45a2cfb2fe56a2e8795d8ef36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a319f2bc45a2cfb2fe56a2e8795d8ef36">&#9670;&nbsp;</a></span>getTauxCrossover()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Interface::getTauxCrossover </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir le taux de crossover donné dans l'interface. </p>
+<dl class="section return"><dt>Returns</dt><dd>L'attribut tauxMutation. </dd></dl>
+
+</div>
+</div>
+<a id="ad265a27382bfa3b40fdae40f5344bf64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad265a27382bfa3b40fdae40f5344bf64">&#9670;&nbsp;</a></span>getTauxMutation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Interface::getTauxMutation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir le taux de mutation donné dans l'interface. </p>
+<dl class="section return"><dt>Returns</dt><dd>L'attribut tauxMutation. </dd></dl>
+
+</div>
+</div>
+<a id="a543c5de2681de9830c8de70e6bc14ce1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a543c5de2681de9830c8de70e6bc14ce1">&#9670;&nbsp;</a></span>getValeurApproxF1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Interface::getValeurApproxF1 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir la valeur à approchée pour la première fonction fitness donnée dans l'interface. </p>
+<dl class="section return"><dt>Returns</dt><dd>L'attribut valeurApproxF1. </dd></dl>
+
+</div>
+</div>
+<a id="ad41dc37c48ade6282b087e94757e5303"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad41dc37c48ade6282b087e94757e5303">&#9670;&nbsp;</a></span>getValeurApproxF2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Interface::getValeurApproxF2 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant d'obtenir la valeur à approchée pour la seconde fonction fitness donnée dans l'interface. </p>
+<dl class="section return"><dt>Returns</dt><dd>L'attribut valeurApproxF2. </dd></dl>
+
+</div>
+</div>
+<a id="a27f30fe9598a6cc8629bd2e8d162cce3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27f30fe9598a6cc8629bd2e8d162cce3">&#9670;&nbsp;</a></span>getXFig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Interface::getXFig </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getteur permettant de savoir si un fichier de sortie au format xFig est demandé ou non. </p>
+<dl class="section return"><dt>Returns</dt><dd>L'attribut xFig. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="interface_8h_source.html">interface.h</a></li>
 </ul>

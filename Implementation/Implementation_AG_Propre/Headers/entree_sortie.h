@@ -86,7 +86,7 @@ float* lireInitialisation(string nomFichier);
 float* lireScoreIndividu(string nomFichierPopulation, int generation, int indice);
 
 // Ecriture
-/// \fn bool ecrireFichierDonnees(Interface, string)
+/// \fn bool ecrireFichierDonnees(Interface *, string)
 /// \brief Fonction permettant d'écire dans un fichier l'ensemble des données que l'utilisateur entre dans l'interface graphique.
 /// \param Interface* interface
 /// \param string nomFichier
@@ -94,36 +94,37 @@ float* lireScoreIndividu(string nomFichierPopulation, int generation, int indice
 class Interface;
 bool ecrireFichierDonnees(Interface *interface, string nomFichier);
 
-/// \fn bool ecirePopulation(Population*, string)
+/// \fn bool ecrirePopulation(Population *, string)
 /// \brief Fonction permettant d'écire dans un fichier l'ensemble d'une population.
 /// \param Population* P pointeur sur une population
 /// \param string nomFichier fichier contenant les populations
 /// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
 
-/// \fn bool calcuerEcrireStats(Population*, string, string)
+/// \fn bool calculerEcrireStats(Population *, string, string)
 /// \brief Fonction permettant d'écrire les statistiques d'une population passée en paramètre dans un fichier passé en paramètre
 /// \param Population* P pointeur sur une population
 /// \param string nomFichierPopulation
 /// \param string nomFichierStats
 /// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
-
 class Population;
 bool ecrirePopulation(Population *P, string nomFichier);
 bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomFichierStats);
 
-/// \fn bool ecrireFichier(string, string, string)
+/// \fn bool ecrireFichier(string, string, string, Population *)
 /// \brief Fonction permettant d'écrire 
 /// \param string nomFichierSortie
 /// \param string nomFichierParametr
 /// \param string nomFichierStats
+/// \param Population *P pointeur sur la population à écrire.
 /// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
-bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichierStats,Population *P);
+bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichierStats, Population *P);
 
-/// \fn bool ecrireLatex(string)
-/// \brief Fonction permettant d'écrire un fichier de résultats pour l'utilisateur au format LaTeX
-/// \param string nomFichierSortie
+/// \fn bool ecrireLatex(string, Population *)
+/// \brief Fonction permettant d'écrire un fichier de résultats pour l'utilisateur au format LaTeX.
+/// \param string nomFichierSortie.
+/// \param Population *P pointeur sur la population à écrire.
 /// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
-bool ecrireLatex(string nomFichierSortie,Population *P);
+bool ecrireLatex(string nomFichierSortie, Population *P);
 
 /// \fn bool ecrirePostscript(string)
 /// \brief Fonction permettant d'écrire un fichier de résultats pour l'utilisateur au format PostScript
