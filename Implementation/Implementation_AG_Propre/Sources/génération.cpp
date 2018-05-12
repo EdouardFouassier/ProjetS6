@@ -250,23 +250,17 @@ bool Population::testConvergence(string nomFichierSortie) //Test OK
 	
 	for(int i = 4; i > 0; i --){
 		if(nombreCriteres == 1){
-			if((temp[i] <= (temp[i-1] + 0.015*temp[i-1])) && (temp[i] >= (temp[i-1] - 0.015*temp[i-1])))
-				std::cout <<"Temp["<<i<<"] : "<<temp[i]<<std::endl;
-			else {
-				std::cout <<"Temp["<<i<<"] : "<<temp[i]<<std::endl;
+			if(!((temp[i] <= (temp[i-1] + 0.015*temp[i-1])) && (temp[i] >= (temp[i-1] - 0.015*temp[i-1]))))
 				return false;
-			}
+			
+			std::cout <<"Temp["<<i<<"] : "<<temp[i]<<std::endl;	
 		}
 		else if(nombreCriteres == 2){
-			if(((tempCrit1[i] <= (tempCrit1[i-1] + 0.015*tempCrit1[i-1])) && (tempCrit1[i] >= (tempCrit1[i-1] - 0.015*tempCrit1[i-1])))&&((tempCrit2[i] <= (tempCrit2[i-1] + 0.015*tempCrit2[i-1])) && (tempCrit2[i] >= (tempCrit2[i-1] - 0.015*tempCrit2[i-1])))){
-				std::cout <<"TempCrit1["<<i<<"] : "<<tempCrit1[i]<<std::endl;
-				std::cout <<"TempCrit2["<<i<<"] : "<<tempCrit2[i]<<std::endl;
-			}
-			else{
-				std::cout <<"TempCrit1["<<i<<"] : "<<tempCrit1[i]<<std::endl;
-				std::cout <<"TempCrit2["<<i<<"] : "<<tempCrit2[i]<<std::endl;
+			if(!(((tempCrit1[i] <= (tempCrit1[i-1] + 0.015*tempCrit1[i-1])) && (tempCrit1[i] >= (tempCrit1[i-1] - 0.015*tempCrit1[i-1])))&&((tempCrit2[i] <= (tempCrit2[i-1] + 0.015*tempCrit2[i-1])) && (tempCrit2[i] >= (tempCrit2[i-1] - 0.015*tempCrit2[i-1])))))
 				return false;
-			}
+			
+			std::cout <<"TempCrit1["<<i<<"] : "<<tempCrit1[i]<<std::endl;
+			std::cout <<"TempCrit2["<<i<<"] : "<<tempCrit2[i]<<std::endl;
 		}
 	}
 	
