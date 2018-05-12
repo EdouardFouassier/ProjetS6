@@ -104,6 +104,7 @@ install:
 		sudo apt-get install qtbase5-dev
 		sudo apt-get install texlive-latex-extra
 		sudo apt-get install texlive-lang-french
+		sudo apt-get install gnuplot
 
 run: compile clean
 	./Implementation_AG
