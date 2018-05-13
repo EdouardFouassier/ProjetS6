@@ -114,10 +114,9 @@ bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomF
 /// \brief Fonction permettant d'écrire 
 /// \param string nomFichierSortie
 /// \param string nomFichierParametr
-/// \param string nomFichierStats
 /// \param Population *P pointeur sur la population à écrire.
 /// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
-bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, Population *P);//MODIFICATION CDS  A JUSTIFIER (bool ecrireFichier(string file1, string file2, string file3))//
+bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, Population *P); //MODIFICATION CDS  A JUSTIFIER (bool ecrireFichier(string file1, string file2, string file3))//
 
 //MODIFICATION CDS  A JUSTIFIER : SUPRESSION ecrireUnScore(int score, file *f)//je l'avais tellement, mais tellement dis que ca servait a rien ca aussi
 
@@ -126,7 +125,7 @@ bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, Populatio
 /// \param string nomFichierSortie.
 /// \param Population *P pointeur sur la population à écrire.
 /// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
-bool ecrireLatex(string nomFichierSortie, Population *P);
+bool ecrireLatex(string nomFichierSortie, Population *P); //MODIFICATION CDS  A JUSTIFIER (bool ecrirePopulation(Population p, String nomFichier))//
 
 /// \fn bool ecrirePostscript(string)
 /// \brief Fonction permettant d'écrire un fichier de résultats pour l'utilisateur au format PostScript

@@ -274,7 +274,7 @@ void * Interface::algoGenetique(void * arg){
         //~ }
 	}
 	string param=nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt";
-	ecrireFichier(nomFichierSortie,param,"",p);
+	ecrireFichier(nomFichierSortie,param,p);
 	//~ ecrireLatex(nomFichierSortie,p);
 	cout<< "FIN" <<endl;
 	encours=0;

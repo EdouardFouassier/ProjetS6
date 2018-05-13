@@ -7,43 +7,6 @@
 
 using namespace std;
 
-// Validation
-//~ bool testCoherenceDonnees(string nomFichier) {
-
-	//~ int i = 0;
-	//~ ifstream fichier(nomFichier, ios::in);
-	//~ string donnees;
-	//~ bool x;
-	//~ int fitness2 = 0;
-	//~ if(fichier)  
-    //~ { 
-	//~ while(i != 12) { 
-			
-		   //~ getline(fichier, donnees); 
-           //~ if (i == 0) { x = estEntierPositif(donnees); }
-           //~ if (i == 1) { x = estProbabilite(donnees); }
-           //~ if (i == 2) { x = estProbabilite(donnees); }
-           //~ if (i == 3) { x = estEntierPositif(donnees); }
-           //~ if (i == 4) { x = estEntierPositif(donnees); }
-           //~ if (i == 5) { x = estEntierPositif(donnees); }
-           //~ if (i == 6) { x = estParsable(donnees); }
-           //~ if (i == 7) { x = estEntierPositif(donnees); }
-           //~ if (i == 8) { if (!donnees.empty()) { x = estEntierPositif(donnees); } }
-           //~ if (i == 9) { if (!donnees.empty()) { x = estParsable(donnees); fitness2 = 1; } }
-           //~ if ((i == 10) && (fitness2 == 1)) { x = estEntierPositif(donnees); }
-           //~ if (i == 11) { if (!donnees.empty()) { x = estEntierPositif(donnees); } }
-           //~ if (x == false) { return false; }
-           //~ i++;
-           
-	//~ }
-	//~ fichier.close(); 
-	//~ return true;
-    //~ }
-    //~ else { cerr << "Erreur ouverture fichier \n" << endl; return false;}
-
-//~ }
-
-
 bool testCoherenceDonnees(string nomFichier) {
 
 	int i = 0;
@@ -334,7 +297,6 @@ bool estParsable(string fonction) {
 
 // Lecture
 float* lireStat(FILE *F) {
-	
 	if(F) {
 		float *tableauStats;
 		tableauStats = new float[3];
@@ -383,7 +345,6 @@ float* lireStat(FILE *F) {
 }
 
 string* lireInfoRegen(string nomFichier){
-	
 	ifstream fichier(nomFichier.c_str(), ios::in);						//On ouvre le fichier en lecture
 	if(fichier) {
 		string *tableauInfoRegen;										
@@ -412,15 +373,7 @@ string* lireInfoRegen(string nomFichier){
 		getline(fichier,sautligne);
 		tableauInfoRegen[9] = sautligne;					//valeurFonctionFitness2;
 		tableauInfoRegen[10] = nomFichier;
-		//~ fichier >> tableauInfoRegen[0] >> tableauInfoRegen[1]			//On lit les lignes du fichier que l'on stocke dans les cases du tableau, 0 -> Taux de crossover, 1 -> Taille de la population
-				//~ >> tableauInfoRegen[2] >> tableauInfoRegen[3]			//2 -> Nombre de generation max, 3 -> Nombre de criteres 
-				//~ >> tableauInfoRegen[6] >> tableauInfoRegen[4]			//6 -> Fonction fitness1, 4 -> Critere Fonction fitness1
-				//~ >> tableauInfoRegen[8] >> tableauInfoRegen[7]			//8 -> Valeur approchée Fonction fitness1, 7 -> Fonction fitness2
-				//~ >> tableauInfoRegen[5] >> tableauInfoRegen[9];			//5 -> Critere Fonction fitness2, 9 -> Valeur approchée Fonction fitness1
-				
-				
 		fichier.close();												//On ferme le fichier
-		
 		//~ printf("\n");		
 		//~ cout << tableauInfoRegen[0] << " Taux de crossover " << endl;
 		//~ cout << tableauInfoRegen[1] << " Taille de la population "<< endl;
@@ -432,10 +385,8 @@ string* lireInfoRegen(string nomFichier){
 		//~ cout << tableauInfoRegen[7] << " Fct2 " << endl;
 		//~ cout << tableauInfoRegen[8] << " Valeur approchée Fct1 " << endl;
 		//~ cout << tableauInfoRegen[9] << " Valeur approchée Fct2 " << endl;
-		
 		return tableauInfoRegen;										//On retourne le tableau
 	}
-	
 	else {
 		cerr << "Erreur ouverture fichier" << endl;
 		return NULL;
@@ -443,13 +394,10 @@ string* lireInfoRegen(string nomFichier){
 }
 
 float* lireInitialisation (string nomFichier) {
-	
 	ifstream fichier(nomFichier.c_str(), ios::in);						//On ouvre le fichier en lecture
-
 	if(fichier) {
 		float *tableauInitialisation;		
 		tableauInitialisation = new float[3];							//On cree un tableau de floattant de trois cases
-		
 		fichier >> tableauInitialisation[0] >> tableauInitialisation[1];//On lit les lignes deux premieres lignes du fichier que l'on stocke dans les cases du tableau, 0 -> Taille des individus, 1 -> Taux de mutation
 		string sautligne;
 		getline(fichier,sautligne);										//On saute les trois lignes suivante du fichier	pour aller jusqu'a la valeur du nombre de criteres				
@@ -457,37 +405,29 @@ float* lireInitialisation (string nomFichier) {
 		getline(fichier,sautligne);
 		getline(fichier,sautligne);
 		fichier >> tableauInitialisation[2];							//On lit la sixieme ligne que l'on stocke dans la derniere case du tableau, 3 -> Nombre de criteres 
-		fichier.close();												//On ferme le fichier
-				
+		fichier.close();												//On ferme le fichier	
 		//~ cout << tableauInitialisation[0] << " Taille Individu "<< endl;
 		//~ cout << tableauInitialisation[1] << " Taux Mutation " << endl;
 		//~ cout << tableauInitialisation[2] << " Nombre de critères " << endl;
-		
 		return tableauInitialisation;									//On retourne le tableau
 	}
-	
 	else {
 		cerr << "Erreur ouverture fichier" << endl;
 		return NULL;
 	}
 }
 
-
-float* lireScoreIndividu(string nomFichierPopulation, int generation, int indice){
-		
+float* lireScoreIndividu(string nomFichierPopulation, int generation, int indice){	
 	ifstream fichier(nomFichierPopulation.c_str(), ios::in);			//On ouvre le fichier en lecture
-	
 	if(fichier) {
 		float* scoreIndividu;												
 		scoreIndividu = new float[1];									//On cree un tableau d'entiers de une case
 		string sautligne;												//On cree une variable string qui nous servira a sauter des lignes
-		
 		for(int ligneGeneration = 1; ligneGeneration < generation; ligneGeneration++)
 		{	
 			getline(fichier,sautligne);									//La boucle permet de sauter les lignes pour aller jusqu'a la generation qui nous interesse
 			getline(fichier,sautligne);									//On saute deux lignes a chaque fois car la premiere contient le premier score et la deuxieme contient le deuxieme score des individus d'une meme population
-		}
-																		
+		}																
 		for(int indiceIndividu = 0; indiceIndividu <= indice; indiceIndividu++) { fichier >> scoreIndividu[0]; }	//La boucle permet d'aller jusqu'au score de l'individu donné en indice, comme on ecrit tout les scores lus dans la même variable, seul le dernier est conservé
 		getline(fichier,sautligne);										//Permet de lire le reste de la ligne et donc de passer a la ligne suivante									
 		fichier >> sautligne;											//On lit le premier la premiere chaine de caractère jusqu'au séparateur (soit un espace, soit un retour chariot)
@@ -515,20 +455,15 @@ float* lireScoreIndividu(string nomFichierPopulation, int generation, int indice
 	}
 }
 
-
 // Ecriture
 bool ecrireFichierDonnees(Interface *interface, string nomFichier) {
-	
 	ofstream fichier(nomFichier.c_str(), ios::out | ios::trunc);		//On ouvre le fichier en ecriture, son contenu est efface
-
     if(fichier) {
 		fichier << interface->getTailleIndividu() <<  endl; 			//Taille Individu
 		fichier << interface->getTauxMutation() <<  endl;				//Taux Mutation
-		
 		fichier << interface->getTauxCrossover() <<  endl;				//Taux Crossover
 		fichier << interface->getTaillePopulation() <<  endl;			//Taille Population
 		fichier << interface->getNbGenerationMax() <<  endl;			//Nombre de Generation Maximum
-		
 		if(interface->getCritereF2() == 0) {							//Nombre de criteres, 1 si pas de fonction fitness 2, sinon 2
 				fichier << "1" <<  endl;
 		}																	
@@ -560,9 +495,8 @@ bool ecrireFichierDonnees(Interface *interface, string nomFichier) {
 
 bool ecrirePopulation(Population *P, string nomFichier){ //LES TEST SONT ENCORE A FAIRE
 	ofstream fichier(nomFichier.c_str(), ios::out | ios::app);
-
-   if(fichier)
-   {
+	if(fichier)
+	{
 	   //cout<<"check1"<<endl;
        for(int i=0;i<P->getNombreIndividus()-1;i++){
 		   fichier << P->getEnsemble()[i]->getScore(0) << " ";
@@ -573,7 +507,7 @@ bool ecrirePopulation(Population *P, string nomFichier){ //LES TEST SONT ENCORE 
        }
        fichier << P->getEnsemble()[P->getNombreIndividus()-1]->getScore(0) << endl;
        //cout<<"check2"<<endl;
-       if(P->getNombreCriteres() == 2)
+		if(P->getNombreCriteres() == 2)
        {
 			for(int i=0;i<P->getNombreIndividus()-1;i++){
 			fichier << P->getEnsemble()[i]->getScore(1) << " ";
@@ -590,15 +524,12 @@ bool ecrirePopulation(Population *P, string nomFichier){ //LES TEST SONT ENCORE 
        return true;
    }
    else return false;
-
    return true;
 }
 
 
 bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomFichierStats){
-	
 	ofstream fichierStats(nomFichierStats.c_str(), ios::out | ios::app);	//On ouvre le fichier en ecriture, son contenu est efface
-	
 	if(fichierStats) {
 		if(P->getNumeroGeneration()==1) fichierStats<< "Generation Moyenne1 Minimum1 Maximum1 Moyenne2 Minimum2 Maximum2"<<endl;
 		float *val,*min,*max,*moy;
@@ -622,7 +553,6 @@ bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomF
 		max[0]=val[0];
 		moy[0] =val[0];
 		delete[] val;
-		
 		for(int i=1;i<P->getNombreIndividus();i++){
 			//~ cout << moy[0] << " " << min[0] << " " << max[0] << endl;
 			
@@ -646,9 +576,7 @@ bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomF
 				moy[1]=(moy[1]-max[1]-min[1])/(P->getNombreIndividus()-2);
 				fichierStats <<" "<< moy[1] << " " << min[1] << " " << max[1]<< endl ;
 			}
-		else {
-			fichierStats << " PasCritere"<< endl ;					//Si les individus ne sont evalués qu'avec un seul critère, alors on ecrit "PasCritere" 
-		}
+		else { fichierStats << " PasCritere"<< endl ; }				//Si les individus ne sont evalués qu'avec un seul critère, alors on ecrit "PasCritere" 
 		delete[] min;
 		delete[] max;
 		delete[] moy;
@@ -660,12 +588,10 @@ bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomF
 		cerr << "Erreur ouverture fichier statistiques" <<endl;
 		return false;
 	}
-	
 }
 
-bool ecrireFichier(string nomFichierSortie, string nomFichierParametre, string nomFichierStats, Population *P){
+bool ecrireFichier(string nomFichierSortie, string nomFichierParametre, Population *P){
 	ifstream fichierParam(nomFichierParametre.c_str(), ios::in);						//On ouvre le fichier en lecture
-
 	if(fichierParam) {
 		string line;
 		for(int i=0;i<13;i++)
@@ -679,13 +605,17 @@ bool ecrireFichier(string nomFichierSortie, string nomFichierParametre, string n
 								string nomFichierEnd = "rm "+nomFichierSortie+"/"+nomFichierSortie+".tex"; system(nomFichierEnd.c_str()); }
 						 }
 		if(line[2]=='1') { ecrireXfig(nomFichierSortie); }
+		return true;
+	}
+	else {
+		cerr << "Erreur ouverture fichierParametre" << endl;
+		return false;
 	}
 }
 
 bool ecrireLatex(string nomFichierSortie,Population *P){
 	string nomFichierEnd = nomFichierSortie+"/"+nomFichierSortie+".tex";
 	ofstream fichierLatex(nomFichierEnd.c_str(), ios::out | ios::trunc);
-	
 	if(fichierLatex) {
 		fichierLatex << "\\documentclass[a4paper,11pt]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[T1]{fontenc}\n\\usepackage[french]{babel}\n\\usepackage[right=2.5cm, left=2.5cm, bottom=4cm, top=3cm]{geometry}\n\\usepackage{textcomp}\n\\usepackage{graphicx}\n\\usepackage{mathtools,amssymb,amsthm}\n\\usepackage{lmodern,fixltx2e}\n\\usepackage{multirow}\n\\usepackage{array}\n\\usepackage{longtable}\n\\usepackage{fancybox}\n\\usepackage{pgfplots}\n" << endl;
 		fichierLatex << "\\title{\\huge "<< nomFichierSortie <<"}\n\\date{}\n\\author{}" << endl;
@@ -697,8 +627,6 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 		float* tabInitialisation = lireInitialisation(nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt");
 		fichierLatex << "		\\item Taille des individus : " << tabInitialisation[0] << endl;
 		fichierLatex << "		\\item Taux de mutation : " << tabInitialisation[1] << endl;
-		
-	
 		string* tabInfoRegen = lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt");
 		fichierLatex << "		\\item Taux de crossover : " << tabInfoRegen[0] << endl;
 		fichierLatex << "		\\item Taille de la population : " << tabInfoRegen[1] << endl;
@@ -713,7 +641,6 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 		if(tabInfoRegen[5] == "3") { fichierLatex << "		\\item Valeur approchée : " << tabInfoRegen[9] << endl; }
 		}
 		fichierLatex << "	\\end{itemize}\n" << endl;
-		
 		fichierLatex << "	\\begin{center}\\begin{tikzpicture}[yscale=1.5,xscale=1.5]" << endl;
 		fichierLatex << "	\\begin{axis}[ no markers, axis lines = left, xlabel = $Generations$, ylabel = {$Moyennes$}, legend pos=outer north east, legend style={font=\\fontsize{8}{9}\\selectfont}, title={\\begin{Bcenter} Evolution des scores par rapport au critère 1 \\end{Bcenter} }]" << endl;
 		fichierLatex << "		\\addplot table [x=Generation,y=Moyenne1]{" << nomFichierSortie+"_Stats.txt" << "};" << endl;
@@ -721,8 +648,7 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 		fichierLatex << "		\\addplot table [x=Generation,y=Maximum1]{" << nomFichierSortie+"_Stats.txt" << "};" << endl;
 		fichierLatex << "		\\legend{Moyenne Critere1,Minimum Critere1, Maximum Critere1}" << endl;
 		fichierLatex << "	\\end{axis}" << endl;
-		fichierLatex << "	\\end{tikzpicture}\\end{center}" << endl;
-			
+		fichierLatex << "	\\end{tikzpicture}\\end{center}" << endl;	
 		if(tabInfoRegen[3] == "2") {
 			fichierLatex << "	\\begin{center}\\begin{tikzpicture}[yscale=1.5,xscale=1.5]" << endl;
 			fichierLatex << "	\\begin{axis}[ no markers, axis lines = left, xlabel = $Generations$, ylabel = {$Moyennes$}, legend pos=outer north east, legend style={font=\\fontsize{8}{9}\\selectfont}, title={\\begin{Bcenter} Evolution des scores par rapport au critère 2 \\end{Bcenter} }]" << endl;
@@ -756,12 +682,9 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 				}
 			}
 		}
-		
-	
 		fichierLatex << "	Le meilleur individu est : \\\\\n" << endl;
 		fichierLatex << "	\\begin{center}\\begin{tabular}{|c|c|}" << endl;
 		fichierLatex << "	\\hline Solution & Valeur 1\\\\"<<endl;
-
 		for(int i=0;i<cpt;i++){
 			fichierLatex << "	\\hline ";
 			for(int j=0;j<tabInitialisation[0];j++){
@@ -770,7 +693,6 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 			fichierLatex << " & "<< solutions[i].decodage(solutions[i]) <<"\\\\"<<endl;
 		}
 		fichierLatex << "	\\hline"<<endl<<"	\\end{tabular}\\end{center}\n"<<endl;
-		
 		fichierLatex << "	\\begin{center}\\begin{longtable}{|>{\\centering}m{2cm}|>{\\centering}m{2cm}|>{\\centering}m{2cm}"; if(tabInfoRegen[3] == "2") { fichierLatex << "|>{\\centering}m{2cm}|>{\\centering}m{2cm}|>{\\centering}m{2cm}|>{\\centering\\arraybackslash}m{2cm}|}" << endl; } else { fichierLatex << "|>{\\centering\\arraybackslash}m{2cm}|}" << endl; }
 		fichierLatex << "	\\hline Générations & Moyenne Critère 1 & Minimum Critère 1 & Maximum Critère 1"; if(tabInfoRegen[3] == "2") { fichierLatex << " & Moyenne Critère 2 & Minimum Critère 2 & Maximum Critère 2 \\\\" << endl; } else { fichierLatex << " \\\\" << endl;}
 		float *tabStats;
@@ -785,16 +707,12 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 		delete[] tabInitialisation;
 		delete[] tabInfoRegen;
 		fclose(F);
-		
 		fichierLatex << "	\\hline" << endl;
 		fichierLatex << "	\\end{longtable}\\end{center}" << endl;
-		
 		fichierLatex << "\\end{document}" << endl;
-		
 		fichierLatex.close();
 		return true;
 	}
-	
 	else {
 		cerr << "Erreur ouverture fichier latex" << endl;
 		return false;
@@ -802,7 +720,6 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 }
 
 bool ecrirePostscript(string nomFichierSortie) {
-	
 	string latexToDvi = "cd "+ nomFichierSortie + " && latex "+nomFichierSortie+".tex";
 	//~ cout << system(latexToDvi.c_str()) <<endl;
 	if(system(latexToDvi.c_str()) == 0) {
@@ -829,7 +746,6 @@ bool ecrirePostscript(string nomFichierSortie) {
 bool ecrireXfig(string nomFichierSortie){
 	string fichierGnuplot = nomFichierSortie+"/"+nomFichierSortie+".gnuplot";
 	ofstream fichierGnu(fichierGnuplot.c_str(), ios::out | ios::trunc);
-	
 	if(fichierGnu) {
 		fichierGnu << "set term fig color big\n\nset multiplot\nset origin 0.0 , 0.5\nset size 0.5, 0.5\nset key right\nset title \"Critere 1\""<< endl;
 		fichierGnu << "plot \""<< nomFichierSortie+"_Stats.txt" << "\" using 1:2 with lines title \"Moyenne Critere 1\", \"" << nomFichierSortie+"_Stats.txt" << "\" using 1:3  with lines title \"Minimum Critere 1\", \"" << nomFichierSortie+"_Stats.txt" << "\" using 1:4  with lines title \"Maximum Critere 1\"" << endl;
@@ -841,7 +757,6 @@ bool ecrireXfig(string nomFichierSortie){
 		delete[] tabInfoRegen;
 		fichierGnu << "unset multiplot"<< endl;
 		fichierGnu.close();
-		
 		string GnuCmd = "cd "+ nomFichierSortie + " && gnuplot "+nomFichierSortie+".gnuplot >> "+nomFichierSortie+".fig";
 		if(system(GnuCmd.c_str()) == 0) { 
 			string rmGnuplot = "cd "+ nomFichierSortie +" && rm "+nomFichierSortie+".gnuplot";
@@ -856,8 +771,7 @@ bool ecrireXfig(string nomFichierSortie){
 		else {
 			cerr << "Erreur GnuCmd" << endl;
 			return false;
-		}
-		
+		}	
 	}
 	else {
 		cerr << "Erreur ouverture fichierGnu" << endl;

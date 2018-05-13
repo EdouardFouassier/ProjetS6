@@ -1,0 +1,403 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[right=2.5cm, left=2.5cm, bottom=4cm, top=3cm]{geometry}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{mathtools,amssymb,amsthm}
+\usepackage{lmodern,fixltx2e}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{fancybox}
+\usepackage{pgfplots}
+
+\title{\huge Lol}
+\date{}
+\author{}
+\begin{document}
+	\maketitle
+
+	Voici les résultats données par le programme : \\\\
+	Les données initiales sont :\\
+	\begin{itemize}
+		\item Taille des individus : 32
+		\item Taux de mutation : 0.2
+		\item Taux de crossover : 0.8
+		\item Taille de la population : 100
+		\item Nombre de génération maximum : 1000
+		\item Nombre de critères : 1
+		\item Fonction Fitness 1 : 2+x
+		\item Critère Fonction Fitness 1 : Minimisation
+	\end{itemize}
+
+	\begin{center}\begin{tikzpicture}[yscale=1.5,xscale=1.5]
+	\begin{axis}[ no markers, axis lines = left, xlabel = $Generations$, ylabel = {$Moyennes$}, legend pos=outer north east, legend style={font=\fontsize{8}{9}\selectfont}, title={\begin{Bcenter} Evolution des scores par rapport au critère 1 \end{Bcenter} }]
+		\addplot table [x=Generation,y=Moyenne1]{Lol_Stats.txt};
+		\addplot table [x=Generation,y=Minimum1]{Lol_Stats.txt};
+		\addplot table [x=Generation,y=Maximum1]{Lol_Stats.txt};
+		\legend{Moyenne Critere1,Minimum Critere1, Maximum Critere1}
+	\end{axis}
+	\end{tikzpicture}\end{center}
+	Le meilleur individu est : \\
+
+	\begin{center}\begin{tabular}{|c|c|}
+	\hline Solution & Valeur 1\\
+	\hline 11111111010011101010010100001010 & -2147483648\\
+	\hline 11111111010011101010010100001010 & -2147483648\\
+	\hline 11111111010011101010010100001010 & -2147483648\\
+	\hline 11111111010011101010010100001010 & -2147483648\\
+	\hline 11111111010011101010010100001010 & -2147483648\\
+	\hline 11111111010011101010010100001010 & -2147483648\\
+	\hline 11111111010011101010010100001010 & -2147483648\\
+	\hline 11111111010011101010010100001010 & -2147483648\\
+	\hline 11111111010011101010010100001010 & -2147483648\\
+	\hline 11111111010011101010010100001010 & -2147483648\\
+	\hline
+	\end{tabular}\end{center}
+
+	\begin{center}\begin{longtable}{|>{\centering}m{2cm}|>{\centering}m{2cm}|>{\centering}m{2cm}|>{\centering\arraybackslash}m{2cm}|}
+	\hline Générations & Moyenne Critère 1 & Minimum Critère 1 & Maximum Critère 1 \\
+	\hline 1 & -1 & -2 & 1\\
+	\hline 2 & -1 & -2 & 1\\
+	\hline 3 & -2 & -2 & 1\\
+	\hline 4 & -2 & -2 & 1\\
+	\hline 5 & -2 & -2 & 1\\
+	\hline 6 & -2 & -2 & 1\\
+	\hline 7 & -2 & -2 & -2\\
+	\hline 8 & -2 & -2 & -2\\
+	\hline 9 & -2 & -2 & -2\\
+	\hline 10 & -2 & -2 & -2\\
+	\hline 11 & -2 & -2 & -2\\
+	\hline 12 & -2 & -2 & -2\\
+	\hline 13 & -2 & -2 & -2\\
+	\hline 14 & -2 & -2 & -2\\
+	\hline 15 & -2 & -2 & -2\\
+	\hline 16 & -2 & -2 & -2\\
+	\hline 17 & -2 & -2 & -2\\
+	\hline 18 & -2 & -2 & -2\\
+	\hline 19 & -2 & -2 & -2\\
+	\hline 20 & -2 & -2 & -2\\
+	\hline 21 & -2 & -2 & -2\\
+	\hline 22 & -2 & -2 & -2\\
+	\hline 23 & -2 & -2 & -2\\
+	\hline 24 & -2 & -2 & -2\\
+	\hline 25 & -2 & -2 & -2\\
+	\hline 26 & -2 & -2 & -2\\
+	\hline 27 & -2 & -2 & -2\\
+	\hline 28 & -2 & -2 & -2\\
+	\hline 29 & -2 & -2 & -2\\
+	\hline 30 & -2 & -2 & -2\\
+	\hline 31 & -2 & -2 & -2\\
+	\hline 32 & -2 & -2 & -2\\
+	\hline 33 & -2 & -2 & -2\\
+	\hline 34 & -2 & -2 & -2\\
+	\hline 35 & -2 & -2 & -2\\
+	\hline 36 & -2 & -2 & -2\\
+	\hline 37 & -2 & -2 & -2\\
+	\hline 38 & -2 & -2 & -2\\
+	\hline 39 & -2 & -2 & -2\\
+	\hline 40 & -2 & -2 & -2\\
+	\hline 41 & -2 & -2 & -2\\
+	\hline 42 & -2 & -2 & -2\\
+	\hline 43 & -2 & -2 & -2\\
+	\hline 44 & -2 & -2 & -2\\
+	\hline 45 & -2 & -2 & -2\\
+	\hline 46 & -2 & -2 & -2\\
+	\hline 47 & -2 & -2 & -2\\
+	\hline 48 & -2 & -2 & -2\\
+	\hline 49 & -2 & -2 & -2\\
+	\hline 50 & -2 & -2 & -2\\
+	\hline 51 & -2 & -2 & -2\\
+	\hline 52 & -2 & -2 & -2\\
+	\hline 53 & -2 & -2 & -2\\
+	\hline 54 & -2 & -2 & -2\\
+	\hline 55 & -2 & -2 & -2\\
+	\hline 56 & -2 & -2 & -2\\
+	\hline 57 & -2 & -2 & -2\\
+	\hline 58 & -2 & -2 & -2\\
+	\hline 59 & -2 & -2 & -2\\
+	\hline 60 & -2 & -2 & -2\\
+	\hline 61 & -2 & -2 & -2\\
+	\hline 62 & -2 & -2 & -2\\
+	\hline 63 & -2 & -2 & -2\\
+	\hline 64 & -2 & -2 & -2\\
+	\hline 65 & -2 & -2 & -2\\
+	\hline 66 & -2 & -2 & -2\\
+	\hline 67 & -2 & -2 & -2\\
+	\hline 68 & -2 & -2 & -2\\
+	\hline 69 & -2 & -2 & -2\\
+	\hline 70 & -2 & -2 & -2\\
+	\hline 71 & -2 & -2 & -2\\
+	\hline 72 & -2 & -2 & -2\\
+	\hline 73 & -2 & -2 & -2\\
+	\hline 74 & -2 & -2 & -2\\
+	\hline 75 & -2 & -2 & -2\\
+	\hline 76 & -2 & -2 & -2\\
+	\hline 77 & -2 & -2 & -2\\
+	\hline 78 & -2 & -2 & -2\\
+	\hline 79 & -2 & -2 & -2\\
+	\hline 80 & -2 & -2 & -2\\
+	\hline 81 & -2 & -2 & -2\\
+	\hline 82 & -2 & -2 & -2\\
+	\hline 83 & -2 & -2 & -2\\
+	\hline 84 & -2 & -2 & -2\\
+	\hline 85 & -2 & -2 & -2\\
+	\hline 86 & -2 & -2 & -2\\
+	\hline 87 & -2 & -2 & -2\\
+	\hline 88 & -2 & -2 & -2\\
+	\hline 89 & -2 & -2 & -2\\
+	\hline 90 & -2 & -2 & -2\\
+	\hline 91 & -2 & -2 & -2\\
+	\hline 92 & -2 & -2 & -2\\
+	\hline 93 & -2 & -2 & -2\\
+	\hline 94 & -2 & -2 & -2\\
+	\hline 95 & -2 & -2 & -2\\
+	\hline 96 & -2 & -2 & -2\\
+	\hline 97 & -2 & -2 & -2\\
+	\hline 98 & -2 & -2 & -2\\
+	\hline 99 & -2 & -2 & -2\\
+	\hline 100 & -2 & -2 & -2\\
+	\hline 101 & -2 & -2 & -2\\
+	\hline 102 & -2 & -2 & -2\\
+	\hline 103 & -2 & -2 & -2\\
+	\hline 104 & -2 & -2 & -2\\
+	\hline 105 & -2 & -2 & -2\\
+	\hline 106 & -2 & -2 & -2\\
+	\hline 107 & -2 & -2 & -2\\
+	\hline 108 & -2 & -2 & -2\\
+	\hline 109 & -2 & -2 & -2\\
+	\hline 110 & -2 & -2 & -2\\
+	\hline 111 & -2 & -2 & -2\\
+	\hline 112 & -2 & -2 & -2\\
+	\hline 113 & -2 & -2 & -2\\
+	\hline 114 & -2 & -2 & -2\\
+	\hline 115 & -2 & -2 & -2\\
+	\hline 116 & -2 & -2 & -2\\
+	\hline 117 & -2 & -2 & -2\\
+	\hline 118 & -2 & -2 & -2\\
+	\hline 119 & -2 & -2 & -2\\
+	\hline 120 & -2 & -2 & -2\\
+	\hline 121 & -2 & -2 & -2\\
+	\hline 122 & -2 & -2 & -2\\
+	\hline 123 & -2 & -2 & -2\\
+	\hline 124 & -2 & -2 & -2\\
+	\hline 125 & -2 & -2 & -2\\
+	\hline 126 & -2 & -2 & -2\\
+	\hline 127 & -2 & -2 & -2\\
+	\hline 128 & -2 & -2 & -2\\
+	\hline 129 & -2 & -2 & -2\\
+	\hline 130 & -2 & -2 & -2\\
+	\hline 131 & -2 & -2 & -2\\
+	\hline 132 & -2 & -2 & -2\\
+	\hline 133 & -2 & -2 & -2\\
+	\hline 134 & -2 & -2 & -2\\
+	\hline 135 & -2 & -2 & -2\\
+	\hline 136 & -2 & -2 & -2\\
+	\hline 137 & -2 & -2 & -2\\
+	\hline 138 & -2 & -2 & -2\\
+	\hline 139 & -2 & -2 & -2\\
+	\hline 140 & -2 & -2 & -2\\
+	\hline 141 & -2 & -2 & -2\\
+	\hline 142 & -2 & -2 & -2\\
+	\hline 143 & -2 & -2 & -2\\
+	\hline 144 & -2 & -2 & -2\\
+	\hline 145 & -2 & -2 & -2\\
+	\hline 146 & -2 & -2 & -2\\
+	\hline 147 & -2 & -2 & -2\\
+	\hline 148 & -2 & -2 & -2\\
+	\hline 149 & -2 & -2 & -2\\
+	\hline 150 & -2 & -2 & -2\\
+	\hline 151 & -2 & -2 & -2\\
+	\hline 152 & -2 & -2 & -2\\
+	\hline 153 & -2 & -2 & -2\\
+	\hline 154 & -2 & -2 & -2\\
+	\hline 155 & -2 & -2 & -2\\
+	\hline 156 & -2 & -2 & -2\\
+	\hline 157 & -2 & -2 & -2\\
+	\hline 158 & -2 & -2 & -2\\
+	\hline 159 & -2 & -2 & -2\\
+	\hline 160 & -2 & -2 & -2\\
+	\hline 161 & -2 & -2 & -2\\
+	\hline 162 & -2 & -2 & -2\\
+	\hline 163 & -2 & -2 & -2\\
+	\hline 164 & -2 & -2 & -2\\
+	\hline 165 & -2 & -2 & -2\\
+	\hline 166 & -2 & -2 & -2\\
+	\hline 167 & -2 & -2 & -2\\
+	\hline 168 & -2 & -2 & -2\\
+	\hline 169 & -2 & -2 & -2\\
+	\hline 170 & -2 & -2 & -2\\
+	\hline 171 & -2 & -2 & -2\\
+	\hline 172 & -2 & -2 & -2\\
+	\hline 173 & -2 & -2 & -2\\
+	\hline 174 & -2 & -2 & -2\\
+	\hline 175 & -2 & -2 & -2\\
+	\hline 176 & -2 & -2 & -2\\
+	\hline 177 & -2 & -2 & -2\\
+	\hline 178 & -2 & -2 & -2\\
+	\hline 179 & -2 & -2 & -2\\
+	\hline 180 & -2 & -2 & -2\\
+	\hline 181 & -2 & -2 & -2\\
+	\hline 182 & -2 & -2 & -2\\
+	\hline 183 & -2 & -2 & -2\\
+	\hline 184 & -2 & -2 & -2\\
+	\hline 185 & -2 & -2 & -2\\
+	\hline 186 & -2 & -2 & -2\\
+	\hline 187 & -2 & -2 & -2\\
+	\hline 188 & -2 & -2 & -2\\
+	\hline 189 & -2 & -2 & -2\\
+	\hline 190 & -2 & -2 & -2\\
+	\hline 191 & -2 & -2 & -2\\
+	\hline 192 & -2 & -2 & -2\\
+	\hline 193 & -2 & -2 & -2\\
+	\hline 194 & -2 & -2 & -2\\
+	\hline 195 & -2 & -2 & -2\\
+	\hline 196 & -2 & -2 & -2\\
+	\hline 197 & -2 & -2 & -2\\
+	\hline 198 & -2 & -2 & -2\\
+	\hline 199 & -2 & -2 & -2\\
+	\hline 200 & -2 & -2 & -2\\
+	\hline 201 & -2 & -2 & -2\\
+	\hline 202 & -2 & -2 & -2\\
+	\hline 203 & -2 & -2 & -2\\
+	\hline 204 & -2 & -2 & -2\\
+	\hline 205 & -2 & -2 & -2\\
+	\hline 206 & -2 & -2 & -2\\
+	\hline 207 & -2 & -2 & -2\\
+	\hline 208 & -2 & -2 & -2\\
+	\hline 209 & -2 & -2 & -2\\
+	\hline 210 & -2 & -2 & -2\\
+	\hline 211 & -2 & -2 & -2\\
+	\hline 212 & -2 & -2 & -2\\
+	\hline 213 & -2 & -2 & -2\\
+	\hline 214 & -2 & -2 & -2\\
+	\hline 215 & -2 & -2 & -2\\
+	\hline 216 & -2 & -2 & -2\\
+	\hline 217 & -2 & -2 & -2\\
+	\hline 218 & -2 & -2 & -2\\
+	\hline 219 & -2 & -2 & -2\\
+	\hline 220 & -2 & -2 & -2\\
+	\hline 221 & -2 & -2 & -2\\
+	\hline 222 & -2 & -2 & -2\\
+	\hline 223 & -2 & -2 & -2\\
+	\hline 224 & -2 & -2 & -2\\
+	\hline 225 & -2 & -2 & -2\\
+	\hline 226 & -2 & -2 & -2\\
+	\hline 227 & -2 & -2 & -2\\
+	\hline 228 & -2 & -2 & -2\\
+	\hline 229 & -2 & -2 & -2\\
+	\hline 230 & -2 & -2 & -2\\
+	\hline 231 & -2 & -2 & -2\\
+	\hline 232 & -2 & -2 & -2\\
+	\hline 233 & -2 & -2 & -2\\
+	\hline 234 & -2 & -2 & -2\\
+	\hline 235 & -2 & -2 & -2\\
+	\hline 236 & -2 & -2 & -2\\
+	\hline 237 & -2 & -2 & -2\\
+	\hline 238 & -2 & -2 & -2\\
+	\hline 239 & -2 & -2 & -2\\
+	\hline 240 & -2 & -2 & -2\\
+	\hline 241 & -2 & -2 & -2\\
+	\hline 242 & -2 & -2 & -2\\
+	\hline 243 & -2 & -2 & -2\\
+	\hline 244 & -2 & -2 & -2\\
+	\hline 245 & -2 & -2 & -2\\
+	\hline 246 & -2 & -2 & -2\\
+	\hline 247 & -2 & -2 & -2\\
+	\hline 248 & -2 & -2 & -2\\
+	\hline 249 & -2 & -2 & -2\\
+	\hline 250 & -2 & -2 & -2\\
+	\hline 251 & -2 & -2 & -2\\
+	\hline 252 & -2 & -2 & -2\\
+	\hline 253 & -2 & -2 & -2\\
+	\hline 254 & -2 & -2 & -2\\
+	\hline 255 & -2 & -2 & -2\\
+	\hline 256 & -2 & -2 & -2\\
+	\hline 257 & -2 & -2 & -2\\
+	\hline 258 & -2 & -2 & -2\\
+	\hline 259 & -2 & -2 & -2\\
+	\hline 260 & -2 & -2 & -2\\
+	\hline 261 & -2 & -2 & -2\\
+	\hline 262 & -2 & -2 & -2\\
+	\hline 263 & -2 & -2 & -2\\
+	\hline 264 & -2 & -2 & -2\\
+	\hline 265 & -2 & -2 & -2\\
+	\hline 266 & -2 & -2 & -2\\
+	\hline 267 & -2 & -2 & -2\\
+	\hline 268 & -2 & -2 & -2\\
+	\hline 269 & -2 & -2 & -2\\
+	\hline 270 & -2 & -2 & -2\\
+	\hline 271 & -2 & -2 & -2\\
+	\hline 272 & -2 & -2 & -2\\
+	\hline 273 & -2 & -2 & -2\\
+	\hline 274 & -2 & -2 & -2\\
+	\hline 275 & -2 & -2 & -2\\
+	\hline 276 & -2 & -2 & -2\\
+	\hline 277 & -2 & -2 & -2\\
+	\hline 278 & -2 & -2 & -2\\
+	\hline 279 & -2 & -2 & -2\\
+	\hline 280 & -2 & -2 & -2\\
+	\hline 281 & -2 & -2 & -2\\
+	\hline 282 & -2 & -2 & -2\\
+	\hline 283 & -2 & -2 & -2\\
+	\hline 284 & -2 & -2 & -2\\
+	\hline 285 & -2 & -2 & -2\\
+	\hline 286 & -2 & -2 & -2\\
+	\hline 287 & -2 & -2 & -2\\
+	\hline 288 & -2 & -2 & -2\\
+	\hline 289 & -2 & -2 & -2\\
+	\hline 290 & -2 & -2 & -2\\
+	\hline 291 & -2 & -2 & -2\\
+	\hline 292 & -2 & -2 & -2\\
+	\hline 293 & -2 & -2 & -2\\
+	\hline 294 & -2 & -2 & -2\\
+	\hline 295 & -2 & -2 & -2\\
+	\hline 296 & -2 & -2 & -2\\
+	\hline 297 & -2 & -2 & -2\\
+	\hline 298 & -2 & -2 & -2\\
+	\hline 299 & -2 & -2 & -2\\
+	\hline 300 & -2 & -2 & -2\\
+	\hline 301 & -2 & -2 & -2\\
+	\hline 302 & -2 & -2 & -2\\
+	\hline 303 & -2 & -2 & -2\\
+	\hline 304 & -2 & -2 & -2\\
+	\hline 305 & -2 & -2 & -2\\
+	\hline 306 & -2 & -2 & -2\\
+	\hline 307 & -2 & -2 & -2\\
+	\hline 308 & -2 & -2 & -2\\
+	\hline 309 & -2 & -2 & -2\\
+	\hline 310 & -2 & -2 & -2\\
+	\hline 311 & -2 & -2 & -2\\
+	\hline 312 & -2 & -2 & -2\\
+	\hline 313 & -2 & -2 & -2\\
+	\hline 314 & -2 & -2 & -2\\
+	\hline 315 & -2 & -2 & -2\\
+	\hline 316 & -2 & -2 & -2\\
+	\hline 317 & -2 & -2 & -2\\
+	\hline 318 & -2 & -2 & -2\\
+	\hline 319 & -2 & -2 & -2\\
+	\hline 320 & -2 & -2 & -2\\
+	\hline 321 & -2 & -2 & -2\\
+	\hline 322 & -2 & -2 & -2\\
+	\hline 323 & -2 & -2 & -2\\
+	\hline 324 & -2 & -2 & -2\\
+	\hline 325 & -2 & -2 & -2\\
+	\hline 326 & -2 & -2 & -2\\
+	\hline 327 & -2 & -2 & -2\\
+	\hline 328 & -2 & -2 & -2\\
+	\hline 329 & -2 & -2 & -2\\
+	\hline 330 & -2 & -2 & -2\\
+	\hline 331 & -2 & -2 & -2\\
+	\hline 332 & -2 & -2 & -2\\
+	\hline 333 & -2 & -2 & -2\\
+	\hline 334 & -2 & -2 & -2\\
+	\hline 335 & -2 & -2 & -2\\
+	\hline 336 & -2 & -2 & -2\\
+	\hline 337 & -2 & -2 & -2\\
+	\hline 338 & -2 & -2 & -2\\
+	\hline 339 & -2 & -2 & -2\\
+	\hline
+	\end{longtable}\end{center}
+\end{document}
