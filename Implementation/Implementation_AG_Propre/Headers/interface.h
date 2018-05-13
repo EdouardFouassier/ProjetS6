@@ -131,7 +131,7 @@ private:
     bool latex;
     bool xFig;
     bool postScript;
-    static bool encours;
+    static bool encours; //MODIFICATION CDS  A JUSTIFIER :  AJOUT DE L'ATTRIBUT//
 
 
 public:
@@ -143,13 +143,13 @@ public:
 	/// \brief Constructeur de la classe Inteface.
 	/// \param string nom
 	/// \param string fichier
-    Interface(string nom, string fichier);
+    Interface(string nom, string fichier); //MODIFICATION CDS  A JUSTIFIER : AJOUT DU CONSTRUCTEUR Interface (string nom, string fichier)                                                                                       //
     //~ Interface(Interface inter);
     
     /// \fn bool getEnCours()
 	/// \brief Getteur de l'attribut encours.
 	/// \return L'attribut encours.
-    bool getEnCours();
+    bool getEnCours(); //MODIFICATION CDS  A JUSTIFIER : AJOUT DE LA METHODE//
     
 	/// \fn string getFonctionFitness1()
 	/// \brief Getteur permettant d'obtenir la première fonction fitness donnée dans l'interface.
@@ -229,26 +229,26 @@ public:
 	/// \fn static void * algoGenetique(void *)
 	/// \brief Méthode appelant l'ensemble des méthodes pour le déroulement du programme.
 	/// \return NULL
-	static void * algoGenetique(void * arg);
+	static void * algoGenetique(void * arg); //MODIFICATION CDS  A JUSTIFIER : AJOUT DE LA METHODE : void algoGenetique()//
 	
     public slots:
     
     /// \fn void enableF2(int)
 	/// \brief Méthode permettant d'afficher le champ pour entrer la seconde fonction fitness uniquement si l'utilisateur demande d'en entrer 2.
 	/// \param int s
-    void enableF2(int s);
+    void enableF2(int s); //MODIFICATION CDS  A JUSTIFIER : AJOUT DE LA METHODE//
     
 	/// \fn void chercher()
 	/// \brief Méthode permettant d'ouvrir une fenêtre pour sélectionner un fichier.
-    void chercher();
+    void chercher(); //MODIFICATION CDS  A JUSTIFIER : AJOUT DE LA METHODE//
     
 	/// \fn void cacherAppF1()
 	/// \brief Méthode permettant de ne pas afficher le champ pour entrer une valeur approchée pour la première fonction fitness.
-	void cacherAppF1();
+	void cacherAppF1(); //MODIFICATION CDS  A JUSTIFIER : AJOUT DE LA METHODE//
 	
 	/// \fn void cacherAppF2()
 	/// \brief Méthode permettant de ne pas afficher le champ pour entrer une valeur approchée pour la seconde fonction fitness.
-	void cacherAppF2();
+	void cacherAppF2(); //MODIFICATION CDS  A JUSTIFIER : AJOUT DE LA METHODE//
 	
 	/// \fn void aficherAppF1()
 	/// \brief Méthode permettant d'afficher le champ pour entrer une valeur approchée pour la première fonction fitness.
@@ -256,7 +256,7 @@ public:
     
     /// \fn void afficherAppF2()
 	/// \brief Méthode permettant d'afficher le champ pour entrer une valeur approchée pour la seconde fonction fitness.
-    void afficherAppF2();
+    void afficherAppF2(); //MODIFICATION CDS  A JUSTIFIER : AJOUT DE LA METHODE//
     
 	/// \fn void connectLancer()
 	/// \brief Méthode permettant de lancer le programme
@@ -272,7 +272,7 @@ public:
     
     /// \fn void connectAide()
 	/// \brief Méthode permettant d'ouvrir le manuel d'utilisation.
-    void connectAide();
+    void connectAide(); //MODIFICATION CDS  A JUSTIFIER : void aide()//
     
  
 

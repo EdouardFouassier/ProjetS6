@@ -32,38 +32,38 @@ bool testCoherenceDonnees(string nomFichier);
 /// \brief Fonction permettant de déterminer si la valeur passée en paramètre est un entier positif ou non.
 /// \param string valeur
 /// \return TRUE si la valeur passé en argument est un entier positif, renvoie FALSE sinon.
-bool estEntierPositif(string valeur);
+bool estEntierPositif(string valeur); //MODIFICATION CDS  A JUSTIFIER (bool estEntierPositif(auto valeur))//
 
 /// \fn bool estFloatPositif(string)
 /// \brief Fonction permettant de déterminer si la valeur passée en paramètre est un nombre décimal positif ou non.
 /// \param string valeur
 /// \return Renvoie TRUE si la valeur passé en argument est un nombre décimal positif, renvoie FALSE sinon.
-bool estFloatPositif(string valeur);
+bool estFloatPositif(string valeur); //MODIFICATION CDS  A JUSTIFIER (bool estFloatPositif(auto valeur))//
 
 /// \fn bool estProbabilite(string)
 /// \brief Fonction permettant de déterminer si la valeur passée en paramètre est un nombre décimal compris entre 0 et 1 (inclus) ou non.
 /// \param string valeur
 /// \return Renvoie TRUE si la valeur passé en argument est un nombre décimal compris dans l'intervalle [0; 1], renvoie FALSE sinon.
-bool estProbabilite(string valeur);
+bool estProbabilite(string valeur); //MODIFICATION CDS  A JUSTIFIER (bool estProbabilite(auto valeur))//
 
 /// \fn bool estString(string)
 /// \brief Fonction permettant de déterminer si la valeur passée en paramètre est une chaine de caractères.
 /// \param string valeur
 /// \return Renvoie TRUE si la valeur passé en argument est une chaine de caractères, renvoie FALSE sinon.
-bool estString(string valeur);
+bool estString(string valeur); //MODIFICATION CDS  A JUSTIFIER bool estString(auto valeur))//
 
 /// \fn bool estParsable(string)
 /// \brief Fonction permettant de déterminer si la chaine de caractère passée en paramètre peut être lue par le parser qui effectue le calcul.
 /// \param string fonction
 /// \return Renvoie TRUE si la chaine de caractère est correcte, renvoie FALSE sinon.
-bool estParsable(string fonction);
+bool estParsable(string fonction); //MODIFICATION CDS  A JUSTIFIER bool estParsable(auto valeur))//
 
 // Lecture
 /// \fn float* lireStat(FILE*)
 /// \brief Fonction permettant de d'obtenir toutes les statistiques de la génération en cours.
 /// \param FILE* F est un pointeur sur le fichier des statistiques
 /// \return Renvoie un tableau de float contenant l'ensemble des statistique pour la génération en cours.
-float* lireStat(FILE *F);	//Dans le cds c'est un int mais comme les scores seront des flottants bah...
+float* lireStat(FILE *F);	//MODIFICATION CDS  A JUSTIFIER (int[3] lireStat(File *f))//
 
 /// \fn string* lireInfoRegen(string)
 /// \brief Fonction permettant d'obtenir les informations nécessaire pour créer une nouvelle génération. 
@@ -83,7 +83,7 @@ float* lireInitialisation(string nomFichier);
 /// \param int generation donne le numéro de la génération à lire.
 /// \param int indice donne l'indice du tableau des scores à lire. 
 /// \return Renvoie un tableau de float contenant les scores.
-float* lireScoreIndividu(string nomFichierPopulation, int generation, int indice);
+float* lireScoreIndividu(string nomFichierPopulation, int generation, int indice); //MODIFICATION CDS  A JUSTIFIER (int lireScoreIndividu(String nomFichier, int generation, int indice))//
 
 // Ecriture
 /// \fn bool ecrireFichierDonnees(Interface *, string)
@@ -92,7 +92,7 @@ float* lireScoreIndividu(string nomFichierPopulation, int generation, int indice
 /// \param string nomFichier
 /// \return Renvoie TRUE si pas d'erreur lors de l'écriture, FALSE sinon.
 class Interface;
-bool ecrireFichierDonnees(Interface *interface, string nomFichier);
+bool ecrireFichierDonnees(Interface *interface, string nomFichier); //MODIFICATION CDS  A JUSTIFIER (bool ecrireFichierDonnees(Interface interface, string file))//
 
 /// \fn bool ecrirePopulation(Population *, string)
 /// \brief Fonction permettant d'écire dans un fichier l'ensemble d'une population.
@@ -107,8 +107,8 @@ bool ecrireFichierDonnees(Interface *interface, string nomFichier);
 /// \param string nomFichierStats
 /// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
 class Population;
-bool ecrirePopulation(Population *P, string nomFichier);
-bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomFichierStats);
+bool ecrirePopulation(Population *P, string nomFichier); //MODIFICATION CDS  A JUSTIFIER (bool ecrirePopulation(Population p, String nomFichier))//
+bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomFichierStats); //MODIFICATION CDS  A JUSTIFIER (bool calculerEcrireStats(Population p, string file1, string file2))//
 
 /// \fn bool ecrireFichier(string, string, string, Population *)
 /// \brief Fonction permettant d'écrire 
@@ -117,7 +117,9 @@ bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomF
 /// \param string nomFichierStats
 /// \param Population *P pointeur sur la population à écrire.
 /// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
-bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichierStats, Population *P);
+bool ecrireFichier(string nomFichierSortie, string nomFichierParametr, string nomFichierStats, Population *P);//MODIFICATION CDS  A JUSTIFIER (bool ecrireFichier(string file1, string file2, string file3))//
+
+//MODIFICATION CDS  A JUSTIFIER : SUPRESSION ecrireUnScore(int score, file *f)//je l'avais tellement, mais tellement dis que ca servait a rien ca aussi
 
 /// \fn bool ecrireLatex(string, Population *)
 /// \brief Fonction permettant d'écrire un fichier de résultats pour l'utilisateur au format LaTeX.

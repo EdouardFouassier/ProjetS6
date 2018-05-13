@@ -21,11 +21,11 @@ class Population{
 private:
 	static int nombreIndividus;
 	static int nombreCriteres;
-	vector<Individu*> ensemble; 
+	vector<Individu*> ensemble; //MODIFICATION CDS : TRANSFORMATION EN VECTOR A JUSTIFIER//
 	static int numeroGeneration;
-	static int* criteres; 		//alors qu'ici ça marche avec rien ¯\_(ツ)_/¯
+	static int* criteres; 		
 	static float valeurApprochee;
-	static float valeurApprochee2; ///pas dans le cds///
+	static float valeurApprochee2; //MODIFICATION CDS : AJOUT DE L'ATTRIBUT A JUSTIFIER//
 	static string fitness1;
 	static string fitness2;
 	static int nombreGenerationMax;
@@ -45,7 +45,7 @@ public:
 
 	/// \fn Population(string* const&)
 	/// \brief Constructeur utilisant les données récurépérer de l'interface graphique ou du fichier de paramètres
-	Population(string* const& donnees); 		//données est censé être un tableau mais ça compile pas quand j'en fais un tab
+	Population(string* const& donnees); //MODIFICATION CDS A JUSTIFIER//	
 
 	/// \fn ~Population()
 	/// \brief Destructeur de la classe Population
@@ -87,17 +87,17 @@ public:
 	/// \fn string getValeurApprochee2(void)
 	/// \brief Getteur permettant d'obtenir la seconde valeur approchee.
 	/// \return La seconde valeur approchée.
-	float getValeurApprochee2(); //pas dans le cds
+	float getValeurApprochee2(); //MODIFICATION CDS : AJOUT DU GETTEUR A JUSTIFIER//
 	
 	/// \fn int getNombreGenerationMax(void)
 	/// \brief Getteur permettant d'obtenir le nombre maximum de génération à atteindre
 	/// \return La nombre génération maximum.
-	int getNombreGenerationMax();
+	int getNombreGenerationMax(); //MODIFICATION CDS : AJOUT DU GETTEUR A JUSTIFIER//
 	
 	/// \fn int getNombreCriteres(void)
 	/// \brief Getteur permettant d'obtenir le nombre critère
 	/// \return La nombre de critère.
-	int getNombreCriteres(); //pas dans le cds
+	int getNombreCriteres(); //MODIFICATION CDS : AJOUT DU GETTEUR A JUSTIFIER//
 	
 	/*LES SETTEURS*/
 	/// \fn void setNombreIndividus(int)
@@ -108,7 +108,7 @@ public:
 	/// \fn void setEnsemble(Individu)
 	/// \brief Setteur permettant d'ajouter un individu au vecteur conntenant l'ensemble des individu de la génération en cours.
 	/// \param Nouvel Individu.
-	void setEnsemble(Individu &nouv); //modifié par rapport au cds
+	void setEnsemble(Individu &nouv); //MODIFICATION CDS A JUSTIFIER (Individu[nombreIndividu]setEnsemble())//
 	
 	/// \fn void setNumeroGeneration(int)
 	/// \brief Setteur de l'attribut numeroGeneration
@@ -133,7 +133,7 @@ public:
 	/// \fn void setValeurApprochee2(float)
 	/// \brief Setteur de l'attribut valeurApprochee2.
 	/// \param La seconde valeur approchée.
-	void setValeurApprochee2(float val); //pas dans le cds 
+	void setValeurApprochee2(float val);//MODIFICATION CDS : AJOUT DU SETTEUR A JUSTIFIER//
 	
 	/// \fn void setProbaCroisement(float)
 	/// \brief Setteur de l'attribut probaCroisement.
@@ -150,7 +150,7 @@ public:
 	/// \fn void testArret(void)
 	/// \brief Méthode qui appel testNombreGeneration() et testConvergence().
 	/// \return Renvoie TRUE si l'algorithme peut continuer, FALSE sinon.
-	bool testArret(string nomFichierSortie);
+	bool testArret(string nomFichierSortie); //MODIFICATION CDS A JUSTIFIER (Population testArret())//
 
 	/// \fn bool testNombreGeneration(void)
 	/// \brief Méthode permettant de tester le nombre de génération
@@ -160,53 +160,53 @@ public:
 	/// \fn bool testConvergence(void)
 	/// \brief Méthode permettant de tester si les score de plusieurs génération à la suite sont semblables (scores à +/- 1,5% identique).
 	/// \return Renvoie TRUE si les générations convegent, FALSE sinon.
-	bool testConvergence(string nomFichierSortie);
+	bool testConvergence(string nomFichierSortie); //MODIFICATION CDS A JUSTIFIER (bool testConvergence())//
 	
 	/// \fn bool testPopulationRemplie(void)
 	/// \brief Méthode permettant si une population est pleine.
 	/// \return Renvoie TRUE si la population en cours n'est pas remplie, FALSE sinon.
-	bool testPopulationRemplie();
+	bool testPopulationRemplie(); 
 
 	/* LES ALGORITHMES DE CREATION DE GENERATION*/
 	/// \fn void evaluation(void)
 	/// \brief Méthode permettant de faire l'évaluation des différents individus de la population.
-	void evaluation(); 
+	void evaluation(); //MODIFICATION CDS A JUSTIFIER (Population evaluation())//
 	
 	/// \fn void triPopulation(int)
 	/// \brief Méthode appelant maximisation(int), minimisation(int) ou triValeur(int) selon le critère.
 	/// \param int indiceScore est l'indice du tableau des scores
-	void triPopulation (int indiceScore); //signature modifié / cds
+	void triPopulation (int indiceScore); //MODIFICATION CDS A JUSTIFIER (bool triPopulation(int indiceScore))//
 	
 	/// \fn void maximisation(int)
 	/// \brief Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les individus soient rangés de celui ayant le plus gros score à celui ayant le plus faible.
 	/// \param int indiceScore est l'indice du tableau des scores
-	void maximisation(int indiceScpre); //pas dans cds
+	void maximisation(int indiceScpre); //MODIFICATION CDS : AJOUT DE LA METHODE A JUSTIFIER//
 	
 	/// \fn void minimisation(int)
 	/// \brief Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les individus soient rangés de celui ayant le plus faible score à celui ayant le plus grand.
 	/// \param int indiceScore est l'indice du tableau des scores
-	void minimisation(int indiceScore); //pas dans cds
+	void minimisation(int indiceScore); //MODIFICATION CDS : AJOUT DE LA METHODE A JUSTIFIER//
 	
 	/// \fn void triValeur(int)
 	/// \brief Méthode permettant de ranger les individus dans le vecteur ensemble de telle manière à ce que les individus soient ranger l'individu ayant la plus petite différence avec la valeur à approcher à l'individu ayant la plus grande différence.
 	/// \param int indiceScore est l'indice du tableau des scores
-	void triValeur(int indiceScore); //pas dans cds
+	void triValeur(int indiceScore); //MODIFICATION CDS : AJOUT DE LA METHODE A JUSTIFIER//
 
 	/// \fn Individu* selectionner(int)
 	/// \brief Méthode permettant de sélectionner des individus avec une certaine probabilité donnée par l'utilisateur. Les individus ayant un meilleurrang auront plus de chance d'être sélectionnés.
 	/// \param int iCritere est l'indice utilisé pour le tableau des rangs.
-	Individu* selectionner(int iCritere); // modifié / cds : ajout parametre et fonctionnement modifié 
+	Individu* selectionner(int iCritere); //MODIFICATION CDS A JUSTIFIER (Individu Selectionner() + fonctionnement) //
 	
 	/// \fn void crossover(Individu, Individu)
 	/// \brief Méthode permettant de générer deux nouveaux individus à partir de deux indiviuds de la génération en cours. Les nouveaux individus sont directement ajoutés au vecteur ensemble.
 	/// \param Individu* Parent1 pointeur sur un premier individu.
 	/// \param Individu* Parent2 pointeur sur un second individu.
-	void crossover(Individu *Parent1, Individu *Parent2);
+	void crossover(Individu *Parent1, Individu *Parent2); //MODIFICATION CDS A JUSTIFIER (Population crossover (Individu Parent1, Individu parent2)//
 	
 	/// \fn Population creerGeneration(Population *P)
 	/// \brief Méthode permettant de créer une nouvelle population
 	/// \param Population* P
-	Population* creerGeneration(Population *P);
+	Population* creerGeneration(Population *P); //MODIFICATION CDS A JUSTIFIER (Population creerGeneration(Population p)//
 	
 	/// \fn int nombreAlea(int, int)
 	/// \brief Méthode permettant d'obtenir un nombre pseudo-aléatoire. Notament utilisé dans la méthode du crossover(Individu, Individu).

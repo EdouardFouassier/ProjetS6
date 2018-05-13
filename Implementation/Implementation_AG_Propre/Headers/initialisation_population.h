@@ -25,7 +25,7 @@ private:
 	static int tailleIndividu;
 	static int nombreCritere;
 	static float probaMutation;
-	int* chromosome;
+	int* chromosome; 
 	float* score;
 	int* rang;
 
@@ -40,11 +40,15 @@ public:
 	/// \brief Constructeur qui créer un individu aléatoirement
 	/// \param int taille donne la taille de l'individu.
 	Individu(int taille); // Constructeur qui crée un Individu aléatoire
+
+	//MODIFICATION CDS : AJOUT DU CONSTRUCTEUR Individu(float donnees[3]) A JUSTIFIER//
 	
 	/// \fn Individu(float[3])
 	/// \brief Constructeur qui créer un individu avec les données fournient par l'utilisateur
 	/// \param float donnees[3] tableau contenant les trois données récupérées.
 	Individu(float donnees[3]); // Constructeur qui initialise ls données (qu'on utilise qu'une seule fois) les données sont envoyées par io
+
+	//MODIFICATION CDS : AJOUT DU CONSTRUCTEUR Individu (Individu &individu) A JUSTIFIER//
 	
 	/// \fn Individu(Individu &)
 	/// \brief Constructeur de copie d'individu
@@ -82,6 +86,9 @@ public:
 	/// \return Revoie la taille de l'individu.
 	int getTailleIndividu();
 	
+
+	//MODIFICATION CDS : AJOUT DU GETTEUR getGene(int gene, int i) A JUSTIFIER//
+
 	/// \fn int getGene(int)
 	/// \brief Getteur permettant d'obtenir un gene, c'est-à-dire l'indice i du tableau chromosome
 	/// \param int i est l'indice du tableau chromosome.
@@ -112,6 +119,8 @@ public:
 	/// \param int i est l'indice du tableau des scores.
 	void setRang(int rang, int i);
 
+	//MODIFICATION CDS : SUPRESSION DU SETTEUR setTailleIndividu(int tailleIndividu) A JUSTIFIER//
+
 	// Méthodes //
 	
 	/// \fn Individu codage(int)
@@ -125,6 +134,8 @@ public:
 	/// \param Individu i avec le tableau de chromosome à décoder
 	/// \return La valeur du chromosome de l'Individu i.
 	int decodage(Individu i);
+
+	//MODIFICATION CDS : AJOUT DE LA METHODE decodage(int* binaire) A JUSTIFIER//
 	
 	/// \fn int decodage(int* binaire)
 	/// \brief Méthode permettant de changer un tableau binaire en une valeur entière en base 10.
