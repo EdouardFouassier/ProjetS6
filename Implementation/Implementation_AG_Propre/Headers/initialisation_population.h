@@ -86,14 +86,11 @@ public:
 	/// \return Revoie la taille de l'individu.
 	int getTailleIndividu();
 	
-
-	//MODIFICATION CDS : AJOUT DU GETTEUR getGene(int gene, int i) A JUSTIFIER//
-
 	/// \fn int getGene(int)
 	/// \brief Getteur permettant d'obtenir un gene, c'est-à-dire l'indice i du tableau chromosome
 	/// \param int i est l'indice du tableau chromosome.
 	/// \return Revoie un gene.
-	int getGene(int i);
+	int getGene(int i); //MODIFICATION CDS : AJOUT DU GETTEUR getGene(int gene, int i) A JUSTIFIER//
 	
 	// Setteurs //
 	/// \fn void setGene(int, int)

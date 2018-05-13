@@ -143,7 +143,7 @@ public:
 	/// \brief Constructeur de la classe Inteface.
 	/// \param string nom
 	/// \param string fichier
-    Interface(string nom, string fichier); //MODIFICATION CDS  A JUSTIFIER : AJOUT DU CONSTRUCTEUR Interface (string nom, string fichier)                                                                                       //
+    Interface(string nom, string fichier); //MODIFICATION CDS  A JUSTIFIER : AJOUT DU CONSTRUCTEUR Interface (string nom, string fichier)//                                                                                       //
     //~ Interface(Interface inter);
     
     /// \fn bool getEnCours()
@@ -229,7 +229,7 @@ public:
 	/// \fn static void * algoGenetique(void *)
 	/// \brief Méthode appelant l'ensemble des méthodes pour le déroulement du programme.
 	/// \return NULL
-	static void * algoGenetique(void * arg); //MODIFICATION CDS  A JUSTIFIER : AJOUT DE LA METHODE : void algoGenetique()//
+	static void * algoGenetique(void * arg); //MODIFICATION CDS  A JUSTIFIER : void algoGenetique()//
 	
     public slots:
     
