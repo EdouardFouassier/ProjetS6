@@ -139,12 +139,12 @@ public:
 	/// \brief Constructeur par défaut de la classe Inteface.
     Interface();
     
-    /// \fn Interface(string, string)
+  /*  /// \fn Interface(string, string)
 	/// \brief Constructeur de la classe Inteface.
 	/// \param string nom
 	/// \param string fichier
     Interface(string nom, string fichier); //MODIFICATION CDS  A JUSTIFIER : AJOUT DU CONSTRUCTEUR Interface (string nom, string fichier)//                                                                                       //
-    //~ Interface(Interface inter);
+*/
     
     /// \fn bool getEnCours()
 	/// \brief Getteur de l'attribut encours.
@@ -236,19 +236,19 @@ public:
     /// \fn void enableF2(int)
 	/// \brief Méthode permettant d'afficher le champ pour entrer la seconde fonction fitness uniquement si l'utilisateur demande d'en entrer 2.
 	/// \param int s
-    void enableF2(int s); //MODIFICATION CDS  A JUSTIFIER : AJOUT DE LA METHODE//
+    void enableF2(int s); 
     
 	/// \fn void chercher()
 	/// \brief Méthode permettant d'ouvrir une fenêtre pour sélectionner un fichier.
-    void chercher(); //MODIFICATION CDS  A JUSTIFIER : AJOUT DE LA METHODE//
+    void chercher(); 
     
 	/// \fn void cacherAppF1()
 	/// \brief Méthode permettant de ne pas afficher le champ pour entrer une valeur approchée pour la première fonction fitness.
-	void cacherAppF1(); //MODIFICATION CDS  A JUSTIFIER : AJOUT DE LA METHODE//
+	void cacherAppF1(); 
 	
 	/// \fn void cacherAppF2()
 	/// \brief Méthode permettant de ne pas afficher le champ pour entrer une valeur approchée pour la seconde fonction fitness.
-	void cacherAppF2(); //MODIFICATION CDS  A JUSTIFIER : AJOUT DE LA METHODE//
+	void cacherAppF2();
 	
 	/// \fn void aficherAppF1()
 	/// \brief Méthode permettant d'afficher le champ pour entrer une valeur approchée pour la première fonction fitness.
@@ -256,7 +256,7 @@ public:
     
     /// \fn void afficherAppF2()
 	/// \brief Méthode permettant d'afficher le champ pour entrer une valeur approchée pour la seconde fonction fitness.
-    void afficherAppF2(); //MODIFICATION CDS  A JUSTIFIER : AJOUT DE LA METHODE//
+    void afficherAppF2();
     
 	/// \fn void connectLancer()
 	/// \brief Méthode permettant de lancer le programme
@@ -272,7 +272,7 @@ public:
     
     /// \fn void connectAide()
 	/// \brief Méthode permettant d'ouvrir le manuel d'utilisation.
-    void connectAide(); //MODIFICATION CDS  A JUSTIFIER : void aide()//
+    void connectAide(); 
     
  
 

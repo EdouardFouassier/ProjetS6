@@ -14,12 +14,13 @@ int main(int argc, char *argv[])
 		
        srand(time(NULL));
 	QApplication app(argc, argv);
-    Interface *interface;
+   /* Interface *interface;
     if(argc==3) interface=new Interface(string(argv[2]),string(argv[1]));
     else {
         if(argc==2) interface=new Interface("lol",string(argv[1]));
         else interface=new Interface(); //crée la fenetre
-    }
+    }*/
+    Interface *interface=new Interface();
     interface->show(); //affiche...    
     return app.exec();
     

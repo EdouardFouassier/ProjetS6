@@ -203,24 +203,17 @@ Interface::Interface() : QWidget()
     this->autoFillBackground();
 }
 
-Interface::Interface(string nom,string fichier) : Interface(){
-	liensFichier->setText(QString::fromStdString(fichier));
-	nomFichier->setText(QString::fromStdString(nom));
-	connectLancer();
-}
+//~ Interface::Interface(string nom,string fichier) : Interface(){
+	//~ liensFichier->setText(QString::fromStdString(fichier));
+	//~ nomFichier->setText(QString::fromStdString(nom));
+	//~ connectLancer();
+//~ }
 
 void * Interface::algoGenetique(void * arg){
 	//~ cout<<"lolentree"<<endl;
 	Population *p=new Population(lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt")),*p_new=nullptr;
 	
-	int tailleI=p->getEnsemble()[0]->getTailleIndividu();
-	//~ for(int i=0; i<p->getNombreIndividus();i++) {
-        //~ cout<<"Individu "<<i<<" ";
-		//~ for(int j=0;j<tailleI;j++){ cout<<p->getEnsemble()[i]->getChromosome()[j] << " / ";}
-		//~ cout<<endl;
-	//~ }
-	//~ cout<<endl;
-	//~ cout<<endl;
+	
 	
 	cout<<p->getNumeroGeneration()<<endl;
 	cout<<endl<<"ITERATION "<<0<<endl;
@@ -279,11 +272,11 @@ void * Interface::algoGenetique(void * arg){
 	cout<< "FIN" <<endl;
 	encours=0;
 	p->setNumeroGeneration(0);
+	QWidget *widget=new QWidget();
+	QMessageBox::information(widget, "FIN", "Le programme est terminé.");
+	delete widget;
 	delete p;
 	return NULL;
-	//QProcess::startDetached(QString::fromStdString("pdflatex "+nomFichierSortie+"/"+nomFichierSortie+".tex"));
-	//QDesktopServices::openUrl(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() +QString::fromStdString( "/"+nomFichierSortie+"/"+nomFichierSortie+".pdf")));
-	
 }
 
 bool Interface::getEnCours(){
@@ -471,7 +464,7 @@ void Interface::connectLancer(){
 					CHMOD.startDetached(QString::fromStdString("chmod +xwr "+nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt"));	
 					encours=1;
 					pthread_t  tid;
-					pthread_create(&tid,NULL,&algoGenetique,nullptr);
+					pthread_create(&tid,NULL,&algoGenetique,this);
 					}
 					
 				}

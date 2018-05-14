@@ -109,12 +109,5 @@ install:
 run: compile clean
 	./Implementation_AG
 	
-run2: compile clean
-	./Implementation_AG $(link) $(name)
-ifeq ($(name),)
-ifneq ($(link),)
-	 rm -r lol
-endif
-endif
 
 
