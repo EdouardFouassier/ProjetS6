@@ -138,7 +138,6 @@ bool ecrirePostscript(string nomFichierSortie);
 /// \param string nomFichierSortie
 /// \return Renvoie TRUE s'il n'y a pas eu d'erreur lors de l'écriture, FALSE sinon.
 bool ecrireXfig(string nomFichierSortie);
-//~ bool ecrireUnScore(int score, File *F);  //Alors... Elle est dans le cds mais... Askip elle est useless, Wallah c'est un bruit qui court dans la téci
 
 
 #endif

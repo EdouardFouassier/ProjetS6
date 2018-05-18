@@ -778,7 +778,6 @@ bool ecrireXfig(string nomFichierSortie){
 		return false;
 	}
 }
-//~ bool ecrireUnScore(int score, File *F); //Alors... Elle est dans le cds mais... Askip elle est useless, Wallah c'est un bruit qui court dans la téci
 
 //~ int main (){
 	//~ float i = 3.2;
