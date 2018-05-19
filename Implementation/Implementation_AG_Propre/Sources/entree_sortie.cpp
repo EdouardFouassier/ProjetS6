@@ -621,8 +621,8 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 		fichierLatex << "\\title{\\huge "<< nomFichierSortie <<"}\n\\date{}\n\\author{}" << endl;
 		fichierLatex << "\\begin{document}" << endl;
 		fichierLatex << "	\\maketitle\n" << endl;
-		fichierLatex << "	Voici les résultats données par le programme : \\\\\\\\" << endl;
-		fichierLatex << "	Les données initiales sont :\\\\" << endl;
+		fichierLatex << "	Voici les résultats de l'algorithme génétique sur votre problème : \\\\\\\\" << endl;
+		fichierLatex << "	Vos données initiales sont :\\\\" << endl;
 		fichierLatex << "	\\begin{itemize}" << endl;
 		float* tabInitialisation = lireInitialisation(nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt");
 		fichierLatex << "		\\item Taille des individus : " << tabInitialisation[0] << endl;
