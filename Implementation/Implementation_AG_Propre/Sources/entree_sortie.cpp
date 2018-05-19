@@ -46,7 +46,7 @@ bool testCoherenceDonnees(string nomFichier) {
 		}
         if (i == 3) {
 			x = estEntierPositif(donnees);
-			if(!x || stoi(donnees)>100 || stoi(donnees)<1)x=false;
+			if(!x || stoi(donnees)>100 || stoi(donnees)<2)x=false;
 			if(!x){
 				throw string("Erreur taille population \n");
 				return false;
