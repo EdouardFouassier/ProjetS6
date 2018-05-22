@@ -45,7 +45,9 @@ Population::Population(string* const& donnees) :  ensemble(0) //test OK
     std::cout<<"valeurApprochee1 = "<<std::stof(donnees[8], nullptr)<<" valeurApprochee2 = "<<std::stof(donnees[9], nullptr)<<std::endl;*/
 
 	/** INITIALISATION DES DONNEES INVARIABLES **/
-	probaCroisement = std::stof(donnees[0],nullptr); // string to float
+	QString tmp=QString::fromStdString(donnees[0]);
+	probaCroisement = tmp.toFloat(); // string to float
+	
 	nombreIndividus = std::stoi(donnees[1], nullptr, 10);
 	nombreGenerationMax = std::stoi(donnees[2], nullptr, 10);	
 	nombreCriteres = std::stoi(donnees[3], nullptr, 10);
@@ -57,8 +59,10 @@ Population::Population(string* const& donnees) :  ensemble(0) //test OK
 			criteres[0] = std::stoi(donnees[4], nullptr, 10);    //initialisation du critere
 			fitness1 = donnees[6];                               //initialisation de la fonction fitness
 
-			if (criteres[0] == 3)								 //si le critere est la recherche d'une valeur approchée
-				valeurApprochee = std::stof(donnees[8], nullptr);//initialisation de la valeur approchée
+			if (criteres[0] == 3)		{//si le critere est la recherche d'une valeur approchée
+				tmp=QString::fromStdString(donnees[8]);
+				valeurApprochee = tmp.toFloat();//initialisation de la valeur approchée
+			}
 
 		}
 		else {
@@ -68,10 +72,14 @@ Population::Population(string* const& donnees) :  ensemble(0) //test OK
 			fitness1 = donnees[6];                               //initialisation de la fonction fitness 1
 			fitness2 = donnees[7];                               //initialisation de la fonction fitness 2
 	
-			if (criteres[0] == 3)								 //si le critere 1 est la recherche d'une valeur approchée
-				valeurApprochee = std::stof(donnees[8], nullptr);//initialisation de la valeur approchée 1
-			if (criteres[1] == 3)								 //si le critere  2est la recherche d'une valeur approchée
-				valeurApprochee2 = std::stof(donnees[9], nullptr);//initialisation de la valeur approchée 2
+			if (criteres[0] == 3)	{							 //si le critere 1 est la recherche d'une valeur approchée
+				tmp=QString::fromStdString(donnees[8]);
+				valeurApprochee = tmp.toFloat();//initialisation de la valeur approchée 1
+			}
+			if (criteres[1] == 3)	{							 //si le critere  2est la recherche d'une valeur approchée
+				tmp=QString::fromStdString(donnees[9]);
+				valeurApprochee = tmp.toFloat();//initialisation de la valeur approchée 2
+			}
 		}
 		numeroGeneration += 1;
 	}
@@ -542,7 +550,7 @@ Individu* Population::selectionner(int iCritere){ //à implémenter , modifié /
 int Population::nombreAlea(int inf, int sup) // test OK ? oui test ok 
 {
 	//inf++;	//parce qu'on ne veut pas que inf soit inclu
-	return rand()%(sup-inf) + inf;
+	return rand()%(sup+inf) - inf;
 }
 
 
@@ -555,7 +563,7 @@ void Population::crossover(Individu *parent1, Individu *parent2){
 		//~ cout<<endl;
 	Individu *enfant1, *enfant2;
 	if(enfant1->probAlea(probaCroisement)){
-		//~ cout<<"crossover oui"<<endl;
+		cout<<"crossover oui"<<endl;
 		int ptcrois = nombreAlea(1,parent1->getTailleIndividu());
 		//~ cout<<nombreIndividus<<endl;
 		enfant1=new Individu(parent1->getTailleIndividu());
@@ -588,7 +596,7 @@ void Population::crossover(Individu *parent1, Individu *parent2){
 
 
 Population* Population::creerGeneration(Population *P){
-	cout<<"dans creer"<<numeroGeneration<<endl;
+	cout<<"dans creer"<<numeroGeneration << endl;
 	for(int i=0;testPopulationRemplie();i++){
 		if(P->getNombreCriteres()==1)
 			this->crossover(P->selectionner(0),P->selectionner(0));		//la population avec deux nouveaux individus

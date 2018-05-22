@@ -232,7 +232,7 @@ void * Interface::algoGenetique(void * arg){
 
 		cout<<"avant new pop"<<p->getNumeroGeneration()<<endl;
 		p_new=new Population();
-		cout<<"apres new pop"<<p->getNumeroGeneration()<<endl;
+		cout<<"apres new pop"<<p->getNumeroGeneration()<<" " << p->getEnsemble().size()<<endl;
 		p_new=p_new->creerGeneration(p);
 		cout<<"apres creer"<<p->getNumeroGeneration()<<endl;
 		//~ for(int i=0;i<p->getNombreIndividus() ;i++){           //créerGénération
@@ -272,9 +272,10 @@ void * Interface::algoGenetique(void * arg){
 	cout<< "FIN" <<endl;
 	encours=0;
 	p->setNumeroGeneration(0);
-	QWidget *widget=new QWidget();
-	QMessageBox::information(widget, "FIN", "Le programme est terminé.");
-	delete widget;
+	//~ QWidget *widget=new QWidget();
+	//~ QMessageBox::information(widget, "FIN", "Le programme est terminé.");
+	//~ delete widget;
+	cout<<p->getEnsemble().size()<<endl;
 	delete p;
 	return NULL;
 }

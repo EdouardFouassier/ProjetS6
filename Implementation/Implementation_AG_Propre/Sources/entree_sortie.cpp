@@ -299,6 +299,7 @@ bool estParsable(string fonction) {
 float* lireStat(FILE *F) {
 	if(F) {
 		float *tableauStats;
+		QString tmp;
 		tableauStats = new float[3];
 		char tableauStatsChar[100];
 		string moyScores1 = "", minScores1 = "", maxScores1 = "", moyScores2 = "", minScores2 = "", maxScores2 = "";
@@ -314,9 +315,12 @@ float* lireStat(FILE *F) {
 				if (cpt == 2) { minScores1 += tableauStatsChar[i]; }
 				if (cpt == 3) { maxScores1 += tableauStatsChar[i]; }
 				if (tableauStatsChar[i]=='P'){
-					tableauStats[0] = stof(moyScores1);
-					tableauStats[1] = stof(minScores1);
-					tableauStats[2] = stof(maxScores1);
+					tmp=QString::fromStdString(moyScores1);
+					tableauStats[0] = tmp.toFloat();
+					tmp=QString::fromStdString(minScores1);
+					tableauStats[1] = tmp.toFloat();
+					tmp=QString::fromStdString(maxScores1);
+					tableauStats[2] = tmp.toFloat();
 					return tableauStats;
 				}
 				if (cpt == 4) { moyScores2 += tableauStatsChar[i]; }
@@ -325,12 +329,18 @@ float* lireStat(FILE *F) {
 			}
 		}
 		float *tableauStatss=new float[6];
-		tableauStatss[0] = stof(moyScores1);
-		tableauStatss[1] = stof(minScores1);
-		tableauStatss[2] = stof(maxScores1);
-		tableauStatss[3] = stof(moyScores2);
-		tableauStatss[4] = stof(minScores2);
-		tableauStatss[5] = stof(maxScores2);
+		tmp=QString::fromStdString(moyScores1);
+		tableauStats[0] = tmp.toFloat();
+		tmp=QString::fromStdString(minScores1);
+		tableauStats[1] = tmp.toFloat();
+		tmp=QString::fromStdString(maxScores1);
+		tableauStats[2] = tmp.toFloat();
+		tmp=QString::fromStdString(moyScores2);
+		tableauStats[3] = tmp.toFloat();
+		tmp=QString::fromStdString(minScores2);
+		tableauStats[4] = tmp.toFloat();
+		tmp=QString::fromStdString(maxScores2);
+		tableauStats[5] = tmp.toFloat();
 		delete[] tableauStats;
 		return tableauStatss;
 		
@@ -591,6 +601,7 @@ bool calculerEcrireStats(Population *P, string nomFichierPopulation, string nomF
 }
 
 bool ecrireFichier(string nomFichierSortie, string nomFichierParametre, Population *P){
+	cout<<"debut ecrire fichier"<<endl;
 	ifstream fichierParam(nomFichierParametre.c_str(), ios::in);						//On ouvre le fichier en lecture
 	if(fichierParam) {
 		string line;
@@ -605,17 +616,20 @@ bool ecrireFichier(string nomFichierSortie, string nomFichierParametre, Populati
 								string nomFichierEnd = "rm "+nomFichierSortie+"/"+nomFichierSortie+".tex"; system(nomFichierEnd.c_str()); }
 						 }
 		if(line[2]=='1') { ecrireXfig(nomFichierSortie); }
+		cout<<"fin ecrire fichier"<<endl;
 		return true;
 	}
 	else {
 		cerr << "Erreur ouverture fichierParametre" << endl;
 		return false;
 	}
+	
 }
 
 bool ecrireLatex(string nomFichierSortie,Population *P){
 	string nomFichierEnd = nomFichierSortie+"/"+nomFichierSortie+".tex";
 	ofstream fichierLatex(nomFichierEnd.c_str(), ios::out | ios::trunc);
+	cout<<"debut latex"<<endl;
 	if(fichierLatex) {
 		fichierLatex << "\\documentclass[a4paper,11pt]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[T1]{fontenc}\n\\usepackage[french]{babel}\n\\usepackage[right=2.5cm, left=2.5cm, bottom=4cm, top=3cm]{geometry}\n\\usepackage{textcomp}\n\\usepackage{graphicx}\n\\usepackage{mathtools,amssymb,amsthm}\n\\usepackage{lmodern,fixltx2e}\n\\usepackage{multirow}\n\\usepackage{array}\n\\usepackage{longtable}\n\\usepackage{fancybox}\n\\usepackage{pgfplots}\n" << endl;
 		fichierLatex << "\\title{\\huge "<< nomFichierSortie <<"}\n\\date{}\n\\author{}" << endl;
@@ -659,39 +673,54 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 			fichierLatex << "	\\end{axis}" << endl;
 			fichierLatex << "	\\end{tikzpicture}\\end{center}" << endl;
 		}	
-		Individu solutions[10]; 
+		fichierLatex << "	Les meilleurs individus sont : \\\\\n" << endl;
+		fichierLatex << "	\\begin{center}\\begin{tabular}{|c|c|}" << endl;
+		fichierLatex << "	\\hline Solution & Valeur 1\\\\"<<endl;
+		
 		int cpt=0;
 		if(P->getNombreCriteres()==1){
 			for(int i=0;i<stoi(tabInfoRegen[1])&&cpt<10;i++){
-				//~ cout<<P->getEnsemble()[i]->getRang(1)<<endl;
-				//~ if(P->getEnsemble()[i]->getRang(0)) {
-					solutions[cpt]=*P->getEnsemble()[i];
+				fichierLatex << "	\\hline ";
+					for(int j=0;j<tabInitialisation[0];j++){
+						fichierLatex << P->getEnsemble()[i]->getChromosome()[j];
+					}
+					fichierLatex << " & "<< P->getEnsemble()[i]->decodage(*P->getEnsemble()[i]) <<"\\\\"<<endl;
 					cpt++;
-				//~ }
 			}
 		}else{
 			for(int i=0;i<stoi(tabInfoRegen[1])&&cpt<10;i++){
+				
 				//~ cout<<P->getEnsemble()[i]->getRang(1)<<endl;
-				if(cpt<5 /*&& P->getEnsemble()[i]->getRang(1)*/ ){
-					solutions[cpt]=*P->getEnsemble()[i];
-					cpt++;
-				}
-				else {
-					solutions[cpt]=*P->getEnsemble()[i];
-					cpt++;
-				}
+
+					if (P->getEnsemble()[i]->getRang(0)==1){
+						fichierLatex << "	\\hline ";
+						for(int j=0;j<tabInitialisation[0];j++){
+							fichierLatex << P->getEnsemble()[i]->getChromosome()[j];
+						}
+						fichierLatex << " & "<< P->getEnsemble()[i]->decodage(*P->getEnsemble()[i]) <<"\\\\"<<endl;
+						cpt++;
+					}
+					else{
+						if (P->getEnsemble()[i]->getRang(1)==1){
+							fichierLatex << "	\\hline ";
+							for(int j=0;j<tabInitialisation[0];j++){
+								fichierLatex << P->getEnsemble()[i]->getChromosome()[j];
+							}
+							fichierLatex << " & "<< P->getEnsemble()[i]->decodage(*P->getEnsemble()[i]) <<"\\\\"<<endl;
+							cpt++;
+						}
+					}
+				
 			}
 		}
-		fichierLatex << "	Le meilleur individu est : \\\\\n" << endl;
-		fichierLatex << "	\\begin{center}\\begin{tabular}{|c|c|}" << endl;
-		fichierLatex << "	\\hline Solution & Valeur 1\\\\"<<endl;
-		for(int i=0;i<cpt;i++){
-			fichierLatex << "	\\hline ";
-			for(int j=0;j<tabInitialisation[0];j++){
-				fichierLatex << solutions[i].getChromosome()[j];
-			}
-			fichierLatex << " & "<< solutions[i].decodage(solutions[i]) <<"\\\\"<<endl;
-		}
+		
+		//~ for(int i=0;i<cpt;i++){
+			//~ fichierLatex << "	\\hline ";
+			//~ for(int j=0;j<tabInitialisation[0];j++){
+				//~ fichierLatex << solutions[i]->getChromosome()[j];
+			//~ }
+			//~ fichierLatex << " & "<< solutions[i]->decodage(*solutions[i]) <<"\\\\"<<endl;
+		//~ }
 		fichierLatex << "	\\hline"<<endl<<"	\\end{tabular}\\end{center}\n"<<endl;
 		fichierLatex << "	\\begin{center}\\begin{longtable}{|>{\\centering}m{2cm}|>{\\centering}m{2cm}|>{\\centering}m{2cm}"; if(tabInfoRegen[3] == "2") { fichierLatex << "|>{\\centering}m{2cm}|>{\\centering}m{2cm}|>{\\centering}m{2cm}|>{\\centering\\arraybackslash}m{2cm}|}" << endl; } else { fichierLatex << "|>{\\centering\\arraybackslash}m{2cm}|}" << endl; }
 		fichierLatex << "	\\hline Générations & Moyenne Critère 1 & Minimum Critère 1 & Maximum Critère 1"; if(tabInfoRegen[3] == "2") { fichierLatex << " & Moyenne Critère 2 & Minimum Critère 2 & Maximum Critère 2 \\\\" << endl; } else { fichierLatex << " \\\\" << endl;}
@@ -711,6 +740,7 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 		fichierLatex << "	\\end{longtable}\\end{center}" << endl;
 		fichierLatex << "\\end{document}" << endl;
 		fichierLatex.close();
+		cout<<"fin latex"<<endl;
 		return true;
 	}
 	else {
