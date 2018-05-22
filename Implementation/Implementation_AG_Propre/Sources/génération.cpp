@@ -47,7 +47,6 @@ Population::Population(string* const& donnees) :  ensemble(0) //test OK
 	/** INITIALISATION DES DONNEES INVARIABLES **/
 	QString tmp=QString::fromStdString(donnees[0]);
 	probaCroisement = tmp.toFloat(); // string to float
-	
 	nombreIndividus = std::stoi(donnees[1], nullptr, 10);
 	nombreGenerationMax = std::stoi(donnees[2], nullptr, 10);	
 	nombreCriteres = std::stoi(donnees[3], nullptr, 10);
@@ -540,10 +539,10 @@ Individu* Population::selectionner(int iCritere){ //à implémenter , modifié /
 		j = 0;
 		while(somme < nbAlea && j < this->nombreIndividus -1){			//on trouve l'individu qui se trouve là on la roulette s'est arrêtée
 			somme += (double)1/ensemble[j]->Individu::getRang(iCritere);
-			//~ cout<<j<<"/"<<somme<<"/"<<nbAlea<<endl;
+			// cout<<j<<" / "<<somme<<" / "<<nbAlea<<endl;
 			j++;
 		}
-		//~ cout<<"selection : " << j<<endl;
+		cout<<"selection : " << j<<endl;
 		return this->ensemble[j];
 }
 
@@ -555,6 +554,7 @@ int Population::nombreAlea(int inf, int sup) // test OK ? oui test ok
 
 
 void Population::crossover(Individu *parent1, Individu *parent2){
+	cout << "Crossover ------------" << endl;
 	//~ cout<< "p1 ";
 		//~ for(int j=0;j<parent1->getTailleIndividu();j++){ cout<< parent1->getChromosome()[j] << " / ";}
 		//~ cout<<endl;
@@ -578,8 +578,7 @@ void Population::crossover(Individu *parent1, Individu *parent2){
 		}
 	}
 	else{
-		
-		//~ cout<<"crossover non"<<endl;
+		cout<<"crossover non"<<endl;
 		enfant1 = new Individu(*parent1);
 		enfant2 = new Individu(*parent2);
 	}

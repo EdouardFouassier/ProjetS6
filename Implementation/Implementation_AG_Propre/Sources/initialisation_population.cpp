@@ -164,7 +164,7 @@ int Individu::decodage(int* binaire) { 			// ça ok avec prise en compte du neg
 	int res = 0;
 	int k = 0;
 	for(int j = getTailleIndividu(); j >= 1; j--){
-		res += binaire[j] * pow(2, k);  /// res = chromosome[j] * 2 puissance j
+		res += binaire[j] * pow(2, k);  /// res = binaire[j] * 2 puissance j
 	k++;
 	}
 	if(binaire[0] == 1)
@@ -172,8 +172,7 @@ int Individu::decodage(int* binaire) { 			// ça ok avec prise en compte du neg
 	return res;
 }
 bool Individu::evaluationIndividu(string fonctionFitness, int indiceScore) { // ça ok (sauf vérif')
-	double tmpScore = calculfitness(fonctionFitness.c_str(), decodage(this->chromosome));	// .c_str : convert string to char*
-	this->score[indiceScore] = tmpScore;
+	this->score[indiceScore] = calculfitness(fonctionFitness.c_str(), decodage(this->chromosome));	// .c_str : convert string to char*
 	//~ std::cout<<"Score : "<< this->score[indiceScore] << std::endl;
 	return true;	// Pas de vérif' pour le moment
 }
@@ -183,8 +182,15 @@ int Individu::mutation(int gene) const {
 	return gene;
 }
 bool Individu::probAlea(float prob) const {
+	cout << "Dans probAlea ---" << endl;
 	double alea = rand()/(double)RAND_MAX; 	//génère un nb dans [0,1]
-	if(alea < prob) return true;
+	cout << "alea = " << alea << endl;
+	cout << "prob = " << prob << endl;
+	if(alea <= prob) { 
+		cout << "alea < prob" << endl;
+		return true;
+	}
+	cout << "alea > prob" << endl;
 	return false;
 }
 

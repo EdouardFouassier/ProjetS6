@@ -364,6 +364,7 @@ string* lireInfoRegen(string nomFichier){
 		getline(fichier,sautligne);
 		getline(fichier,sautligne);
 		tableauInfoRegen[0] = sautligne;								//tauxCrossver				
+		cout << "lireInfoRegen tab[0] = " << tableauInfoRegen[0] << endl;
 		getline(fichier,sautligne);
 		tableauInfoRegen[1] = sautligne;								//taillePopulation;
 		getline(fichier,sautligne);
