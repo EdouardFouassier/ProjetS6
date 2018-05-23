@@ -681,12 +681,14 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 		int cpt=0;
 		if(P->getNombreCriteres()==1){
 			for(int i=0;i<stoi(tabInfoRegen[1])&&cpt<10;i++){
-				fichierLatex << "	\\hline ";
+				if (P->getEnsemble()[i]->getRang(0)==1){
+					fichierLatex << "	\\hline ";
 					for(int j=0;j<tabInitialisation[0]+1;j++){
 						fichierLatex << P->getEnsemble()[i]->getChromosome()[j];
 					}
 					fichierLatex << " & "<< P->getEnsemble()[i]->decodage(*P->getEnsemble()[i]) <<"\\\\"<<endl;
 					cpt++;
+				}
 			}
 		}else{
 			for(int i=0;i<stoi(tabInfoRegen[1])&&cpt<10;i++){
