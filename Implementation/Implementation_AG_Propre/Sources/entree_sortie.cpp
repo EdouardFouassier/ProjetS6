@@ -330,17 +330,18 @@ float* lireStat(FILE *F) {
 		}
 		float *tableauStatss=new float[6];
 		tmp=QString::fromStdString(moyScores1);
-		tableauStats[0] = tmp.toFloat();
+		tableauStatss[0] = tmp.toFloat();
 		tmp=QString::fromStdString(minScores1);
-		tableauStats[1] = tmp.toFloat();
+		tableauStatss[1] = tmp.toFloat();
 		tmp=QString::fromStdString(maxScores1);
-		tableauStats[2] = tmp.toFloat();
+		tableauStatss[2] = tmp.toFloat();
 		tmp=QString::fromStdString(moyScores2);
-		tableauStats[3] = tmp.toFloat();
+		tableauStatss[3] = tmp.toFloat();
 		tmp=QString::fromStdString(minScores2);
-		tableauStats[4] = tmp.toFloat();
+		tableauStatss[4] = tmp.toFloat();
 		tmp=QString::fromStdString(maxScores2);
-		tableauStats[5] = tmp.toFloat();
+		tableauStatss[5] = tmp.toFloat();
+		//cout<<tableauStats[0]<<" | "<<tableauStats[1]<<" | "<<tableauStats[2]<<" | "<<tableauStats[3]<<" | "<<tableauStats[4]<<" | "<<tableauStats[5]<<" | "<<endl;
 		delete[] tableauStats;
 		return tableauStatss;
 		
@@ -678,8 +679,9 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 		fichierLatex << "	\\begin{center}\\begin{tabular}{|c|c|}" << endl;
 		fichierLatex << "	\\hline Solution & Valeur 1\\\\"<<endl;
 		
-		int cpt=0;
+		
 		if(P->getNombreCriteres()==1){
+			int cpt=0;
 			for(int i=0;i<stoi(tabInfoRegen[1])&&cpt<10;i++){
 				if (P->getEnsemble()[i]->getRang(0)==1){
 					fichierLatex << "	\\hline ";
@@ -691,26 +693,27 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 				}
 			}
 		}else{
-			for(int i=0;i<stoi(tabInfoRegen[1])&&cpt<10;i++){
+			int cpt1=0,cpt2=0;
+			for(int i=0;i<stoi(tabInfoRegen[1])&&(cpt1+cpt2)<10;i++){
 				
 				//~ cout<<P->getEnsemble()[i]->getRang(1)<<endl;
 
-					if (P->getEnsemble()[i]->getRang(0)==1){
+					if (P->getEnsemble()[i]->getRang(0)==1 && cpt1<5){
 						fichierLatex << "	\\hline ";
 						for(int j=0;j<tabInitialisation[0]+1;j++){
 							fichierLatex << P->getEnsemble()[i]->getChromosome()[j];
 						}
 						fichierLatex << " & "<< P->getEnsemble()[i]->decodage(*P->getEnsemble()[i]) <<"\\\\"<<endl;
-						cpt++;
+						cpt1++;
 					}
 					else{
-						if (P->getEnsemble()[i]->getRang(1)==1){
+						if (P->getEnsemble()[i]->getRang(1)==1 && cpt2<5){
 							fichierLatex << "	\\hline ";
 							for(int j=0;j<tabInitialisation[0]+1;j++){
 								fichierLatex << P->getEnsemble()[i]->getChromosome()[j];
 							}
 							fichierLatex << " & "<< P->getEnsemble()[i]->decodage(*P->getEnsemble()[i]) <<"\\\\"<<endl;
-							cpt++;
+							cpt2++;
 						}
 					}
 				
