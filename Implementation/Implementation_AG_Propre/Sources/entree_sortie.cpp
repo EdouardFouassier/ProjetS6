@@ -681,12 +681,14 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 		int cpt=0;
 		if(P->getNombreCriteres()==1){
 			for(int i=0;i<stoi(tabInfoRegen[1])&&cpt<10;i++){
-				fichierLatex << "	\\hline ";
+				if (P->getEnsemble()[i]->getRang(0)==1){
+					fichierLatex << "	\\hline ";
 					for(int j=0;j<tabInitialisation[0]+1;j++){
 						fichierLatex << P->getEnsemble()[i]->getChromosome()[j];
 					}
 					fichierLatex << " & "<< P->getEnsemble()[i]->decodage(*P->getEnsemble()[i]) <<"\\\\"<<endl;
 					cpt++;
+				}
 			}
 		}else{
 			for(int i=0;i<stoi(tabInfoRegen[1])&&cpt<10;i++){
@@ -729,7 +731,7 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 		string nomFichierStats = nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt";
 		FILE *F;
 		F = fopen(nomFichierStats.c_str(),"r");
-		for(int i = 1; i <= P->getNumeroGeneration()-1; i++) {
+		for(int i = 1; i <= P->getNumeroGeneration(); i++) {
 			tabStats = lireStat(F);
 			fichierLatex << "	\\hline " << i << " & " << tabStats[0] << " & " << tabStats[1] << " & " << tabStats[2]; if(tabInfoRegen[3] == "2") { fichierLatex << " & " << tabStats[3] << " & " << tabStats[4] << " & " << tabStats[5] << "\\\\" << endl; } else { fichierLatex << "\\\\" << endl; }
 			delete[] tabStats;
