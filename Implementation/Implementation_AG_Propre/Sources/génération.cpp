@@ -354,7 +354,7 @@ bool Population::testNombreGeneration()
 }
 
 bool Population::testPopulationRemplie(){
-	if(ensemble.size() < nombreIndividus)
+	if(ensemble.size() < (unsigned int)nombreIndividus)
 		return true;
 	return false;
 }
@@ -369,7 +369,7 @@ void Population::evaluation() //test ok
 	else {		
 		for (int iCritere = 0; iCritere < nombreCriteres; iCritere ++){
 			//~ std::cout<<"criteres : "<<iCritere+1<<" / "<<nombreCriteres<<std::endl;
-			for (int iIndiv = 0; iIndiv < ensemble.size(); iIndiv ++){
+			for (unsigned int iIndiv = 0; iIndiv < ensemble.size(); iIndiv ++){
 				//~ cout << "Individu " << iIndiv <<endl;
 				if(iCritere == 0)
 					fitnessTmp = this->fitness1;
@@ -461,7 +461,7 @@ void Population::minimisation (int indiceScore)//test OK, pas dans cds (ameliora
 void Population::triValeur (int indiceScore)//test OK, pas dans cds (ameliorable)
 {
 	std::cout<<"VALEUR APPROCHEE"<<std::endl;
-	float val;
+	float val=0;
 	bool tab_en_ordre = false;
 	if (indiceScore == 0)
 		val = valeurApprochee;

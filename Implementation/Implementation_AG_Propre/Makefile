@@ -106,7 +106,7 @@ install:
 		sudo apt-get install texlive-lang-french
 		sudo apt-get install gnuplot
 
-run: compile clean
+run: 
 	./Implementation_AG
 	
 

@@ -62,7 +62,7 @@ bool testCoherenceDonnees(string nomFichier) {
 		}
         if (i == 5) { 
 			x = estEntierPositif(donnees);
-			if(!x || stoi(donnees)!=1 && stoi(donnees)!=2 )x=false;
+			if(!x || (stoi(donnees)!=1 && stoi(donnees)!=2 ))x=false;
 			fitness2 = donnees;
 			if(!x){throw string("Erreur nombre de critère \n");
 				return false;
@@ -77,7 +77,7 @@ bool testCoherenceDonnees(string nomFichier) {
 		}
         if (i == 7) { 
 			x = estEntierPositif(donnees);
-			if(!x || stoi(donnees)!=1 && stoi(donnees)!=2 && stoi(donnees)!=3) x=false;
+			if(!x || (stoi(donnees)!=1 && stoi(donnees)!=2 && stoi(donnees)!=3)) x=false;
 			critere = donnees;
 			if(!x){
 				throw string("Erreur critère fitness1 \n");
@@ -103,7 +103,7 @@ bool testCoherenceDonnees(string nomFichier) {
 				}
 				if (i == 10){
 					x = estEntierPositif(donnees);
-					if(!x || stoi(donnees)!=1 && stoi(donnees)!=2 && stoi(donnees)!=3) x=false;
+					if(!x || (stoi(donnees)!=1 && stoi(donnees)!=2 && stoi(donnees)!=3)) x=false;
 					critere = donnees;
 					if(!x){
 						throw string("Erreur critère fitness2 \n");

@@ -209,8 +209,7 @@ Interface::Interface() : QWidget()
 	//~ connectLancer();
 //~ }
 
-void * Interface::algoGenetique(void * arg){
-	//~ cout<<"lolentree"<<endl;
+void * Interface::algoGenetique(void *){
 	Population *p=new Population(lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt")),*p_new=nullptr;
 	
 	

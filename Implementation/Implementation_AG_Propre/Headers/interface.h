@@ -229,7 +229,7 @@ public:
 	/// \fn static void * algoGenetique(void *)
 	/// \brief Méthode appelant l'ensemble des méthodes pour le déroulement du programme.
 	/// \return NULL
-	static void * algoGenetique(void * arg); //MODIFICATION CDS  A JUSTIFIER : void algoGenetique()//
+	static void * algoGenetique(void *); //MODIFICATION CDS  A JUSTIFIER : void algoGenetique()//
 	
     public slots:
     
