@@ -729,7 +729,7 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 		string nomFichierStats = nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt";
 		FILE *F;
 		F = fopen(nomFichierStats.c_str(),"r");
-		for(int i = 1; i <= P->getNumeroGeneration()-1; i++) {
+		for(int i = 1; i <= P->getNumeroGeneration(); i++) {
 			tabStats = lireStat(F);
 			fichierLatex << "	\\hline " << i << " & " << tabStats[0] << " & " << tabStats[1] << " & " << tabStats[2]; if(tabInfoRegen[3] == "2") { fichierLatex << " & " << tabStats[3] << " & " << tabStats[4] << " & " << tabStats[5] << "\\\\" << endl; } else { fichierLatex << "\\\\" << endl; }
 			delete[] tabStats;
