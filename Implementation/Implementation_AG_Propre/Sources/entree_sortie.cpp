@@ -682,7 +682,7 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 		if(P->getNombreCriteres()==1){
 			for(int i=0;i<stoi(tabInfoRegen[1])&&cpt<10;i++){
 				fichierLatex << "	\\hline ";
-					for(int j=0;j<tabInitialisation[0];j++){
+					for(int j=0;j<tabInitialisation[0]+1;j++){
 						fichierLatex << P->getEnsemble()[i]->getChromosome()[j];
 					}
 					fichierLatex << " & "<< P->getEnsemble()[i]->decodage(*P->getEnsemble()[i]) <<"\\\\"<<endl;
@@ -695,7 +695,7 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 
 					if (P->getEnsemble()[i]->getRang(0)==1){
 						fichierLatex << "	\\hline ";
-						for(int j=0;j<tabInitialisation[0];j++){
+						for(int j=0;j<tabInitialisation[0]+1;j++){
 							fichierLatex << P->getEnsemble()[i]->getChromosome()[j];
 						}
 						fichierLatex << " & "<< P->getEnsemble()[i]->decodage(*P->getEnsemble()[i]) <<"\\\\"<<endl;
@@ -704,7 +704,7 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 					else{
 						if (P->getEnsemble()[i]->getRang(1)==1){
 							fichierLatex << "	\\hline ";
-							for(int j=0;j<tabInitialisation[0];j++){
+							for(int j=0;j<tabInitialisation[0]+1;j++){
 								fichierLatex << P->getEnsemble()[i]->getChromosome()[j];
 							}
 							fichierLatex << " & "<< P->getEnsemble()[i]->decodage(*P->getEnsemble()[i]) <<"\\\\"<<endl;
