@@ -75,7 +75,7 @@ Interface::Interface() : QWidget()
     nbF->addItem("2");
 
     checkXFig=new QCheckBox("xFig");
-    checkPostScrit=new QCheckBox("PostScrit");
+    checkPostScrit=new QCheckBox("PostScript");
     checkLaTeX=new QCheckBox("LaTeX");
 
     labNbF=new QLabel("Nombre de fonctions fitness");
