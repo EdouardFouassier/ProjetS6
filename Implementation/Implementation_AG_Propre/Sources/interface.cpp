@@ -225,14 +225,9 @@ void * Interface::algoGenetique(void * arg){
 	cout<<"population écrite"<<endl;
 	cout<<p->getNumeroGeneration()<<endl;
 	calculerEcrireStats(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt",nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt");
-<<<<<<< HEAD
 	// ecrirePopulation(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt");
-=======
->>>>>>> 0d91827c1ca29b604e1bdb6ed91913676976ea0d
 	cout<<"stat écrite"<<endl;
 	for(int j=1;/*j<p->getNombreGenerationMax()*/p->testArret(nomFichierSortie) && encours==1;j++){            //tant que testArret
-		
-
 		cout<<"avant new pop"<<p->getNumeroGeneration()<<endl;
 		p_new=new Population();
 		cout<<"apres new pop"<<p->getNumeroGeneration()<<" " << p->getEnsemble().size()<<endl;
@@ -258,10 +253,7 @@ void * Interface::algoGenetique(void * arg){
 		cout<<"population écrite"<<endl;
 		cout<<p->getNumeroGeneration()<<endl;
 		calculerEcrireStats(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt",nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt");
-<<<<<<< HEAD
 		// ecrirePopulation(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt");
-=======
->>>>>>> 0d91827c1ca29b604e1bdb6ed91913676976ea0d
 		cout<<"stat écrite"<<endl;
         //~ for(int i=0; i<p->getNombreIndividus();i++) {
             //~ cout<<"Individu "<<i<<endl;
