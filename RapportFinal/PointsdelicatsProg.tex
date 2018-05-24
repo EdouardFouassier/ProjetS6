@@ -1,0 +1,111 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[right=2.5cm, left=2.5cm, bottom=4cm, top=3cm]{geometry}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{mathtools,amssymb,amsthm}
+\usepackage{lmodern}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{longtable}
+
+\title{\vspace{13em}{\huge Rapport Final}}
+\author{Edouard Fouassier - Maxime Gonthier - Benjamin Guillot\\
+		Laureline Martin - Rémi Navarro - Lydia Rodrigez de la Nava
+		\vspace{2em}\\
+		Algorithme Génétique
+		\vspace{2em}}
+
+\begin{document}
+	
+	\pagenumbering{gobble}\clearpage
+	\maketitle\vspace{13em}
+\newpage
+\tableofcontents
+\newpage\clearpage\pagenumbering{arabic}
+	\section{Points délicats de la programmation}
+		\subsection{Les algorithmes }
+			L’objectif de la fonction \textbf{estParsable} est de tester si la fonction fitness entrée par l’utilisateur respecte les conditions que nous avons posées.\\
+			La première difficulté a été le test afin de déterminer que la fonction donnée aie une syntaxe valide (une seule variable appelée “x”, bonne écriture des fonctions mathématiques, etc.).\\
+			Pour cela, la fonction lit  un à un les caractères de la fonction fitness, a chaque lettre lu la fonction teste si les lettres suivantes forment bien une fonction mathématique valide. \\
+			Il fallait donc imbriquer de nombreux \textbf{if} pour tester toutes les possibilités. La seconde difficulté fut de tester la présence de divisions par zéro. Nous avons donc écrit dans des chaînes de caractères les dénominateur de chacune des fractions puis nous les avons évalué un à un avec le parseur.\\
+			Cependant, cette fonction est très longue (+ de 100 lignes).\\
+
+			Lors de l'implémentation des fonctions \textbf{ecrirePostscript} et  \textbf{ecrireXfig} écrire les fichiers postscript et xfig s’est révélé plus compliqué qu’escompté, car n’ayant pas su appréhender correctement le langage PostScript, la création du fichier .ps a été ardu et le format .fig étant un format d’image il s’est avéré difficile de créer une image .fig directement à partir des données.\\
+			L’écriture des deux fichiers se fait donc grâce à une suite de commandes. Pour le fichier postscript si l'écriture du fichier en latex a été demandée par l’utilisateur on convertit le fichier latex en fichier dvi puis en fichier postscript et on supprime ensuite le fichier dvi; si l'utilisateur n’a pas demandé le fichier en latex alors il est quand même écrit mais après les conversions permettant d’obtenir le fichier postscript on supprime également le fichier latex.\\
+			Pour le fichier xfig on génère tout d’abord un fichier gnuplot qui est ensuite converti en fichier .fig et ensuite supprimé pour ne garder que le fichier .fig.\\
+
+
+			La fonction permettant de tester la convergence \textbf{testConvergence} a pour objectif de tester les valeurs moyennes des x dernières générations.\\
+			Le principal problème rencontré étant que ces valeurs étaient stockées dans un fichier et qu’a chaque itérations de l’algorithme un nouvelle valeur était ajoutée à la fin de ce fichier.\\
+			Il a donc fallut trouver un moyen d’isoler uniquement ces valeurs afin de pouvoir les analyser ce qui nous a posé quelques difficultés. Nous avons finalement opté pour une option nous permettant de modifier le moins possible la fonction par rapport au cahier des spécification.\\
+			Nous récupérons donc uniquement le nom du fichier de statistiques en paramètres puis stockons dans un tableau de taille nombreGeneration (ce qui correspond au nombre d’itérations actuelles de l’algorithme) et récupérons les x dernière valeurs de ce tableau pour tester la convergence.\\
+
+		\subsection{Les modifications par rapport au cahier des spécifications}
+			Lors de l’implémentation, nous nous sommes rendus compte que nos choix de paramètre de fonction ou de type de fonction n’était pas forcément optimaux donc nous avons dû appliquer quelques changements.\\
+   			Notamment, nous n’avions pas pris en compte les pointeurs, donc plusieurs fonctions ont des pointeurs ajoutés en paramètres comme par exemple \textbf{ecrirePopulation(Population *P)}. On évite ainsi des problèmes de mémoire. Toutes les fonctions qui font partie de ce cas de changement seront précisées dans le listing.\\
+
+   			\subsubsection{Les modifications dans le module Gestion d’entrée et de sortie}
+   				\begin{itemize}
+   					\item Pour la fonction  \textbf{lireStat}, nous sommes passé d’un type int[3] à un type float* car c’est un tableau de float que nous devons renvoyer, puisque le minimum, le maximum et la moyenne peuvent très bien être des float.
+   					Il en va de même pour la fonction  \textbf{lireScoreIndividu} qui initialement avait pour signature un int mais qui maintenant est un float* car les scores peuvent eux aussi être des nombres à virgule et dans le cas du multi-critères, il faut renvoyer deux valeurs et non une seule .
+
+   					\item Les fonctions  \textbf{ecrireFichier} et  \textbf{ecrireLatex} prennent maintenant un nouveau paramètre : Population *P qui permet de récupérer les meilleurs individu que l’on écrit dans le fichier .tex. Le paramètre string nomFichierStats de la fonction  \textbf{ecrireFichier} a quand à lui été retiré car il n'était pas utile.
+   					La fonction  \textbf{ecrireUnScore} a quant à elle été retirée entièrement car elle était finalement inutile, la fonction  \textbf{ecrirePopulation} remplissant ce rôle.
+
+   					\item Pour les fonctions de vérification des données ( \textbf{estString},  \textbf{estParsable} etc…) nous sommes passés d’un auto en paramètre des fonctions à un string. Le type auto ne nous permettait pas d'appeler ces fonctions avec notre interface, nous avons donc opté pour le type string qui remplit le même usage sans ce défaut.
+   				\end{itemize}
+
+   			\subsubsection{Les modifications dans le module Génération d’une population}
+   				Le module de génération de la population comporte quelques modifications par rapport au cahier des spécifications.\\
+   				\begin{itemize}
+   					\item La première modification concerne l’attribut  \textbf{ensemble}. Initialement un tableau d’individu (individu *) cet attribut est maintenant un vecteur d’individus (vector<Individu*>). Ce choix est motivé par la plus grande intuitivité d’utilisation des vecteurs en C++ par rapport aux tableaux. De ce fait le getter getEnsemble est également modifié, renvoyant maintenant un vecteur et non un tableau.
+
+   					\item Il y a également une légère modification sur le constructeur  \textbf{Population(string *const\& donnees)}. En effet une données est ajoutée au paramètre donnees. Cette donnée supplémentaire étant le nom du fichier de paramètre, elle nous permet de récupérer les information nécessaires à la créations d’un individu en utilisant le constructeur  \textbf{Individu(float donnees[3])}. De ce fait les individus créés par ce constructeur de Population le seront avec les données nécessaire pour allouer à la bonne tailles les attributs int* chromosome, float* score et int* rang.
+
+   					\item La modification de la fonction  \textbf{testArret} concerne sa signature. En effet renvoyer une population comme prévu initialement n’était pas nécessaire. Utiliser un bool était plus judicieux pour interpréter le résultat de cette fonction.
+
+   					\item La modification de la fonction  \textbf{testConvergence} concerne ses paramètres. Le fichier de statistiques du programme devait initialement toujours avoir le même nom et donc le passer en argument n’était pas nécessaire. Cependant lors de l’implémentation de l'application nous avons finalement décidé de mettre tous les fichiers relatifs à une exécution du programme dans un fichier créé spécialement pour l’occasion. Le nom de ce dossier étant entré par l’utilisateur et le nom du fichier de statistique en dépendant, il a donc fallu le passer en paramètre de la fonction.
+
+   					\item La modification de la fonction d’évaluation de la population \textbf{evaluation} concerne sa signature. En effet renvoyer une population n’était pas utile et nous avons donc choisi de la changer pour un void pour ne pas créer de confusion.
+
+   					\item La modification de la fonction  \textbf{triPopulation} concerne sa signature. En effet renvoyer un bool comme prévu initialement n’était pas nécessaire. De ce fait pour éviter toute confusion lors de son utilisation nous avons décidé de remplacer cette signature par un void.
+					De plus, les trois fonctions  \textbf{maximisation},  \textbf{minimisation} et  \textbf{triValeur} sont un ajout par rapport au cahier des spécifications. Elles ne modifient aucunement le fonctionnement du programme tel que décrit dans le cahier des spécifications, ni celui de la fonction de tri décrite dans ce même document. Elles ont un intérêt purement esthétique et permettent de rendre le code plus lisible.
+
+					\item Dans la fonction  \textbf{Individu* selectionner(int iCritere)}, on a ajouté un argument qui précise dans quel critère on cherche à sélectionner les individus.
+					Quant à la fonction de  \textbf{crossover}, nous avons finalement trouvé qu’il n’était pas utile qu’elle renvoie une population. Nous l’avons transformée en une fonction void qui modifie directement l’objet :  \textbf{void crossover(Individu *Parent1, Individu *Parent2)}.
+
+					\item Nous avons également du ajouter un attribut et quelques fonctions par rapport au cahier des spécifications. Ces modifications ne changent en aucun cas le fonctionnement de l’application et sont seulement dû à des oublis. En effet lors de la rédactions du cahier des spécifications nous nous sommes concentrés sur les fonctions spécifiques au bon fonctionnement de l’algorithme génétique. Notre attention étant retenue sur ce point nous avons donc oublié l’attribut  \textbf{static float valeurApprochee2}. Par conséquent nous avons donc également dû ajouter le getter et setter de cet attribut soit  \textbf{float getValeurApprochee2()} et  \textbf{void setValeurApprochee2(float val)}. Dans notre inattention lors de la relecture nous avons également oublié les getter  \textbf{int getNombreGenerationMax()} et  \textbf{int getNombreCriteres()}. Nous avons aussi dû modifier le setter pour l’attribut ensemble qui était écrit comme un getter. Dans ce cas la signature de la fonction a été modifié pour devenir  \textbf{void setEnsemble(Individu \&nouv)}.\\
+				\end{itemize}
+
+			\subsubsection{Les modifications dans le module Initialisation de la population}
+				Nous avons également procédé à quelques modifications dans le module d’Initialisation de la population.\\
+				\begin{itemize}
+					\item Nous avons ajouté un constructeur dans la classe Individu. Il s’agit d’un constructeur de copie d’individu  \textbf{Individu(Individu I)}. Ce constructeur est utile dans la méthode  \textbf{void crossover (Individu *Parent1, Individu *Parent2)} de la classe Population dans le module Génération d’une population.
+
+					\item Nous avons ajouté une méthode  \textbf{int décodage(int* binaire)}. Cette méthode est  utile dans la fonction bool  \textbf{evaluationIndividu(string fonctionFitness, double valeur)}. On récupère simplement le tableau chromosome de l’individu en cours et on passe ce tableau dans la fonction de décodage.\\
+				\end{itemize}
+
+			\subsubsection{Les modifications dans le module Interface}
+				Il a fallu ajouter un booléen  \textbf{bool encours} permettant de savoir si le programme a été lancé. Cela change les messages affiché par les différents boutons.\\
+				Nous avons aussi dû modifier la fonction  \textbf{void algoGenetique()} en  \textbf{void * algoGenetique(void * arg)} car cette fonction est lancée avec un thread.
+				Nous n’avions pas pris en compte que le déroulement de l’algorithme ne permettait pas l’utilisation de l’interface et notamment du bouton d'arrêt. L’utilisation du thread laisse le processus se lequel se trouve l’interface libre .\\
+
+			\subsubsection{Autres problèmes}
+				Au début du projet nous avions aussi de gros problèmes dans nos résultats puisque généralement les valeurs convergeaient au bout de seulement quelques générations. Nous nous sommes plus tard rendus compte que le problème venait de la conversion des données de string à flottant. Nous utilisions la fonction  \textbf{stof(string)} pour convertir les strings en float, mais celle-ci renvoyait une valeur entière, or pour une probabilité de crossover de 0,8 on avait 0 donc jamais de crossover, d’où la convergence prématurée.\\
+				Pour évité cela nous avons convertie les string en QString car cet objet a de nombreuses méthodes notamment de conversion. Nous utilisons donc la fonctions  \textbf{toFloat()} du QString afin de récupérer la valeur.\\
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+   
