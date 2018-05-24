@@ -62,7 +62,7 @@
 		Le choix d’en faire des classes a été motivé par les possibilité de manipulation offertes de ces des notions en temps qu’objet.
 		Un Individu et une Population étant composé de plusieurs éléments, l’utilisation de classe nous a permis d’en faire des attributs de ces classes tel que l’ensemble de chromosome pour un Individu ou l’ensemble d’individu pour une population.\\\\
 		
-		Le module de gestion d’entrées sorties est quant à lui le seul module procédural du projet. Ce module contient de la lecture, de l’écriture et des calculs ce qui est plus simple à implémenter en procédural. \\
+		Le module de gestion d’entrées sorties est quant à lui le seul module procédural du projet. Ce module contient de la lecture, de l’écriture et des calculs. Aucuns attributs n'étant nécessaires dans ce module, en faire un objet n'aurait pas été logique. Une gestion procédurale de la gestion des entrées sorties était donc tout indiqué. \\
 		
 		\subsection{Initialisation de la population}
 			Un individu est dans notre logiciel implémenté comme un tableau de gènes qui peuvent prendre comme valeur 0 ou 1.
@@ -78,7 +78,7 @@
 		\subsection{Génération de la nouvelle population}
 		
 			Le rôle de ce module est de générer une population.
-			Une population est un vecteur d’individus, initialisé en fonction des données envoyées par le module de gestion d’entrée et sortie (cf l’organigramme).\\
+			Une population est un vecteur d’individus, initialisé en fonction des données envoyées par le module de gestion d’entrée et sortie (cf organigramme page 2).\\
 			Ce module effectue de plus les tests qui permettent de savoir s’il faut continuer ou pas l’itération de l’AG.
 			Il teste notamment si le nombre de génération à créer a été atteint ou si les résultats convergent, auxquels cas l’AG s’arrête et le module de gestion d’entrée et sortie écrit le fichier de résultats final.\\
 			De plus, c’est dans ce module qu’on retrouve les opérateurs principaux de l’algorithme génétique.
@@ -89,7 +89,7 @@
 			Une fois que celle-ci est pleine, elle est évaluée puis envoyée au module de gestion d’entrée et de sortie pour écrire les scores de chaque individu et les statistiques de la population.\\
 
 			Afin de réaliser notre application, nous avons été confrontés à plusieurs contraintes et choix. Nous avons dû par exemple choisir entre plusieurs algorithmes de sélection ou plusieurs algorithmes de crossover.\\
-			Pour la sélection des individus, plusieurs choix s’offraient à nous. Parmis eux se trouvaient la sélection par roulette, la sélection élitiste, la sélection par tournoi et la sélection uniforme.
+			Pour la sélection des individus, plusieurs choix s’offraient à nous. Parmi eux se trouvaient la sélection par roulette, la sélection élitiste, la sélection par tournoi et la sélection uniforme.
 			La sélection élitiste choisit uniquement les meilleurs individus, donc le hasard n’est pas du tout pris en compte, ce qui ne correspondait pas à notre objectif d’inclure une part de hasard comme la sélection naturelle.
 			La sélection par tournoi confronte les individus deux à deux et choisit le meilleur score.
 			Cette sélection inclut une part de hasard mais les scores les plus faibles seront toujours absents de la sélection.
@@ -135,7 +135,7 @@
 					\item	Une ou deux fonction(s) fitness (c’est-à-dire la fonction nécessaire à l’évaluation d’un individu). 
 							Il choisit ensuite s’il veut maximiser, minimiser, ou s’approcher d’une valeur. 
 							Pour notre exemple, on a une seule fonction fitness qui est f(x) = x. On indique que c’est une fonction à maximiser.
-					\item 	Le nombre maximal de génération, compris entre 2 et 1000 plus le nombre de generations sera elevé plus les resultats seront représentatifs. 
+					\item 	Le nombre maximal de génération, compris entre 2 et 1000 plus le nombre de générations sera élevé plus les résultats seront représentatifs. 
 							Pour notre exemple, on indique 30 générations au maximum.		
 					\item	La taille des individus (en nombre de bits), compris entre 1 et 32 plus les individus seront grands, plus les solutions pourront être élevé.
 							On rappelle qu’un individu est codé en binaire, donc la valeur maximum d’un individu est 2\^{}(le nombre de bits)-1.
@@ -146,7 +146,7 @@
 							Ici le taux de crossover sera de 0,5 pour qu'il y ait une même probabilités que deux individus en génère deux nouveaux ou qu'ils restent dans la population.
 					\item	Le taux de mutation, compris entre 0 et 1 c'est la probabilité qu'un bit soit changé aléatoirement.
 							Dans le cas présent, nous souhaitons une faible probabilité de mutation pour éviter de convergence prématurée, la probabilité de mutation est donc de 0.15.
-					\item	Les différents formats de sorti, il a le choix entre LaTeX, PostScript et xFig, chaque format selectionné génère un fichier.
+					\item	Les différents formats de sorti, il a le choix entre LaTeX, PostScript et xFig, chaque format sélectionné génère un fichier.
 							Dans notre exemple, on choisit uniquement la sortie LaTeX.
 					\item	Le nom du fichier de sorti, c'est le nom que l'utilisateur veut donner au(x) fichier(s) qui seront générés.
 							Le nom sera ici "exemple".\\
@@ -154,9 +154,9 @@
 			Si l’utilisateur possède déjà un fichier de données, il peut  sélectionner un fichier qui contient toutes les informations nécessaires pour démarrer le programme (décrites au dessus).
 			Les informations dans le fichier doivent être dans le bon ordre.
 			Cela lui évite d’entrer les valeurs dans l’interface.\\
-			Dans cette seconde option, le fichier devra imperativement respecter le format suivant :
+			Dans cette seconde option, le fichier devra impérativement respecter le format suivant :
 				\begin{itemize}
-					\item Taille d'un individu en nombre de bits (de 1 à 32), bit de signe non inclu.
+					\item Taille d'un individu en nombre de bits (de 1 à 32), bit de signe non inclut.
 					\item Taux de mutation (0 à 1)
 					\item Taux de crossover (0 à 1)
 					\item Taille de la population (2 à 100)
@@ -179,7 +179,7 @@
 			Voici l’interface remplie avec les valeurs de notre exemple juste avant de lancer le programme :\\
 			\centerline{\includegraphics[scale=0.5]{Interface.png}}
 			
-		\subsection{ Explication du fonctionnement de l’algorithme}
+		\subsection{Explication du fonctionnement de l’algorithme}
 			Le lancement de l’algorithme se passe dans la fonction \textbf{Interface::algoGenetique}.\\
 			Dans un premier temps, une génération composée d’individus aléatoires est créée à l’aide des données entrées par l’utilisateur, c’est la population initiale.\\
 			Avec le même exemple que dans la partie 1, la population initiale peut être :\\
@@ -237,7 +237,7 @@
 			L’objectif de la fonction \textbf{estParsable} est de tester si la fonction fitness entrée par l’utilisateur respecte les conditions que nous avons posées.\\
 			La première difficulté a été le test afin de déterminer que la fonction donnée aie une syntaxe valide (une seule variable appelée “x”, bonne écriture des fonctions mathématiques, etc.).\\
 			Pour cela, la fonction lit  un à un les caractères de la fonction fitness, a chaque lettre lu la fonction teste si les lettres suivantes forment bien une fonction mathématique valide. \\
-			Il fallait donc imbriquer de nombreux \textbf{if} pour tester toutes les possibilités. La seconde difficulté fut de tester la présence de divisions par zéro. Nous avons donc écrit dans des chaînes de caractères les dénominateur de chacune des fractions puis nous les avons évalué un à un avec le parseur.\\
+			Il fallait donc imbriquer de nombreux if pour tester toutes les possibilités. La seconde difficulté fut de tester la présence de divisions par zéro. Nous avons donc écrit dans des chaînes de caractères les dénominateur de chacune des fractions puis nous les avons évalué un à un avec le parseur.\\
 			Cependant, cette fonction est très longue (+ de 100 lignes).\\
 			
 			Une des difficultés rencontré a été d'optimisé l'utilisation des fichiers via les fonctions tout en assurant le maintient d'une certaine ergonomie.
