@@ -29,7 +29,7 @@
 	\section{Introduction}
 		Dans le cadre du module IN608 du dernier semestre de notre Licence Informatique à l’UVSQ, nous avons eu l’occasion de réaliser un projet sous la direction de Mme Leila Kloul.\\
 		Nous avons choisi, parmi les sujets proposés, le sujet Algorithme Génétique car c’est un sujet qui demande à la fois des connaissances basiques en biologie et des connaissances plus poussées en algorithmique, ce qui nous a beaucoup plu.
-		De plus c’est un sujet qui demande de transformer en programmation des méthodes biologique, ce qui est un défi intéressant.\\
+		De plus c’est un sujet qui demande de transformer en programmation des méthodes biologiques, ce qui est un défi intéressant.\\
 		
 		Notre projet consiste à créer un logiciel permettant à un utilisateur de résoudre un problème d’optimisation grâce à un Algorithme Génétique.\\
 		Mais tout d’abord, qu’est-ce qu’un Algorithme Génétique ?\\
@@ -59,7 +59,7 @@
 		\end{itemize}
 		Le module Interface est implémenté avec le logiciel Qt et est par conséquent une classe.\\
 		Les modules d’initialisation de la population et de génération de nouvelle population sont toutes deux des classes qui implémentent respectivement les individus et une population.\\
-		Le choix d’en faire des classes à été motivé par les possibilité de manipulation offertes de ces des notions en temps qu’objet.
+		Le choix d’en faire des classes a été motivé par les possibilité de manipulation offertes de ces des notions en temps qu’objet.
 		Un Individu et une Population étant composé de plusieurs éléments, l’utilisation de classe nous a permis d’en faire des attributs de ces classes tel que l’ensemble de chromosome pour un Individu ou l’ensemble d’individu pour une population.\\\\
 		
 		Le module de gestion d’entrées sorties est quant à lui le seul module procédural du projet. Ce module contient de la lecture, de l’écriture et des calculs ce qui est plus simple à implémenter en procédural. \\
@@ -88,7 +88,7 @@
 			Avec tous ces opérateurs, on peut donc générer une nouvelle population.\\
 			Une fois que celle-ci est pleine, elle est évaluée puis envoyée au module de gestion d’entrée et de sortie pour écrire les scores de chaque individu et les statistiques de la population.\\
 
-			Afin de réaliser notre application, nous avons été confrontés à plusieurs contraintes et choix. nous avons dû par exemple choisir entre plusieurs algorithmes de sélection ou plusieurs algorithmes de crossover.\\
+			Afin de réaliser notre application, nous avons été confrontés à plusieurs contraintes et choix. Nous avons dû par exemple choisir entre plusieurs algorithmes de sélection ou plusieurs algorithmes de crossover.\\
 			Pour la sélection des individus, plusieurs choix s’offraient à nous. Parmis eux se trouvaient la sélection par roulette, la sélection élitiste, la sélection par tournoi et la sélection uniforme.
 			La sélection élitiste choisit uniquement les meilleurs individus, donc le hasard n’est pas du tout pris en compte, ce qui ne correspondait pas à notre objectif d’inclure une part de hasard comme la sélection naturelle.
 			La sélection par tournoi confronte les individus deux à deux et choisit le meilleur score.
@@ -103,12 +103,12 @@
 			On a vu précédemment que le module de gestion d’entrée et sortie recevait du module interface soit les données une à une soit un fichier de données.
 			Dans le premier cas, le module se charge de les écrire dans un nouveau fichier.
 			Dans le deuxième cas, on parcourt le fichier pour vérifier que toutes les données sont cohérentes. Dans les deux cas, le module vérifie que la fonction fitness est parsable.
-			Pour qu’une fonction soit parsable elle doit être correctement parenthésée, ne pas avoir de division par zéro, avoir correctement orthographié les fonctions mathématiques et n’avoir qu’une seule variable nommé obligatoirement ‘x’.\\
+			Pour qu’une fonction soit parsable elle doit être correctement parenthésée, ne pas avoir de division par zéro, avoir correctement orthographié les fonctions mathématiques et n’avoir qu’une seule variable nommée obligatoirement ‘x’.\\
 			Une fois toutes ces données vérifiées, le module se charge d’envoyer toutes les données nécessaires au fonctionnement du module d’initialisation de la population et au module de génération d’une population. /! A DEVELOPPER\\
 			A chaque itération de l’algorithme génétique, le module reçoit de Génération d’une population la population qui vient d’être créée.
-			Il prend celle-ci et écris le score de chaque individu dans un fichier.\\
+			Il prend celle-ci et écrit le score de chaque individu dans un fichier.\\
 			Le module calcule ensuite les statistiques d’une population, c’est-à-dire qu’il écrit le score du meilleur individu, du moins bon et fait un moyenne pondérée de toute la population.\\
-			En s’aidant des statistiques précédemment obtenues, à la fin du programme, le module va écrire dans le(s) format(s) souhaités par l’utilisateur le fichier final qui fait une synthèse du déroulement de l’algorithme et aussi le résultat à son problème.
+			En s’aidant des statistiques précédemment obtenues, à la fin du programme, le module va écrire dans le(s) format(s) souhaité(s) par l’utilisateur le fichier final qui fait une synthèse du déroulement de l’algorithme et aussi le résultat à son problème.
 		
 		\subsection{Interface}
 			Le module interface est le module qui s’occupe de la création et de l’affichage des champs de saisie. Nous avons utilisé Qt pour la créer car /! À JUSTIFIER\\	
@@ -122,7 +122,7 @@
 			Autrement l’utilisateur est prévenu de ses erreurs et retourne sur l’interface pour les corriger.\\
 			Le bouton Arrêter arrête l’itération de l’AG lancé, mais enregistre les données et fournit le fichier de sortie malgré tout.\\
 			Le bouton Quitter quant à lui arrête l’AG sans rien enregistrer.\\
-			Dans le cas où l’utilisateur a entré ses données dans les champs de saisie de l’interface, celle-ci sont envoyée au module d’entrée et sortie pour qu’elles soient enregistrées dans un fichier.
+			Dans le cas où l’utilisateur a entré ses données dans les champs de saisie de l’interface, celles-ci sont envoyées au module d’entrée et sortie pour qu’elles soient enregistrées dans un fichier.
 			Dans le cas où l’utilisateur a entré directement un fichier de données, le nom de ce dernier est envoyé au module d’entrée et sortie qui se chargera de vérifier la cohérence des données.\\
 
 \end{document}
