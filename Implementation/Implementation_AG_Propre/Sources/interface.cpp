@@ -303,7 +303,7 @@ void Interface::afficherAppF2(){
 }
 
 void Interface::connectAide(){
-    QDesktopServices::openUrl(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/try.pdf"));
+    QDesktopServices::openUrl(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/Manuel.pdf"));
 }
 
 void Interface::connectArreter(){
