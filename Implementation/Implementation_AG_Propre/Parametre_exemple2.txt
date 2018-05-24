@@ -1,0 +1,13 @@
+16
+0.5
+0.9
+60
+500
+1
+x
+1
+12 					 //inutilisé car critère fonction fitness 1 à 1
+x * 5 * cos( x / 2 ) //inutilisé car 1 seul critère
+1					 //inutilisé car 1 seul critère
+12.3                 //inutilisé car 1 seul critère
+110

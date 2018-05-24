@@ -15,22 +15,18 @@ bool testCoherenceDonnees(string nomFichier) {
 	bool x;
 	if(fichier)  
     { 
-	while(i != 13) { 
-			//fichier >> donnees;cout<<donnees<<endl;
+	while(i != 13) { // on parcourt les 12 lignes du fichier
 		getline(fichier, donnees); 
-		//cout<<i<<" "<<donnees<<" "<<donnees.length()<<endl;
-		   //donnees.erase(donnees.length(),1);
 		if (i == 0) {
 			x = estEntierPositif(donnees);
-			if(!x || stoi(donnees)>32 || stoi(donnees)<1)x=false;
+			if(!x || stoi(donnees)>32 || stoi(donnees)<1)x=false; //on teste les bornes
 			if(!x ){
-				throw string("Erreur taille individu \n");
+				throw string("Erreur taille individu \n"); //on envoie une erreur
 				return false;
 			}
 		}
         if (i == 1) {
 			x = estProbabilite(donnees);
-			if(!x || stoi(donnees)>1 || stoi(donnees)<0)x=false;
 			if(!x){
 				throw string("Erreur taux de mutation \n");
 				return false;
@@ -38,7 +34,6 @@ bool testCoherenceDonnees(string nomFichier) {
 		}
         if (i == 2) {
 			x = estProbabilite(donnees);
-			if(!x || stoi(donnees)>1 || stoi(donnees)<0)x=false;
 			if(!x){
 				throw string("Erreur taux de crossover \n");
 				return false;
@@ -133,7 +128,7 @@ bool testCoherenceDonnees(string nomFichier) {
 	return true;
     }
     else { //cerr << "Erreur ouverture fichier \n" << endl; return false;
-		throw string("Erreur fichier de paramètre introuvable \n");
+		throw string("Erreur fichier de paramètre introuvable \n"); //si on ne parvient pas a ouvrir le fichier
 		}
 
 }
@@ -165,8 +160,8 @@ bool estProbabilite(string valeur) {
     if(ok && (val <= 1) && (val >= 0)) {
     return true; }
     else {
-			return false;
-		}
+		return false;
+	}
 }
 
 bool estString(string valeur) {
@@ -385,8 +380,7 @@ string* lireInfoRegen(string nomFichier){
 		getline(fichier,sautligne);
 		tableauInfoRegen[9] = sautligne;					//valeurFonctionFitness2;
 		tableauInfoRegen[10] = nomFichier;
-		fichier.close();												//On ferme le fichier
-		//~ printf("\n");		
+		fichier.close();												//On ferme le fichier	
 		//~ cout << tableauInfoRegen[0] << " Taux de crossover " << endl;
 		//~ cout << tableauInfoRegen[1] << " Taille de la population "<< endl;
 		//~ cout << tableauInfoRegen[2] << " Nombre de generation max " << endl;
@@ -509,27 +503,16 @@ bool ecrirePopulation(Population *P, string nomFichier){ //LES TEST SONT ENCORE 
 	ofstream fichier(nomFichier.c_str(), ios::out | ios::app);
 	if(fichier)
 	{
-	   //cout<<"check1"<<endl;
        for(int i=0;i<P->getNombreIndividus()-1;i++){
 		   fichier << P->getEnsemble()[i]->getScore(0) << " ";
-		   //cout<<"check5"<<endl;
-           //for(int j=0;j<P.getEnsemble()[i].getTailleIndividu();j++){
-               //fichier << P.getEnsemble()[i].getChromosome()[j] << " ";
-           //}
        }
        fichier << P->getEnsemble()[P->getNombreIndividus()-1]->getScore(0) << endl;
-       //cout<<"check2"<<endl;
 		if(P->getNombreCriteres() == 2)
        {
 			for(int i=0;i<P->getNombreIndividus()-1;i++){
 			fichier << P->getEnsemble()[i]->getScore(1) << " ";
-		   //cout<<"check4"<<endl;
-			//for(int j=0;j<P.getEnsemble()[i].getTailleIndividu();j++){
-				//fichier << P.getEnsemble()[i].getChromosome()[j] << " ";
-			//}
 			}
        fichier << P->getEnsemble()[P->getNombreIndividus()-1]->getScore(1) << endl;
-       //cout<<"check3"<<endl;
 	   }
 	   else { fichier << "PasCritere" << endl; }
        fichier.close();
@@ -720,13 +703,6 @@ bool ecrireLatex(string nomFichierSortie,Population *P){
 			}
 		}
 		
-		//~ for(int i=0;i<cpt;i++){
-			//~ fichierLatex << "	\\hline ";
-			//~ for(int j=0;j<tabInitialisation[0];j++){
-				//~ fichierLatex << solutions[i]->getChromosome()[j];
-			//~ }
-			//~ fichierLatex << " & "<< solutions[i]->decodage(*solutions[i]) <<"\\\\"<<endl;
-		//~ }
 		fichierLatex << "	\\hline"<<endl<<"	\\end{tabular}\\end{center}\n"<<endl;
 		fichierLatex << "	\\begin{center}\\begin{longtable}{|>{\\centering}m{2cm}|>{\\centering}m{2cm}|>{\\centering}m{2cm}"; if(tabInfoRegen[3] == "2") { fichierLatex << "|>{\\centering}m{2cm}|>{\\centering}m{2cm}|>{\\centering}m{2cm}|>{\\centering\\arraybackslash}m{2cm}|}" << endl; } else { fichierLatex << "|>{\\centering\\arraybackslash}m{2cm}|}" << endl; }
 		fichierLatex << "	\\hline Générations & Moyenne Critère 1 & Minimum Critère 1 & Maximum Critère 1"; if(tabInfoRegen[3] == "2") { fichierLatex << " & Moyenne Critère 2 & Minimum Critère 2 & Maximum Critère 2 \\\\" << endl; } else { fichierLatex << " \\\\" << endl;}
@@ -814,12 +790,4 @@ bool ecrireXfig(string nomFichierSortie){
 		return false;
 	}
 }
-
-//~ int main (){
-	//~ float i = 3.2;
-	//~ bool y = estProbabilite(i);
-	//~ printf(y ? "true" : "false");
-    //~ bool x = estParsable("+ 2 +  2");
-    //~ printf(x ? "true" : "false");
-//~ }
 

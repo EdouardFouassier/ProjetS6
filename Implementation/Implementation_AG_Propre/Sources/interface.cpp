@@ -203,11 +203,6 @@ Interface::Interface() : QWidget()
     this->autoFillBackground();
 }
 
-//~ Interface::Interface(string nom,string fichier) : Interface(){
-	//~ liensFichier->setText(QString::fromStdString(fichier));
-	//~ nomFichier->setText(QString::fromStdString(nom));
-	//~ connectLancer();
-//~ }
 
 void * Interface::algoGenetique(void *){
 	Population *p=new Population(lireInfoRegen(nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt")),*p_new=nullptr;
@@ -216,43 +211,41 @@ void * Interface::algoGenetique(void *){
 	
 	cout<<p->getNumeroGeneration()<<endl;
 	cout<<endl<<"ITERATION "<<0<<endl;
-	cout<<p->getNumeroGeneration()<<endl;
+	//~ cout<<p->getNumeroGeneration()<<endl;
 	p->evaluation();
-	cout<<p->getNumeroGeneration()<<endl;
+	//~ cout<<p->getNumeroGeneration()<<endl;
 	cout<<"evaluation faite"<<endl;
 	ecrirePopulation(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt");
 	cout<<"population écrite"<<endl;
-	cout<<p->getNumeroGeneration()<<endl;
+	//~ cout<<p->getNumeroGeneration()<<endl;
 	calculerEcrireStats(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt",nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt");
-	// ecrirePopulation(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt");
 	cout<<"stat écrite"<<endl;
-	for(int j=1;/*j<p->getNombreGenerationMax()*/p->testArret(nomFichierSortie) && encours==1;j++){            //tant que testArret
-		cout<<"avant new pop"<<p->getNumeroGeneration()<<endl;
+	for(int j=1;p->testArret(nomFichierSortie) && encours==1;j++){            //tant que testArret
+		//~ cout<<"avant new pop"<<p->getNumeroGeneration()<<endl;
 		p_new=new Population();
-		cout<<"apres new pop"<<p->getNumeroGeneration()<<" " << p->getEnsemble().size()<<endl;
+		//~ cout<<"apres new pop"<<p->getNumeroGeneration()<<" " << p->getEnsemble().size()<<endl;
 		p_new=p_new->creerGeneration(p);
-		cout<<"apres creer"<<p->getNumeroGeneration()<<endl;
+		//~ cout<<"apres creer"<<p->getNumeroGeneration()<<endl;
 		//~ for(int i=0;i<p->getNombreIndividus() ;i++){           //créerGénération
 			//~ p_new->crossover((p->selectionner(0)),(p->selectionner(0)));
             //~ std::cout<<"individu "<<i<<" créé"<<std::endl;
 		//~ }
 		//~ cout<<"creation de la nouvelle population"<<endl;
 		delete p;
-		cout<<"avant swap"<<p->getNumeroGeneration()<<endl;
+		//~ cout<<"avant swap"<<p->getNumeroGeneration()<<endl;
 		p=p_new;
-		cout<<"apres swap"<<p->getNumeroGeneration()<<endl;
+		//~ cout<<"apres swap"<<p->getNumeroGeneration()<<endl;
 		cout<<"ancienne population = nouvelle population"<<endl;
 		cout<<p->getNumeroGeneration()<<endl;
 		cout<<endl<<"ITERATION "<<j<<endl;
-		cout<<p->getNumeroGeneration()<<endl;
+		//~ cout<<p->getNumeroGeneration()<<endl;
 		p->evaluation();
-		cout<<p->getNumeroGeneration()<<endl;
+		//~ cout<<p->getNumeroGeneration()<<endl;
 		cout<<"evaluation faite"<<endl;
 		ecrirePopulation(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt");
 		cout<<"population écrite"<<endl;
 		cout<<p->getNumeroGeneration()<<endl;
 		calculerEcrireStats(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt",nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt");
-		// ecrirePopulation(p,nomFichierSortie+"/"+nomFichierSortie+"_Populations.txt");
 		cout<<"stat écrite"<<endl;
         //~ for(int i=0; i<p->getNombreIndividus();i++) {
             //~ cout<<"Individu "<<i<<endl;
@@ -265,15 +258,12 @@ void * Interface::algoGenetique(void *){
 	}
 	string param=nomFichierSortie+"/"+nomFichierSortie+"_Parametres.txt";
 	ecrireFichier(nomFichierSortie,param,p);
-	//~ ecrireLatex(nomFichierSortie,p);
-	cout<< "FIN" <<endl;
+	
 	encours=0;
 	p->setNumeroGeneration(0);
-	//~ QWidget *widget=new QWidget();
-	//~ QMessageBox::information(widget, "FIN", "Le programme est terminé.");
-	//~ delete widget;
-	cout<<p->getEnsemble().size()<<endl;
+	//~ cout<<p->getEnsemble().size()<<endl;
 	delete p;
+	cout<< "FIN" <<endl;
 	return NULL;
 }
 
@@ -308,23 +298,9 @@ void Interface::connectAide(){
 
 void Interface::connectArreter(){
     if(encours!= 0){
-		//~ int reponse=QMessageBox::question(this,"Confirmer?" ,"L'algorithme n'est pas fini.\nEtes vous sure?\nVous pouvez sauvegarder le resultat actuel.", QMessageBox::Yes | QMessageBox::No | QMessageBox::Save);
-        //~ if (reponse == QMessageBox::Yes)
-        //~ {
-            //~ QMessageBox::information(this, "Fermeture", "A bientot");
-            //~ close();
-        //~ }
-        //~ if (reponse == QMessageBox::Save){
-			 //~ QMessageBox::information(this, "Fermeture", "Resultat sauvegarder.\nA bientot");
-            //~ close();
-		//~ }
         int reponse=QMessageBox::question(this,"Confirmer" ,"Arrêter enregistrera le resultat actuel.\nL'algorithme n'est pas fini.\nEtes-vous sûr?", QMessageBox::Yes | QMessageBox::No );
         if (reponse == QMessageBox::Yes)
         {
-            //QMessageBox::information(this, "Fermeture", "A bientôt");
-            //~ Interface i(this);
-            //~ i.show();
-            //~ close();
             encours=0;
         }
     }

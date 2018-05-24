@@ -139,12 +139,6 @@ public:
 	/// \brief Constructeur par défaut de la classe Inteface.
     Interface();
     
-  /*  /// \fn Interface(string, string)
-	/// \brief Constructeur de la classe Inteface.
-	/// \param string nom
-	/// \param string fichier
-    Interface(string nom, string fichier); //MODIFICATION CDS  A JUSTIFIER : AJOUT DU CONSTRUCTEUR Interface (string nom, string fichier)//                                                                                       //
-*/
     
     /// \fn bool getEnCours()
 	/// \brief Getteur de l'attribut encours.
