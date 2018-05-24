@@ -101,7 +101,7 @@ Population::Population(string* const& donnees) :  ensemble(0) //test OK
 
 Population::~Population() //a revoir
 {
-	cout<<"DESTRUCTEUR POPULATION"<<endl;
+	//~ cout<<"DESTRUCTEUR POPULATION"<<endl;
 	int size = ensemble.size();
 	for(int i = size; i >= 0; i--){
 		//delete ensemble[i];
@@ -222,8 +222,8 @@ bool Population::testConvergence(string nomFichierSortie) //Test OK
 		return false;
 	float *TestTab;
 	FILE *f;
-    std::cout<<"nombre de criteres : "<<nombreCriteres<<std::endl;
-    std::cout<<"numero generation : "<<numeroGeneration<<std::endl;
+    //~ std::cout<<"nombre de criteres : "<<nombreCriteres<<std::endl;
+    //~ std::cout<<"numero generation : "<<numeroGeneration<<std::endl;
     
     string StatFile = nomFichierSortie+"/"+nomFichierSortie+"_Stats.txt";
     f=fopen(StatFile.c_str(), "r");
@@ -242,32 +242,32 @@ bool Population::testConvergence(string nomFichierSortie) //Test OK
 		TestTab = lireStat(f);
 			if (nombreCriteres == 1){
 				temp[k] = TestTab[0];
-				std::cout <<"Temp["<<k<<"] : "<<temp[k]<<std::endl;
+				//~ std::cout <<"Temp["<<k<<"] : "<<temp[k]<<std::endl;
 			}
 			else{ 
 				tempCrit1[k] = TestTab[0];
 				tempCrit2[k] = TestTab[3];
-				std::cout <<"TempCrit1["<<k<<"] : "<<k<<std::endl;
-				std::cout <<"TempCrit1["<<k<<"] : "<<k<<std::endl;
+				//~ std::cout <<"TempCrit1["<<k<<"] : "<<k<<std::endl;
+				//~ std::cout <<"TempCrit2["<<k<<"] : "<<k<<std::endl;
 			}
-		std::cout << std::endl;
+		//~ std::cout << std::endl;
 		delete[] TestTab;
 	}
-	std::cout<<std::endl;
+	//~ std::cout<<std::endl;
 	
 	for(int i = 4; i > 0; i --){
 		if(nombreCriteres == 1){
 			if(!((temp[i] <= (temp[i-1] + 0.015*temp[i-1])) && (temp[i] >= (temp[i-1] - 0.015*temp[i-1]))))
 				return false;
 			
-			std::cout <<"Temp["<<i<<"] : "<<temp[i]<<std::endl;	
+			//~ std::cout <<"Temp["<<i<<"] : "<<temp[i]<<std::endl;	
 		}
 		else if(nombreCriteres == 2){
 			if(!(((tempCrit1[i] <= (tempCrit1[i-1] + 0.015*tempCrit1[i-1])) && (tempCrit1[i] >= (tempCrit1[i-1] - 0.015*tempCrit1[i-1])))&&((tempCrit2[i] <= (tempCrit2[i-1] + 0.015*tempCrit2[i-1])) && (tempCrit2[i] >= (tempCrit2[i-1] - 0.015*tempCrit2[i-1])))))
 				return false;
 			
-			std::cout <<"TempCrit1["<<i<<"] : "<<tempCrit1[i]<<std::endl;
-			std::cout <<"TempCrit2["<<i<<"] : "<<tempCrit2[i]<<std::endl;
+			//~ std::cout <<"TempCrit1["<<i<<"] : "<<tempCrit1[i]<<std::endl;
+			//~ std::cout <<"TempCrit2["<<i<<"] : "<<tempCrit2[i]<<std::endl;
 		}
 	}
 	
@@ -486,7 +486,6 @@ int Population::nombreAlea(int inf, int sup) // test OK ? oui test ok
 
 
 void Population::crossover(Individu *parent1, Individu *parent2){
-	cout << "Crossover ------------" << endl;
 	//~ cout<< "p1 ";
 		//~ for(int j=0;j<parent1->getTailleIndividu();j++){ cout<< parent1->getChromosome()[j] << " / ";}
 		//~ cout<<endl;
@@ -494,7 +493,7 @@ void Population::crossover(Individu *parent1, Individu *parent2){
 		//~ for(int j=0;j<parent2->getTailleIndividu();j++){ cout<< parent2->getChromosome()[j] << " / ";}
 		//~ cout<<endl;
 	Individu *enfant1, *enfant2;
-	if(enfant1->probAlea(probaCroisement)){
+	if(parent1->probAlea(probaCroisement)){
 		cout<<"crossover oui"<<endl;
 		int ptcrois = nombreAlea(1,parent1->getTailleIndividu());
 		//~ cout<<nombreIndividus<<endl;
@@ -522,12 +521,10 @@ void Population::crossover(Individu *parent1, Individu *parent2){
 		//~ cout<<endl;
 	if(testPopulationRemplie() ) ensemble.push_back(enfant1);
 	if(testPopulationRemplie() ) ensemble.push_back(enfant2);
-	//return *this;
 }
 
 
 Population* Population::creerGeneration(Population *P){
-	cout<<"dans creer"<<numeroGeneration << endl;
 	for(int i=0;testPopulationRemplie();i++){
 		if(P->getNombreCriteres()==1)
 			this->crossover(P->selectionner(0),P->selectionner(0));		//la population avec deux nouveaux individus
@@ -537,6 +534,5 @@ Population* Population::creerGeneration(Population *P){
 		}
 	}
 	
-	cout<<"fin creer"<<numeroGeneration<<endl;
 	return this;
 }
