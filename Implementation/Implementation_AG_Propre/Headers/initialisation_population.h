@@ -14,7 +14,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <ctime>
-#include "tinyexpr/tinyexpr.h"
+#include "tinyexpr.h"
 using namespace std;
 
 

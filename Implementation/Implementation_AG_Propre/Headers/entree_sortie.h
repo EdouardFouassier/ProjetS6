@@ -14,7 +14,7 @@
 #include <typeinfo>
 #include "interface.h"
 #include "génération.h"
-#include "tinyexpr/tinyexpr.h"
+#include "tinyexpr.h"
 #include <regex>
 #include <sstream>
 #include <fstream>
