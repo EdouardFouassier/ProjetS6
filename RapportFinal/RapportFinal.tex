@@ -99,26 +99,28 @@
 			Nous avons choisi le crossover à un seul point car il permet d’éviter une convergence prématurée. De plus cette technique est plus proche de la réalité biologique.
 
 		\subsection{Gestion d'entrée sortie}
-			Le module gestion d’entrée et sortie se charge de tout ce qui touche à l’écriture ou la lecture dans un fichier.\\
-			On a vu précédemment que le module de gestion d’entrée et sortie recevait du module interface soit les données une à une soit un fichier de données.
-			Dans le premier cas, le module se charge de les écrire dans un nouveau fichier.
-			Dans le deuxième cas, on parcourt le fichier pour vérifier que toutes les données sont cohérentes. Dans les deux cas, le module vérifie que la fonction fitness est parsable.
+			Le module gestion d’entrée et sortie se charge de tout ce qui touche à l’écriture.\\
+			On a vu précédemment que le module de gestion d’entrée et sortie recevait du module interface soit les données une à une soit un fichier de données.\\
+			Dans le premier cas, le module se charge de les écrire dans un nouveau fichier.\\
+			Dans le deuxième cas, on parcourt le fichier pour vérifier que toutes les données sont cohérentes. Dans les deux cas, le module vérifie que la fonction fitness est parsable.\\
 			Pour qu’une fonction soit parsable elle doit être correctement parenthésée, ne pas avoir de division par zéro, avoir correctement orthographié les fonctions mathématiques et n’avoir qu’une seule variable nommée obligatoirement ‘x’.\\
-			Une fois toutes ces données vérifiées, le module se charge d’envoyer toutes les données nécessaires au fonctionnement du module d’initialisation de la population et au module de génération d’une population. 
-			Les données en questions seront utilisées dans les constructeurs des deux classes et seront par la suite exploités dans ces modules.A chaque itération de l’algorithme génétique, le module reçoit de Génération d’une population la population qui vient d’être créée.
+			Une fois toutes ces données vérifiées, le module se charge d’envoyer toutes les données nécessaires au fonctionnement du module d’initialisation de la population et au module de génération d’une population. \\
+			Les données en questions seront utilisées dans les constructeurs des deux classes et seront par la suite exploités dans ces modules.A chaque itération de l’algorithme génétique le module reçoit, du module Génération de la nouvelle population, la population qui vient d’être créée.\\
 			Il prend celle-ci et écrit le score de chaque individu dans un fichier.\\
-			Le module calcule ensuite les statistiques d’une population, c’est-à-dire qu’il écrit le score du meilleur individu, du moins bon et fait un moyenne pondérée de toute la population.\\
-			En s’aidant des statistiques précédemment obtenues, à la fin du programme, le module va écrire dans le(s) format(s) souhaité(s) par l’utilisateur le fichier final qui fait une synthèse du déroulement de l’algorithme et aussi le résultat à son problème.
+			Le module calcule ensuite les statistiques d’une population, c’est-à-dire qu’il écrit le score du meilleur individu, du moins bon et fait un moyenne réduite de toute la population.\\
+			En s’aidant des statistiques précédemment obtenues, à la fin du programme, le module va écrire dans le(s) format(s) souhaité(s) par l’utilisateur le fichier final qui fait une synthèse du déroulement de l’algorithme et aussi le résultat à son problème.\\
 		
 		\subsection{Interface}
-			Le module interface est le module qui s’occupe de la création et de l’affichage des champs de saisie. nous avons choisi d'utiliser la librairie Qt car elle est simple à utiliser, générique et donne beaucoup de liberté quand à son utilisation.\\	
-			L’interface laisse le choix à l’utilisateur d’entrer ses données une par une, ou bien d’entrer le chemin  d’un fichier où celles-ci se trouvent.
-			Le module vérifie que les données écrites sont correctes directement dans l’interface dans le premier cas.
+			Le module interface est le module qui s’occupe de la création et de l’affichage des champs de saisie. Nous avons choisi d'utiliser la librairie Qt car elle est simple à utiliser, générique et donne beaucoup de liberté quand à son utilisation.\\	
+			L’interface laisse le choix à l’utilisateur d’entrer ses données une par une, ou bien d’entrer le chemin  d’un fichier où celles-ci se trouvent.\\
+			Le module vérifie, dans le cas de la saisie via l'interface, que tout les champs necessaires sont rempli, les valeurs numeriques étant bornées directement par l'interface il n'y a pas d'erreurs possible.\\
+			Il verifie aussi la disponibilité du nom choisi.\\
+			Les données sont ensuite envoyés au module de Gestion d'entrée sortie.\\
 			On étudiera en détail dans la partie Description du fonctionnement quelles données sont nécessaires.\\
 
-			Le module présente également à l’utilisateur plusieurs boutons.
+			Le module présente également à l’utilisateur plusieurs boutons.\\
 			Tout d’abord le bouton Aide qui ouvrira le manuel d’utilisation au cas où l’utilisateur a un doute sur l’utilisation de l’interface.\\
-			Le bouton Lancer lance l’algorithme génétique si toutes les données sont correctes.
+			Le bouton Lancer lance l’algorithme génétique si toutes les données sont correctes.\\
 			Autrement l’utilisateur est prévenu de ses erreurs et retourne sur l’interface pour les corriger.\\
 			Le bouton Arrêter arrête l’itération de l’AG lancé, mais enregistre les données et fournit le fichier de sortie malgré tout.\\
 			Le bouton Quitter quant à lui arrête l’AG sans rien enregistrer.\\

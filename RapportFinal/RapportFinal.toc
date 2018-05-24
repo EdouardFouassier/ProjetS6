@@ -7,7 +7,7 @@
 \contentsline {subsection}{\numberline {2.4}Interface}{4}
 \contentsline {section}{\numberline {3}Description du fonctionnement}{5}
 \contentsline {subsection}{\numberline {3.1}Description et Exemple d\IeC {\textquoteright }utilisation}{5}
-\contentsline {subsection}{\numberline {3.2}Explication du fonctionnement de l\IeC {\textquoteright }algorithme}{6}
+\contentsline {subsection}{\numberline {3.2}Explication du fonctionnement de l\IeC {\textquoteright }algorithme}{7}
 \contentsline {section}{\numberline {4}Points d\IeC {\'e}licats de la programmation}{9}
 \contentsline {subsection}{\numberline {4.1}Les algorithmes }{9}
 \contentsline {subsection}{\numberline {4.2}Les modifications par rapport au cahier des sp\IeC {\'e}cifications}{10}
