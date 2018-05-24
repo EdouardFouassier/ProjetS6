@@ -94,9 +94,9 @@
 			La sélection par tournoi confronte les individus deux à deux et choisit le meilleur score.
 			Cette sélection inclut une part de hasard mais les scores les plus faibles seront toujours absents de la sélection.
 			La sélection uniforme est complètement aléatoire et ne permet donc pas d’optimiser nos résultats.
-			Ainsi nous avons choisis la sélection par rang, qui est une forme de sélection par roulette qui inclut une part de hasard tout en sélectionnant majoritairement les meilleurs individus.\\
+			Ainsi nous avons choisi la sélection par rang, qui est une forme de sélection par roulette qui inclut une part de hasard tout en sélectionnant majoritairement les meilleurs individus.\\
 			Pour le crossover nous avions le choix entre un croisement en un point ou multipoint.
-			Nous avons choisis le crossover à un seul point car il permet d’éviter une convergence prématurée. De plus cette technique est plus proche de la réalité biologique.
+			Nous avons choisi le crossover à un seul point car il permet d’éviter une convergence prématurée. De plus cette technique est plus proche de la réalité biologique.
 
 		\subsection{Gestion d'entrée sortie}
 			Le module gestion d’entrée et sortie se charge de tout ce qui touche à l’écriture ou la lecture dans un fichier.\\
@@ -135,23 +135,23 @@
 					\item	Une ou deux fonction(s) fitness (c’est-à-dire la fonction nécessaire à l’évaluation d’un individu). 
 							Il choisit ensuite s’il veut maximiser, minimiser, ou s’approcher d’une valeur. 
 							Pour notre exemple, on a une seule fonction fitness qui est f(x) = x. On indique que c’est une fonction à maximiser.
-					\item 	Le nombre maximal de génération, compris entre 2 et 1000 plus le nombre de generations sera elevé plus les resultats seront représentatifs. 
+					\item 	Le nombre maximal de génération, compris entre 2 et 1000 plus le nombre de générations sera elevé plus les resultats seront exacts. 
 							Pour notre exemple, on indique 30 générations au maximum.		
 					\item	La taille des individus (en nombre de bits), compris entre 1 et 32 plus les individus seront grands, plus les solutions pourront être élevé.
-							On rappelle qu’un individu est codé en binaire, donc la valeur maximum d’un individu est 2\^{}(le nombre de bits)-1.
+							On rappelle qu’un individu est codé en binaire, donc la valeur maximum que peut prendre un individu est 2\^{}(le nombre de bits)-1.
 							Dans notre exemple, on choisit 10 individus de taille 5, puisque 2\^{}5-1 = 31. 
-					\item	La taille des populations, compris entre 1 et 100 plus il y a d'individus dans une population, plus les solutions seront diversifiés.
-							Pour notre exemple, la taille des population sera de 10 individus.
-					\item	Le taux de crossover, compris entre 0 et 1 c'est la probabilité que deux individus en génère deux nouveaux.
-							Ici le taux de crossover sera de 0,5 pour qu'il y ait une même probabilités que deux individus en génère deux nouveaux ou qu'ils restent dans la population.
+					\item	La taille des populations, compris entre 1 et 100 plus il y a d'individus dans une population, plus les solutions seront diversifiées.
+							Pour notre exemple, la taille de la population sera de 10 individus.
+					\item	Le taux de crossover, compris entre 0 et 1. C'est la probabilité que deux individus en génèrent deux nouveaux.
+							Ici le taux de crossover sera de 0,5 pour que les individus parents en enfants aient les mêmes chances d'être introduit dans la nouvelle population.
 					\item	Le taux de mutation, compris entre 0 et 1 c'est la probabilité qu'un bit soit changé aléatoirement.
-							Dans le cas présent, nous souhaitons une faible probabilité de mutation pour éviter de convergence prématurée, la probabilité de mutation est donc de 0.15.
-					\item	Les différents formats de sorti, il a le choix entre LaTeX, PostScript et xFig, chaque format selectionné génère un fichier.
+							Dans le cas présent, nous souhaitons une faible probabilité de mutation pour éviter une convergence prématurée, la probabilité de mutation est donc de 0.15.
+					\item	Les différents formats de sortie, il a le choix entre LaTeX, PostScript et xFig, chaque format selectionné génère un fichier.
 							Dans notre exemple, on choisit uniquement la sortie LaTeX.
-					\item	Le nom du fichier de sorti, c'est le nom que l'utilisateur veut donner au(x) fichier(s) qui seront générés.
+					\item	Le nom du fichier de sortie, c'est le nom que l'utilisateur veut donner au(x) fichier(s) qui seront généré(s).
 							Le nom sera ici "exemple".\\
 					\end{itemize}
-			Si l’utilisateur possède déjà un fichier de données, il peut  sélectionner un fichier qui contient toutes les informations nécessaires pour démarrer le programme (décrites au dessus).
+			Si l’utilisateur possède déjà un fichier de données, il peut  sélectionner un fichier qui contient toutes les informations nécessaires pour démarrer le programme (décrites au-dessus).
 			Les informations dans le fichier doivent être dans le bon ordre.
 			Cela lui évite d’entrer les valeurs dans l’interface.\\
 			Dans cette seconde option, le fichier devra imperativement respecter le format suivant :
@@ -173,7 +173,7 @@
 			Les valeurs inutiles ne génèrent pas d'erreur.\\
 			Des fichiers d'exemples sont fournis.\\\\
 			Dès que l’utilisateur a entré toutes les valeurs ou qu’il a entré le fichier des paramètres, il peut lancer le programme en cliquant sur le bouton “Lancer”.\\
-			Il peut à tout moment de l'exécution arrêter ou quitter le programme. Le bouton “Arrêter” permettra d’arrêter le programme en sauvegardant les résultats en cours.\\
+			Il peut à tout moment de l'éxécution arrêter ou quitter le programme. Le bouton “Arrêter” permettra d’arrêter le programme en sauvegardant les résultats en cours.\\
 			Alors que le bouton “Quitter” permettra d’arrêter le programme sans sauvegarder les résultats en cours.\\
 			Enfin, si l’utilisateur a un doute, il peut consulter le manuel d’utilisation via le bouton “Aide”.\\\\
 			Voici l’interface remplie avec les valeurs de notre exemple juste avant de lancer le programme :\\
@@ -181,7 +181,7 @@
 			
 		\subsection{ Explication du fonctionnement de l’algorithme}
 			Le lancement de l’algorithme se passe dans la fonction \textbf{Interface::algoGenetique}.\\
-			Dans un premier temps, une génération composée d’individus aléatoires est créée à l’aide des données entrées par l’utilisateur, c’est la population initiale.\\
+			Dans un premier temps, une génération composée d’individus aléatoires est créée à l’aide des données entrées par l’utilisateur : c’est la population initiale.\\
 			Avec le même exemple que dans la partie 1, la population initiale peut être :\\
 			\centerline{\includegraphics[scale=0.5]{ExemplePopulationInitiale.png}}
 			Le bit de poid fort est le bit de signe.\\
@@ -201,13 +201,13 @@
 			Pour les critères de maximisation et de minimisation, le rang se fait en une simple lecture du vecteur ensemble.
 			Le rang est croissant et si deux individus ont le même score, ils auront le même rang.
 			Pour le critère de valeur approchée, le rang est la différence entre le score de l’individu et la valeur à approchée.
-			Dans notre exemple, le rang pour chaques individus est :\\
+			Dans notre exemple, le rang pour chaque individu est :\\
 			\centerline{\includegraphics[scale=0.5]{RangIndividu.png}}\\
 			
 			Puis la méthode \textbf{Interface::algoGenetique()} boucle et teste avec la fonction \textbf{testArret()} si le nombre de génération maximum est atteint ou si les résultats convergent.
 			Si l’une de ces conditions est remplie alors on arrête le programme, sinon, on crée une nouvelle population qui sélectionne des individus et les croise ou non.
 			Dans ce second cas, la méthode \textbf{Population::creerGeneration(Population*)} fait appel à la méthode \textbf{Population::selectionner(int)} sur la population passée en argument.
-			Cette méthode se base sur la méthode de la roulette biaisé.
+			Cette méthode se base sur la méthode de la roulette biaisée.
 			Cela signifie que les individus ayant un rang proche de 1 ont une plus grande chance d’être sélectionnés.
 			Pour illustrer, on montre deux appels à la méthode \textbf{Population::selectionner(int)}. Elle renvoie les individus 0 et 6.\\
 
@@ -225,42 +225,41 @@
 			\centerline{\includegraphics[scale=0.5]{Graphe.png}}\\\\
 			\centerline{\includegraphics[scale=0.5]{Resultats.png}}\\
 			
-			Notre exemple de maximisation de la fonction f(x) = x, un ensemble de solutions n’est pas nécessaire, et on choisi la plus grande solution ici 31 (ce qui est le résultat attendu).
+			Notre exemple de maximisation de la fonction f(x) = x, un ensemble de solutions n’est pas nécessaire, et on choisit la plus grande solution ici 31 (ce qui est le résultat attendu).
 			Le graphique montre l’évolution de l’ensemble des générations.
-			En lisant le tracé marron (Maximum critère 1), on remarque que le maximum à très vite été trouvé dans les premières générations.
-			On peut se demander dans ce cas très simple pourquoi on utilise un algorithme génétique au lieu d’une simple exploration de toute les possibilités.\\
-			Néanmoins dans la réalité les fonctions peuvent être bien plus complexe et sur un bien plus grand espace de recherche, auquel cas un algorithme est plus efficace qu’une recherche exhaustive puisqu’il cherche simplement à maximiser (ou minimiser) sans information autre que la fonction à optimiser.
+			En lisant le tracé marron (Maximum critère 1), on remarque que le maximum a très vite été trouvé dans les premières générations.
+			On peut se demander dans ce cas très simple pourquoi on utilise un algorithme génétique au lieu d’une simple exploration de toutes les possibilités.\\
+			Néanmoins dans la réalité, les fonctions peuvent être bien plus complexes et sur un bien plus grand espace de recherche, auquel cas un algorithme est plus efficace qu’une recherche exhaustive puisqu’il cherche simplement à maximiser (ou minimiser) sans information autre que la fonction à optimiser.
 		
 		
 		\section{Points délicats de la programmation}
 		\subsection{Les algorithmes }
 			L’objectif de la fonction \textbf{estParsable} est de tester si la fonction fitness entrée par l’utilisateur respecte les conditions que nous avons posées.\\
-			La première difficulté a été le test afin de déterminer que la fonction donnée aie une syntaxe valide (une seule variable appelée “x”, bonne écriture des fonctions mathématiques, etc.).\\
-			Pour cela, la fonction lit  un à un les caractères de la fonction fitness, a chaque lettre lu la fonction teste si les lettres suivantes forment bien une fonction mathématique valide. \\
-			Il fallait donc imbriquer de nombreux \textbf{if} pour tester toutes les possibilités. La seconde difficulté fut de tester la présence de divisions par zéro. Nous avons donc écrit dans des chaînes de caractères les dénominateur de chacune des fractions puis nous les avons évalué un à un avec le parseur.\\
-			Cependant, cette fonction est très longue (+ de 100 lignes).\\
+			La première difficulté a été le test qui détermine si la fonction donnée a une syntaxe valide (une seule variable appelée “x”, bonne écriture des fonctions mathématiques, etc.).\\
+			Pour cela, la fonction lit  un à un les caractères de la fonction fitness. A chaque lettre lue, la fonction teste si les lettres suivantes forment bien une fonction mathématique valide. \\
+			Il fallait donc imbriquer de nombreux \textbf{if} pour tester toutes les possibilités. La seconde difficulté a été de tester la présence de divisions par zéro. Nous avons donc écrit dans des chaînes de caractères les dénominateurs de chacune des fractions puis nous les avons évalués un à un avec le parseur.\\
 			
-			Une des difficultés rencontré a été d'optimisé l'utilisation des fichiers via les fonctions tout en assurant le maintient d'une certaine ergonomie.
-			Lors de l'implémentation des fonctions \textbf{ecrirePostscript} et  \textbf{ecrireXfig} écrire les fichiers postscript et xfig s’est révélé plus compliqué qu’escompté, car n’ayant pas su appréhender correctement le langage PostScript, la création du fichier .ps a été ardu et le format .fig étant un format d’image il s’est avéré difficile de créer une image .fig directement à partir des données.\\
-			L’écriture des deux fichiers se fait donc grâce à une suite de commandes. Pour le fichier postscript si l'écriture du fichier en latex a été demandée par l’utilisateur on convertit le fichier latex en fichier dvi puis en fichier postscript et on supprime ensuite le fichier dvi; si l'utilisateur n’a pas demandé le fichier en latex alors il est quand même écrit mais après les conversions permettant d’obtenir le fichier postscript on supprime également le fichier latex.\\
+			Une autre des difficultés rencontrées a été d'optimiser l'utilisation des fichiers via les fonctions tout en assurant le maintient d'une certaine ergonomie.
+			Lors de l'implémentation des fonctions \textbf{ecrirePostscript} et  \textbf{ecrireXfig} écrire les fichiers postscript et xfig s’est révélé plus compliqué qu’escompté, car n’ayant pas su appréhender correctement le langage PostScript, la création du fichier .ps a été ardue et le format .fig étant un format d’image il s’est avéré difficile de créer une image .fig directement à partir des données.\\
+			L’écriture des deux fichiers se fait donc grâce à une suite de commandes. Pour le fichier postscript si l'écriture du fichier en latex a été demandée par l’utilisateur, on convertit le fichier latex en fichier dvi puis en fichier postscript et on supprime ensuite le fichier dvi; si l'utilisateur n’a pas demandé le fichier en latex alors il est quand même écrit mais après les conversions permettant d’obtenir le fichier postscript, on supprime également le fichier latex.\\
 			Pour le fichier xfig on génère tout d’abord un fichier gnuplot qui est ensuite converti en fichier .fig et ensuite supprimé pour ne garder que le fichier .fig.\\
 
 			La fonction permettant de tester la convergence \textbf{testConvergence} a pour objectif de tester les valeurs moyennes des x dernières générations.\\
-			Le principal problème rencontré étant que ces valeurs étaient stockées dans un fichier et qu’a chaque itérations de l’algorithme un nouvelle valeur était ajoutée à la fin de ce fichier.\\
-			Il a donc fallut trouver un moyen d’isoler uniquement ces valeurs afin de pouvoir les analyser ce qui nous a posé quelques difficultés. Nous avons finalement opté pour une option nous permettant de modifier le moins possible la fonction par rapport au cahier des spécification.\\
+			Le principal problème rencontré étant que ces valeurs étaient stockées dans un fichier et qu’à chaque itération de l’algorithme une nouvelle valeur était ajoutée à la fin de ce fichier.\\
+			Il a donc fallu trouver un moyen d’isoler uniquement ces valeurs afin de pouvoir les analyser ce qui nous a posé quelques difficultés. Nous avons finalement opté pour une option nous permettant de modifier le moins possible la fonction par rapport au cahier des spécifications.\\
 			Nous récupérons donc uniquement le nom du fichier de statistiques en paramètres puis stockons dans un tableau de taille nombreGeneration (ce qui correspond au nombre d’itérations actuelles de l’algorithme) et récupérons les x dernière valeurs de ce tableau pour tester la convergence.\\
 
 		\subsection{Les modifications par rapport au cahier des spécifications}
-			Lors de l’implémentation, nous nous sommes rendus compte que nos choix de paramètre de fonction ou de type de fonction n’était pas forcément optimaux donc nous avons dû appliquer quelques changements.\\
-   			Notamment, nous n’avions pas pris en compte les pointeurs, donc plusieurs fonctions ont des pointeurs ajoutés en paramètres comme par exemple \textbf{ecrirePopulation(Population *P)}. On évite ainsi des problèmes de mémoire. Toutes les fonctions qui font partie de ce cas de changement seront précisées dans le listing.\\
+			Lors de l’implémentation, nous nous sommes rendus compte que nos choix de paramètre de fonction ou de type de fonction n’étaient pas forcément optimaux donc nous avons dû appliquer quelques changements.\\
+   			Notamment, nous n’avions pas pris en compte les pointeurs dans notre raisonnement, donc plusieurs fonctions ont des pointeurs ajoutés en paramètres comme par exemple \textbf{ecrirePopulation(Population *P)}. On évite ainsi des problèmes de mémoire. \\
 
    			\subsubsection{Les modifications dans le module Gestion d’entrée et de sortie}
    				\begin{itemize}
-   					\item Pour la fonction  \textbf{lireStat}, nous sommes passé d’un type int[3] à un type float* car c’est un tableau de float que nous devons renvoyer, puisque le minimum, le maximum et la moyenne peuvent très bien être des float.
-   					Il en va de même pour la fonction  \textbf{lireScoreIndividu} qui initialement avait pour signature un int mais qui maintenant est un float* car les scores peuvent eux aussi être des nombres à virgule et dans le cas du multi-critères, il faut renvoyer deux valeurs et non une seule .
+   					\item Pour la fonction  \textbf{lireStat}, nous sommes passés d’un type int[3] à un type float* car c’est un tableau de float que nous devons renvoyer, puisque le minimum, le maximum et la moyenne peuvent très bien être des float.
+   					Il en va de même pour la fonction  \textbf{lireScoreIndividu} qui initialement avait pour signature un int mais qui maintenant est un float* car les scores peuvent eux aussi être des nombres à virgule et dans le cas du multi-critères, il faut renvoyer deux valeurs et non une seule.
 
-   					\item Les fonctions  \textbf{ecrireFichier} et  \textbf{ecrireLatex} prennent maintenant un nouveau paramètre : Population *P qui permet de récupérer les meilleurs individu que l’on écrit dans le fichier .tex. Le paramètre string nomFichierStats de la fonction  \textbf{ecrireFichier} a quand à lui été retiré car il n'était pas utile.
-   					\item La fonction  \textbf{ecrireUnScore} a quant à elle été retirée entièrement car elle était finalement inutile, la fonction  \textbf{ecrirePopulation} remplissant ce rôle.
+   					\item Les fonctions  \textbf{ecrireFichier} et  \textbf{ecrireLatex} prennent maintenant un nouveau paramètre : Population *P qui permet de récupérer les meilleurs individus qu’on écrit dans le fichier .tex. Le paramètre string nomFichierStats de la fonction  \textbf{ecrireFichier} a quant à lui été retiré car il n'était pas utile.
+   					\item La fonction  \textbf{ecrireUnScore} a été retirée entièrement car elle était finalement inutile, la fonction  \textbf{ecrirePopulation} remplissant ce rôle.
 
    					\item Pour les fonctions de vérification des données ( \textbf{estString},  \textbf{estParsable} etc…) nous sommes passés d’un auto en paramètre des fonctions à un string. Le type auto ne nous permettait pas d'appeler ces fonctions avec notre interface, nous avons donc opté pour le type string qui remplit le même usage sans ce défaut.
    				\end{itemize}
