@@ -278,7 +278,7 @@
 
    					\item La modification de la fonction  \textbf{testArret} concerne sa signature. En effet renvoyer une population comme prévu initialement n’était pas nécessaire. Utiliser un bool était plus judicieux pour interpréter le résultat de cette fonction.
 
-   					\item La modification de la fonction  \textbf{testConvergence} concerne ses paramètres. Le fichier de statistiques du programme devait initialement toujours avoir le même nom et donc le passer en argument n’était pas nécessaire. Cependant lors de l’implémentation de l'application nous avons finalement décidé de mettre tous les fichiers relatifs à une exécution du programme dans un fichier créé spécialement pour l’occasion. Le nom de ce dossier étant entré par l’utilisateur et le nom du fichier de statistique en dépendant, il a donc fallu le passer en paramètre de la fonction.
+   					\item La modification de la fonction  \textbf{testConvergence} concerne ses paramètres. Le fichier de statistiques du programme devait initialement toujours avoir le même nom et donc le passer en argument n’était pas nécessaire. Cependant lors de l’implémentation de l'application nous avons finalement décidé de mettre tous les fichiers relatifs à une exécution du programme dans un fichier créé spécialement pour l’occasion. Le nom de ce dossier est entré par l’utilisateur et le nom du fichier de statistique en dépend, il a donc fallu le passer en paramètre de la fonction.
 
    					\item La modification de la fonction d’évaluation de la population \textbf{evaluation} concerne sa signature. En effet renvoyer une population n’était pas utile et nous avons donc choisi de la changer pour un void pour ne pas créer de confusion.
 
@@ -288,7 +288,7 @@
 					\item Dans la fonction  \textbf{Individu* selectionner(int iCritere)}, on a ajouté un argument qui précise dans quel critère on cherche à sélectionner les individus.
 					Quant à la fonction de  \textbf{crossover}, nous avons finalement trouvé qu’il n’était pas utile qu’elle renvoie une population. Nous l’avons transformée en une fonction void qui modifie directement l’objet :  \textbf{void crossover(Individu *Parent1, Individu *Parent2)}.
 
-					\item Nous avons également du ajouter un attribut et quelques fonctions par rapport au cahier des spécifications. Ces modifications ne changent en aucun cas le fonctionnement de l’application et sont seulement dû à des oublis. En effet lors de la rédactions du cahier des spécifications nous nous sommes concentrés sur les fonctions spécifiques au bon fonctionnement de l’algorithme génétique. Notre attention étant retenue sur ce point nous avons donc oublié l’attribut  \textbf{static float valeurApprochee2}. Par conséquent nous avons donc également dû ajouter le getter et setter de cet attribut soit  \textbf{float getValeurApprochee2()} et  \textbf{void setValeurApprochee2(float val)}. Dans notre inattention lors de la relecture nous avons également oublié les getter  \textbf{int getNombreGenerationMax()} et  \textbf{int getNombreCriteres()}. Nous avons aussi dû modifier le setter pour l’attribut ensemble qui était écrit comme un getter. Dans ce cas la signature de la fonction a été modifié pour devenir  \textbf{void setEnsemble(Individu \&nouv)}.\\
+					\item Nous avons également dû ajouter un attribut et quelques fonctions par rapport au cahier des spécifications. Ces modifications ne changent en aucun cas le fonctionnement de l’application et sont seulement dûes à des oublis. En effet lors de la rédaction du cahier des spécifications nous nous sommes concentrés sur les fonctions spécifiques au bon fonctionnement de l’algorithme génétique. Notre attention étant retenue sur ce point nous avons donc oublié l’attribut  \textbf{static float valeurApprochee2}. Par conséquent nous avons donc également dû ajouter le getter et setter de cet attribut soit  \textbf{float getValeurApprochee2()} et  \textbf{void setValeurApprochee2(float val)}. Dans notre inattention lors de la relecture nous avons également oublié les getter  \textbf{int getNombreGenerationMax()} et  \textbf{int getNombreCriteres()}. Nous avons aussi dû modifier le setter pour l’attribut ensemble qui était écrit comme un getter. Dans ce cas, la signature de la fonction a été modifié pour devenir  \textbf{void setEnsemble(Individu \&nouv)}.\\
 				\end{itemize}
 
 			\subsubsection{Les modifications dans le module Initialisation de la population}
@@ -300,13 +300,13 @@
 				\end{itemize}
 
 			\subsubsection{Les modifications dans le module Interface}
-				Il a fallu ajouter un booléen  \textbf{bool encours} permettant de savoir si le programme a été lancé. Cela change les messages affiché par les différents boutons.\\
+				Il a fallu ajouter un booléen  \textbf{bool encours} permettant de savoir si le programme a été lancé. Cela change les messages affichés par les différents boutons.\\
 				Nous avons aussi dû modifier la fonction  \textbf{void algoGenetique()} en  \textbf{void * algoGenetique(void * arg)} car cette fonction est lancée avec un thread.
 				Nous n’avions pas pris en compte que le déroulement de l’algorithme ne permettait pas l’utilisation de l’interface et notamment du bouton d'arrêt. L’utilisation du thread laisse le processus se lequel se trouve l’interface libre .\\
 
 			\subsubsection{Autres problèmes}
-				Au début du projet nous avions aussi de gros problèmes dans nos résultats puisque généralement les valeurs convergeaient au bout de seulement quelques générations. Nous nous sommes plus tard rendus compte que le problème venait de la conversion des données de string à flottant. Nous utilisions la fonction  \textbf{stof(string)} pour convertir les strings en float, mais celle-ci renvoyait une valeur entière, or pour une probabilité de crossover de 0,8 on avait 0 donc jamais de crossover, d’où la convergence prématurée.\\
-				Pour évité cela nous avons convertie les string en QString car cet objet a de nombreuses méthodes notamment de conversion. Nous utilisons donc la fonctions  \textbf{toFloat()} du QString afin de récupérer la valeur.\\
+				Au début de l'implémentation du logiciel nous avions aussi de gros problèmes dans nos résultats puisque généralement les valeurs convergeaient au bout de seulement quelques générations. Nous nous sommes plus tard rendus compte que le problème venait de la conversion des données de string à flottant. Nous utilisions la fonction  \textbf{stof(string)} pour convertir les strings en float, mais celle-ci renvoyait une valeur entière, or pour une probabilité de crossover de 0,8 on avait 0 donc jamais de crossover, d’où la convergence prématurée.\\
+				Pour éviter cela nous avons converti les string en QString car cet objet a de nombreuses méthodes notamment de conversion. Nous utilisons donc la fonctions  \textbf{toFloat()} du QString afin de récupérer la valeur.\\
 
 		
 	\section{Conclusion technique}
