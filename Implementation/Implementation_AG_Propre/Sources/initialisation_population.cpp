@@ -71,7 +71,7 @@ Individu::Individu(Individu &indiv){
 
 // Destructeur //
 Individu::~Individu() {
-	cout<<"DESTRUCTEUR INDIVIDU"<<endl;
+	//~ cout<<"DESTRUCTEUR INDIVIDU"<<endl;
 	delete[] score;
 	delete[] rang;
 	delete[] chromosome;
@@ -182,15 +182,15 @@ int Individu::mutation(int gene) const {
 	return gene;
 }
 bool Individu::probAlea(float prob) const {
-	cout << "Dans probAlea ---" << endl;
+	//~ cout << "Dans probAlea ---" << endl;
 	double alea = rand()/(double)RAND_MAX; 	//génère un nb dans [0,1]
-	cout << "alea = " << alea << endl;
-	cout << "prob = " << prob << endl;
+	//~ cout << "alea = " << alea << endl;
+	//~ cout << "prob = " << prob << endl;
 	if(alea <= prob) { 
-		cout << "alea < prob" << endl;
+		//~ cout << "alea < prob" << endl;
 		return true;
 	}
-	cout << "alea > prob" << endl;
+	//~ cout << "alea > prob" << endl;
 	return false;
 }
 
@@ -200,5 +200,3 @@ double Individu::calculFitness(const char* c, double x) { // ça ok
 	return res;
 }
 
-
-//// Pardon, je me suis un peu énervée... ////
