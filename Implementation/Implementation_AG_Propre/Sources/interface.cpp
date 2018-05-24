@@ -236,7 +236,7 @@ void * Interface::algoGenetique(void *){
 		p=p_new;
 		//~ cout<<"apres swap"<<p->getNumeroGeneration()<<endl;
 		cout<<"ancienne population = nouvelle population"<<endl;
-		cout<<p->getNumeroGeneration()<<endl;
+		//~ cout<<p->getNumeroGeneration()<<endl;
 		cout<<endl<<"ITERATION "<<j<<endl;
 		//~ cout<<p->getNumeroGeneration()<<endl;
 		p->evaluation();
